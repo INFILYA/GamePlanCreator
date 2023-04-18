@@ -1,0 +1,77 @@
+.rights {
+  font-size: 20px;
+  color: black;
+}
+.label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 50px;
+  border: 5px black solid;
+  background-color: cadetblue;
+  color: black;
+  font-weight: bold;
+  border-radius: 45px;
+  margin: 20px 0px 10px 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.date {
+  color: black;
+  position: inherit;
+  font-weight: bold;
+  font-size: 25px;
+  border: none;
+  background-color: transparent;
+  width: 400px;
+}
+.setGame {
+  position: inherit;
+  font-size: 30px;
+  font-weight: bold;
+  width: 400px;
+  text-align: center;
+  align-self: center;
+}
+.GameNumber {
+  border: 2px solid transparent;
+  background-color: transparent;
+  font-size: 25px;
+  font-weight: bold;
+  width: 50px;
+  margin-right: 10px;
+}
+.nextSlide button {
+  font-size: 24px;
+  border-right: 4px solid black;
+  border-left: 4px solid #ff8001;
+  border-top: 4px solid #ff8001;
+  border-bottom: 4px solid #ff8001;
+  border-top-width: 4px solid black;
+  border-radius: 45px 0px 0px 45px;
+  padding: 5px;
+  background-color: #ff8001;
+  font-weight: bold;
+  width: 50px;
+  right: 45%;
+}
+.previousSlide button {
+  font-size: 24px;
+  border-right: 4px solid #ff8001;
+  border-left: 4px solid black;
+  border-top: 4px solid #ff8001;
+  border-bottom: 4px solid #ff8001;
+  border-top-width: 4px solid black;
+  border-radius: 0px 45px 45px 0px;
+  padding: 5px;
+  background-color: #ff8001;
+  font-weight: bold;
+  width: 50px;
+}
+.nextSlide {
+  position: inherit;
+  display: flex;
+}
+.previousSlide {
+  position: inherit;
+  display: flex;
+}

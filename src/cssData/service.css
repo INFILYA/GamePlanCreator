@@ -1,0 +1,576 @@
+.atackFileds {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.servicePage .firstinputs {
+  justify-content: center;
+  display: flex;
+}
+.servicePage .firstinputs input {
+  font-size: 35px;
+  text-align: center;
+  border: none;
+  font-weight: bold;
+}
+.servicePage .balls button {
+  background-color: transparent;
+  color: transparent;
+  border-top: transparent 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+}
+.servicePage .serviceField {
+  background: url(../photos/area8.jpg) no-repeat center center;
+  background-position-x: 0.7rem;
+  text-align: center;
+  background-size: 98%;
+  width: 540px;
+  height: 700px;
+  background-position-y: 0.2rem;
+  display: inline-block;
+}
+.typeOfService {
+  font-size: 25px;
+  width: 58%;
+  text-align: center;
+  background-color: #0272be;
+  color: white;
+  font-weight: bold;
+  margin: -5px 0px 0px 0px;
+}
+.zone1Service {
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  font-size: 35px;
+  background-color: transparent;
+  margin: -10px 0px 0px -125px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  z-index: 12;
+  position: absolute;
+  color: transparent;
+}
+.zone6Service {
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  font-size: 35px;
+  background-color: transparent;
+  margin: -10px 0px 0px -30px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  z-index: 12;
+  position: absolute;
+  color: transparent;
+}
+.zone5Service {
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  font-size: 35px;
+  background-color: transparent;
+  margin: -10px 0px 0px 65px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  z-index: 12;
+  position: absolute;
+  color: transparent;
+}
+.servicePage .showTheBall {
+  color: black;
+}
+.zone1Service:hover,
+.zone6Service:hover,
+.zone5Service:hover {
+  color: #000;
+  border: 3px solid black;
+  border-radius: 50px;
+  background-color: cornflowerblue;
+  font-weight: 700;
+  margin-top: 5px;
+}
+.servicePage .showTheBall:hover {
+  border: none;
+  border-radius: 50px;
+  margin-top: -10px;
+  background-color: transparent;
+  font-weight: 100;
+}
+.servicePage .tip,
+.yellowtip {
+  width: 80px;
+  height: 40px;
+  font-size: 25px;
+  border-radius: 45px;
+  position: absolute;
+  z-index: 3;
+  border: none;
+  margin: 320px 0px -105px -35px;
+}
+.servicePage .tip:hover {
+  background: yellow;
+  background-color: yellow;
+  box-shadow: 0 15px 20px yellow;
+  color: black;
+  transform: translateY(-7px);
+  transition: 0.3s;
+  border: 2px black solid;
+}
+.servicePage .yellowtip {
+  background-color: yellow;
+  border: 2px black solid;
+}
+.servicePage .tip {
+  background-color: transparent;
+  color: transparent;
+}
+.servicePage .inputForCount {
+  width: 83px;
+  height: 115px;
+  border: 1px solid black;
+  background-color: transparent;
+  margin: 365px 0px 0px 0px;
+  font-size: 35px;
+  text-align: center;
+  display: inline-flex;
+  z-index: 5;
+  position: relative;
+}
+.servicePage .defenderOn {
+  width: 40px;
+  height: 20px;
+  margin: 0px 10px 0px 10px;
+  background-color: yellow;
+  border-radius: 0 0 25px 25px;
+  border: 3px solid black;
+  position: relative;
+  z-index: 3;
+}
+.servicePage .defenderOff {
+  width: 40px;
+  height: 20px;
+  margin: 0px 10px 0px 10px;
+  background-color: transparent;
+  border-radius: 0 0 25px 25px;
+  border: none;
+  position: relative;
+  z-index: 3;
+}
+.servicePage .defenderOff:hover {
+  background-color: yellow;
+  border: 3px solid black;
+  cursor: pointer;
+}
+.servicePage .showTheBall {
+  color: black;
+}
+.servicePage .smallarrowleft {
+  background: url(../photos/arrowright.png) no-repeat center center;
+  background-size: contain;
+  width: 40px;
+  height: 20px;
+  margin: 0px 10px 0px 10px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  z-index: 3;
+}
+.servicePage .smallarrowright {
+  background: url(../photos/arrowleft.png) no-repeat center center;
+  background-size: contain;
+  width: 40px;
+  height: 20px;
+  margin: 0px 10px 0px 10px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  z-index: 3;
+}
+.servicePage .explain {
+  font-size: 20px;
+  margin: 10px 0px 0px 0px;
+  position: absolute;
+}
+
+.Redz1Service1 {
+  border-bottom: 497px solid firebrick;
+  border-left: 22px solid transparent;
+  border-right: 55px solid transparent;
+  content: "";
+  margin-top: -0px;
+  margin-left: -37px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: -19deg;
+}
+.Redz6Service1 {
+  border-bottom: 497px solid firebrick;
+  border-left: 30px solid transparent;
+  border-right: 57px solid transparent;
+  content: "";
+  margin-top: 12px;
+  margin-left: -89px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: -10deg;
+}
+.Redz5Service1 {
+  border-bottom: 497px solid firebrick;
+  border-left: 26px solid transparent;
+  border-right: 49px solid transparent;
+  content: "";
+  margin-top: 16px;
+  margin-left: -127px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 0deg;
+}
+.Yellowz1Service1 {
+  border-bottom: 497px solid yellow;
+  border-left: 22px solid transparent;
+  border-right: 55px solid transparent;
+  content: "";
+  margin-top: -0px;
+  margin-left: -37px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: -19deg;
+}
+.Yellowz6Service1 {
+  border-bottom: 497px solid yellow;
+  border-left: 30px solid transparent;
+  border-right: 57px solid transparent;
+  content: "";
+  margin-top: 12px;
+  margin-left: -89px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: -10deg;
+}
+.Yellowz5Service1 {
+  border-bottom: 497px solid yellow;
+  border-left: 26px solid transparent;
+  border-right: 49px solid transparent;
+  content: "";
+  margin-top: 16px;
+  margin-left: -127px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 0deg;
+}
+.Bluez1Service1 {
+  border-bottom: 497px solid transparent;
+  border-left: 22px solid transparent;
+  border-right: 55px solid transparent;
+  content: "";
+  margin-top: -0px;
+  margin-left: -37px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: -19deg;
+}
+.Bluez6Service1 {
+  border-bottom: 497px solid transparent;
+  border-left: 30px solid transparent;
+  border-right: 57px solid transparent;
+  content: "";
+  margin-top: 12px;
+  margin-left: -89px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: -10deg;
+}
+.Bluez5Service1 {
+  border-bottom: 497px solid transparent;
+  border-left: 26px solid transparent;
+  border-right: 49px solid transparent;
+  content: "";
+  margin-top: 16px;
+  margin-left: -127px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 0deg;
+}
+.Redz5Service5 {
+  border-bottom: 497px solid firebrick;
+  border-left: 48px solid transparent;
+  border-right: 30px solid transparent;
+  content: "";
+  margin-top: 0px;
+  margin-left: -42px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 21deg;
+}
+.Redz6Service5 {
+  border-bottom: 497px solid firebrick;
+  border-left: 56px solid transparent;
+  border-right: 28px solid transparent;
+  content: "";
+  margin-top: 11px;
+  margin-left: -7px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 10deg;
+}
+.Redz1Service5 {
+  border-bottom: 497px solid firebrick;
+  border-left: 50px solid transparent;
+  border-right: 30px solid transparent;
+  content: "";
+  margin-top: 14px;
+  margin-left: 39px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 0deg;
+}
+.Yellowz5Service5 {
+  border-bottom: 497px solid yellow;
+  border-left: 48px solid transparent;
+  border-right: 30px solid transparent;
+  content: "";
+  margin-top: 0px;
+  margin-left: -42px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 21deg;
+}
+.Yellowz6Service5 {
+  border-bottom: 497px solid yellow;
+  border-left: 56px solid transparent;
+  border-right: 28px solid transparent;
+  content: "";
+  margin-top: 11px;
+  margin-left: -7px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 10deg;
+}
+.Yellowz1Service5 {
+  border-bottom: 497px solid yellow;
+  border-left: 50px solid transparent;
+  border-right: 30px solid transparent;
+  content: "";
+  margin-top: 14px;
+  margin-left: 39px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 0deg;
+}
+.Bluez5Service5 {
+  border-bottom: 497px solid transparent;
+  border-left: 48px solid transparent;
+  border-right: 30px solid transparent;
+  content: "";
+  margin-top: 0px;
+  margin-left: -42px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 21deg;
+}
+.Bluez6Service5 {
+  border-bottom: 497px solid transparent;
+  border-left: 56px solid transparent;
+  border-right: 28px solid transparent;
+  content: "";
+  margin-top: 11px;
+  margin-left: -7px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 10deg;
+}
+.Bluez1Service5 {
+  border-bottom: 497px solid transparent;
+  border-left: 50px solid transparent;
+  border-right: 30px solid transparent;
+  content: "";
+  margin-top: 14px;
+  margin-left: 39px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 0deg;
+}
+.Redz1Service6 {
+  border-bottom: 495px solid firebrick;
+  border-left: 22px solid transparent;
+  border-right: 55px solid transparent;
+  content: "";
+  margin-top: 15px;
+  margin-left: 11px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: -7deg;
+}
+.Redz6Service6 {
+  border-bottom: 494px solid firebrick;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  content: "";
+  margin-top: 19px;
+  margin-left: -44px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 0deg;
+}
+.Redz5Service6 {
+  border-bottom: 495px solid firebrick;
+  border-left: 55px solid transparent;
+  border-right: 22px solid transparent;
+  content: "";
+  margin-top: 15px;
+  margin-left: -96px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 7deg;
+}
+.Yellowz1Service6 {
+  border-bottom: 495px solid yellow;
+  border-left: 22px solid transparent;
+  border-right: 55px solid transparent;
+  content: "";
+  margin-top: 15px;
+  margin-left: 11px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: -7deg;
+}
+.Yellowz6Service6 {
+  border-bottom: 494px solid yellow;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  content: "";
+  margin-top: 19px;
+  margin-left: -44px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 0deg;
+}
+.Yellowz5Service6 {
+  border-bottom: 495px solid yellow;
+  border-left: 55px solid transparent;
+  border-right: 22px solid transparent;
+  content: "";
+  margin-top: 15px;
+  margin-left: -96px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 7deg;
+}
+.Bluez1Service6 {
+  border-bottom: 495px solid transparent;
+  border-left: 22px solid transparent;
+  border-right: 55px solid transparent;
+  content: "";
+  margin-top: 15px;
+  margin-left: 11px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: -7deg;
+}
+.Bluez6Service6 {
+  border-bottom: 494px solid transparent;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  content: "";
+  margin-top: 19px;
+  margin-left: -44px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 0deg;
+}
+.Bluez5Service6 {
+  border-bottom: 495px solid transparent;
+  border-left: 55px solid transparent;
+  border-right: 22px solid transparent;
+  content: "";
+  margin-top: 15px;
+  margin-left: -96px;
+  background-color: transparent;
+  border-top: #f8931f 1px solid;
+  position: absolute;
+  z-index: 1;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  rotate: 7deg;
+}

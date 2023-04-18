@@ -1,0 +1,843 @@
+// Миксины
+@mixin arrows {
+  background-size: contain;
+  width: 40px;
+  height: 20px;
+  margin: 350px 10px 0px 10px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  z-index: 3;
+}
+@mixin defenders {
+  width: 40px;
+  height: 20px;
+  margin: 350px 10px 0px 10px;
+  position: relative;
+  z-index: 3;
+  border-radius: 0 0 25px 25px;
+  &:hover {
+    background-color: yellow;
+    border: 3px solid black;
+    cursor: pointer;
+  }
+}
+@mixin attackShape {
+  width: 60px;
+  height: 60px;
+  font-size: 35px;
+  // background-color: transparent;
+  // border: 2px solid transparent;
+  cursor: pointer;
+  z-index: 12;
+  position: absolute;
+  // color: transparent;
+  color: #000;
+  border: 3px solid black;
+  border-radius: 50px;
+  background-color: cornflowerblue;
+  font-weight: 700;
+}
+@mixin tips {
+  width: 80px;
+  height: 40px;
+  margin-top: 210px;
+  font-size: 25px;
+  margin-left: 20px;
+  border-radius: 45px;
+  position: absolute;
+  margin-bottom: -105px;
+  z-index: 3;
+}
+@mixin boxSize {
+  width: 30px;
+  border: 2px solid black;
+}
+@mixin forCons($marginTop, $marginLeft, $borderLeft, $borderRight, $rotate) {
+  margin-top: $marginTop;
+  margin-left: $marginLeft;
+  border-left: $borderLeft solid transparent;
+  border-right: $borderRight solid transparent;
+  rotate: $rotate;
+}
+// Основной CSS
+.none {
+  display: none;
+}
+.playArea {
+  background: url(../photos/area8.jpg) no-repeat center center;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: auto;
+  background-position-x: 0.7rem;
+  text-align: center;
+  background-size: 98%;
+  width: 540px;
+  height: 700px;
+  background-position-y: 0.2rem;
+  display: inline-block;
+  .showTheBall {
+    color: black;
+    background-color: transparent;
+    display: "initial";
+    border: none;
+    font-weight: 100; 
+    &:hover {
+      border: none;
+      background-color: transparent;
+      font-weight: 100;
+    }
+  }
+  .yellow5Azone2 {
+    border-bottom: 262px solid pink;
+    @include forCons(169px, -133px, 0px, 35px, 0deg);
+  }
+  .red5Azone2 {
+    border-bottom: 262px solid firebrick;
+    @include forCons(169px, -133px, 0px, 35px, 0deg);
+  }
+  .purple5Azone2 {
+    border-bottom: 262px solid purple;
+    @include forCons(169px, -133px, 0px, 35px, 0deg);
+  }
+  .blue5Azone2 {
+    border-bottom: 262px solid transparent;
+    @include forCons(169px, -133px, 0px, 35px, 0deg);
+  }
+  .yellow5Bzone2 {
+    border-bottom: 271px solid pink;
+    @include forCons(158px, -112px, 5px, 35px, -8.7deg);
+  }
+  .red5Bzone2 {
+    border-bottom: 271px solid firebrick;
+    @include forCons(158px, -112px, 5px, 35px, -8.7deg);
+  }
+  .purple5Bzone2 {
+    border-bottom: 271px solid purple;
+    @include forCons(158px, -112px, 5px, 35px, -8.7deg);
+  }
+  .blue5Bzone2 {
+    border-bottom: 271px solid transparent;
+    @include forCons(158px, -112px, 5px, 35px, -8.7deg);
+  }
+  .yellow6Azone2 {
+    border-bottom: 271px solid pink;
+    @include forCons(152px, -90px, 5px, 35px, -19deg);
+  }
+  .red6Azone2 {
+    border-bottom: 271px solid firebrick;
+    @include forCons(152px, -90px, 5px, 35px, -19deg);
+  }
+  .purple6Azone2 {
+    border-bottom: 271px solid purple;
+    @include forCons(152px, -90px, 5px, 35px, -19deg);
+  }
+  .blue6Azone2 {
+    border-bottom: 271px solid transparent;
+    @include forCons(152px, -90px, 5px, 35px, -19deg);
+  }
+  .yellow6Bzone2 {
+    border-bottom: 271px solid pink;
+    @include forCons(142px, -72px, 10px, 35px, -30.4deg);
+  }
+  .red6Bzone2 {
+    border-bottom: 271px solid firebrick;
+    @include forCons(142px, -72px, 10px, 35px, -30.4deg);
+  }
+  .purple6Bzone2 {
+    border-bottom: 271px solid purple;
+    @include forCons(142px, -72px, 10px, 35px, -30.4deg);
+  }
+  .blue6Bzone2 {
+    border-bottom: 271px solid transparent;
+    @include forCons(142px, -72px, 10px, 35px, -30.4deg);
+  }
+  .yellow1Azone2 {
+    border-bottom: 273px solid pink;
+    @include forCons(125px, -56px, 16px, 35px, -43.2deg);
+  }
+  .red1Azone2 {
+    border-bottom: 273px solid firebrick;
+    @include forCons(125px, -56px, 16px, 35px, -43.2deg);
+  }
+  .purple1Azone2 {
+    border-bottom: 273px solid purple;
+    @include forCons(125px, -56px, 16px, 35px, -43.2deg);
+  }
+  .blue1Azone2 {
+    border-bottom: 273px solid transparent;
+    @include forCons(125px, -56px, 16px, 35px, -43.2deg);
+  }
+  .yellow1Bzone2 {
+    border-bottom: 274px solid pink;
+    @include forCons(102px, -32px, 7px, 35px, -53deg);
+  }
+  .red1Bzone2 {
+    border-bottom: 274px solid firebrick;
+    @include forCons(102px, -32px, 7px, 35px, -53deg);
+  }
+  .purple1Bzone2 {
+    border-bottom: 274px solid purple;
+    @include forCons(102px, -32px, 7px, 35px, -53deg);
+  }
+  .blue1Bzone2 {
+    border-bottom: 274px solid transparent;
+    @include forCons(102px, -32px, 7px, 35px, -53deg);
+  }
+  .yellow5Azone1 {
+    border-bottom: 342px solid pink;
+    @include forCons(89px, -133px, 0px, 35px, 0deg);
+  }
+  .red5Azone1 {
+    border-bottom: 342px solid firebrick;
+    @include forCons(89px, -133px, 0px, 35px, 0deg);
+  }
+  .purple5Azone1 {
+    border-bottom: 342px solid purple;
+    @include forCons(89px, -133px, 0px, 35px, 0deg);
+  }
+  .blue5Azone1 {
+    border-bottom: 342px solid transparent;
+    @include forCons(89px, -133px, 0px, 35px, 0deg);
+  }
+  .yellow5Bzone1 {
+    border-bottom: 350px solid pink;
+    @include forCons(80px, -114px, 5px, 35px, -7.6deg);
+  }
+  .red5Bzone1 {
+    border-bottom: 350px solid firebrick;
+    @include forCons(80px, -114px, 5px, 35px, -7.6deg);
+  }
+  .purple5Bzone1 {
+    border-bottom: 350px solid purple;
+    @include forCons(80px, -114px, 5px, 35px, -7.6deg);
+  }
+  .blue5Bzone1 {
+    border-bottom: 350px solid transparent;
+    @include forCons(80px, -114px, 5px, 35px, -7.6deg);
+  }
+  .yellow6Azone1 {
+    border-bottom: 350px solid pink;
+    @include forCons(74px, -91px, 5px, 35px, -15.2deg);
+  }
+  .red6Azone1 {
+    border-bottom: 350px solid firebrick;
+    @include forCons(74px, -91px, 5px, 35px, -15.2deg);
+  }
+  .purple6Azone1 {
+    border-bottom: 350px solid purple;
+    @include forCons(74px, -91px, 5px, 35px, -15.2deg);
+  }
+  .blue6Azone1 {
+    border-bottom: 350px solid transparent;
+    @include forCons(74px, -91px, 5px, 35px, -15.2deg);
+  }
+  .yellow6Bzone1 {
+    border-bottom: 350px solid pink;
+    @include forCons(66px, -71px, 10px, 35px, -23.6deg);
+  }
+  .red6Bzone1 {
+    border-bottom: 350px solid firebrick;
+    @include forCons(66px, -71px, 10px, 35px, -23.6deg);
+  }
+  .purple6Bzone1 {
+    border-bottom: 350px solid purple;
+    @include forCons(66px, -71px, 10px, 35px, -23.6deg);
+  }
+  .blue6Bzone1 {
+    border-bottom: 350px solid transparent;
+    @include forCons(66px, -71px, 10px, 35px, -23.6deg);
+  }
+  .yellow1Azone1 {
+    border-bottom: 353px solid pink;
+    @include forCons(54px, -53px, 16px, 35px, -33deg);
+  }
+  .red1Azone1 {
+    border-bottom: 353px solid firebrick;
+    @include forCons(54px, -53px, 16px, 35px, -33deg);
+  }
+  .purple1Azone1 {
+    border-bottom: 353px solid purple;
+    @include forCons(54px, -53px, 16px, 35px, -33deg);
+  }
+  .blue1Azone1 {
+    border-bottom: 353px solid transparent;
+    @include forCons(54px, -53px, 16px, 35px, -33deg);
+  }
+  .yellow1Bzone1 {
+    border-bottom: 350px solid pink;
+    @include forCons(39px, -25px, 7px, 35px, -41deg);
+  }
+  .red1Bzone1 {
+    border-bottom: 350px solid firebrick;
+    @include forCons(39px, -25px, 7px, 35px, -41deg);
+  }
+  .purple1Bzone1 {
+    border-bottom: 350px solid purple;
+    @include forCons(39px, -25px, 7px, 35px, -41deg);
+  }
+  .blue1Bzone1 {
+    border-bottom: 350px solid transparent;
+    @include forCons(39px, -25px, 7px, 35px, -41deg);
+  }
+  // 4 зона
+  .yellow5Azone4 {
+    border-bottom: 277px solid pink;
+    @include forCons(101px, -17px, 35px, 11px, 53deg);
+  }
+  .red5Azone4 {
+    border-bottom: 277px solid firebrick;
+    @include forCons(101px, -17px, 35px, 11px, 53deg);
+  }
+  .purple5Azone4 {
+    border-bottom: 277px solid purple;
+    @include forCons(101px, -17px, 35px, 11px, 53deg);
+  }
+  .blue5Azone4 {
+    border-bottom: 277px solid transparent;
+    @include forCons(101px, -17px, 35px, 11px, 53deg);
+  }
+  .yellow5Bzone4 {
+    border-bottom: 273px solid pink;
+    @include forCons(125px, -2px, 35px, 16px, 42.2deg);
+  }
+  .red5Bzone4 {
+    border-bottom: 273px solid firebrick;
+    @include forCons(125px, -2px, 35px, 16px, 42.2deg);
+  }
+  .purple5Bzone4 {
+    border-bottom: 273px solid purple;
+    @include forCons(125px, -2px, 35px, 16px, 42.2deg);
+  }
+  .blue5Bzone4 {
+    border-bottom: 273px solid transparent;
+    @include forCons(125px, -2px, 35px, 16px, 42.2deg);
+  }
+  .yellow6Azone4 {
+    border-bottom: 271px solid pink;
+    @include forCons(143px, 21px, 35px, 10px, 30.4deg);
+  }
+  .red6Azone4 {
+    border-bottom: 271px solid firebrick;
+    @include forCons(143px, 21px, 35px, 10px, 30.4deg);
+  }
+  .purple6Azone4 {
+    border-bottom: 271px solid purple;
+    @include forCons(143px, 21px, 35px, 10px, 30.4deg);
+  }
+  .blue6Azone4 {
+    border-bottom: 271px solid transparent;
+    @include forCons(143px, 21px, 35px, 10px, 30.4deg);
+  }
+  .yellow6Bzone4 {
+    border-bottom: 271px solid pink;
+    @include forCons(154px, 45px, 35px, 5px, 20deg);
+  }
+  .red6Bzone4 {
+    border-bottom: 271px solid firebrick;
+    @include forCons(154px, 45px, 35px, 5px, 20deg);
+  }
+  .purple6Bzone4 {
+    border-bottom: 271px solid purple;
+    @include forCons(154px, 45px, 35px, 5px, 20deg);
+  }
+  .blue6Bzone4 {
+    border-bottom: 271px solid transparent;
+    @include forCons(154px, 45px, 35px, 5px, 20deg);
+  }
+  .yellow1Azone4 {
+    border-bottom: 271px solid pink;
+    @include forCons(160px, 66px, 35px, 5px, 9.7deg);
+  }
+  .red1Azone4 {
+    border-bottom: 271px solid firebrick;
+    @include forCons(160px, 66px, 35px, 5px, 9.7deg);
+  }
+  .purple1Azone4 {
+    border-bottom: 271px solid purple;
+    @include forCons(160px, 66px, 35px, 5px, 9.7deg);
+  }
+  .blue1Azone4 {
+    border-bottom: 271px solid transparent;
+    @include forCons(160px, 66px, 35px, 5px, 9.7deg);
+  }
+  .yellow1Bzone4 {
+    border-bottom: 271px solid pink;
+    @include forCons(162px, 90px, 35px, 0px, 0deg);
+  }
+  .red1Bzone4 {
+    border-bottom: 271px solid firebrick;
+    @include forCons(162px, 90px, 35px, 0px, 0deg);
+  }
+  .purple1Bzone4 {
+    border-bottom: 271px solid purple;
+    @include forCons(162px, 90px, 35px, 0px, 0deg);
+  }
+  .blue1Bzone4 {
+    border-bottom: 271px solid transparent;
+    @include forCons(162px, 90px, 35px, 0px, 0deg);
+  }
+  // Пайп
+  .red5APipe {
+    @include forCons(69px, -83px, 22px, 12px, 17deg);
+    border-bottom: 354px solid firebrick;
+  }
+  .purple5APipe {
+    @include forCons(69px, -83px, 22px, 12px, 17deg);
+    border-bottom: 354px solid purple;
+  }
+  .yellow5APipe {
+    @include forCons(69px, -83px, 22px, 12px, 17deg);
+    border-bottom: 354px solid pink;
+  }
+  .blue5APipe {
+    @include forCons(69px, -83px, 22px, 12px, 17deg);
+    border-bottom: 354px solid transparent;
+  }
+  .red5BPipe {
+    @include forCons(73px, -67px, 29px, 12px, 9.3deg);
+    border-bottom: 354px solid firebrick;
+  }
+  .purple5BPipe {
+    @include forCons(73px, -67px, 29px, 12px, 9.3deg);
+    border-bottom: 354px solid purple;
+  }
+  .yellow5BPipe {
+    @include forCons(73px, -67px, 29px, 12px, 9.3deg);
+    border-bottom: 354px solid pink;
+  }
+  .blue5BPipe {
+    @include forCons(73px, -67px, 29px, 12px, 9.3deg);
+    border-bottom: 354px solid transparent;
+  }
+  .red6APipe {
+    @include forCons(79px, -45px, 33px, 12px, 1deg);
+    border-bottom: 350px solid firebrick;
+  }
+  .purple6APipe {
+    @include forCons(79px, -45px, 33px, 12px, 1deg);
+    border-bottom: 350px solid purple;
+  }
+  .yellow6APipe {
+    @include forCons(79px, -45px, 33px, 12px, 1deg);
+    border-bottom: 350px solid pink;
+  }
+  .blue6APipe {
+    @include forCons(79px, -45px, 33px, 12px, 1deg);
+    border-bottom: 350px solid transparent;
+  }
+  .red6BPipe {
+    @include forCons(78px, -8px, 12px, 33px, -3deg);
+    border-bottom: 350px solid firebrick;
+  }
+  .purple6BPipe {
+    @include forCons(78px, -8px, 12px, 33px, -3deg);
+    border-bottom: 350px solid purple;
+  }
+  .yellow6BPipe {
+    @include forCons(78px, -8px, 12px, 33px, -3deg);
+    border-bottom: 350px solid pink;
+  }
+  .blue6BPipe {
+    @include forCons(78px, -8px, 12px, 33px, -3deg);
+    border-bottom: 350px solid transparent;
+  }
+  .red1APipe {
+    @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
+    border-bottom: 350px solid firebrick;
+  }
+  .purple1APipe {
+    @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
+    border-bottom: 350px solid purple;
+  }
+  .yellow1APipe {
+    @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
+    border-bottom: 350px solid pink;
+  }
+  .blue1APipe {
+    @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
+    border-bottom: 350px solid transparent;
+  }
+  .red1BPipe {
+    @include forCons(66px, 41px, 12px, 16px, -19deg);
+    border-bottom: 355px solid firebrick;
+  }
+  .purple1BPipe {
+    @include forCons(66px, 41px, 12px, 16px, -19deg);
+    border-bottom: 355px solid purple;
+  }
+  .yellow1BPipe {
+    @include forCons(66px, 41px, 12px, 16px, -19deg);
+    border-bottom: 355px solid pink;
+  }
+  .blue1BPipe {
+    @include forCons(66px, 41px, 12px, 16px, -19deg);
+    border-bottom: 355px solid transparent;
+  }
+  // ТУТ
+
+  .balls {
+    button {
+      background-color: transparent;
+      color: transparent;
+      border-top: transparent 1px solid;
+      position: absolute;
+      z-index: 1;
+      transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+    }
+  }
+  .smallarrowleft {
+    background: url(../photos/arrowright.png) no-repeat center center;
+    @include arrows;
+  }
+  .smallarrowright {
+    background: url(../photos/arrowleft.png) no-repeat center center;
+    @include arrows;
+  }
+  .defenderOn {
+    background-color: yellow;
+    border: 3px solid black;
+    @include defenders;
+  }
+  .defenderOff {
+    background-color: transparent;
+    border: none;
+    @include defenders;
+  }
+  .inputForCount {
+    width: 38px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: transparent;
+    margin: 323px 0px 0px 0px;
+    font-size: 25px;
+    text-align: center;
+    display: inline-flex;
+    z-index: 5;
+    position: relative;
+  }
+  .yellowtip {
+    background-color: yellow;
+    border: 2px black solid;
+    @include tips;
+  }
+  .tip {
+    @include tips;
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    &:hover {
+      background: yellow;
+      background-color: yellow;
+      box-shadow: 0 15px 20px yellow;
+      color: black;
+      transform: translateY(-7px);
+      transition: 0.3s;
+      border: 2px black solid;
+    }
+  }
+  .countbutton {
+    font-size: 38px;
+    border: none;
+    background-color: #f8931f;
+    display: block;
+    cursor: pointer;
+    width: 262px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+  .needtoclose {
+    font-size: 45px;
+    width: 85px;
+    height: 55px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    color: red;
+    font-weight: bold;
+    z-index: 4;
+  }
+  .zoneinput {
+    display: inline-block;
+    .beforeCheckTheBall {
+      font-size: 38px;
+      border: none;
+      background-color: #f8931f;
+      display: block;
+      cursor: pointer;
+      width: 266px;
+      text-align: center;
+      color: black;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+  }
+}
+.explain {
+  font-size: 20px;
+  margin: -90px 0px 0px -75px;
+  position: absolute;
+  .comments {
+    text-align: start;
+    label {
+      font-size: 30px;
+      display: block;
+    }
+    .textcomment {
+      display: block;
+      width: 150px;
+      height: 100px;
+      font-size: 17px;
+      border: 2px solid black;
+      text-decoration: none;
+      overflow: auto;
+    }
+  }
+  .box {
+    width: 150px;
+    display: flex;
+    margin-top: 5px;
+    label {
+      width: 60px;
+    }
+    .orangeSquare {
+      @include boxSize;
+      background-color: #f8931f;
+    }
+    .pinkSquare {
+      @include boxSize;
+      background-color: pink;
+    }
+    .purpleSquare {
+      @include boxSize;
+      background-color: purple;
+    }
+    .square {
+      @include boxSize;
+      background-color: firebrick;
+    }
+  }
+  .saveBox {
+    width: 160px;
+    display: flex;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    input {
+      width: 30px;
+      height: 30px;
+    }
+    label {
+      font-size: 22px;
+      display: block;
+      padding: 3px;
+      font-weight: bold;
+    }
+  }
+}
+.atackFileds {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.labelAttack {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 45px;
+  width: 100%;
+}
+.attackZone2 {
+  margin: 130px 0px 0px -160px;
+  @include attackShape;
+}
+.attackZone1 {
+  margin: 50px 0px 0px -160px;
+  @include attackShape;
+}
+.attackZone4 {
+  margin: 130px 0px 0px 100px;
+  @include attackShape;
+}
+.attackPipe {
+  margin: 40px 0px 0px -32px;
+  @include attackShape;
+}
+.attackKC {
+  margin: 130px 0px 0px -15px;
+  @include attackShape;
+}
+.attackK1 {
+  margin: 130px 0px 0px -65px;
+  @include attackShape;
+}
+.attackK7 {
+  margin: 130px 0px 0px 35px;
+  @include attackShape;
+}
+// .playArea .red5AK1 {
+// }
+// .playArea .red5BK1 {
+// }
+// .playArea .red6AK1 {
+// }
+// .playArea .red6BK1 {
+// }
+// .playArea .red1AK1 {
+// }
+// .playArea .red1BK1 {
+// }
+// /* От 25 до 35% */
+// .playArea .purple5AK1 {
+// }
+// .playArea .purple5BK1 {
+// }
+// .playArea .purple6AK1 {
+// }
+// .playArea .purple6BK1 {
+// }
+// .playArea .purple1AK1 {
+// }
+// .playArea .purple1BK1 {
+// }
+// /* От 15 до 25% */
+// .playArea .yellow5AK1 {
+// }
+// .playArea .yellow5BK1 {
+// }
+// .playArea .yellow6AK1 {
+// }
+// .playArea .yellow6BK1 {
+// }
+// .playArea .yellow1AK1 {
+// }
+// .playArea .yellow1BK1 {
+// }
+// /* Меньше 15% */
+// .playArea .blue5AK1 {
+// }
+// .playArea .blue5BK1 {
+// }
+// .playArea .blue6AK1 {
+// }
+// .playArea .blue6BK1 {
+// }
+// .playArea .blue1AK1 {
+// }
+// .playArea .blue1BK1 {
+// }
+
+// /* KC */
+// /* Выше 35% */
+// .playArea .red5AKC {
+// }
+// .playArea .red5BKC {
+// }
+// .playArea .red6AKC {
+// }
+// .playArea .red6BKC {
+// }
+// .playArea .red1AKC {
+// }
+// .playArea .red1BKC {
+// }
+// /* От 25 до 35% */
+// .playArea .purple5AKC {
+// }
+// .playArea .purple5BKC {
+// }
+// .playArea .purple6AKC {
+// }
+// .playArea .purple6BKC {
+// }
+// .playArea .purple1AKC {
+// }
+// .playArea .purple1BKC {
+// }
+// /* От 15 до 25% */
+// .playArea .yellow5AKC {
+// }
+// .playArea .yellow5BKC {
+// }
+// .playArea .yellow6AKC {
+// }
+// .playArea .yellow6BKC {
+// }
+// .playArea .yellow1AKC {
+// }
+// .playArea .yellow1BKC {
+// }
+// /* Меньше 15% */
+// .playArea .blue5AKC {
+// }
+// .playArea .blue5BKC {
+// }
+// .playArea .blue6AKC {
+// }
+// .playArea .blue6BKC {
+// }
+// .playArea .blue1AKC {
+// }
+// .playArea .blue1BKC {
+// }
+
+// /* K7 */
+// /* Выше 35% */
+// .playArea .red5AK7 {
+// }
+// .playArea .red5BK7 {
+// }
+// .playArea .red6AK7 {
+// }
+// .playArea .red6BK7 {
+// }
+// .playArea .red1AK7 {
+// }
+// .playArea .red1BK7 {
+// }
+// /* От 25 до 35% */
+// .playArea .purple5AK7 {
+// }
+// .playArea .purple5BK7 {
+// }
+// .playArea .purple6AK7 {
+// }
+// .playArea .purple6BK7 {
+// }
+// .playArea .purple1AK7 {
+// }
+// .playArea .purple1BK7 {
+// }
+// /* От 15 до 25% */
+// .playArea .yellow5AK7 {
+// }
+// .playArea .yellow5BK7 {
+// }
+// .playArea .yellow6AK7 {
+// }
+// .playArea .yellow6BK7 {
+// }
+// .playArea .yellow1AK7 {
+// }
+// .playArea .yellow1BK7 {
+// }
+// /* Меньше 15% */
+// .playArea .blue5AK7 {
+// }
+// .playArea .blue5BK7 {
+// }
+// .playArea .blue6AK7 {
+// }
+// .playArea .blue6BK7 {
+// }
+// .playArea .blue1AK7 {
+// }
+// .playArea .blue1BK7 {
+// }

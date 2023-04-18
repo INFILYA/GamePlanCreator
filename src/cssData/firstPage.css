@@ -1,0 +1,277 @@
+body {
+  width: 1666px;
+  margin: auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+.firstpage {
+  margin: 10px 0px 0px 0px;
+  height: 700px;
+}
+.firstpage .teamsquad {
+  font-size: 25px;
+  width: 400px;
+  border: 2px black solid;
+  background-color: burlywood;
+  text-align: center;
+  padding: 0px 10px 0px 10px;
+  border-radius: 45px;
+  height: 700px;
+}
+.firstpage .teamLogo {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px 20px 0px;
+}
+.firstpage .teamlabel {
+  font-size: 40px;
+  background-color: transparent;
+  border: 5px solid transparent;
+  width: 280px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.firstpage .hideIcon {
+  display: block;
+  /* height: 307.5px; */
+  align-items: center;
+  box-sizing: border-box;
+  border: 4px solid black;
+  border-radius: 20px;
+  padding: 10px 10px 0px 10px;
+  z-index: 5;
+  background-color: khaki;
+  justify-content: space-around;
+}
+.firstpage .hideIcon img {
+  height: 375px;
+  margin-left: 25px;
+  align-self: end;
+}
+.firstpage .hideIcon .row {
+  display: flex;
+  justify-content: space-between;
+}
+.firstpage .hideIcon .info {
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 35px;
+  display: inline-block;
+}
+.firstpage .hideIcon a,
+.firstpage .hideIcon button {
+  margin: 10px 5px 10px 5px;
+  border: 2px solid black;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 0px 10px 0px 10px;
+  box-sizing: border-box;
+}
+.firstpage .hideIcon a {
+  font-size: 25px;
+}
+.firstpage .hideIcon button {
+  font-size: 20px;
+}
+.firstpage .hideIcon .active {
+  background-color: orangered;
+}
+.firstpage .active {
+  background-color: orangered;
+}
+.firstpage .photoLogo {
+  max-width: 66px;
+  max-height: 66px;
+  animation: spin 5s linear 0s infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+.firstpage .playerSurname {
+  height: 44px;
+}
+.firstpage .innerSquad .playerPhoto {
+  display: none;
+}
+.firstpage .numberPlusInput {
+  display: inline-flex;
+  vertical-align: top;
+}
+.firstpage .playerNumber {
+  width: 46px;
+  height: 40px;
+  border-radius: 0;
+  position: relative;
+  color: black;
+  font-weight: bold;
+  background-color: #ff8001;
+  border: 2px solid black;
+  margin: 0px -5px 0px 0px;
+  text-align: center;
+  border-radius: 20px 0px 0px 20px;
+  font-size: 20px;
+}
+.firstpage .moveToBoard {
+  vertical-align: sub;
+  background-color: transparent;
+  border: none;
+  font-size: inherit;
+}
+.firstpage .input {
+  width: 200px;
+  height: 40px;
+  background-color: khaki;
+  border: 2px solid black;
+  flex-wrap: wrap;
+  border-radius: 0px 20px 20px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+.firstpage .smallBox .input {
+  background-color: darkgray;
+}
+.firstpage .smallBox .playerNumber {
+  background-color: fuchsia;
+}
+.firstpage .rotation {
+  background: url(../photos/playarea.jpg) no-repeat center center;
+  background-size: cover;
+  text-align: center;
+  background-size: cover;
+  margin-top: 1%;
+  display: inline-block;
+  height: 585px;
+  width: 56%;
+  border-radius: 45px;
+}
+.firstpage .opponentTeamList {
+  margin-top: -20px;
+}
+.firstpage .rotation .reset {
+  font-size: 20px;
+  margin: 10px;
+  display: inline-block;
+  padding: 5px;
+  border: 4px solid black;
+}
+.firstpage .rotation .hideIcon {
+  position: absolute;
+  margin-top: 50px;
+}
+.firstpage .opponentTeamList .opponentTeams {
+  font-size: 20px;
+  padding: 5px;
+  border: 4px black solid;
+  background-color: gold;
+  text-align: center;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 45px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.opponentTeams:hover {
+  box-shadow: 0 15px 20px gold;
+  transform: translateY(-7px);
+  transition: 0.3s;
+}
+.firstpage .rot {
+  display: block;
+  font-size: 18px;
+  height: 36px;
+  width: 36px;
+  margin: 0px 0px 20px 0px;
+  background-color: burlywood;
+  border: black 2px solid;
+  border-radius: 45px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.firstpage .Icons {
+  display: flex;
+}
+.firstpage .container {
+  display: inline-block;
+  vertical-align: top;
+  width: 250px;
+  height: 200px;
+  font-size: 55px;
+  font-weight: bold;
+}
+.firstpage .smallBox {
+  display: inline-block;
+  vertical-align: top;
+  width: 250px;
+  height: 64px;
+  font-size: 55px;
+  font-weight: bold;
+}
+.firstpage .p1-6 {
+  display: inline-block;
+}
+.container img {
+  width: 130px;
+  height: 170px;
+  border: none;
+}
+.container .numberPlusInput {
+  margin-top: -15px;
+}
+.firstpage .centralBlock {
+  width: 862px;
+  height: 520px;
+  overflow: hidden;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 35px;
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+}
+.firstpage .teamsquad .chooseHomeTeam {
+  padding: 10px;
+  appearance: auto;
+}
+.firstpage .rotation .plusMinus button {
+  font-size: 35px;
+  width: 50px;
+  height: 50px;
+}
+.showDistribution {
+  display: flex;
+  justify-content: center;
+}
+.showDistribution a {
+  width: 250px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: cornflowerblue;
+  text-decoration: none;
+  height: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+.showDistribution a:hover {
+  box-shadow: 0 15px 20px cornflowerblue;
+  transform: translateY(-7px);
+  transition: 0.3s;
+}
