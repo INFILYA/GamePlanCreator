@@ -111,7 +111,7 @@ export function PersonalInformationOfPlayer({ obj, onClick, style }) {
             </div>
             <div className="legendRows">
               <label style={{ backgroundColor: "orange" }}></label>
-              <div>Attacks in block percentage</div>
+              <div>Attacks in block percentage</div> 
             </div>
           </div>
         </div>
