@@ -1,7 +1,7 @@
 import { useState } from "react";
 import RegularLabel from "../Labels/RegularLabel";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { PersonalInformationOfPlayer } from "../Page1/Page1";
+import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { useSelector } from "react-redux";
 import { savePlayer } from "../Datas/api";
 

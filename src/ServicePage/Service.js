@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BallForAttack } from "../AttackPage/Attack";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import RegularLabel from "../Labels/RegularLabel";
-import { PersonalInformationOfPlayer } from "../Page1/Page1";
+import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { useSelector } from "react-redux";
 function Recievers() {
   const [blockHelp, setBlockHelp] = useState(0);
