@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
 export function PersonalInformationOfPlayer({ player, onClick, style }) {
   function conicGradientsData(index) {
-    let totalAtt = [];
-    totalAtt.push(player.winPoints);
-    totalAtt.push(player.leftInGame);
-    totalAtt.push(player.attacksInBlock);
-    totalAtt.push(player.loosePoints);
-    const new2 = totalAtt.reduce((a, b) => a + b, 0);
+    let totalAtt = [
+      player.winPoints,
+      player.leftInGame,
+      player.attacksInBlock,
+      player.loosePoints,
+    ];
+    const new2 = totalAtt.reduce((a, b) => a + b, 0.001);
     const result = totalAtt.map((player) => Math.round((player / new2) * 100));
     return result[index];
   }
@@ -120,20 +121,28 @@ export function PersonalInformationOfPlayer({ player, onClick, style }) {
           ></div>
           <div className="legend">
             <div className="legendRows">
-              <label style={{ backgroundColor: "lightgreen" }}></label>
-              <div>Win points percentage</div>
+              <label style={{ backgroundColor: "lightgreen" }}>
+                {conicGradientsData(0)}%
+              </label>
+              <div>Win points</div>
             </div>
             <div className="legendRows">
-              <label style={{ backgroundColor: "yellow" }}></label>
-              <div>Left in the game percentage</div>
+              <label style={{ backgroundColor: "yellow" }}>
+                {conicGradientsData(1)}%
+              </label>
+              <div>Left in the game</div>
             </div>
             <div className="legendRows">
-              <label style={{ backgroundColor: "orange" }}></label>
-              <div>Attacks in block percentage</div>
+              <label style={{ backgroundColor: "orange" }}>
+                {conicGradientsData(2)}%
+              </label>
+              <div>Attacks in block</div>
             </div>
             <div className="legendRows">
-              <label style={{ backgroundColor: "orangered" }}></label>
-              <div>Loose points percentage</div>
+              <label style={{ backgroundColor: "orangered" }}>
+                {conicGradientsData(3)}%
+              </label>
+              <div>Loose points</div>
             </div>
           </div>
         </div>

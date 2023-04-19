@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { useSelector } from "react-redux";
 import { savePlayer } from "../Datas/api";
+import { Switch } from "antd";
 
 function DefenderZone6() {
   const [blockHelp, setBlockHelp] = useState(0);
@@ -251,64 +252,39 @@ function AttackFields({ playerInfo }) {
           <label>Comments:</label>
           <textarea type="text" className="textcomment"></textarea>
         </div>
+        <label style={{ fontSize: 30 }}>Save Data</label>
         <div className="saveBox">
-          <input
-            type="checkbox"
-            className="saveButton"
-            onClick={() => setSaveDataOfAttacks(!saveDataOfAttacks)}
-          ></input>
-          <div>
-            <label>Save Attack</label>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <label
-                style={
-                  saveDataOfAttacks
-                    ? {
-                        backgroundColor: "greenyellow",
-                        width: 45,
-                        border: "4px solid black",
-                      }
-                    : {
-                        backgroundColor: "orangered ",
-                        width: 45,
-                        border: "4px solid black",
-                      }
-                }
-              >
-                {saveDataOfAttacks ? "ON" : "OFF"}
-              </label>
-            </div>
-          </div>
+          <Switch onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)} />
         </div>
         {saveDataOfAttacks && (
           <div style={{ marginTop: 10 }}>
-            <label>Win points</label>
             <input
               style={{ backgroundColor: "lightgreen" }}
               name="winPoints"
               onChange={handleDiagrammValue}
               value={diagrammValue.winPoints}
+              placeholder="Win"
             ></input>
-            <label>Left in the game</label>
             <input
               style={{ backgroundColor: "yellow" }}
               name="leftInGame"
               onChange={handleDiagrammValue}
               value={diagrammValue.leftInGame}
+              placeholder="Left"
             ></input>
-            <label>Attacks in block</label>
             <input
               style={{ backgroundColor: "orange" }}
               name="attacksInBlock"
               onChange={handleDiagrammValue}
               value={diagrammValue.attacksInBlock}
+              placeholder="block"
             ></input>
-            <label>Loose points</label>
             <input
               style={{ backgroundColor: "orangered" }}
               name="loosePoints"
               onChange={handleDiagrammValue}
               value={diagrammValue.loosePoints}
+              placeholder="Loose"
             ></input>
           </div>
         )}
