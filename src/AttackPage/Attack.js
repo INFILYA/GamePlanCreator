@@ -143,6 +143,18 @@ function AttackFields({ playerInfo }) {
     5: "",
     6: "",
   });
+  const [diagrammValue, setDiagrammValue] = useState({
+    winPoints: "",
+    leftInGame: "",
+    attacksInBlock: "",
+    loosePoints: "",
+  });
+  function handleDiagrammValue(event) {
+    setDiagrammValue({
+      ...diagrammValue,
+      [event.target.name]: event.target.value.replace(/\D+/g, ""),
+    });
+  }
   function handleZoneValue(event) {
     setZoneValue({
       ...zoneValue,
@@ -156,6 +168,12 @@ function AttackFields({ playerInfo }) {
       totalAtt.push(+zoneValue[key]);
     }
     if (saveDataOfAttacks) {
+      playerInfo.winPoints = +diagrammValue.winPoints + playerInfo.winPoints;
+      playerInfo.leftInGame = +diagrammValue.leftInGame + playerInfo.leftInGame;
+      playerInfo.attacksInBlock =
+        +diagrammValue.attacksInBlock + playerInfo.attacksInBlock;
+      playerInfo.loosePoints =
+        +diagrammValue.loosePoints + playerInfo.loosePoints;
       const zoneOfAtt = historyOfBalls.filter((ball) => ball.active);
       const PlayerAttHistory = playerInfo[zoneOfAtt[0].zone];
       const res = totalAtt.map((att, index) => att + PlayerAttHistory[index]);
@@ -176,6 +194,7 @@ function AttackFields({ playerInfo }) {
     setZoneValue(newObj);
     setAttackPercentageArray(result);
     setShowInputs(!showInputs);
+    setSaveDataOfAttacks(!saveDataOfAttacks);
   }
   return (
     <form className="playArea" onSubmit={onHandleCountClick}>
@@ -261,6 +280,38 @@ function AttackFields({ playerInfo }) {
             </div>
           </div>
         </div>
+        {saveDataOfAttacks && (
+          <div style={{ marginTop: 10 }}>
+            <label>Win points</label>
+            <input
+              style={{ backgroundColor: "lightgreen" }}
+              name="winPoints"
+              onChange={handleDiagrammValue}
+              value={diagrammValue.winPoints}
+            ></input>
+            <label>Left in the game</label>
+            <input
+              style={{ backgroundColor: "yellow" }}
+              name="leftInGame"
+              onChange={handleDiagrammValue}
+              value={diagrammValue.leftInGame}
+            ></input>
+            <label>Attacks in block</label>
+            <input
+              style={{ backgroundColor: "orange" }}
+              name="attacksInBlock"
+              onChange={handleDiagrammValue}
+              value={diagrammValue.attacksInBlock}
+            ></input>
+            <label>Loose points</label>
+            <input
+              style={{ backgroundColor: "orangered" }}
+              name="loosePoints"
+              onChange={handleDiagrammValue}
+              value={diagrammValue.loosePoints}
+            ></input>
+          </div>
+        )}
       </div>
       <div>
         <input
@@ -416,7 +467,7 @@ function Attacks() {
       <div style={{ display: "flex", justifyContent: "center" }}>
         {playerInfo && (
           <PersonalInformationOfPlayer
-            obj={playerInfo}
+            player={playerInfo}
             onClick={() => goHome()}
           />
         )}

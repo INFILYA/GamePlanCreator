@@ -947,6 +947,19 @@
   margin: -90px 0px 0px -75px;
   position: absolute;
 }
+.explain input {
+  display: block;
+  margin: 5px;
+  width: 150px;
+  padding: 5px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.explain label {
+  font-size: 20px;
+  font-weight: bold;
+}
 .explain .comments {
   text-align: start;
 }

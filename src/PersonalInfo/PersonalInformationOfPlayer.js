@@ -1,109 +1,127 @@
 import { NavLink } from "react-router-dom";
-export function PersonalInformationOfPlayer({ obj, onClick, style }) {
+export function PersonalInformationOfPlayer({ player, onClick, style }) {
+  function conicGradientsData(index) {
+    let totalAtt = [];
+    totalAtt.push(player.winPoints);
+    totalAtt.push(player.leftInGame);
+    totalAtt.push(player.attacksInBlock);
+    totalAtt.push(player.loosePoints);
+    const new2 = totalAtt.reduce((a, b) => a + b, 0);
+    const result = totalAtt.map((player) => Math.round((player / new2) * 100));
+    return result[index];
+  }
   return (
     <>
       <div className="hideIcon" style={style}>
         <div style={{ fontSize: 30, fontWeight: "bold" }}>
-          {obj.name} №{obj.number}
+          {player.name} №{player.number}
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="info">
             <div className="row">
               <div>Age:</div>
-              <div>{obj.age}</div>
+              <div>{player.age}</div>
             </div>
             <div className="row">
               <div>Height:</div>
-              <div>{obj.height}</div>
+              <div>{player.height}</div>
             </div>
             <div className="row">
               <div>Weight:</div>
-              <div>{obj.weight}</div>
+              <div>{player.weight}</div>
             </div>
             <div className="row">
               <div>Hand:</div>
-              <div>{obj.hand}</div>
+              <div>{player.hand}</div>
             </div>
             <div className="row">
               <div>Reach:</div>
-              <div>{obj.reach}</div>
+              <div>{player.reach}</div>
             </div>
             <div className="row">
               <div>Position:</div>
-              <div>{obj.position}</div>
+              <div>{player.position}</div>
             </div>
-            {obj.position === "Opposite" ? (
+            {player.position === "Opposite" ? (
               <>
                 <div className="row">
                   <div>Attack zone 1:</div>
-                  <div>|{obj.attackZone1.join("|")}|</div>
+                  <div>|{player.attackZone1.join("|")}|</div>
                 </div>
                 <div className="row">
                   <div>Attack zone 2:</div>
-                  <div>|{obj.attackZone2.join("|")}|</div>
+                  <div>|{player.attackZone2.join("|")}|</div>
                 </div>
                 <div className="row">
                   <div>Attack zone 4:</div>
-                  <div>|{obj.attackZone4.join("|")}|</div>
+                  <div>|{player.attackZone4.join("|")}|</div>
                 </div>
               </>
             ) : null}
-            {obj.position === "Reciever" ? (
+            {player.position === "Reciever" ? (
               <>
                 <div className="row">
                   <div>Attack zone 2:</div>
-                  <div>|{obj.attackZone2.join("|")}|</div>
+                  <div>|{player.attackZone2.join("|")}|</div>
                 </div>
                 <div className="row">
                   <div>Attack zone 4:</div>
-                  <div>|{obj.attackZone4.join("|")}|</div>
+                  <div>|{player.attackZone4.join("|")}|</div>
                 </div>
                 <div className="row">
                   <div>Attack pipe:</div>
-                  <div>|{obj.attackPipe.join("|")}|</div>
+                  <div>|{player.attackPipe.join("|")}|</div>
                 </div>
               </>
             ) : null}
-            {obj.position === "MBlocker" ? (
+            {player.position === "MBlocker" ? (
               <>
                 <div className="row">
                   <div>Attack K1:</div>
-                  <div>|{obj.attackK1.join("|")}|</div>
+                  <div>|{player.attackK1.join("|")}|</div>
                 </div>
                 <div className="row">
                   <div>Attack KC:</div>
-                  <div>|{obj.attackKC.join("|")}|</div>
+                  <div>|{player.attackKC.join("|")}|</div>
                 </div>
                 <div className="row">
                   <div>Attack K7:</div>
-                  <div>|{obj.attackK7.join("|")}|</div>
+                  <div>|{player.attackK7.join("|")}|</div>
                 </div>
               </>
             ) : null}
             <div className="row">
-              <NavLink to={"/attack?playerId=" + obj.id}>Attack</NavLink>
-              <NavLink to={"/service?playerId=" + obj.id}>Service</NavLink>
+              <NavLink to={"/attack?playerId=" + player.id}>Attack</NavLink>
+              <NavLink to={"/service?playerId=" + player.id}>Service</NavLink>
               <button onClick={onClick}>Cancel</button>
             </div>
           </div>
-          <img src={obj.photo} alt="" className="photoPlayer" />
+          <img src={player.photo} alt="" className="photoPlayer" />
           <div
             style={{
               width: 300,
               height: 300,
               borderRadius: `50%`,
-              background: `conic-gradient(green 0% 25%,red 25% 50%,yellow 50% 75%,orange 75% 100%)`,
+              background: `conic-gradient(lightgreen 0%  ${conicGradientsData(
+                0
+              )}%,yellow  ${conicGradientsData(0)}%  ${
+                conicGradientsData(0) + conicGradientsData(1)
+              }%,orange ${conicGradientsData(0) + conicGradientsData(1)}% ${
+                conicGradientsData(0) +
+                conicGradientsData(1) +
+                conicGradientsData(2)
+              }%,orangered  ${
+                conicGradientsData(0) +
+                conicGradientsData(1) +
+                conicGradientsData(2)
+              }%)`,
               border: "1px solid black",
             }}
           ></div>
           <div className="legend">
             <div className="legendRows">
-              <label style={{ backgroundColor: "green" }}></label>
+              <label style={{ backgroundColor: "lightgreen" }}></label>
               <div>Win points percentage</div>
-            </div>
-            <div className="legendRows">
-              <label style={{ backgroundColor: "red" }}></label>
-              <div>Loose points percentage</div>
             </div>
             <div className="legendRows">
               <label style={{ backgroundColor: "yellow" }}></label>
@@ -111,7 +129,11 @@ export function PersonalInformationOfPlayer({ obj, onClick, style }) {
             </div>
             <div className="legendRows">
               <label style={{ backgroundColor: "orange" }}></label>
-              <div>Attacks in block percentage</div> 
+              <div>Attacks in block percentage</div>
+            </div>
+            <div className="legendRows">
+              <label style={{ backgroundColor: "orangered" }}></label>
+              <div>Loose points percentage</div>
             </div>
           </div>
         </div>

@@ -190,7 +190,7 @@ function FirstPage({
         <div style={{ display: "flex", justifyContent: "center" }}>
           {playerInfo && (
             <PersonalInformationOfPlayer
-              obj={playerInfo}
+              player={playerInfo}
               onClick={() => setPlayerInfo(null)}
             />
           )}

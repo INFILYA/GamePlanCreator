@@ -15,10 +15,10 @@
       "attackZone2": [0, 0, 0, 0, 0, 0],
       "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Олексюк",
@@ -35,10 +35,10 @@
       "attackZone2": [0, 0, 0, 0, 0, 0],
       "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Кривобок",
@@ -53,12 +53,12 @@
       "position": "Reciever",
       "teamid": "Prometey",
       "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
       "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Шоркін",
@@ -73,12 +73,12 @@
       "photo": "./photos/Shorkin.jpg",
       "teamid": "Prometey",
       "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
       "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Томілін",
@@ -93,12 +93,12 @@
       "photo": "./photos/Tomilin.jpg",
       "teamid": "Prometey",
       "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
       "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Янчук",
@@ -113,12 +113,12 @@
       "photo": "./photos/Yanchuk.jpg",
       "teamid": "Prometey",
       "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
       "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Щітков",
@@ -131,14 +131,7 @@
       "reach": 340,
       "weight": 91,
       "photo": "./photos/Shitkov.jpg",
-      "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "teamid": "Prometey"
     },
     {
       "name": "Рябов",
@@ -151,14 +144,7 @@
       "reach": 330,
       "weight": 81,
       "photo": "./photos/Ryabov.jpg",
-      "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "teamid": "Prometey"
     },
     {
       "name": "Гладенко",
@@ -172,13 +158,13 @@
       "weight": 91,
       "photo": "./photos/Gladenko.jpg",
       "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
       "attackK1": [0, 0, 0, 0, 0, 0],
       "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "attackK7": [0, 0, 0, 0, 0, 0],
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Велецький",
@@ -192,13 +178,13 @@
       "weight": 98,
       "photo": "./photos/Patron.jpg",
       "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
       "attackK1": [0, 0, 0, 0, 0, 0],
       "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "attackK7": [0, 0, 0, 0, 0, 0],
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Клепко",
@@ -212,13 +198,13 @@
       "weight": 91,
       "photo": "./photos/Klepko.jpg",
       "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
       "attackK1": [0, 0, 0, 0, 0, 0],
       "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "attackK7": [0, 0, 0, 0, 0, 0],
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Бойко",
@@ -231,14 +217,7 @@
       "reach": 310,
       "weight": 76,
       "photo": "./photos/Boyko.jpg",
-      "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "teamid": "Prometey"
     },
     {
       "name": "Раїч",
@@ -255,10 +234,10 @@
       "attackZone2": [0, 0, 0, 0, 0, 0],
       "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Томин",
@@ -275,10 +254,10 @@
       "attackZone2": [0, 0, 0, 0, 0, 0],
       "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Пєнчев",
@@ -293,12 +272,12 @@
       "photo": "./photos/Penchev.jpg",
       "teamid": "Epicentr",
       "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
       "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Кисилюк",
@@ -313,12 +292,12 @@
       "photo": "./photos/Kisilyuk.jpg",
       "teamid": "Epicentr",
       "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
       "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Наложний",
@@ -333,12 +312,12 @@
       "photo": "./photos/Nalojniy.jpg",
       "teamid": "Epicentr",
       "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
       "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Сидоренко",
@@ -353,12 +332,12 @@
       "photo": "./photos/Sidorenko.jpg",
       "teamid": "Epicentr",
       "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
       "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Євстратов",
@@ -371,14 +350,7 @@
       "reach": 345,
       "weight": 97,
       "photo": "./photos/Yevstratov.jpg",
-      "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "teamid": "Epicentr"
     },
     {
       "name": "Діденко",
@@ -391,14 +363,7 @@
       "reach": 345,
       "weight": 97,
       "photo": "./photos/Didenko.jpg",
-      "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "teamid": "Epicentr"
     },
     {
       "name": "Дрозд",
@@ -412,13 +377,13 @@
       "weight": 97,
       "photo": "./photos/Drozd.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
       "attackK1": [0, 0, 0, 0, 0, 0],
       "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "attackK7": [0, 0, 0, 0, 0, 0],
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Остапенко",
@@ -432,13 +397,13 @@
       "weight": 97,
       "photo": "./photos/Ostapenko.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
       "attackK1": [0, 0, 0, 0, 0, 0],
       "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "attackK7": [0, 0, 0, 0, 0, 0],
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Рогожин",
@@ -452,13 +417,13 @@
       "weight": 97,
       "photo": "./photos/Rogojyn.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
       "attackK1": [0, 0, 0, 0, 0, 0],
       "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "attackK7": [0, 0, 0, 0, 0, 0],
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0
     },
     {
       "name": "Брова",
@@ -471,14 +436,7 @@
       "reach": 345,
       "weight": 97,
       "photo": "./photos/Gorden.jpg",
-      "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0]
+      "teamid": "Epicentr"
     }
   ],
   "clubs": [
