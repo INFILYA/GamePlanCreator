@@ -89,27 +89,28 @@ export function PersonalInformationOfPlayer({ obj, onClick, style }) {
           <img src={obj.photo} alt="" className="photoPlayer" />
           <div
             style={{
-              width: 350,
-              height: 350,
+              width: 300,
+              height: 300,
               borderRadius: `50%`,
-              background: `conic-gradient(black 0% 25%,blue 25% 50%,green 50% 75%,red 75% 100%)`,
+              background: `conic-gradient(green 0% 25%,red 25% 50%,yellow 50% 75%,orange 75% 100%)`,
+              border: "1px solid black",
             }}
           ></div>
           <div className="legend">
             <div className="legendRows">
-              <label style={{ backgroundColor: "red" }}></label>
+              <label style={{ backgroundColor: "green" }}></label>
               <div>Win points percentage</div>
             </div>
             <div className="legendRows">
-              <label style={{ backgroundColor: "black" }}></label>
+              <label style={{ backgroundColor: "red" }}></label>
               <div>Loose points percentage</div>
             </div>
             <div className="legendRows">
-              <label style={{ backgroundColor: "green" }}></label>
+              <label style={{ backgroundColor: "yellow" }}></label>
               <div>Left in the game percentage</div>
             </div>
             <div className="legendRows">
-              <label style={{ backgroundColor: "blue" }}></label>
+              <label style={{ backgroundColor: "orange" }}></label>
               <div>Attacks in block percentage</div>
             </div>
           </div>
