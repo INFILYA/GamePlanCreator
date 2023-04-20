@@ -1,15 +1,18 @@
 import { NavLink } from "react-router-dom";
 export function PersonalInformationOfPlayer({ player, onClick, style, link }) {
-  let totalAtt = [
-    player.winPoints,
-    player.leftInGame,
-    player.attacksInBlock,
-    player.loosePoints,
-  ];
-  const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0.001);
-  const percentOfActions = totalAtt.map((player) =>
-    Math.round((player / sumOfTotalAtt) * 100)
-  );
+  function countRightPercentageForDiagramm(index) {
+    let totalAtt = [
+      player.winPoints,
+      player.leftInGame,
+      player.attacksInBlock,
+      player.loosePoints,
+    ];
+    const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0.001);
+    const percentOfActions = totalAtt.map((player) =>
+      Math.round((player / sumOfTotalAtt) * 100)
+    );
+    return percentOfActions[index];
+  }
   return (
     <>
       <div className="hideIcon" style={style}>
@@ -127,25 +130,29 @@ export function PersonalInformationOfPlayer({ player, onClick, style, link }) {
             </div>
           </div>
           <img src={player.photo} alt="" className="photoPlayer" />
-          {link === "Attack" && (
+          {player.position !== "Setter" && link === "Attack" && (
             <div style={{ display: "flex" }}>
               <div
                 style={{
                   width: 200,
                   height: 200,
                   borderRadius: `50%`,
-                  background: `conic-gradient(lightgreen 0%  ${
-                    percentOfActions[0]
-                  }%,yellow  ${percentOfActions[0]}%  ${
-                    percentOfActions[0] + percentOfActions[1]
-                  }%,orange ${percentOfActions[0] + percentOfActions[1]}% ${
-                    percentOfActions[0] +
-                    percentOfActions[1] +
-                    percentOfActions[2]
+                  background: `conic-gradient(lightgreen 0%  ${countRightPercentageForDiagramm(
+                    0
+                  )}%,yellow  ${countRightPercentageForDiagramm(0)}%  ${
+                    countRightPercentageForDiagramm(0) +
+                    countRightPercentageForDiagramm(1)
+                  }%,orange ${
+                    countRightPercentageForDiagramm(0) +
+                    countRightPercentageForDiagramm(1)
+                  }% ${
+                    countRightPercentageForDiagramm(0) +
+                    countRightPercentageForDiagramm(1) +
+                    countRightPercentageForDiagramm(2)
                   }%,orangered  ${
-                    percentOfActions[0] +
-                    percentOfActions[1] +
-                    percentOfActions[2]
+                    countRightPercentageForDiagramm(0) +
+                    countRightPercentageForDiagramm(1) +
+                    countRightPercentageForDiagramm(2)
                   }%)`,
                   border: "1px solid black",
                 }}
@@ -153,25 +160,25 @@ export function PersonalInformationOfPlayer({ player, onClick, style, link }) {
               <div className="legend">
                 <div className="legendRows">
                   <label style={{ backgroundColor: "lightgreen" }}>
-                    {percentOfActions[0]}%
+                    {countRightPercentageForDiagramm(0)}%
                   </label>
                   <div>Win points</div>
                 </div>
                 <div className="legendRows">
                   <label style={{ backgroundColor: "yellow" }}>
-                    {percentOfActions[1]}%
+                    {countRightPercentageForDiagramm(1)}%
                   </label>
                   <div>Left in the game</div>
                 </div>
                 <div className="legendRows">
                   <label style={{ backgroundColor: "orange" }}>
-                    {percentOfActions[2]}%
+                    {countRightPercentageForDiagramm(2)}%
                   </label>
                   <div>Attacks in block</div>
                 </div>
                 <div className="legendRows">
                   <label style={{ backgroundColor: "orangered" }}>
-                    {percentOfActions[3]}%
+                    {countRightPercentageForDiagramm(3)}%
                   </label>
                   <div>Loose points</div>
                 </div>

@@ -76,6 +76,7 @@ function ServiceFields() {
   const [attackPercentageArray, setAttackPercentageArray] = useState([]);
   const arrayForRecievers = [1, 2, 3, 4, 5];
   const [showInputs, setShowInputs] = useState(false);
+  const [showBalls, setShowBalls] = useState(false);
   const [tip, setTip] = useState(0);
   const classNamesForConesAndInputs = [
     ["Bluez5", "Yellowz5", "Redz5"],
@@ -137,12 +138,12 @@ function ServiceFields() {
               <BallForAttack
                 key={index}
                 value={ball.className.replace(/[a-z]/g, "")}
-                attack={ball.className}
+                attack={!showBalls ? ball.className : "none"}
                 index={index}
                 historyOfBalls={historyOfBalls}
                 setHistoryOfBalls={setHistoryOfBalls}
-                showInputs={showInputs}
                 setShowInputs={setShowInputs}
+                setShowBalls={setShowBalls}
               />
             ) : (
               <BallForAttack
@@ -152,8 +153,8 @@ function ServiceFields() {
                 index={index}
                 historyOfBalls={historyOfBalls}
                 setHistoryOfBalls={setHistoryOfBalls}
-                showInputs={showInputs}
                 setShowInputs={setShowInputs}
+                setShowBalls={setShowBalls}
               />
             )
           )}
@@ -164,6 +165,12 @@ function ServiceFields() {
               value="Short"
               onClick={() => setTip((tip + 1) % 2)}
             ></input>
+          </div>
+        </div>
+        <div className="explain">
+          <div className="comments">
+            <label>Comments:</label>
+            <textarea type="text" className="textcomment"></textarea>
           </div>
         </div>
         <div className="balls">
@@ -239,21 +246,11 @@ function Service() {
                 <button className="reset" onClick={reset}>
                   🡄
                 </button>
-                <div className="explain">
-                  <div className="comments">
-                    <label>Comments:</label>
-                    <textarea type="text" className="textcomment"></textarea>
-                  </div>
-                </div>
               </>
             )}
-            {history.length === 1 && (
-              <button
-                className="reset"
-                onClick={addField}
-                style={{ marginTop: -10 }}
-              >
-                Push to start
+            {history.length <= 2 && (
+              <button className="reset" onClick={addField}>
+                {history.length === 1 ? `Push to start` : `🡆`}
               </button>
             )}
           </div>
