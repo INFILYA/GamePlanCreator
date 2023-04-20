@@ -113,7 +113,7 @@ export function PersonalInformationOfPlayer({ player, onClick, style, link }) {
                 </div>
               </>
             )}
-            <div className="row">
+            <div className="row" style={{ justifyContent: "space-evenly" }}>
               {player.position !== "Libero" && (
                 <>
                   {player.position !== "Setter" && (
@@ -131,7 +131,7 @@ export function PersonalInformationOfPlayer({ player, onClick, style, link }) {
           </div>
           <img src={player.photo} alt="" className="photoPlayer" />
           {player.position !== "Setter" && link === "Attack" && (
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "block", width: 400 }}>
               <div
                 style={{
                   width: 200,

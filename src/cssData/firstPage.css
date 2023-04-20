@@ -58,6 +58,7 @@ body {
   font-weight: bold;
   line-height: 35px;
   display: inline-block;
+  width: 400px;
 }
 .firstpage .hideIcon a,
 .firstpage .hideIcon button {
