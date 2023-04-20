@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RegularLabel from "../Labels/RegularLabel";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { useSelector } from "react-redux";
 import { savePlayer } from "../Datas/api";
@@ -423,6 +423,8 @@ function Attacks() {
   const navigate = useNavigate();
   const [history, sethistory] = useState([0]);
   const [searchparams] = useSearchParams();
+  const params = useParams();
+  console.log(`attack => ${params}`);
   const playerId = searchparams.get("playerId");
   const players = useSelector((state) => state.listOfPlayers.listOfPlayers);
   const playerInfo = players[playerId - 1];
@@ -443,6 +445,7 @@ function Attacks() {
       <div style={{ display: "flex", justifyContent: "center" }}>
         {playerInfo && (
           <PersonalInformationOfPlayer
+            link={"Attack"}
             player={playerInfo}
             onClick={() => goHome()}
           />

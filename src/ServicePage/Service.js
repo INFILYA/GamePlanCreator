@@ -198,7 +198,6 @@ function ServiceFields() {
 
 function Service() {
   const navigate = useNavigate();
-
   const [history, sethistory] = useState([0]);
   const [searchparams] = useSearchParams();
   const playerId = searchparams.get("playerId");
@@ -222,6 +221,7 @@ function Service() {
         style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}
       >
         <PersonalInformationOfPlayer
+          link={"Service"}
           player={playerInfo}
           onClick={() => goHome()}
         />
