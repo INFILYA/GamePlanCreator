@@ -40,16 +40,16 @@ function MainLabel({ clubs, myClub }) {
   );
 }
 
-function IconOfPlayer({ obj, setPlayerInfo, zones }) {
+function IconOfPlayer({ player, setPlayerInfo, zones }) {
   return (
     <>
-      {zones && <img src={obj.photo} alt=""></img>}
-      <div className="numberPlusInput" onFocus={() => setPlayerInfo(obj)}>
+      {zones && <img src={player.photo} alt=""></img>}
+      <div className="numberPlusInput" onFocus={() => setPlayerInfo(player)}>
         <button type="text" disabled className="playerNumber">
-          {obj.number}
+          {player.number}
         </button>
         <button type="text" className="input">
-          {obj.name}
+          {player.name}
         </button>
       </div>
     </>
@@ -99,10 +99,10 @@ function Squads({
   return (
     <>
       <div className="teamsquad">
-        {clubs.map((obj) => (
-          <div className="teamLogo" key={obj.id} style={rtl}>
-            <input className="teamlabel" readOnly value={obj.name} />
-            <img className="photoLogo" src={obj.logo} alt="" />
+        {clubs.map((club) => (
+          <div className="teamLogo" key={club.id} style={rtl}>
+            <input className="teamlabel" readOnly value={club.name} />
+            <img className="photoLogo" src={club.logo} alt="" />
           </div>
         ))}
         {players.map((player) => (
@@ -207,7 +207,7 @@ function FirstPage({
             player ? (
               <div className="container" key={player.id}>
                 <IconOfPlayer
-                  obj={player}
+                  player={player}
                   setPlayerInfo={setPlayerInfo}
                   zones={zones}
                 />
@@ -223,7 +223,7 @@ function FirstPage({
           {myTeamZones.slice(0, 3).map((player, index) =>
             player ? (
               <div className="smallBox" key={player.id}>
-                <IconOfPlayer obj={player} setPlayerInfo={setPlayerInfo} />
+                <IconOfPlayer player={player} setPlayerInfo={setPlayerInfo} />
               </div>
             ) : (
               <div className="smallBox" key={"x" + index}></div>
@@ -235,7 +235,7 @@ function FirstPage({
             player ? (
               <div className="container" key={player.id}>
                 <IconOfPlayer
-                  obj={player}
+                  player={player}
                   setPlayerInfo={setPlayerInfo}
                   zones={zones}
                 />
@@ -251,7 +251,7 @@ function FirstPage({
           {myTeamZones.slice(3, 6).map((player, index) =>
             player ? (
               <div className="smallBox" key={player.id}>
-                <IconOfPlayer obj={player} setPlayerInfo={setPlayerInfo} />
+                <IconOfPlayer player={player} setPlayerInfo={setPlayerInfo} />
               </div>
             ) : (
               <div className="smallBox" key={"x" + index}></div>
@@ -395,12 +395,12 @@ export default function Page1() {
   }
   function removeOption(index) {
     // Видаляю з селекту зону у суперника
-    const newIndexOfZones = indexOfZones.filter((obj) => obj !== index);
+    const newIndexOfZones = indexOfZones.filter((zone) => zone !== index);
     setIndexOfZones(newIndexOfZones);
   }
   function removeMyTeamOption(index) {
     // Видаляю з селекту зону у моєї команди
-    const newIndexOfZones = sequanceOfZones.filter((obj) => obj !== index);
+    const newIndexOfZones = sequanceOfZones.filter((zone) => zone !== index);
     setSequanceOfZones(newIndexOfZones);
   }
   function handleSetMyTeam(ID) {
@@ -415,12 +415,12 @@ export default function Page1() {
   }
   function pushFromBoard(player) {
     // Прибираю з списку гравців суперника після додавання до стартової шістки
-    const newTeam = players.filter((obj) => obj.id !== player.id);
+    const newTeam = players.filter((players) => players.id !== player.id);
     setplayers(newTeam);
   }
   function pushFromMyTeamBoard(player) {
     // Прибираю з списку гравців моєї команди після додавання до стартової шістки
-    const newTeam = myTeamPlayers.filter((obj) => obj.id !== player.id);
+    const newTeam = myTeamPlayers.filter((players) => players.id !== player.id);
     setMyTeamPlayers(newTeam);
   }
   function setPlayerToZone(player, index) {

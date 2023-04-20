@@ -98,53 +98,57 @@ export function PersonalInformationOfPlayer({ player, onClick, style }) {
             </div>
           </div>
           <img src={player.photo} alt="" className="photoPlayer" />
-          <div
-            style={{
-              width: 300,
-              height: 300,
-              borderRadius: `50%`,
-              background: `conic-gradient(lightgreen 0%  ${conicGradientsData(
-                0
-              )}%,yellow  ${conicGradientsData(0)}%  ${
-                conicGradientsData(0) + conicGradientsData(1)
-              }%,orange ${conicGradientsData(0) + conicGradientsData(1)}% ${
-                conicGradientsData(0) +
-                conicGradientsData(1) +
-                conicGradientsData(2)
-              }%,orangered  ${
-                conicGradientsData(0) +
-                conicGradientsData(1) +
-                conicGradientsData(2)
-              }%)`,
-              border: "1px solid black",
-            }}
-          ></div>
-          <div className="legend">
-            <div className="legendRows">
-              <label style={{ backgroundColor: "lightgreen" }}>
-                {conicGradientsData(0)}%
-              </label>
-              <div>Win points</div>
-            </div>
-            <div className="legendRows">
-              <label style={{ backgroundColor: "yellow" }}>
-                {conicGradientsData(1)}%
-              </label>
-              <div>Left in the game</div>
-            </div>
-            <div className="legendRows">
-              <label style={{ backgroundColor: "orange" }}>
-                {conicGradientsData(2)}%
-              </label>
-              <div>Attacks in block</div>
-            </div>
-            <div className="legendRows">
-              <label style={{ backgroundColor: "orangered" }}>
-                {conicGradientsData(3)}%
-              </label>
-              <div>Loose points</div>
-            </div>
-          </div>
+          {player.position !== "Setter" && (
+            <>
+              <div
+                style={{
+                  width: 300,
+                  height: 300,
+                  borderRadius: `50%`,
+                  background: `conic-gradient(lightgreen 0%  ${conicGradientsData(
+                    0
+                  )}%,yellow  ${conicGradientsData(0)}%  ${
+                    conicGradientsData(0) + conicGradientsData(1)
+                  }%,orange ${conicGradientsData(0) + conicGradientsData(1)}% ${
+                    conicGradientsData(0) +
+                    conicGradientsData(1) +
+                    conicGradientsData(2)
+                  }%,orangered  ${
+                    conicGradientsData(0) +
+                    conicGradientsData(1) +
+                    conicGradientsData(2)
+                  }%)`,
+                  border: "1px solid black",
+                }}
+              ></div>
+              <div className="legend">
+                <div className="legendRows">
+                  <label style={{ backgroundColor: "lightgreen" }}>
+                    {conicGradientsData(0)}%
+                  </label>
+                  <div>Win points</div>
+                </div>
+                <div className="legendRows">
+                  <label style={{ backgroundColor: "yellow" }}>
+                    {conicGradientsData(1)}%
+                  </label>
+                  <div>Left in the game</div>
+                </div>
+                <div className="legendRows">
+                  <label style={{ backgroundColor: "orange" }}>
+                    {conicGradientsData(2)}%
+                  </label>
+                  <div>Attacks in block</div>
+                </div>
+                <div className="legendRows">
+                  <label style={{ backgroundColor: "orangered" }}>
+                    {conicGradientsData(3)}%
+                  </label>
+                  <div>Loose points</div>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>

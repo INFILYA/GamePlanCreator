@@ -222,7 +222,7 @@ function Service() {
         style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}
       >
         <PersonalInformationOfPlayer
-          obj={playerInfo}
+          player={playerInfo}
           onClick={() => goHome()}
         />
       </div>
