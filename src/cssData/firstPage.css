@@ -48,6 +48,7 @@ body {
   height: 375px;
   margin-left: 25px;
   align-self: end;
+  padding: 0px 50px;
 }
 .firstpage .hideIcon .row {
   display: flex;

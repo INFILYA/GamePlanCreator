@@ -24,7 +24,7 @@ export function PersonalInformationOfPlayer({ player, onClick, link }) {
     player.serviceMinus,
     player.serviceFailed,
   ];
-  console.log(`info => ${totalService}`);
+  // console.log(`info => ${totalService}`);
   function rightPercentageForDiagramm(index) {
     if (link === "Attack") {
       const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0.001);
@@ -69,7 +69,7 @@ export function PersonalInformationOfPlayer({ player, onClick, link }) {
                   <RowsForPersonalInfo
                     name={info[0]}
                     value={`|${info[1].join("|")}|`}
-                    key={index + 17}
+                    key={index + 18}
                   />
                 ))}
             {link === "Attack" &&
@@ -79,7 +79,7 @@ export function PersonalInformationOfPlayer({ player, onClick, link }) {
                   <RowsForPersonalInfo
                     name={info[0]}
                     value={`|${info[1].join("|")}|`}
-                    key={index + 10}
+                    key={index + 11}
                   />
                 ))}
 

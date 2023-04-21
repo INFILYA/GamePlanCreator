@@ -127,6 +127,7 @@ function AttackFields({ playerInfo }) {
   const [showBalls, setShowBalls] = useState(false);
   const [tip, setTip] = useState(0);
   const [saveDataOfAttacks, setSaveDataOfAttacks] = useState(false);
+  const [disableSwitch, setDisableSwitch] = useState(false);
   const classNamesForConesAndInputs = [
     ["blue5A", "yellow5A", "purple5A", "red5A"],
     ["blue5B", "yellow5B", "purple5B", "red5B"],
@@ -169,12 +170,10 @@ function AttackFields({ playerInfo }) {
       totalAtt.push(+zoneValue[key]);
     }
     if (saveDataOfAttacks) {
-      playerInfo.winPoints = +diagrammValue.winPoints + playerInfo.winPoints;
-      playerInfo.leftInGame = +diagrammValue.leftInGame + playerInfo.leftInGame;
-      playerInfo.attacksInBlock =
-        +diagrammValue.attacksInBlock + playerInfo.attacksInBlock;
-      playerInfo.loosePoints =
-        +diagrammValue.loosePoints + playerInfo.loosePoints;
+      playerInfo.winPoints += +diagrammValue.winPoints;
+      playerInfo.leftInGame += +diagrammValue.leftInGame;
+      playerInfo.attacksInBlock += +diagrammValue.attacksInBlock;
+      playerInfo.loosePoints += +diagrammValue.loosePoints;
       const zoneOfAtt = historyOfBalls.filter((ball) => ball.active);
       const PlayerAttHistory = playerInfo[zoneOfAtt[0].zone];
       const res = totalAtt.map((att, index) => att + PlayerAttHistory[index]);
@@ -196,6 +195,7 @@ function AttackFields({ playerInfo }) {
     setAttackPercentageArray(result);
     setShowInputs(!showInputs);
     setSaveDataOfAttacks(!saveDataOfAttacks);
+    setDisableSwitch(!disableSwitch);
   }
   return (
     <form className="playArea" onSubmit={onHandleCountClick}>
@@ -252,9 +252,14 @@ function AttackFields({ playerInfo }) {
           <label>Comments:</label>
           <textarea type="text" className="textcomment"></textarea>
         </div>
-        <label style={{ fontSize: 30 }}>Save Data</label>
+        <label style={{ fontSize: 30 }}>
+          {disableSwitch ? "Data Saved" : "Save Data"}
+        </label>
         <div className="saveBox">
-          <Switch onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)} />
+          <Switch
+            onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)}
+            disabled={disableSwitch ? true : false}
+          />
         </div>
         {saveDataOfAttacks && (
           <div style={{ marginTop: 10 }}>
