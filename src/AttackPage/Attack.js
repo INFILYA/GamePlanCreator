@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RegularLabel from "../Labels/RegularLabel";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { useSelector } from "react-redux";
 import { savePlayer } from "../Datas/api";
@@ -423,8 +423,6 @@ function Attacks() {
   const navigate = useNavigate();
   const [history, sethistory] = useState([0]);
   const [searchparams] = useSearchParams();
-  const params = useParams();
-  console.log(`attack => ${params}`);
   const playerId = searchparams.get("playerId");
   const players = useSelector((state) => state.listOfPlayers.listOfPlayers);
   const playerInfo = players[playerId - 1];
@@ -453,21 +451,15 @@ function Attacks() {
       </div>
       <div className="atackFileds">
         {history.map((field) =>
-          field ? (
-            <AttackFields key={field} playerInfo={playerInfo} />
-          ) : (
-            <div key={field}></div>
-          )
+          field ? <AttackFields key={field} playerInfo={playerInfo} /> : null
         )}
         <div
           style={history.length > 1 ? { margin: "5px 0px 0px -100px" } : null}
         >
           {history.length > 1 && (
-            <>
-              <button className="reset" onClick={reset}>
-                🡄
-              </button>
-            </>
+            <button className="reset" onClick={reset}>
+              🡄
+            </button>
           )}
           {history.length <= 3 && (
             <button className="reset" onClick={addField}>

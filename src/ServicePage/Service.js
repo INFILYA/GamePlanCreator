@@ -221,19 +221,22 @@ function Service() {
   function goHome() {
     navigate("/");
   }
+  console.log(playerInfo);
   return (
     <>
       <RegularLabel value={"Service"} />
       <div
-        style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}
+        style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}
       >
-        <PersonalInformationOfPlayer
-          link={"Service"}
-          player={playerInfo}
-          onClick={() => goHome()}
-        />
+        {playerInfo && (
+          <PersonalInformationOfPlayer
+            link={"Service"}
+            player={playerInfo}
+            onClick={() => goHome()}
+          />
+        )}
       </div>
-      <div className="servicePage" style={{ marginTop: 20 }}>
+      <div className="servicePage">
         <div className="atackFileds">
           {history.map((field) =>
             field ? <ServiceFields key={field} /> : null
@@ -249,7 +252,11 @@ function Service() {
               </>
             )}
             {history.length <= 2 && (
-              <button className="reset" onClick={addField}>
+              <button
+                className="reset"
+                onClick={addField}
+                style={history.length === 1 ? { marginTop: -10 } : null}
+              >
                 {history.length === 1 ? `Push to start` : `🡆`}
               </button>
             )}

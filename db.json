@@ -22,10 +22,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Олексюк",
@@ -49,22 +49,22 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Кривобок",
-      "id": "3",
       "age": 23,
-      "height": 194,
-      "weight": 102,
       "hand": "right",
-      "reach": 335,
-      "number": 10,
-      "photo": "./photos/Krivobok.jpg",
+      "height": 194,
+      "id": "3",
       "position": "Reciever",
+      "number": 10,
+      "reach": 335,
+      "weight": 102,
+      "photo": "./photos/Krivobok.jpg",
       "teamid": "Prometey",
       "attackZone2": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
@@ -76,10 +76,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Шоркін",
@@ -103,10 +103,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Томілін",
@@ -120,20 +120,20 @@
       "weight": 85,
       "photo": "./photos/Tomilin.jpg",
       "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [12, 3, 3, 3, 3, 3],
       "attackZone4": [0, 0, 0, 0, 0, 0],
       "attackPipe": [0, 0, 0, 0, 0, 0],
-      "winPoints": 0,
-      "leftInGame": 0,
-      "attacksInBlock": 0,
-      "loosePoints": 0,
+      "winPoints": 12,
+      "leftInGame": 3,
+      "attacksInBlock": 3,
+      "loosePoints": 5,
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 11,
+      "servicePlus": 20,
+      "serviceMinus": 5,
+      "serviceFailed": 10
     },
     {
       "name": "Янчук",
@@ -157,10 +157,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Щітков",
@@ -177,10 +177,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Рябов",
@@ -197,10 +197,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Гладенко",
@@ -224,10 +224,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Велецький",
@@ -251,10 +251,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Клепко",
@@ -278,10 +278,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Бойко",
@@ -318,10 +318,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Томин",
@@ -345,10 +345,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Пєнчев",
@@ -372,10 +372,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Кисилюк",
@@ -399,10 +399,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Наложний",
@@ -426,10 +426,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Сидоренко",
@@ -453,10 +453,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Євстратов",
@@ -473,10 +473,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Діденко",
@@ -493,10 +493,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Дрозд",
@@ -520,10 +520,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Остапенко",
@@ -547,10 +547,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Рогожин",
@@ -574,10 +574,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "service#": 0,
-      "service+": 0,
-      "service-": 0,
-      "service=": 0
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Брова",

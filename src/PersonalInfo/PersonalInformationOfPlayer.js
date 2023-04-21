@@ -1,118 +1,88 @@
 import { NavLink } from "react-router-dom";
-export function PersonalInformationOfPlayer({ player, onClick, style, link }) {
-  function countRightPercentageForDiagramm(index) {
-    let totalAtt = [
-      player.winPoints,
-      player.leftInGame,
-      player.attacksInBlock,
-      player.loosePoints,
-    ];
-    const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0.001);
-    const percentOfActions = totalAtt.map((player) =>
-      Math.round((player / sumOfTotalAtt) * 100)
-    );
-    return percentOfActions[index];
+import { RowsForPersonalInfo } from "./Rows/RowsForPersonalInfo";
+import { RowsForLegendAndDiagramm } from "./Rows/RowsForLegend&Diagramm";
+export function PersonalInformationOfPlayer({ player, onClick, link }) {
+  const infosOfPlayer = [];
+  for (let key in player) {
+    infosOfPlayer.push([key, player[key]]);
+  }
+  const backGrounds = [
+    ["lightgreen", "Win points", "Aces"],
+    ["yellow", "Left in the game", "Rec on / and -"],
+    ["orange", "Attacks in block", "Rec on + and #"],
+    ["orangered", "Loose points", "Failed Services"],
+  ];
+  let totalAtt = [
+    player.winPoints,
+    player.leftInGame,
+    player.attacksInBlock,
+    player.loosePoints,
+  ];
+  let totalService = [
+    player.aces,
+    player.servicePlus,
+    player.serviceMinus,
+    player.serviceFailed,
+  ];
+  console.log(`info => ${totalService}`);
+  function rightPercentageForDiagramm(index) {
+    if (link === "Attack") {
+      const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0.001);
+      const percentOfActions = totalAtt.map((att) =>
+        Math.round((att / sumOfTotalAtt) * 100)
+      );
+      return percentOfActions[index];
+    } else if (link === "Service") {
+      const sumOfTotalService = totalService.reduce((a, b) => a + b, 0.001);
+      const percentOfActions = totalService.map((service) =>
+        Math.round((service / sumOfTotalService) * 100)
+      );
+      return percentOfActions[index];
+    }
   }
   return (
     <>
-      <div className="hideIcon" style={style}>
+      <div className="hideIcon">
         <div style={{ fontSize: 30, fontWeight: "bold" }}>
           {player.name} №{player.number}
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="info">
-            <div className="row">
-              <div>Age:</div>
-              <div>{player.age}</div>
-            </div>
-            <div className="row">
-              <div>Height:</div>
-              <div>{player.height}</div>
-            </div>
-            <div className="row">
-              <div>Weight:</div>
-              <div>{player.weight}</div>
-            </div>
-            <div className="row">
-              <div>Hand:</div>
-              <div>{player.hand}</div>
-            </div>
-            <div className="row">
-              <div>Reach:</div>
-              <div>{player.reach}</div>
-            </div>
-            <div className="row">
-              <div>Position:</div>
-              <div>{player.position}</div>
-            </div>
-            {link === "Attack" && (
-              <>
-                {player.position === "Opposite" ? (
-                  <>
-                    <div className="row">
-                      <div>Attack zone 1:</div>
-                      <div>|{player.attackZone1.join("|")}|</div>
-                    </div>
-                    <div className="row">
-                      <div>Attack zone 2:</div>
-                      <div>|{player.attackZone2.join("|")}|</div>
-                    </div>
-                    <div className="row">
-                      <div>Attack zone 4:</div>
-                      <div>|{player.attackZone4.join("|")}|</div>
-                    </div>
-                  </>
-                ) : null}
-                {player.position === "Reciever" ? (
-                  <>
-                    <div className="row">
-                      <div>Attack zone 2:</div>
-                      <div>|{player.attackZone2.join("|")}|</div>
-                    </div>
-                    <div className="row">
-                      <div>Attack zone 4:</div>
-                      <div>|{player.attackZone4.join("|")}|</div>
-                    </div>
-                    <div className="row">
-                      <div>Attack pipe:</div>
-                      <div>|{player.attackPipe.join("|")}|</div>
-                    </div>
-                  </>
-                ) : null}
-                {player.position === "MBlocker" ? (
-                  <>
-                    <div className="row">
-                      <div>Attack K1:</div>
-                      <div>|{player.attackK1.join("|")}|</div>
-                    </div>
-                    <div className="row">
-                      <div>Attack KC:</div>
-                      <div>|{player.attackKC.join("|")}|</div>
-                    </div>
-                    <div className="row">
-                      <div>Attack K7:</div>
-                      <div>|{player.attackK7.join("|")}|</div>
-                    </div>
-                  </>
-                ) : null}
-              </>
-            )}
-            {link === "Service" && (
-              <>
-                <div className="row">
-                  <div>Service from zone 1:</div>
-                  <div>|{player.serviceZone1.join("|")}|</div>
-                </div>
-                <div className="row">
-                  <div>Service from zone 6:</div>
-                  <div>|{player.serviceZone6.join("|")}|</div>
-                </div>
-                <div className="row">
-                  <div>Service from zone 5:</div>
-                  <div>|{player.serviceZone5.join("|")}|</div>
-                </div>
-              </>
-            )}
+            {infosOfPlayer.slice(1, 4).map((info, index) => (
+              <RowsForPersonalInfo
+                name={info[0]}
+                value={info[1]}
+                key={index + 1}
+              />
+            ))}
+            {infosOfPlayer.slice(5, 9).map((info, index) => (
+              <RowsForPersonalInfo
+                name={info[0]}
+                value={info[1]}
+                key={index + 5}
+              />
+            ))}
+            {link === "Service" &&
+              infosOfPlayer
+                .slice(18, 21)
+                .map((info, index) => (
+                  <RowsForPersonalInfo
+                    name={info[0]}
+                    value={`|${info[1].join("|")}|`}
+                    key={index + 17}
+                  />
+                ))}
+            {link === "Attack" &&
+              infosOfPlayer
+                .slice(11, 14)
+                .map((info, index) => (
+                  <RowsForPersonalInfo
+                    name={info[0]}
+                    value={`|${info[1].join("|")}|`}
+                    key={index + 10}
+                  />
+                ))}
+
             <div className="row" style={{ justifyContent: "space-evenly" }}>
               {player.position !== "Libero" && (
                 <>
@@ -130,58 +100,45 @@ export function PersonalInformationOfPlayer({ player, onClick, style, link }) {
             </div>
           </div>
           <img src={player.photo} alt="" className="photoPlayer" />
-          {player.position !== "Setter" && link === "Attack" && (
-            <div style={{ display: "block", width: 400 }}>
+          {(link === "Service" || link === "Attack") && (
+            <div style={{ display: "block" }}>
               <div
                 style={{
                   width: 200,
                   height: 200,
                   borderRadius: `50%`,
-                  background: `conic-gradient(lightgreen 0%  ${countRightPercentageForDiagramm(
+                  background: `conic-gradient(lightgreen 0%  ${rightPercentageForDiagramm(
                     0
-                  )}%,yellow  ${countRightPercentageForDiagramm(0)}%  ${
-                    countRightPercentageForDiagramm(0) +
-                    countRightPercentageForDiagramm(1)
+                  )}%,yellow  ${rightPercentageForDiagramm(0)}%  ${
+                    rightPercentageForDiagramm(0) +
+                    rightPercentageForDiagramm(1)
                   }%,orange ${
-                    countRightPercentageForDiagramm(0) +
-                    countRightPercentageForDiagramm(1)
+                    rightPercentageForDiagramm(0) +
+                    rightPercentageForDiagramm(1)
                   }% ${
-                    countRightPercentageForDiagramm(0) +
-                    countRightPercentageForDiagramm(1) +
-                    countRightPercentageForDiagramm(2)
+                    rightPercentageForDiagramm(0) +
+                    rightPercentageForDiagramm(1) +
+                    rightPercentageForDiagramm(2)
                   }%,orangered  ${
-                    countRightPercentageForDiagramm(0) +
-                    countRightPercentageForDiagramm(1) +
-                    countRightPercentageForDiagramm(2)
+                    rightPercentageForDiagramm(0) +
+                    rightPercentageForDiagramm(1) +
+                    rightPercentageForDiagramm(2)
                   }%)`,
                   border: "1px solid black",
                 }}
               ></div>
               <div className="legend">
-                <div className="legendRows">
-                  <label style={{ backgroundColor: "lightgreen" }}>
-                    {countRightPercentageForDiagramm(0)}%
-                  </label>
-                  <div>Win points</div>
-                </div>
-                <div className="legendRows">
-                  <label style={{ backgroundColor: "yellow" }}>
-                    {countRightPercentageForDiagramm(1)}%
-                  </label>
-                  <div>Left in the game</div>
-                </div>
-                <div className="legendRows">
-                  <label style={{ backgroundColor: "orange" }}>
-                    {countRightPercentageForDiagramm(2)}%
-                  </label>
-                  <div>Attacks in block</div>
-                </div>
-                <div className="legendRows">
-                  <label style={{ backgroundColor: "orangered" }}>
-                    {countRightPercentageForDiagramm(3)}%
-                  </label>
-                  <div>Loose points</div>
-                </div>
+                {backGrounds.map((background, index) => (
+                  <RowsForLegendAndDiagramm
+                    style={{ backgroundColor: background[0] }}
+                    label={rightPercentageForDiagramm(index)}
+                    name={
+                      (link === "Attack" && background[1]) ||
+                      (link === "Service" && background[2])
+                    }
+                    key={index}
+                  />
+                ))}
               </div>
             </div>
           )}
