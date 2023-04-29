@@ -120,7 +120,7 @@
       "weight": 85,
       "photo": "./photos/Tomilin.jpg",
       "teamid": "Prometey",
-      "attackZone2": [12, 3, 3, 3, 3, 3],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
       "attackZone4": [0, 0, 0, 0, 0, 0],
       "attackPipe": [0, 0, 0, 0, 0, 0],
       "winPoints": 12,
