@@ -1,9 +1,5 @@
-const defaultState = {
-  listOfTeams: [],
-};
-// import { defaultState } from "./store";
+import { defaultState } from "../defaultStates";
 
-// };
 export function fetchTeams() {
   return function (dispatch) {
     fetch("http://localhost:3000/clubs")
@@ -11,10 +7,10 @@ export function fetchTeams() {
       .then((json) => dispatch(setAllTeamss(json)));
   };
 }
-export function setAllTeamss(clubs) {
+export function setAllTeamss(listOfTeams) {
   return {
     type: "SET_ALL_TEAMS",
-    payload: clubs,
+    payload: listOfTeams,
   };
 }
 export function listOfTeamsReducer(state = defaultState.listOfTeams, action) {

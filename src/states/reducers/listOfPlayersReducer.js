@@ -1,6 +1,5 @@
-const defaultState = {
-  listOfPlayers: [],
-};
+import { defaultState } from "../defaultStates";
+
 export function fetchPlayers() {
   return function (dispatch) {
     fetch("http://localhost:3000/players")
@@ -8,10 +7,10 @@ export function fetchPlayers() {
       .then((json) => dispatch(setAllPlayers(json)));
   };
 }
-export function setAllPlayers(players) {
+export function setAllPlayers(listOfPlayers) {
   return {
     type: "SET_ALL_PLAYERS",
-    payload: players,
+    payload: listOfPlayers,
   };
 }
 export function listOfPlayersReducer(
