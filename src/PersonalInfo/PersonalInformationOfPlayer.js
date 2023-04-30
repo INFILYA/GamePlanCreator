@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { RowsForPersonalInfo } from "./Rows/RowsForPersonalInfo";
-import { RowsForLegendAndDiagramm } from "./Rows/RowsForLegend&Diagramm";
+import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
+import { RowsForLegendAndDiagramm } from "./components/RowsForLegend&Diagramm";
 export function PersonalInformationOfPlayer({ player, onClick, link }) {
   const infosOfPlayer = [];
   for (let key in player) {

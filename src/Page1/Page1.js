@@ -9,318 +9,13 @@ import { NavLink, Outlet } from "react-router-dom";
 import { fetchPlayers } from "../states/listOfPlayersReducer";
 import { fetchTeams } from "../states/listOfTeamsReducer";
 import { useDispatch, useSelector } from "react-redux";
-import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
-
-function SetDate() {
-  let date = new Date();
-  let options = {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  };
-  const Data = date.toLocaleDateString("en-US", options);
-  return <button className="date">{Data}</button>;
-}
-function MainLabel({ clubs, myClub }) {
-  return (
-    <div>
-      <label className="label">
-        <SetDate />
-        <div id="Matchup">
-          {clubs.map((club) => club.name)} vs {myClub.map((team) => team.name)}
-        </div>
-        <div className="setGame">
-          Game №<input type="text" className="GameNumber" />
-        </div>
-      </label>
-    </div>
-  );
-}
-
-function IconOfPlayer({ player, setPlayerInfo, zones }) {
-  return (
-    <>
-      {zones && <img src={player.photo} alt=""></img>}
-      <div className="numberPlusInput" onFocus={() => setPlayerInfo(player)}>
-        <button type="text" disabled className="playerNumber">
-          {player.number}
-        </button>
-        <button type="text" className="input">
-          {player.name}
-        </button>
-      </div>
-    </>
-  );
-}
-function ChooseOpponentTeam({
-  teams,
-  handleSetOpponentTeam,
-  resetTheBoard,
-  players,
-  myTeamPlayers,
-}) {
-  return (
-    <>
-      <div className="opponentTeamList">
-        {teams.map((team) => (
-          <button
-            onClick={() => handleSetOpponentTeam(team.name)}
-            className="opponentTeams"
-            key={team.id}
-          >
-            {team.name}
-          </button>
-        ))}
-        {players.length > 2 || myTeamPlayers.length > 2 ? (
-          <button onClick={resetTheBoard} className="reset">
-            Reset
-          </button>
-        ) : null}
-      </div>
-    </>
-  );
-}
-function Squads({
-  setPlayerToZone,
-  indexOfZones,
-  sequanceOfZones,
-  removeOption,
-  setPlayerInfo,
-  clubs,
-  players,
-  correctNamesOfZones,
-  rtl,
-  fuchsia,
-  darkgray,
-}) {
-  return (
-    <>
-      <div className="teamsquad">
-        {clubs.map((club) => (
-          <div className="teamLogo" key={club.id} style={rtl}>
-            <input className="teamlabel" readOnly value={club.name} />
-            <img className="photoLogo" src={club.logo} alt="" />
-          </div>
-        ))}
-        {players.map((player) => (
-          <div key={player.id} className="playerSurname" style={rtl}>
-            <div
-              className="numberPlusInput"
-              onFocus={() => setPlayerInfo(player)}
-            >
-              <button
-                type="text"
-                disabled
-                className="playerNumber"
-                style={fuchsia}
-              >
-                {player.number}
-              </button>
-              <button type="text" className="input" style={darkgray}>
-                {player.name}
-              </button>
-            </div>
-            {indexOfZones && (
-              <select className="moveToBoard" type="text">
-                {!sequanceOfZones ? (
-                  <option defaultValue="▶">▶</option>
-                ) : (
-                  <option defaultValue="◀">◀</option>
-                )}
-                {indexOfZones.map((zone, index) => (
-                  <option
-                    key={index}
-                    value={`index[${[zone]}]`}
-                    onClick={() =>
-                      setPlayerToZone(player, zone) || removeOption(zone)
-                    }
-                  >
-                    {correctNamesOfZones(zone)}
-                  </option>
-                ))}
-              </select>
-            )}
-          </div>
-        ))}
-      </div>
-    </>
-  );
-}
-function FirstPage({
-  zones,
-  myTeamZones,
-  setPlayerToZone,
-  setPlayerToMyTeamZone,
-  handleSetOpponentTeam,
-  handleSetMyTeam,
-  indexOfZones,
-  removeOption,
-  playerInfo,
-  setPlayerInfo,
-  clubs,
-  myClub,
-  players,
-  myTeamPlayers,
-  resetTheBoard,
-  listOfTeams,
-  listOfPlayers,
-  sequanceOfZones,
-  removeMyTeamOption,
-  moveRotationForward,
-  moveRotationBack,
-  correctNamesOfZones,
-}) {
-  return (
-    <>
-      <Squads
-        setPlayerToZone={setPlayerToZone}
-        indexOfZones={indexOfZones}
-        removeOption={removeOption}
-        setPlayerInfo={setPlayerInfo}
-        clubs={clubs}
-        players={players}
-        listOfPlayers={listOfPlayers}
-        correctNamesOfZones={correctNamesOfZones}
-      />
-
-      <div className="rotation">
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          {playerInfo && (
-            <PersonalInformationOfPlayer
-              player={playerInfo}
-              onClick={() => setPlayerInfo(null)}
-            />
-          )}
-        </div>
-        <ChooseOpponentTeam
-          teams={listOfTeams}
-          handleSetOpponentTeam={handleSetOpponentTeam}
-          resetTheBoard={resetTheBoard}
-          players={players}
-          myTeamPlayers={myTeamPlayers}
-        />
-        <div style={{ marginBottom: 8 }}>
-          {zones.slice(0, 3).map((player, index) =>
-            player ? (
-              <div className="container" key={player.id}>
-                <IconOfPlayer
-                  player={player}
-                  setPlayerInfo={setPlayerInfo}
-                  zones={zones}
-                />
-              </div>
-            ) : (
-              <div className="container" key={"_" + index}>
-                {correctNamesOfZones(index)}
-              </div>
-            )
-          )}
-        </div>
-        <div>
-          {myTeamZones.slice(0, 3).map((player, index) =>
-            player ? (
-              <div className="smallBox" key={player.id}>
-                <IconOfPlayer player={player} setPlayerInfo={setPlayerInfo} />
-              </div>
-            ) : (
-              <div className="smallBox" key={"x" + index}></div>
-            )
-          )}
-        </div>
-        <div style={{ marginBottom: 9 }}>
-          {zones.slice(3, 6).map((player, index) =>
-            player ? (
-              <div className="container" key={player.id}>
-                <IconOfPlayer
-                  player={player}
-                  setPlayerInfo={setPlayerInfo}
-                  zones={zones}
-                />
-              </div>
-            ) : (
-              <div className="container" key={"_" + index}>
-                {correctNamesOfZones(index + 3)}
-              </div>
-            )
-          )}
-        </div>
-        <div>
-          {myTeamZones.slice(3, 6).map((player, index) =>
-            player ? (
-              <div className="smallBox" key={player.id}>
-                <IconOfPlayer player={player} setPlayerInfo={setPlayerInfo} />
-              </div>
-            ) : (
-              <div className="smallBox" key={"x" + index}></div>
-            )
-          )}
-        </div>
-        <div className="plusMinus" style={{ marginTop: 20 }}>
-          <button onClick={moveRotationForward}>🡄</button>
-          {myTeamZones.map((player, index) =>
-            player && player.position === "Setter" ? (
-              <span
-                key={player.id}
-                style={{ marginLeft: 50, marginRight: 50, fontSize: 35 }}
-              >
-                {correctNamesOfZones(index)}
-              </span>
-            ) : null
-          )}
-          <button onClick={moveRotationBack}>🡆</button>
-        </div>
-      </div>
-      {myTeamPlayers.length > 2 ? (
-        <Squads
-          setPlayerInfo={setPlayerInfo}
-          setPlayerToZone={setPlayerToMyTeamZone}
-          removeOption={removeMyTeamOption}
-          indexOfZones={sequanceOfZones}
-          clubs={myClub}
-          players={myTeamPlayers}
-          sequanceOfZones={sequanceOfZones}
-          correctNamesOfZones={correctNamesOfZones}
-          rtl={{ direction: "rtl" }}
-          fuchsia={{
-            backgroundColor: "fuchsia",
-            borderTopRightRadius: 20,
-            borderBottomRightRadius: 20,
-            borderTopLeftRadius: 0,
-            borderBottomLeftRadius: 0,
-          }}
-          darkgray={{
-            backgroundColor: "darkgray",
-            borderTopLeftRadius: 20,
-            borderBottomLeftRadius: 20,
-            borderTopRightRadius: 0,
-            borderBottomRightRadius: 0,
-          }}
-        />
-      ) : (
-        <div className="teamsquad">
-          <select className="chooseHomeTeam">
-            <option value="Choose home team">Choose home team</option>
-            {listOfTeams.map((team) => (
-              <option key={team.id} onClick={() => handleSetMyTeam(team.name)}>
-                {team.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-    </>
-  );
-}
+import { FirstPage } from "./components/FirstPage";
+import { MainLabel } from "./components/MainLabel";
 
 export default function Page1() {
   const dispatch = useDispatch();
-  const listOfTeams = useSelector((state) => state.listOfTeams.listOfTeams);
-  const listOfPlayers = useSelector(
-    (state) => state.listOfPlayers.listOfPlayers
-  );
+  const listOfTeams = useSelector((state) => state.listOfTeams);
+  const listOfPlayers = useSelector((state) => state.listOfPlayers);
   const [players, setplayers] = useState([]); // Гравці обраної команди суперника
   const [clubs, setClubs] = useState([]); // Обрана команда суперника
   const [myTeamPlayers, setMyTeamPlayers] = useState([]); // Гравці моєї обраної команди
@@ -335,22 +30,9 @@ export default function Page1() {
     dispatch(fetchTeams());
   }, [dispatch]);
   function correctNamesOfZones(index) {
-    //Костиль для правильного відображення зон
-    return index === 5
-      ? "P1"
-      : index === 2
-      ? "P2"
-      : index === 1
-      ? "P3"
-      : index === 0
-      ? "P4"
-      : index === 3
-      ? "P5"
-      : index === 4
-      ? "P6"
-      : index;
+    const zones = ["P4", "P3", "P2", "P5", "P6", "P1"];
+    return zones[index];
   }
-
   function resetTheBoard() {
     //Кнопка збросу
     setplayers([]);
@@ -364,36 +46,16 @@ export default function Page1() {
     setPlayerInfo(null);
   }
   function moveRotationForward() {
-    // Провернути вперед розстановку
-    const newArr = [...myTeamZones];
-    let part432 = newArr.slice(0, 3);
-    let part165 = newArr.slice(3, 6);
-    let newRot = [
-      part165[0],
-      part432[0],
-      part432[1],
-      part165[1],
-      part165[2],
-      part432[2],
-    ];
+    const Zone = [...myTeamZones];
+    const newRot = [Zone[3], Zone[0], Zone[1], Zone[4], Zone[5], Zone[2]];
     setMyTeamZones(newRot);
   }
   function moveRotationBack() {
-    // Провернути назад розстановку
-    const newArr = [...myTeamZones];
-    let part432 = newArr.slice(0, 3);
-    let part165 = newArr.slice(3, 6);
-    let newRot = [
-      part432[1],
-      part432[2],
-      part165[2],
-      part432[0],
-      part165[0],
-      part165[1],
-    ];
+    const Zone = [...myTeamZones];
+    let newRot = [Zone[1], Zone[2], Zone[5], Zone[0], Zone[3], Zone[4]];
     setMyTeamZones(newRot);
   }
-  function removeOption(index) {
+  function removeRivalOption(index) {
     // Видаляю з селекту зону у суперника
     const newIndexOfZones = indexOfZones.filter((zone) => zone !== index);
     setIndexOfZones(newIndexOfZones);
@@ -424,7 +86,7 @@ export default function Page1() {
     setMyTeamPlayers(newTeam);
   }
   function setPlayerToZone(player, index) {
-    //Відправляю гравців до стартової шістки супеника
+    //Відправляю гравців до стартової шістки суперника
     const newZones = [...zones];
     newZones[index] = player;
     setZones(newZones);
@@ -459,7 +121,7 @@ export default function Page1() {
           setPlayerToZone={setPlayerToZone}
           setPlayerToMyTeamZone={setPlayerToMyTeamZone}
           setPlayerInfo={setPlayerInfo}
-          removeOption={removeOption}
+          removeRivalOption={removeRivalOption}
           removeMyTeamOption={removeMyTeamOption}
           moveRotationForward={moveRotationForward}
           moveRotationBack={moveRotationBack}
@@ -467,7 +129,7 @@ export default function Page1() {
         />
       </div>
       <div className="showDistribution">
-        <NavLink to={"/distribution"}>Distribution</NavLink>
+        <NavLink to={"/Distribution"}>Distribution</NavLink>
       </div>
       <Outlet />
     </>

@@ -8,21 +8,20 @@ export function fetchPlayers() {
       .then((json) => dispatch(setAllPlayers(json)));
   };
 }
-export function setAllPlayers(listOfPlayers) {
+export function setAllPlayers(players) {
   return {
     type: "SET_ALL_PLAYERS",
-    payload: listOfPlayers,
+    payload: players,
   };
 }
-export function listOfPlayersReducer(state = defaultState, action) {
+export function listOfPlayersReducer(
+  state = defaultState.listOfPlayers,
+  action
+) {
   switch (action.type) {
     case "SET_ALL_PLAYERS":
-      return {
-        ...state,
-        listOfPlayers: [...action.payload],
-      };
+      return action.payload;
     default:
       return state;
   }
 }
-  
