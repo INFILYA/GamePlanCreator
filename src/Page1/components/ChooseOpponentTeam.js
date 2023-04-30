@@ -10,7 +10,7 @@ export function ChooseOpponentTeam({
       <div className="opponentTeamList">
         {teams.map((team) => (
           <button
-            onClick={() => handleSetOpponentTeam(team.name)}
+            onClick={() => handleSetOpponentTeam(team)}
             className="opponentTeams"
             key={team.id}
           >

@@ -11,37 +11,50 @@ import { fetchTeams } from "../states/reducers/listOfTeamsReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { FirstPage } from "./components/FirstPage";
 import { MainLabel } from "./components/MainLabel";
+import {
+  pushFromRivalBoard,
+  setRivalPlayers,
+} from "../states/reducers/rivalPlayersReducer";
+import { setRivalTeam } from "../states/reducers/rivalClubReducer";
+import { setMyTeam } from "../states/reducers/myClubReducer";
+import {
+  pushFromMyBoard,
+  setMyTeamPlayers,
+} from "../states/reducers/myTeamPlayersReducer";
+import {
+  clearRivalZones,
+  setRivalZones,
+} from "../states/reducers/zonesReducer";
+import { setIndexOfZones } from "../states/reducers/indexOfZonesReducer";
 
 export default function Page1() {
   const dispatch = useDispatch();
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
-  const [players, setplayers] = useState([]); // Гравці обраної команди суперника
-  const [clubs, setClubs] = useState([]); // Обрана команда суперника
-  const [myTeamPlayers, setMyTeamPlayers] = useState([]); // Гравці моєї обраної команди
-  const [myClub, setMyClub] = useState([]); // Обрана моя команда
-  const [zones, setZones] = useState(Array(6).fill(null)); // Стартова шістка суперника
+  const rivalPlayers = useSelector((state) => state.rivalPlayers);
+  const rivalClub = useSelector((state) => state.rivalClub);
+  const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
+  const myClub = useSelector((state) => state.myClub);
+  const zones = useSelector((state) => state.zones);
+  const indexOfZones = useSelector((state) => state.indexOfZones);
+  // const [indexOfZones, setIndexOfZones] = useState([5, 2, 1, 0, 3, 4]); // Select для суперника
+
   const [myTeamZones, setMyTeamZones] = useState(Array(6).fill(null)); // СТартова шістка моя
   const [playerInfo, setPlayerInfo] = useState(null); // Информация про гравця
-  const [indexOfZones, setIndexOfZones] = useState([5, 2, 1, 0, 3, 4]); // Select для суперника
   const [sequanceOfZones, setSequanceOfZones] = useState([5, 2, 1, 0, 3, 4]); // Select для моєї команди
   useEffect(() => {
     dispatch(fetchPlayers());
     dispatch(fetchTeams());
   }, [dispatch]);
-  function correctNamesOfZones(index) {
-    const zones = ["P4", "P3", "P2", "P5", "P6", "P1"];
-    return zones[index];
-  }
   function resetTheBoard() {
-    //Кнопка збросу
-    setplayers([]);
-    setMyTeamPlayers([]);
-    setClubs([]);
-    setMyClub([]);
-    setZones(Array(6).fill(null));
+    dispatch(setRivalPlayers([]));
+    dispatch(setRivalTeam([]));
+    dispatch(setMyTeamPlayers([]));
+    dispatch(setMyTeam([]));
+    dispatch(clearRivalZones(Array(6).fill(null)));
+
     setMyTeamZones(Array(6).fill(null));
-    setIndexOfZones([5, 2, 1, 0, 3, 4]);
+    // setIndexOfZones([5, 2, 1, 0, 3, 4]);
     setSequanceOfZones([5, 2, 1, 0, 3, 4]);
     setPlayerInfo(null);
   }
@@ -55,42 +68,33 @@ export default function Page1() {
     let newRot = [Zone[1], Zone[2], Zone[5], Zone[0], Zone[3], Zone[4]];
     setMyTeamZones(newRot);
   }
-  function removeRivalOption(index) {
-    // Видаляю з селекту зону у суперника
-    const newIndexOfZones = indexOfZones.filter((zone) => zone !== index);
-    setIndexOfZones(newIndexOfZones);
+  function handleSetOpponentTeam(club) {
+    dispatch(setRivalPlayers(listOfPlayers, club));
+    dispatch(setRivalTeam(listOfTeams, club));
   }
+  function handleSetMyTeam(club) {
+    dispatch(setMyTeamPlayers(listOfPlayers, club));
+    dispatch(setMyTeam(listOfTeams, club));
+  }
+  function pushFromBoard(player) {
+    dispatch(pushFromRivalBoard(player));
+  }
+  function pushFromMyTeamBoard(player) {
+    dispatch(pushFromMyBoard(player));
+  }
+  function setRivalPlayerToZone(player, zone) {
+    dispatch(setRivalZones(player, zone));
+    pushFromBoard(player);
+  }
+  function removeRivalSelectOption(zone) {
+    dispatch(setIndexOfZones(zone));
+  }
+
+  //HERE
   function removeMyTeamOption(index) {
     // Видаляю з селекту зону у моєї команди
     const newIndexOfZones = sequanceOfZones.filter((zone) => zone !== index);
     setSequanceOfZones(newIndexOfZones);
-  }
-  function handleSetMyTeam(ID) {
-    // Обираю команду суперника
-    setMyTeamPlayers(listOfPlayers.filter((player) => player.teamid === ID));
-    setMyClub(listOfTeams.filter((team) => team.name === ID));
-  }
-  function handleSetOpponentTeam(ID) {
-    // Обираю свою команду
-    setplayers(listOfPlayers.filter((player) => player.teamid === ID));
-    setClubs(listOfTeams.filter((team) => team.name === ID));
-  }
-  function pushFromBoard(player) {
-    // Прибираю з списку гравців суперника після додавання до стартової шістки
-    const newTeam = players.filter((players) => players.id !== player.id);
-    setplayers(newTeam);
-  }
-  function pushFromMyTeamBoard(player) {
-    // Прибираю з списку гравців моєї команди після додавання до стартової шістки
-    const newTeam = myTeamPlayers.filter((players) => players.id !== player.id);
-    setMyTeamPlayers(newTeam);
-  }
-  function setPlayerToZone(player, index) {
-    //Відправляю гравців до стартової шістки суперника
-    const newZones = [...zones];
-    newZones[index] = player;
-    setZones(newZones);
-    pushFromBoard(player);
   }
   function setPlayerToMyTeamZone(player, index) {
     //Відправляю гравців до стартової шістки моєї команди
@@ -99,16 +103,20 @@ export default function Page1() {
     setMyTeamZones(newZones);
     pushFromMyTeamBoard(player);
   }
+  function correctNamesOfZones(index) {
+    const zones = ["P4", "P3", "P2", "P5", "P6", "P1"];
+    return zones[index];
+  }
   return (
     <>
-      <MainLabel clubs={clubs} myClub={myClub} />
+      <MainLabel clubs={rivalClub} myClub={myClub} />
       <div style={{ display: "flex" }}>
         <FirstPage
           listOfTeams={listOfTeams}
           listOfPlayers={listOfPlayers}
-          players={players}
+          players={rivalPlayers}
+          clubs={rivalClub}
           myTeamPlayers={myTeamPlayers}
-          clubs={clubs}
           myClub={myClub}
           zones={zones}
           myTeamZones={myTeamZones}
@@ -118,10 +126,10 @@ export default function Page1() {
           handleSetMyTeam={handleSetMyTeam}
           handleSetOpponentTeam={handleSetOpponentTeam}
           resetTheBoard={resetTheBoard}
-          setPlayerToZone={setPlayerToZone}
+          setRivalPlayerToZone={setRivalPlayerToZone}
           setPlayerToMyTeamZone={setPlayerToMyTeamZone}
           setPlayerInfo={setPlayerInfo}
-          removeRivalOption={removeRivalOption}
+          removeRivalSelectOption={removeRivalSelectOption}
           removeMyTeamOption={removeMyTeamOption}
           moveRotationForward={moveRotationForward}
           moveRotationBack={moveRotationBack}

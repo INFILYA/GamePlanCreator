@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Distribution from "./Page2/Distribution";
+import Distribution from "./Distribution/Distribution";
 import Service from "./ServicePage/Service";
 import Attacks from "./AttackPage/Attack";
 import Page1 from "./Page1/Page1";

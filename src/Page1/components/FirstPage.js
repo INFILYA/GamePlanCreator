@@ -6,12 +6,12 @@ import { Squads } from "./Squads";
 export function FirstPage({
   zones,
   myTeamZones,
-  setPlayerToZone,
+  setRivalPlayerToZone,
   setPlayerToMyTeamZone,
   handleSetOpponentTeam,
   handleSetMyTeam,
   indexOfZones,
-  removeRivalOption,
+  removeRivalSelectOption,
   playerInfo,
   setPlayerInfo,
   clubs,
@@ -30,9 +30,9 @@ export function FirstPage({
   return (
     <>
       <Squads
-        setPlayerToZone={setPlayerToZone}
+        setRivalPlayerToZone={setRivalPlayerToZone}
         indexOfZones={indexOfZones}
-        removeRivalOption={removeRivalOption}
+        removeRivalSelectOption={removeRivalSelectOption}
         setPlayerInfo={setPlayerInfo}
         clubs={clubs}
         players={players}
@@ -130,8 +130,8 @@ export function FirstPage({
       {myTeamPlayers.length > 2 ? (
         <Squads
           setPlayerInfo={setPlayerInfo}
-          setPlayerToZone={setPlayerToMyTeamZone}
-          removeRivalOption={removeMyTeamOption}
+          setRivalPlayerToZone={setPlayerToMyTeamZone}
+          removeRivalSelectOption={removeMyTeamOption}
           indexOfZones={sequanceOfZones}
           clubs={myClub}
           players={myTeamPlayers}
@@ -158,7 +158,7 @@ export function FirstPage({
           <select className="chooseHomeTeam">
             <option value="Choose home team">Choose home team</option>
             {listOfTeams.map((team) => (
-              <option key={team.id} onClick={() => handleSetMyTeam(team.name)}>
+              <option key={team.id} onClick={() => handleSetMyTeam(team)}>
                 {team.name}
               </option>
             ))}
