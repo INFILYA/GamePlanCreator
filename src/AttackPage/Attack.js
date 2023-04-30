@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RegularLabel from "../Labels/RegularLabel";
+import { RegularLabel } from "../Labels/RegularLabel";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { useSelector } from "react-redux";

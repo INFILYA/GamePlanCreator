@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RegularLabel from "../Labels/RegularLabel";
+import { RegularLabel } from "../Labels/RegularLabel";
 import { NavLink } from "react-router-dom";
 import { DistrField } from "./components/DistrField";
 

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-function RegularLabel({ value }) {
+export function RegularLabel({ value }) {
   const targetElement = useRef();
   function useSlideUp() {
     targetElement.current.scrollIntoView(false);
@@ -19,4 +19,3 @@ function RegularLabel({ value }) {
     </label>
   );
 }
-export default RegularLabel;

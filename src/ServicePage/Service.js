@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import RegularLabel from "../Labels/RegularLabel";
+import { RegularLabel } from "../Labels/RegularLabel";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { useSelector } from "react-redux";
 import { ServiceFields } from "./components/ServiceFields";
