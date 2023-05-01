@@ -10,14 +10,12 @@ import {
 import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
 import { setMyTeam } from "../../states/reducers/myClubReducer";
 import { MainLabel } from "./MainLabel";
-import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
 
 export function FirstPage() {
   const dispatch = useDispatch();
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   const playerInfo = useSelector((state) => state.playerInfo);
-  const rivalPlayers = useSelector((state) => state.rivalPlayers);
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
   const zones = useSelector((state) => state.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones);
@@ -26,15 +24,11 @@ export function FirstPage() {
     dispatch(setMyTeamPlayers(listOfPlayers, club));
     dispatch(setMyTeam(listOfTeams, club));
   }
-  //
   function moveRotationForward() {
     dispatch(rotateForwardMyTeam());
   }
   function moveRotationBack() {
     dispatch(rotateBackMyTeam());
-  }
-  function setPlayerInfo(player) {
-    dispatch(setInfoOfPlayer(player));
   }
   function correctNamesOfZones(index) {
     const zones = ["P4", "P3", "P2", "P5", "P6", "P1"];
@@ -47,18 +41,9 @@ export function FirstPage() {
         <Squads team={"rival"} />
         <div className="rotation">
           <div style={{ display: "flex", justifyContent: "center" }}>
-            {playerInfo && (
-              <PersonalInformationOfPlayer
-                player={playerInfo}
-                onClick={() => setPlayerInfo(null)}
-              />
-            )}
+            {playerInfo && <PersonalInformationOfPlayer />}
           </div>
-          <ChooseOpponentTeam
-            teams={listOfTeams}
-            players={rivalPlayers}
-            myTeamPlayers={myTeamPlayers}
-          />
+          <ChooseOpponentTeam />
           <div style={{ marginBottom: 8 }}>
             {zones.slice(0, 3).map((player, index) =>
               player ? (

@@ -43,18 +43,17 @@ export function DistrField() {
     for (let key in zoneValue) {
       final.push(+zoneValue[key]);
     }
-    const new2 = final.reduce((a, b) => a + b, 0);
-    const result = final.map((obj) => Math.round((obj / new2) * 100));
-    const newObj = {
-      ...zoneValue,
-      1: result[0] + "%",
-      2: result[1] + "%",
-      3: result[2] + "%",
-      4: result[3] + "%",
-      5: result[4] + "%",
+    const total = final.reduce((a, b) => a + b, 0);
+    const res = final.map((obj) => Math.round((obj / total) * 100));
+    const countedResult = {
+      1: res[0] + "%",
+      2: res[1] + "%",
+      3: res[2] + "%",
+      4: res[3] + "%",
+      5: res[4] + "%",
     };
-    setZoneValue(newObj);
-    setDistributionArr(result);
+    setZoneValue(countedResult);
+    setDistributionArr(res);
     setShowButtonCount(!showButtonCount);
   }
   return (

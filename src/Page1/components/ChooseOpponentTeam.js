@@ -8,9 +8,11 @@ import { clearMyTeamZones } from "../../states/reducers/myTeamZonesReducer";
 import { setBackRightRivalSelects } from "../../states/reducers/indexOfZonesReducer";
 import { setBackRightMyTeamSelects } from "../../states/reducers/sequanceOfZonesReducer";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
+import { useState } from "react";
 
-export function ChooseOpponentTeam({ teams, players, myTeamPlayers }) {
+export function ChooseOpponentTeam() {
   const dispatch = useDispatch();
+  const [showReset, setShowReset] = useState(false);
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   function handleSetOpponentTeam(club) {
@@ -27,24 +29,25 @@ export function ChooseOpponentTeam({ teams, players, myTeamPlayers }) {
     dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setBackRightMyTeamSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setInfoOfPlayer(null));
+    setShowReset(false);
   }
   return (
     <>
       <div className="opponentTeamList">
-        {teams.map((team) => (
+        {listOfTeams.map((team) => (
           <button
-            onClick={() => handleSetOpponentTeam(team)}
+            onClick={() => handleSetOpponentTeam(team) || setShowReset(true)}
             className="opponentTeams"
             key={team.id}
           >
             {team.name}
           </button>
         ))}
-        {players.length > 2 || myTeamPlayers.length > 2 ? (
+        {showReset && (
           <button onClick={resetTheBoard} className="reset">
             Reset
           </button>
-        ) : null}
+        )}
       </div>
     </>
   );

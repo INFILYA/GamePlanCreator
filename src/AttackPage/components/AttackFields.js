@@ -5,8 +5,10 @@ import { BallForAttack } from "./BallForAttack";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
 import { DefenderZone6 } from "./DefenderZone6";
+import { useSelector } from "react-redux";
 
-export function AttackFields({ playerInfo }) {
+export function AttackFields() {
+  const playerInfo = useSelector((state) => state.playerInfo);
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "attackZone1", active: false },
     { zone: "attackZone2", active: false },

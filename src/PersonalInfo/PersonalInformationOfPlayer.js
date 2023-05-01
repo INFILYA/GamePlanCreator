@@ -1,10 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
 import { RowsForLegendAndDiagramm } from "./components/RowsForLegend&Diagramm";
-export function PersonalInformationOfPlayer({ player, onClick, link }) {
-  const infosOfPlayer = [];
+import { useDispatch, useSelector } from "react-redux";
+import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
+export function PersonalInformationOfPlayer({ link }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const player = useSelector((state) => state.playerInfo);
+  function setPlayerInfo(player) {
+    dispatch(setInfoOfPlayer(player));
+  }
+  function goHome() {
+    navigate("/");
+    setPlayerInfo(null);
+  }
+  const infosOfPlayers = [];
   for (let key in player) {
-    infosOfPlayer.push([key, player[key]]);
+    infosOfPlayers.push([key, player[key]]);
   }
   const backGrounds = [
     ["lightgreen", "Win points", "Aces"],
@@ -12,27 +24,27 @@ export function PersonalInformationOfPlayer({ player, onClick, link }) {
     ["orange", "Attacks in block", "Rec on + and #"],
     ["orangered", "Loose points", "Failed Services"],
   ];
-  let totalAtt = [
-    player.winPoints,
-    player.leftInGame,
-    player.attacksInBlock,
-    player.loosePoints,
-  ];
-  let totalService = [
-    player.aces,
-    player.servicePlus,
-    player.serviceMinus,
-    player.serviceFailed,
-  ];
-  // console.log(`info => ${totalService}`);
+
   function rightPercentageForDiagramm(index) {
     if (link === "Attack") {
+      let totalAtt = [
+        player.winPoints,
+        player.leftInGame,
+        player.attacksInBlock,
+        player.loosePoints,
+      ];
       const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0.001);
       const percentOfActions = totalAtt.map((att) =>
         Math.round((att / sumOfTotalAtt) * 100)
       );
       return percentOfActions[index];
     } else if (link === "Service") {
+      let totalService = [
+        player.aces,
+        player.servicePlus,
+        player.serviceMinus,
+        player.serviceFailed,
+      ];
       const sumOfTotalService = totalService.reduce((a, b) => a + b, 0.001);
       const percentOfActions = totalService.map((service) =>
         Math.round((service / sumOfTotalService) * 100)
@@ -48,14 +60,14 @@ export function PersonalInformationOfPlayer({ player, onClick, link }) {
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="info">
-            {infosOfPlayer.slice(1, 4).map((info, index) => (
+            {infosOfPlayers.slice(1, 4).map((info, index) => (
               <RowsForPersonalInfo
                 name={info[0]}
                 value={info[1]}
                 key={index + 1}
               />
             ))}
-            {infosOfPlayer.slice(5, 9).map((info, index) => (
+            {infosOfPlayers.slice(5, 9).map((info, index) => (
               <RowsForPersonalInfo
                 name={info[0]}
                 value={info[1]}
@@ -63,7 +75,7 @@ export function PersonalInformationOfPlayer({ player, onClick, link }) {
               />
             ))}
             {link === "Service" &&
-              infosOfPlayer
+              infosOfPlayers
                 .slice(18, 21)
                 .map((info, index) => (
                   <RowsForPersonalInfo
@@ -73,7 +85,7 @@ export function PersonalInformationOfPlayer({ player, onClick, link }) {
                   />
                 ))}
             {link === "Attack" &&
-              infosOfPlayer
+              infosOfPlayers
                 .slice(11, 14)
                 .map((info, index) => (
                   <RowsForPersonalInfo
@@ -96,7 +108,7 @@ export function PersonalInformationOfPlayer({ player, onClick, link }) {
                   </NavLink>
                 </>
               )}
-              <button onClick={onClick}>Cancel</button>
+              <button onClick={() => goHome()}>Cancel</button>
             </div>
           </div>
           <img src={player.photo} alt="" className="photoPlayer" />

@@ -51,7 +51,7 @@ export function Squads({ team }) {
           <div
             className="teamLogo"
             key={club.id}
-            style={team === "my" ? { direction: "rtl" } : { direction: "" }}
+            style={team === "my" ? { direction: "rtl" } : {}}
           >
             <input className="teamlabel" readOnly value={club.name} />
             <img className="photoLogo" src={club.logo} alt="" />
@@ -61,7 +61,7 @@ export function Squads({ team }) {
           <div
             key={player.id}
             className="playerSurname"
-            style={team === "my" ? { direction: "rtl" } : { direction: "" }}
+            style={team === "my" ? { direction: "rtl" } : {}}
           >
             <div
               className="numberPlusInput"
@@ -80,7 +80,7 @@ export function Squads({ team }) {
                         borderTopLeftRadius: 0,
                         borderBottomLeftRadius: 0,
                       }
-                    : { backgroundColor: "" }
+                    : {}
                 }
               >
                 {player.number}
@@ -97,7 +97,7 @@ export function Squads({ team }) {
                         borderTopRightRadius: 0,
                         borderBottomRightRadius: 0,
                       }
-                    : { backgroundColor: "" }
+                    : {}
                 }
               >
                 {player.name}
