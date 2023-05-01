@@ -130,10 +130,10 @@
       "serviceZone1": [0, 0, 0],
       "serviceZone6": [0, 0, 0],
       "serviceZone5": [0, 0, 0],
-      "aces": 11,
-      "servicePlus": 20,
-      "serviceMinus": 5,
-      "serviceFailed": 10
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0
     },
     {
       "name": "Янчук",
