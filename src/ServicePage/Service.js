@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RegularLabel } from "../Labels/RegularLabel";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { ServiceFields } from "./components/ServiceFields";
-import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+import { fetchPlayerInformation } from "../Datas/api";
 
 function Service() {
   const [history, sethistory] = useState([0]);
-  const playerInfo = useSelector((state) => state.playerInfo);
+  const [playerInformation, setPlayerInformation] = useState(null);
+  const [searchParams] = useSearchParams();
+  const playerId = searchParams.get("playerId");
+  useEffect(() => {
+    fetchPlayerInformation(playerId)
+      .then((json) => {
+        setPlayerInformation(json);
+      })
+      .catch((error) => alert(error + ", Data not downloaded"));
+  }, [playerId]);
   function reset() {
     const newHistory = [...history];
     newHistory.splice(history.length - 1, 1);
@@ -15,15 +25,24 @@ function Service() {
   function addField() {
     sethistory([...history, history.length]);
   }
-  return (
+  return playerInformation !== null ? (
     <>
       <RegularLabel value={"Service"} />
-      <div
-        style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}
-      >
-        <PersonalInformationOfPlayer link={"Service"} />
-      </div>
-      {playerInfo.position !== "Libero" && (
+      {playerInformation.position !== "Libero" && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: 20,
+          }}
+        >
+          <PersonalInformationOfPlayer
+            link={"Service"}
+            player={playerInformation}
+          />
+        </div>
+      )}
+      {playerInformation.position !== "Libero" && (
         <div className="servicePage">
           <div className="atackFileds">
             {history.map((field) =>
@@ -55,7 +74,7 @@ function Service() {
         </div>
       )}
     </>
-  );
+  ) : null;
 }
 
 export default Service;

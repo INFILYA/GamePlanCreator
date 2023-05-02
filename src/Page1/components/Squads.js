@@ -1,20 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
 import { pushFromMyBoard } from "../../states/reducers/myTeamPlayersReducer";
-import { setMyTeamZones } from "../../states/reducers/myTeamZonesReducer";
 import { pushFromRivalBoard } from "../../states/reducers/rivalPlayersReducer";
+import { setMyTeamZones } from "../../states/reducers/myTeamZonesReducer";
 import { setRivalZones } from "../../states/reducers/zonesReducer";
 import { setIndexOfZones } from "../../states/reducers/indexOfZonesReducer";
 import { setSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
 
 export function Squads({ team }) {
   const dispatch = useDispatch();
-  const indexOfZones = useSelector((state) => state.indexOfZones);
-  const sequanceOfZones = useSelector((state) => state.sequanceOfZones);
   const rivalClub = useSelector((state) => state.rivalClub);
   const myClub = useSelector((state) => state.myClub);
   const rivalPlayers = useSelector((state) => state.rivalPlayers);
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
+  const indexOfZones = useSelector((state) => state.indexOfZones);
+  const sequanceOfZones = useSelector((state) => state.sequanceOfZones);
+
+  const club = team === "my" ? myClub : rivalClub;
+  const players = team === "my" ? myTeamPlayers : rivalPlayers;
+  const zoness = team === "my" ? sequanceOfZones : indexOfZones;
 
   function pushFromMyTeamBoard(player) {
     dispatch(pushFromMyBoard(player));
@@ -47,7 +51,7 @@ export function Squads({ team }) {
   return (
     <>
       <div className="teamsquad">
-        {(team === "rival" ? rivalClub : myClub).map((club) => (
+        {club.map((club) => (
           <div
             className="teamLogo"
             key={club.id}
@@ -57,7 +61,7 @@ export function Squads({ team }) {
             <img className="photoLogo" src={club.logo} alt="" />
           </div>
         ))}
-        {(team === "rival" ? rivalPlayers : myTeamPlayers).map((player) => (
+        {players.map((player) => (
           <div
             key={player.id}
             className="playerSurname"
@@ -103,31 +107,30 @@ export function Squads({ team }) {
                 {player.name}
               </button>
             </div>
-            {(team === "rival" ? indexOfZones : sequanceOfZones) && (
+            {zoness && (
               <select className="moveToBoard" type="text">
-                {team === "rival" ? (
-                  <option defaultValue="▶">▶</option>
-                ) : (
+                {team === "my" ? (
                   <option defaultValue="◀">◀</option>
+                ) : (
+                  <option defaultValue="▶">▶</option>
                 )}
-                {(team === "rival" ? indexOfZones : sequanceOfZones).map(
-                  (zone, index) => (
-                    <option
-                      key={index}
-                      value={`index[${[zone]}]`}
-                      onClick={() =>
-                        (team === "rival"
-                          ? setRivalPlayerToZone(player, zone)
-                          : setPlayerToMyTeamZone(player, zone)) ||
-                        (team === "rival"
-                          ? removeRivalSelectOption(zone)
-                          : removeMyTeamSelectOption(zone))
-                      }
-                    >
-                      {correctNamesOfZones(zone)}
-                    </option>
-                  )
-                )}
+                {zoness.map((zone, index) => (
+                  <option
+                    key={index}
+                    value={`index[${[zone]}]`}
+                    onClick={
+                      team === "my"
+                        ? () =>
+                            setPlayerToMyTeamZone(player, zone) ||
+                            removeMyTeamSelectOption(zone)
+                        : () =>
+                            setRivalPlayerToZone(player, zone) ||
+                            removeRivalSelectOption(zone)
+                    }
+                  >
+                    {correctNamesOfZones(zone)}
+                  </option>
+                ))}
               </select>
             )}
           </div>

@@ -15,16 +15,12 @@ export function clearRivalZones(clear) {
 export function zonesReducer(state = defaultState.zones, action) {
   switch (action.type) {
     case "SET_RIVAL_ZONES":
-      for (let i = 0; i < state.length; i++) {
-        if (i === action.payload.zone) {
-          state[i] = action.payload.player;
-        }
-      }
-      return state;
+      return state.map((player, index) =>
+        index === action.payload.zone ? action.payload.player : player
+      );
     case "CLEAR_RIVAL_ZONES":
       return action.payload;
     default:
       return state;
   }
 }
-

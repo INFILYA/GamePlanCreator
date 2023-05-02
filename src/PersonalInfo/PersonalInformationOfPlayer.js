@@ -1,17 +1,16 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
 import { RowsForLegendAndDiagramm } from "./components/RowsForLegend&Diagramm";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
-export function PersonalInformationOfPlayer({ link }) {
+export function PersonalInformationOfPlayer({ link, player }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const player = useSelector((state) => state.playerInfo);
   function setPlayerInfo(player) {
     dispatch(setInfoOfPlayer(player));
   }
   function goHome() {
-    navigate("/");
+    (link === "Service" || link === "Attack") && navigate("/");
     setPlayerInfo(null);
   }
   const infosOfPlayers = [];

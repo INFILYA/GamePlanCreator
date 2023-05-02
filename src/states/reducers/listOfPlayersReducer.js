@@ -1,12 +1,12 @@
 import { defaultState } from "../defaultStates";
+import { fetchPlayers as fetchPlayersApiCall } from "../../Datas/api";
 
 export function fetchPlayers() {
   return function (dispatch) {
-    fetch("http://localhost:3000/players")
-      .then((res) => res.json())
-      .then((json) => dispatch(setAllPlayers(json)));
+    fetchPlayersApiCall().then((json) => dispatch(setAllPlayers(json)));
   };
 }
+
 export function setAllPlayers(listOfPlayers) {
   return {
     type: "SET_ALL_PLAYERS",

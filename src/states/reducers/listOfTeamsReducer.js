@@ -1,10 +1,9 @@
 import { defaultState } from "../defaultStates";
+import { fetchClubs as fetchTeamsApiCall } from "../../Datas/api";
 
 export function fetchTeams() {
   return function (dispatch) {
-    fetch("http://localhost:3000/clubs")
-      .then((res) => res.json())
-      .then((json) => dispatch(setAllTeamss(json)));
+    fetchTeamsApiCall().then((json) => dispatch(setAllTeamss(json)));
   };
 }
 export function setAllTeamss(listOfTeams) {

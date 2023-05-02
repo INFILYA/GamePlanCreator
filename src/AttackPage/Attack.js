@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RegularLabel } from "../Labels/RegularLabel";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { AttackFields } from "./components/AttackFields";
-import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+import { fetchPlayerInformation } from "../Datas/api";
 
 function Attacks() {
   const [history, sethistory] = useState([0]);
-  const playerInfo = useSelector((state) => state.playerInfo);
+  const [playerInfo, setPlayerInfo] = useState(null);
+  const [searchParams] = useSearchParams();
+  const playerId = searchParams.get("playerId");
+  useEffect(() => {
+    fetchPlayerInformation(playerId)
+      .then((json) => {
+        setPlayerInfo(json);
+      })
+      .catch((error) => alert(error + ", Data not downloaded"));
+  }, [playerId]);
   function reset() {
     const newHistory = [...history];
     newHistory.splice(history.length - 1, 1);
@@ -15,12 +25,14 @@ function Attacks() {
   function addField() {
     sethistory([...history, history.length]);
   }
-  return (
+  return playerInfo !== null ? (
     <>
       <RegularLabel value={"Attack"} />
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <PersonalInformationOfPlayer link={"Attack"} />
-      </div>
+      {playerInfo.position !== "Setter" && playerInfo.position !== "Libero" && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <PersonalInformationOfPlayer link={"Attack"} player={playerInfo} />
+        </div>
+      )}
       {playerInfo.position !== "Setter" && playerInfo.position !== "Libero" && (
         <div className="atackFileds">
           {history.map((field) =>
@@ -43,6 +55,6 @@ function Attacks() {
         </div>
       )}
     </>
-  );
+  ) : null;
 }
 export default Attacks;

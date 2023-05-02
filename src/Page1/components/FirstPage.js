@@ -16,9 +16,9 @@ export function FirstPage() {
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   const playerInfo = useSelector((state) => state.playerInfo);
-  const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
   const zones = useSelector((state) => state.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones);
+  const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
 
   function handleSetMyTeam(club) {
     dispatch(setMyTeamPlayers(listOfPlayers, club));
@@ -38,10 +38,10 @@ export function FirstPage() {
     <>
       <MainLabel />
       <div style={{ display: "flex" }}>
-        <Squads team={"rival"} />
+        <Squads />
         <div className="rotation">
           <div style={{ display: "flex", justifyContent: "center" }}>
-            {playerInfo && <PersonalInformationOfPlayer />}
+            {playerInfo && <PersonalInformationOfPlayer player={playerInfo} />}
           </div>
           <ChooseOpponentTeam />
           <div style={{ marginBottom: 8 }}>

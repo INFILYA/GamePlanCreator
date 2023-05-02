@@ -46,6 +46,10 @@ export function AttackFields() {
     leftInGame: "",
     attacksInBlock: "",
     loosePoints: "",
+    aces: "",
+    servicePlus: "",
+    serviceMinus: "",
+    serviceFailed: "",
   });
   function handleDiagrammValue(event) {
     setDiagrammValue({
@@ -74,7 +78,10 @@ export function AttackFields() {
       const PlayerAttHistory = playerInfo[zoneOfAtt[0].zone];
       const res = totalAtt.map((att, index) => att + PlayerAttHistory[index]);
       playerInfo[zoneOfAtt[0].zone] = res;
+      totalAtt = res;
       savePlayer(playerInfo);
+      setDisableSwitch(!disableSwitch);
+      setSaveDataOfAttacks(!saveDataOfAttacks);
     }
     const new2 = totalAtt.reduce((a, b) => a + b, 0);
     const result = totalAtt.map((obj) => Math.round((obj / new2) * 100));
@@ -90,8 +97,6 @@ export function AttackFields() {
     setZoneValue(newObj);
     setAttackPercentageArray(result);
     setShowInputs(!showInputs);
-    setSaveDataOfAttacks(!saveDataOfAttacks);
-    setDisableSwitch(!disableSwitch);
   }
   return (
     <form className="playArea" onSubmit={onHandleCountClick}>
@@ -103,6 +108,7 @@ export function AttackFields() {
           <input
             type="text"
             className="countbutton"
+            disabled={true}
             defaultValue={
               historyOfBalls[0].active === true
                 ? "Zone 2"
@@ -154,7 +160,7 @@ export function AttackFields() {
         <div className="saveBox">
           <Switch
             onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)}
-            disabled={disableSwitch ? true : false}
+            disabled={disableSwitch}
           />
         </div>
         {saveDataOfAttacks && (

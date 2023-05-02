@@ -26,12 +26,9 @@ export function rotateBackMyTeam() {
 export function myTeamZonesReducer(state = defaultState.myTeamZones, action) {
   switch (action.type) {
     case "SET_MY_TEAM_ZONES":
-      for (let i = 0; i < state.length; i++) {
-        if (i === action.payload.zone) {
-          state[i] = action.payload.player;
-        }
-      }
-      return state;
+      return state.map((player, index) =>
+        index === action.payload.zone ? action.payload.player : player
+      );
     case "CLEAR_MY_TEAM_ZONES":
       return action.payload;
     case "ROTATE_FORWARD_MY_TEAM":
