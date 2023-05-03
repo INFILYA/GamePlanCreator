@@ -6,6 +6,7 @@ import { setMyTeamZones } from "../../states/reducers/myTeamZonesReducer";
 import { setRivalZones } from "../../states/reducers/zonesReducer";
 import { setIndexOfZones } from "../../states/reducers/indexOfZonesReducer";
 import { setSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
+import { setShowPersonalInfo } from "../../states/reducers/showPersonalInfoReducer";
 
 export function Squads({ team }) {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export function Squads({ team }) {
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
   const indexOfZones = useSelector((state) => state.indexOfZones);
   const sequanceOfZones = useSelector((state) => state.sequanceOfZones);
+  const showPersonalInfo = useSelector((state) => state.showPersonalInfo);
 
   const club = team === "my" ? myClub : rivalClub;
   const players = team === "my" ? myTeamPlayers : rivalPlayers;
@@ -42,6 +44,9 @@ export function Squads({ team }) {
   }
   function setPlayerInfo(player) {
     dispatch(setInfoOfPlayer(player));
+    showPersonalInfo
+      ? dispatch(setShowPersonalInfo(true))
+      : dispatch(setShowPersonalInfo(!showPersonalInfo));
   }
   function correctNamesOfZones(index) {
     const zones = ["P4", "P3", "P2", "P5", "P6", "P1"];
@@ -69,7 +74,9 @@ export function Squads({ team }) {
           >
             <div
               className="numberPlusInput"
-              onFocus={() => setPlayerInfo(player)}
+              onFocus={() =>
+                setPlayerInfo(player) || dispatch(setShowPersonalInfo(true))
+              }
             >
               <button
                 type="text"

@@ -1,22 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RegularLabel } from "../Labels/RegularLabel";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { ServiceFields } from "./components/ServiceFields";
-import { useSearchParams } from "react-router-dom";
-import { fetchPlayerInformation } from "../Datas/api";
+import { useSelector } from "react-redux";
 
 function Service() {
   const [history, sethistory] = useState([0]);
-  const [playerInformation, setPlayerInformation] = useState(null);
-  const [searchParams] = useSearchParams();
-  const playerId = searchParams.get("playerId");
-  useEffect(() => {
-    fetchPlayerInformation(playerId)
-      .then((json) => {
-        setPlayerInformation(json);
-      })
-      .catch((error) => alert(error + ", Data not downloaded"));
-  }, [playerId]);
+  const playerInfo = useSelector((state) => state.playerInfo);
+
   function reset() {
     const newHistory = [...history];
     newHistory.splice(history.length - 1, 1);
@@ -25,10 +16,10 @@ function Service() {
   function addField() {
     sethistory([...history, history.length]);
   }
-  return playerInformation !== null ? (
+  return playerInfo !== null ? (
     <>
       <RegularLabel value={"Service"} />
-      {playerInformation.position !== "Libero" && (
+      {playerInfo.position !== "Libero" && (
         <div
           style={{
             display: "flex",
@@ -36,13 +27,10 @@ function Service() {
             marginBottom: 20,
           }}
         >
-          <PersonalInformationOfPlayer
-            link={"Service"}
-            player={playerInformation}
-          />
+          <PersonalInformationOfPlayer link={"Service"} player={playerInfo} />
         </div>
       )}
-      {playerInformation.position !== "Libero" && (
+      {playerInfo.position !== "Libero" && (
         <div className="servicePage">
           <div className="atackFileds">
             {history.map((field) =>

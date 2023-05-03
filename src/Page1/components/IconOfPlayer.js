@@ -1,11 +1,16 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
+import { setShowPersonalInfo } from "../../states/reducers/showPersonalInfoReducer";
 
 export function IconOfPlayer({ player, zones }) {
   const dispatch = useDispatch();
+  const showPersonalInfo = useSelector((state) => state.showPersonalInfo);
 
   function setPlayerInfo(player) {
     dispatch(setInfoOfPlayer(player));
+    showPersonalInfo
+      ? dispatch(setShowPersonalInfo(true))
+      : dispatch(setShowPersonalInfo(!showPersonalInfo));
   }
   return (
     <>

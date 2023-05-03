@@ -13,6 +13,7 @@ import { MainLabel } from "./MainLabel";
 
 export function FirstPage() {
   const dispatch = useDispatch();
+  const showPersonalInfo = useSelector((state) => state.showPersonalInfo);
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   const playerInfo = useSelector((state) => state.playerInfo);
@@ -41,7 +42,9 @@ export function FirstPage() {
         <Squads />
         <div className="rotation">
           <div style={{ display: "flex", justifyContent: "center" }}>
-            {playerInfo && <PersonalInformationOfPlayer player={playerInfo} />}
+            {playerInfo && showPersonalInfo && (
+              <PersonalInformationOfPlayer player={playerInfo} link={"page1"} />
+            )}
           </div>
           <ChooseOpponentTeam />
           <div style={{ marginBottom: 8 }}>

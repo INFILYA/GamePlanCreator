@@ -10,4 +10,5 @@ export const defaultState = {
   myTeamZones: Array(6).fill(null),
   sequanceOfZones: [5, 2, 1, 0, 3, 4],
   playerInfo: null,
+  showPersonalInfo: true,
 };

@@ -1,22 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RegularLabel } from "../Labels/RegularLabel";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { AttackFields } from "./components/AttackFields";
-import { useSearchParams } from "react-router-dom";
-import { fetchPlayerInformation } from "../Datas/api";
+import { useSelector } from "react-redux";
 
 function Attacks() {
   const [history, sethistory] = useState([0]);
-  const [playerInfo, setPlayerInfo] = useState(null);
-  const [searchParams] = useSearchParams();
-  const playerId = searchParams.get("playerId");
-  useEffect(() => {
-    fetchPlayerInformation(playerId)
-      .then((json) => {
-        setPlayerInfo(json);
-      })
-      .catch((error) => alert(error + ", Data not downloaded"));
-  }, [playerId]);
+  const playerInfo = useSelector((state) => state.playerInfo);
+
   function reset() {
     const newHistory = [...history];
     newHistory.splice(history.length - 1, 1);

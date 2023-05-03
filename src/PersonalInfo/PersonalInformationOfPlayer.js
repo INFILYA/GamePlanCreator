@@ -2,16 +2,17 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
 import { RowsForLegendAndDiagramm } from "./components/RowsForLegend&Diagramm";
 import { useDispatch } from "react-redux";
-import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
+import { setShowPersonalInfo } from "../states/reducers/showPersonalInfoReducer";
 export function PersonalInformationOfPlayer({ link, player }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  function setPlayerInfo(player) {
-    dispatch(setInfoOfPlayer(player));
-  }
+
   function goHome() {
     (link === "Service" || link === "Attack") && navigate("/");
-    setPlayerInfo(null);
+    link === "page1" && dispatch(setShowPersonalInfo(false));
+  }
+  function showPerson() {
+    dispatch(setShowPersonalInfo(false));
   }
   const infosOfPlayers = [];
   for (let key in player) {
@@ -98,11 +99,17 @@ export function PersonalInformationOfPlayer({ link, player }) {
               {player.position !== "Libero" && (
                 <>
                   {player.position !== "Setter" && (
-                    <NavLink to={"/attack?playerId=" + player.id}>
+                    <NavLink
+                      to={"/attack?playerId=" + player.id}
+                      onClick={() => showPerson()}
+                    >
                       Attack
                     </NavLink>
                   )}
-                  <NavLink to={"/service?playerId=" + player.id}>
+                  <NavLink
+                    to={"/service?playerId=" + player.id}
+                    onClick={() => showPerson()}
+                  >
                     Service
                   </NavLink>
                 </>

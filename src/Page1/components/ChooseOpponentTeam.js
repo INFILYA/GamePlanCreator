@@ -31,6 +31,9 @@ export function ChooseOpponentTeam() {
     dispatch(setInfoOfPlayer(null));
     setShowReset(false);
   }
+  function showTeamName(team) {
+    return team.name.split("", 6).join("");
+  }
   return (
     <>
       <div className="opponentTeamList">
@@ -40,7 +43,7 @@ export function ChooseOpponentTeam() {
             className="opponentTeams"
             key={team.id}
           >
-            {team.name}
+            {showTeamName(team)}
           </button>
         ))}
         {showReset && (

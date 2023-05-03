@@ -1,9 +1,9 @@
-import "../cssData/firstPage.css";
-import "../cssData/labels.css";
-import "../cssData/distribution.css";
-import "../cssData/newAttack.css";
-import "../cssData/service.css";
-import "../cssData/diagramm.css";
+import "../css/firstPage.css";
+import "../css/labels.css";
+import "../css/distribution.css";
+import "../css/newAttack.css";
+import "../css/service.css";
+import "../css/diagramm.css";
 import { useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { fetchPlayers } from "../states/reducers/listOfPlayersReducer";
