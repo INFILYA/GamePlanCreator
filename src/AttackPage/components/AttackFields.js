@@ -5,9 +5,11 @@ import { BallForAttack } from "./BallForAttack";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
 import { DefenderZone6 } from "./DefenderZone6";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
 
 export function AttackFields() {
+  const dispatch = useDispatch();
   const playerInfo = useSelector((state) => state.playerInfo);
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "attackZone1", active: false },
@@ -46,10 +48,6 @@ export function AttackFields() {
     leftInGame: "",
     attacksInBlock: "",
     loosePoints: "",
-    aces: "",
-    servicePlus: "",
-    serviceMinus: "",
-    serviceFailed: "",
   });
   function handleDiagrammValue(event) {
     setDiagrammValue({
@@ -77,9 +75,12 @@ export function AttackFields() {
       const zoneOfAtt = historyOfBalls.filter((ball) => ball.active);
       const PlayerAttHistory = playerInfo[zoneOfAtt[0].zone];
       const res = totalAtt.map((att, index) => att + PlayerAttHistory[index]);
-      playerInfo[zoneOfAtt[0].zone] = res;
+      const newPlayerInfo = { ...playerInfo };
+      const nameOfZone = zoneOfAtt[0].zone;
       totalAtt = res;
-      savePlayer(playerInfo);
+      newPlayerInfo[nameOfZone] = totalAtt;
+      dispatch(setInfoOfPlayer(newPlayerInfo));
+      savePlayer(newPlayerInfo);
       setDisableSwitch(!disableSwitch);
       setSaveDataOfAttacks(!saveDataOfAttacks);
     }

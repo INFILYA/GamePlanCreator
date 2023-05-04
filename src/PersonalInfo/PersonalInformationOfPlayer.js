@@ -19,8 +19,8 @@ export function PersonalInformationOfPlayer({ link, player }) {
     infosOfPlayers.push([key, player[key]]);
   }
   const backGrounds = [
-    ["lightgreen", "Win points", "Aces"],
-    ["yellow", "Left in the game", "Rec on / and -"],
+    ["lightgreen", "Win points", "Aces and /"],
+    ["yellow", "Left in the game", "Rec on ! and -"],
     ["orange", "Attacks in block", "Rec on + and #"],
     ["orangered", "Loose points", "Failed Services"],
   ];
