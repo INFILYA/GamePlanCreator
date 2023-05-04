@@ -67,7 +67,7 @@ export function PersonalInformationOfPlayer({ link, player }) {
                 key={index + 1}
               />
             ))}
-            {infosOfPlayers.slice(5, 9).map((info, index) => (
+            {infosOfPlayers.slice(5, 8).map((info, index) => (
               <RowsForPersonalInfo
                 name={info[0]}
                 value={info[1]}
@@ -76,22 +76,33 @@ export function PersonalInformationOfPlayer({ link, player }) {
             ))}
             {link === "Service" &&
               infosOfPlayers
-                .slice(18, 21)
+                .slice(17, 20)
                 .map((info, index) => (
                   <RowsForPersonalInfo
-                    name={info[0]}
+                    name={info[0].replace(/[a-z]/g, "")}
                     value={`|${info[1].join("|")}|`}
-                    key={index + 18}
+                    key={index + 17}
+                  />
+                ))}
+            {link === "Service" &&
+              player.position === "Setter" &&
+              infosOfPlayers
+                .slice(10, 13)
+                .map((info, index) => (
+                  <RowsForPersonalInfo
+                    name={info[0].replace(/[a-z]/g, "")}
+                    value={`|${info[1].join("|")}|`}
+                    key={index + 17}
                   />
                 ))}
             {link === "Attack" &&
               infosOfPlayers
-                .slice(11, 14)
+                .slice(10, 13)
                 .map((info, index) => (
                   <RowsForPersonalInfo
-                    name={info[0]}
+                    name={info[0].replace(/[a-z]/g, "")}
                     value={`|${info[1].join("|")}|`}
-                    key={index + 11}
+                    key={index + 10}
                   />
                 ))}
 

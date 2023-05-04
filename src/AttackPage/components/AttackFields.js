@@ -112,9 +112,9 @@ export function AttackFields() {
             disabled={true}
             defaultValue={
               historyOfBalls[0].active === true
-                ? "Zone 2"
-                : historyOfBalls[1].active === true
                 ? "Zone 1"
+                : historyOfBalls[1].active === true
+                ? "Zone 2"
                 : historyOfBalls[2].active === true
                 ? "Zone 4"
                 : historyOfBalls[3].active === true
