@@ -12,8 +12,17 @@
   vertical-align: top;
   box-sizing: border-box;
 }
-.ratingRow li {
+.ratingRow span {
   margin: 10px;
   font-size: 25px;
   font-weight: bold;
+  display: block;
 }
+/* .ratingRow button {
+  margin: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  display: block;
+  background-color: transparent;
+  border: none;
+} */

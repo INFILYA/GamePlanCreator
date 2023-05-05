@@ -786,7 +786,16 @@
       "servicePlus": 0,
       "serviceMinus": 0,
       "serviceFailed": 0,
-      "plusMinusOnService": 0
+      "plusMinusOnService": 0,
+      "distribution": [
+        { "kc": [0, 0, 0, 0, 0] },
+        { "k1": [0, 0, 0, 0, 0] },
+        { "k7": [0, 0, 0, 0, 0] },
+        { "P1": [0, 0, 0, 0, 0] },
+        { "P2": [0, 0, 0, 0, 0] },
+        { "P3": [0, 0, 0, 0, 0] },
+        { "P4": [0, 0, 0, 0, 0] }
+      ]
     },
     {
       "name": "Федосєєв",

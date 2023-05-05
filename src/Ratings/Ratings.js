@@ -8,6 +8,8 @@ export default function Ratings() {
       <div className="showRatings">
         <NavLink to={"/Ratings/RecieversRating"}>Recievers</NavLink>
         <NavLink to={"/Ratings/OppositesRating"}>Opposites</NavLink>
+        <NavLink to={"/Ratings/MiddleBlockersRating"}>MiddleBlockers</NavLink>
+        <NavLink to={"/Ratings/SettersRating"}>Setters</NavLink>
       </div>
       <Outlet />
     </>

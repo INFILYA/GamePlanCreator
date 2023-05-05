@@ -31,7 +31,7 @@ function Distribution() {
           )}
         </div>
       </div>
-      <div className="showDistribution" style={{ marginTop: 10 }}>
+      <div className="showRatings" style={{ marginTop: 10 }}>
         <NavLink to={"/"}>Home Page</NavLink>
       </div>
     </>
