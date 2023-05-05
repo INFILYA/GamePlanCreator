@@ -1,0 +1,19 @@
+.ratingTable {
+  width: 100%;
+  border: 2px solid black;
+  background-color: khaki;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+.ratingRow {
+  width: 20%;
+  border: 2px solid black;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+.ratingRow li {
+  margin: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}

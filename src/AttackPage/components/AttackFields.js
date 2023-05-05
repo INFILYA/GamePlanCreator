@@ -72,6 +72,9 @@ export function AttackFields() {
       playerInfo.leftInGame += +diagrammValue.leftInGame;
       playerInfo.attacksInBlock += +diagrammValue.attacksInBlock;
       playerInfo.loosePoints += +diagrammValue.loosePoints;
+      playerInfo.plusMinusOnAttack =
+        playerInfo.winPoints -
+        (playerInfo.attacksInBlock + playerInfo.loosePoints);
       const zoneOfAtt = historyOfBalls.filter((ball) => ball.active);
       const PlayerAttHistory = playerInfo[zoneOfAtt[0].zone];
       const res = totalAtt.map((att, index) => att + PlayerAttHistory[index]);

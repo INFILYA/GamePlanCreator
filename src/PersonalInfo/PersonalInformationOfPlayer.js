@@ -75,6 +75,7 @@ export function PersonalInformationOfPlayer({ link, player }) {
               />
             ))}
             {link === "Service" &&
+              player.position !== "Setter" &&
               infosOfPlayers
                 .slice(17, 20)
                 .map((info, index) => (
@@ -92,7 +93,7 @@ export function PersonalInformationOfPlayer({ link, player }) {
                   <RowsForPersonalInfo
                     name={info[0].replace(/[a-z]/g, "")}
                     value={`|${info[1].join("|")}|`}
-                    key={index + 17}
+                    key={index + 10}
                   />
                 ))}
             {link === "Attack" &&
@@ -105,7 +106,6 @@ export function PersonalInformationOfPlayer({ link, player }) {
                     key={index + 10}
                   />
                 ))}
-
             <div className="row" style={{ justifyContent: "space-evenly" }}>
               {player.position !== "Libero" && (
                 <>
@@ -115,6 +115,14 @@ export function PersonalInformationOfPlayer({ link, player }) {
                       onClick={() => showPerson()}
                     >
                       Attack
+                    </NavLink>
+                  )}
+                  {player.position === "Setter" && (
+                    <NavLink
+                      to={"/Distribution?playerId=" + player.id}
+                      onClick={() => showPerson()}
+                    >
+                      Distrib
                     </NavLink>
                   )}
                   <NavLink
@@ -136,6 +144,11 @@ export function PersonalInformationOfPlayer({ link, player }) {
                   width: 200,
                   height: 200,
                   borderRadius: `50%`,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontSize: 50,
+                  fontWeight: "bold",
                   background: `conic-gradient(lightgreen 0%  ${rightPercentageForDiagramm(
                     0
                   )}%,yellow  ${rightPercentageForDiagramm(0)}%  ${
@@ -155,7 +168,15 @@ export function PersonalInformationOfPlayer({ link, player }) {
                   }%)`,
                   border: "1px solid black",
                 }}
-              ></div>
+              >
+                {link === "Attack"
+                  ? player.plusMinusOnAttack >= 0
+                    ? `+${player.plusMinusOnAttack}`
+                    : player.plusMinusOnAttack
+                  : player.plusMinusOnService >= 0
+                  ? `+${player.plusMinusOnService}`
+                  : player.plusMinusOnService}
+              </div>
               <div className="legend">
                 {backGrounds.map((background, index) => (
                   <RowsForLegendAndDiagramm

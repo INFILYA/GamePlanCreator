@@ -4,6 +4,7 @@ import "../css/distribution.css";
 import "../css/newAttack.css";
 import "../css/service.css";
 import "../css/diagramm.css";
+import "../css/ratings.css";
 import { useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { fetchPlayers } from "../states/reducers/listOfPlayersReducer";
@@ -20,8 +21,8 @@ export default function Page1() {
   return (
     <>
       <FirstPage />
-      <div className="showDistribution">
-        <NavLink to={"/Distribution"}>Distribution</NavLink>
+      <div className="showRatings">
+        <NavLink to={"/Ratings"}>Ratings</NavLink>
       </div>
       <Outlet />
     </>

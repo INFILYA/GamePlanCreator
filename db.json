@@ -24,7 +24,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Олексюк",
@@ -50,7 +52,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Кривобок",
@@ -76,7 +80,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Шоркін",
@@ -102,7 +108,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Томілін",
@@ -128,7 +136,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Янчук",
@@ -154,7 +164,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Щітков",
@@ -173,7 +185,8 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Рябов",
@@ -192,7 +205,8 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Гладенко",
@@ -218,7 +232,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Велецький",
@@ -244,7 +260,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Клепко",
@@ -270,7 +288,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Бойко",
@@ -308,7 +328,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Томин",
@@ -334,7 +356,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Пєнчев",
@@ -360,7 +384,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Кисилюк",
@@ -386,7 +412,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Наложний",
@@ -412,7 +440,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Сидоренко",
@@ -438,7 +468,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Євстратов",
@@ -457,7 +489,8 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Діденко",
@@ -476,7 +509,8 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Дрозд",
@@ -502,7 +536,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Остапенко",
@@ -528,7 +564,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Рогожин",
@@ -554,7 +592,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Брова",
@@ -592,7 +632,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Сотнік",
@@ -603,7 +645,6 @@
       "number": 3,
       "position": "Reciever",
       "reach": 320,
-
       "photo": "/photos/Sotnyk.jpg",
       "teamid": "Reshetylivka",
       "attackZone2": [0, 0, 0, 0, 0, 0],
@@ -619,7 +660,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Дрофа",
@@ -645,7 +688,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Фудар",
@@ -671,7 +716,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Валяйбаба",
@@ -697,7 +744,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Бовсуновський",
@@ -716,7 +765,8 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Скоробатюк",
@@ -735,7 +785,8 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Федосєєв",
@@ -761,7 +812,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Лойтаренко",
@@ -787,7 +840,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Черняк",
@@ -813,7 +868,9 @@
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
-      "serviceFailed": 0
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0
     },
     {
       "name": "Остроумов",

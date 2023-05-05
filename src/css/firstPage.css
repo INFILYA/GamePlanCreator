@@ -255,11 +255,11 @@ select {
   width: 50px;
   height: 50px;
 }
-.showDistribution {
+.showRatings {
   display: flex;
   justify-content: center;
 }
-.showDistribution a {
+.showRatings a {
   width: 250px;
   border: 2px solid black;
   border-radius: 5px;
@@ -272,8 +272,9 @@ select {
   justify-content: center;
   align-items: center;
   color: black;
+  margin: 0px 10px;
 }
-.showDistribution a:hover {
+.showRatings a:hover {
   box-shadow: 0 15px 20px cornflowerblue;
   transform: translateY(-7px);
   transition: 0.3s;
