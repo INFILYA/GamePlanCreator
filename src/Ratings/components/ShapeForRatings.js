@@ -9,13 +9,14 @@ export default function ShapeForRatings({ amplua }) {
   const categorys = [
     { category: "name", text: "Name" },
     amplua !== "Setter"
-      ? { category: "winPoints", text: "Points won by Attack" }
+      ? { category: "winPoints", text: "Points by Attack" }
       : { category: "servicePlus", text: "servicePlus" },
     { category: "aces", text: "Aces" },
     amplua !== "Setter"
       ? { category: "plusMinusOnAttack", text: "+/- on Attack" }
       : { category: "serviceMinus", text: "serviceMinus" },
     { category: "plusMinusOnService", text: "+/- on Service" },
+    { category: "percentOfAttack", text: "% on Attack" },
   ];
 
   function countRankings(category) {
@@ -25,21 +26,33 @@ export default function ShapeForRatings({ amplua }) {
   }
 
   return (
-    <div className="ratingTable">
-      {categorys.map((category, index) => (
-        <div className="ratingRow" key={index + category}>
-          <h1 onClick={() => countRankings(category.category)}>
-            {category.text}
-          </h1>
-          <hr />
-          {listOfFilteredPlayers.map((player) => (
-            <div key={player.id}>
-              <span>{player[category.category]}</span>
-              <hr />
+    <div style={{ height: 700 }}>
+      <div className="ratingTable">
+        {categorys.map((category) => (
+          <div className="ratingRow" key={category}>
+            <div>
+              <button
+                onClick={() => countRankings(category.category)}
+                title={`Clicl to sort by ${category.text}`}
+              >
+                {category.text}
+              </button>
             </div>
-          ))}
-        </div>
-      ))}
+            <hr />
+            {listOfFilteredPlayers.map((player, index) => (
+              <div key={player.id}>
+                {category.category !== "name" ? (
+                  <span>{player[category.category]}</span>
+                ) : (
+                  <span style={{ display: "flex", justifyContent: "start" }}>
+                    {index + 1}. {player[category.category]}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

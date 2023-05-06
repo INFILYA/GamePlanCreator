@@ -6,8 +6,8 @@
   box-sizing: border-box;
 }
 .ratingRow {
-  width: 20%;
-  border: 2px solid black;
+  width: 16.66%;
+  border-right: 2px solid black;
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
@@ -18,11 +18,11 @@
   font-weight: bold;
   display: block;
 }
-/* .ratingRow button {
+.ratingRow button {
   margin: 10px;
   font-size: 25px;
   font-weight: bold;
-  display: block;
   background-color: transparent;
   border: none;
-} */
+  padding: 10px;
+}
