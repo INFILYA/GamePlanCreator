@@ -7,8 +7,9 @@ import Ratings from "./Ratings/Ratings";
 import RecieversRating from "./Ratings/components/RecieversRating";
 import OppositesRating from "./Ratings/components/OppositesRating";
 import MiddleBlockersRating from "./Ratings/components/MiddleBlockersRating";
-import ShapeForRatings from "./Ratings/components/ShapeForRatings";
 import SettersRating from "./Ratings/components/SettersRating";
+import LiberosRating from "./Ratings/components/LiberoRatings";
+import TeamsRating from "./Ratings/components/TeamsRating";
 
 function Myproject() {
   return (
@@ -34,6 +35,11 @@ function Myproject() {
                 path="/Ratings/SettersRating"
                 element={<SettersRating />}
               />
+              <Route
+                path="/Ratings/LiberosRating"
+                element={<LiberosRating />}
+              />
+              <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
             </Route>
             <Route path="/attack" element={<Attacks />} />
             <Route path="/service" element={<Service />} />

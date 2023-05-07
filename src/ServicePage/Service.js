@@ -27,7 +27,7 @@ function Service() {
             marginBottom: 20,
           }}
         >
-          <PersonalInformationOfPlayer link={"Service"} player={playerInfo} />
+          <PersonalInformationOfPlayer link={"Service"} />
         </div>
       )}
       {playerInfo.position !== "Libero" && (

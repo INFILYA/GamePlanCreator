@@ -21,7 +21,7 @@ function Attacks() {
       <RegularLabel value={"Attack"} />
       {playerInfo.position !== "Setter" && playerInfo.position !== "Libero" && (
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <PersonalInformationOfPlayer link={"Attack"} player={playerInfo} />
+          <PersonalInformationOfPlayer link={"Attack"} />
         </div>
       )}
       {playerInfo.position !== "Setter" && playerInfo.position !== "Libero" && (

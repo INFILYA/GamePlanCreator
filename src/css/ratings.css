@@ -7,7 +7,6 @@
 }
 .ratingRow {
   width: 16.66%;
-  border-right: 2px solid black;
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;

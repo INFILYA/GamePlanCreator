@@ -1,11 +1,12 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
 import { RowsForLegendAndDiagramm } from "./components/RowsForLegend&Diagramm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setShowPersonalInfo } from "../states/reducers/showPersonalInfoReducer";
-export function PersonalInformationOfPlayer({ link, player }) {
+export function PersonalInformationOfPlayer({ link }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const playerInfo = useSelector((state) => state.playerInfo);
 
   function goHome() {
     (link === "Service" || link === "Attack") && navigate("/");
@@ -15,8 +16,8 @@ export function PersonalInformationOfPlayer({ link, player }) {
     dispatch(setShowPersonalInfo(false));
   }
   const infosOfPlayers = [];
-  for (let key in player) {
-    infosOfPlayers.push([key, player[key]]);
+  for (let key in playerInfo) {
+    infosOfPlayers.push([key, playerInfo[key]]);
   }
   const backGrounds = [
     ["lightgreen", "Win points", "Aces and /"],
@@ -28,10 +29,10 @@ export function PersonalInformationOfPlayer({ link, player }) {
   function rightPercentageForDiagramm(index) {
     if (link === "Attack") {
       let totalAtt = [
-        player.winPoints,
-        player.leftInGame,
-        player.attacksInBlock,
-        player.loosePoints,
+        playerInfo.winPoints,
+        playerInfo.leftInGame,
+        playerInfo.attacksInBlock,
+        playerInfo.loosePoints,
       ];
       const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0.001);
       const percentOfActions = totalAtt.map((att) =>
@@ -40,10 +41,10 @@ export function PersonalInformationOfPlayer({ link, player }) {
       return percentOfActions[index];
     } else if (link === "Service") {
       let totalService = [
-        player.aces,
-        player.servicePlus,
-        player.serviceMinus,
-        player.serviceFailed,
+        playerInfo.aces,
+        playerInfo.servicePlus,
+        playerInfo.serviceMinus,
+        playerInfo.serviceFailed,
       ];
       const sumOfTotalService = totalService.reduce((a, b) => a + b, 0.001);
       const percentOfActions = totalService.map((service) =>
@@ -56,7 +57,7 @@ export function PersonalInformationOfPlayer({ link, player }) {
     <>
       <div className="hideIcon">
         <div style={{ fontSize: 30, fontWeight: "bold" }}>
-          {player.name} №{player.number}
+          {playerInfo.name} №{playerInfo.number}
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="info">
@@ -75,7 +76,7 @@ export function PersonalInformationOfPlayer({ link, player }) {
               />
             ))}
             {link === "Service" &&
-              player.position !== "Setter" &&
+              playerInfo.position !== "Setter" &&
               infosOfPlayers
                 .slice(17, 20)
                 .map((info, index) => (
@@ -86,7 +87,7 @@ export function PersonalInformationOfPlayer({ link, player }) {
                   />
                 ))}
             {link === "Service" &&
-              player.position === "Setter" &&
+              playerInfo.position === "Setter" &&
               infosOfPlayers
                 .slice(10, 13)
                 .map((info, index) => (
@@ -107,26 +108,18 @@ export function PersonalInformationOfPlayer({ link, player }) {
                   />
                 ))}
             <div className="row" style={{ justifyContent: "space-evenly" }}>
-              {player.position !== "Libero" && (
+              {playerInfo.position !== "Libero" && (
                 <>
-                  {player.position !== "Setter" && (
+                  {playerInfo.position !== "Setter" && (
                     <NavLink
-                      to={"/attack?playerId=" + player.id}
+                      to={"/attack?playerId=" + playerInfo.id}
                       onClick={() => showPerson()}
                     >
                       Attack
                     </NavLink>
                   )}
-                  {player.position === "Setter" && (
-                    <NavLink
-                      to={"/Distribution?playerId=" + player.id}
-                      onClick={() => showPerson()}
-                    >
-                      Distrib
-                    </NavLink>
-                  )}
                   <NavLink
-                    to={"/service?playerId=" + player.id}
+                    to={"/service?playerId=" + playerInfo.id}
                     onClick={() => showPerson()}
                   >
                     Service
@@ -136,7 +129,7 @@ export function PersonalInformationOfPlayer({ link, player }) {
               <button onClick={() => goHome()}>Cancel</button>
             </div>
           </div>
-          <img src={player.photo} alt="" className="photoPlayer" />
+          <img src={playerInfo.photo} alt="" className="photoPlayer" />
           {(link === "Service" || link === "Attack") && (
             <div style={{ display: "block" }}>
               <div
@@ -170,12 +163,12 @@ export function PersonalInformationOfPlayer({ link, player }) {
                 }}
               >
                 {link === "Attack"
-                  ? player.plusMinusOnAttack >= 0
-                    ? `+${player.plusMinusOnAttack}`
-                    : player.plusMinusOnAttack
-                  : player.plusMinusOnService >= 0
-                  ? `+${player.plusMinusOnService}`
-                  : player.plusMinusOnService}
+                  ? playerInfo.plusMinusOnAttack >= 0
+                    ? `+${playerInfo.plusMinusOnAttack}`
+                    : playerInfo.plusMinusOnAttack
+                  : playerInfo.plusMinusOnService >= 0
+                  ? `+${playerInfo.plusMinusOnService}`
+                  : playerInfo.plusMinusOnService}
               </div>
               <div className="legend">
                 {backGrounds.map((background, index) => (

@@ -17,12 +17,17 @@ export const fetchClubs = () => {
 };
 export const savePlayer = (player) => {
   const options = { body: JSON.stringify(player), method: "PUT" };
-  const req = jsonRequest(`/players/${player.id}`, options);
+  const req = jsonRequest(`/players/${player.id}/`, options);
+  return req;
+};
+export const saveTeam = (team) => {
+  const options = { body: JSON.stringify(team), method: "PUT" };
+  const req = jsonRequest(`/clubs/${team.id}/`, options);
   return req;
 };
 
 export const fetchPlayerInformation = (id) => {
   const options = { method: "GET" };
-  const req = jsonRequest(`/players/${id}`, options);
+  const req = jsonRequest(`/players/${id}/`, options);
   return req;
 };

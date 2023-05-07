@@ -43,7 +43,7 @@ export function FirstPage() {
         <div className="rotation">
           <div style={{ display: "flex", justifyContent: "center" }}>
             {playerInfo && showPersonalInfo && (
-              <PersonalInformationOfPlayer player={playerInfo} link={"page1"} />
+              <PersonalInformationOfPlayer link={"page1"} />
             )}
           </div>
           <ChooseOpponentTeam />

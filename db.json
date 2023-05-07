@@ -2,7 +2,7 @@
   "players": [
     {
       "name": "Шаповал",
-      "age": 21,
+      "age": 26,
       "hand": "right",
       "height": 195,
       "id": "1",
@@ -11,27 +11,60 @@
       "reach": 345,
       "photo": "/photos/Shapoval.jpg",
       "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "winPoints": 0,
-      "leftInGame": 0,
-      "attacksInBlock": 0,
-      "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "attackZone2": [
+        30,
+        14,
+        2,
+        15,
+        13,
+        2
+      ],
+      "attackZone1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "winPoints": 28,
+      "leftInGame": 8,
+      "attacksInBlock": 9,
+      "loosePoints": 12,
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
       "serviceFailed": 0,
-      "plusMinusOnAttack": 0,
+      "plusMinusOnAttack": 7,
       "plusMinusOnService": 0,
-      "percentOfAttack": 0
+      "percentOfAttack": 49
     },
     {
       "name": "Олексюк",
-      "age": 24,
+      "age": "1999/03/21",
       "hand": "left",
       "height": 205,
       "id": "2",
@@ -40,16 +73,49 @@
       "reach": 340,
       "photo": "/photos/Oleksyuk.jpg",
       "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -60,7 +126,7 @@
     },
     {
       "name": "Кривобок",
-      "age": 23,
+      "age": "1999/05/27",
       "hand": "right",
       "height": 194,
       "id": "3",
@@ -69,16 +135,49 @@
       "reach": 335,
       "photo": "./photos/Krivobok.jpg",
       "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -98,27 +197,60 @@
       "reach": 325,
       "photo": "./photos/Shorkin.jpg",
       "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "winPoints": 0,
-      "leftInGame": 0,
-      "attacksInBlock": 0,
-      "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        20,
+        16,
+        7,
+        15,
+        6,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "winPoints": 25,
+      "leftInGame": 8,
+      "attacksInBlock": 13,
+      "loosePoints": 4,
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
       "serviceFailed": 0,
-      "plusMinusOnAttack": 0,
+      "plusMinusOnAttack": 8,
       "plusMinusOnService": 0,
-      "percentOfAttack": 0
+      "percentOfAttack": 50
     },
     {
       "name": "Томілін",
-      "age": 26,
+      "age": 30,
       "hand": "right",
       "height": 196,
       "id": "5",
@@ -127,16 +259,49 @@
       "reach": 345,
       "photo": "./photos/Tomilin.jpg",
       "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -147,7 +312,7 @@
     },
     {
       "name": "Янчук",
-      "age": 24,
+      "age": "1999/05/19",
       "hand": "right",
       "height": 198,
       "id": "6",
@@ -156,16 +321,49 @@
       "reach": 340,
       "photo": "./photos/Yanchuk.jpg",
       "teamid": "Prometey",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -176,7 +374,7 @@
     },
     {
       "name": "Щітков",
-      "age": 31,
+      "age": "1991/11/25",
       "hand": "right",
       "height": 191,
       "id": "7",
@@ -185,9 +383,21 @@
       "reach": 340,
       "photo": "./photos/Shitkov.jpg",
       "teamid": "Prometey",
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -196,7 +406,7 @@
     },
     {
       "name": "Рябов",
-      "age": 23,
+      "age": "1999/06/03",
       "hand": "right",
       "height": 188,
       "id": "8",
@@ -205,9 +415,21 @@
       "reach": 330,
       "photo": "./photos/Ryabov.jpg",
       "teamid": "Prometey",
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -216,7 +438,7 @@
     },
     {
       "name": "Гладенко",
-      "age": 34,
+      "age": "1991/12/03",
       "hand": "right",
       "height": 196,
       "id": "9",
@@ -225,16 +447,49 @@
       "reach": 335,
       "photo": "./photos/Gladenko.jpg",
       "teamid": "Prometey",
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0],
+      "attackK1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackKC": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackK7": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -245,7 +500,7 @@
     },
     {
       "name": "Велецький",
-      "age": 22,
+      "age": "2000/01/15",
       "hand": "right",
       "height": 206,
       "id": "10",
@@ -254,16 +509,49 @@
       "reach": 345,
       "photo": "./photos/Patron.jpg",
       "teamid": "Prometey",
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0],
+      "attackK1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackKC": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackK7": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -274,7 +562,7 @@
     },
     {
       "name": "Клепко",
-      "age": 25,
+      "age": "1997/02/12",
       "hand": "rigth",
       "height": 200,
       "id": "11",
@@ -283,16 +571,49 @@
       "reach": 340,
       "photo": "./photos/Klepko.jpg",
       "teamid": "Prometey",
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0],
+      "attackK1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackKC": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackK7": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -303,7 +624,7 @@
     },
     {
       "name": "Бойко",
-      "age": 21,
+      "age": "2002/12/17",
       "hand": "right",
       "height": 180,
       "id": "12",
@@ -311,11 +632,12 @@
       "position": "Libero",
       "reach": 310,
       "photo": "./photos/Boyko.jpg",
-      "teamid": "Prometey"
+      "teamid": "Prometey",
+      "percentReception": 0
     },
     {
       "name": "Раїч",
-      "age": 21,
+      "age": "1989/06/03",
       "hand": "right",
       "height": 195,
       "id": "13",
@@ -324,16 +646,49 @@
       "reach": 345,
       "photo": "./photos/Raich.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -344,7 +699,7 @@
     },
     {
       "name": "Томин",
-      "age": 21,
+      "age": "1988/12/23",
       "hand": "right",
       "height": 195,
       "id": "14",
@@ -353,16 +708,49 @@
       "reach": 345,
       "photo": "./photos/Tomyn.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -373,7 +761,7 @@
     },
     {
       "name": "Пєнчев",
-      "age": 21,
+      "age": "1992/02/25",
       "hand": "right",
       "height": 195,
       "id": "15",
@@ -382,16 +770,49 @@
       "reach": 345,
       "photo": "./photos/Penchev.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -402,7 +823,7 @@
     },
     {
       "name": "Кисилюк",
-      "age": 21,
+      "age": "1995/01/27",
       "hand": "right",
       "height": 195,
       "id": "16",
@@ -411,16 +832,49 @@
       "reach": 345,
       "photo": "./photos/Kisilyuk.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -431,7 +885,7 @@
     },
     {
       "name": "Наложний",
-      "age": 21,
+      "age": "1996/07/24",
       "hand": "right",
       "height": 195,
       "id": "17",
@@ -440,16 +894,49 @@
       "reach": 345,
       "photo": "./photos/Nalojniy.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -460,7 +947,7 @@
     },
     {
       "name": "Сидоренко",
-      "age": 21,
+      "age": "1988/10/05",
       "hand": "right",
       "height": 195,
       "id": "18",
@@ -469,16 +956,49 @@
       "reach": 345,
       "photo": "./photos/Sidorenko.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -489,7 +1009,7 @@
     },
     {
       "name": "Євстратов",
-      "age": 21,
+      "age": "1993/08/24",
       "hand": "right",
       "height": 195,
       "id": "19",
@@ -498,9 +1018,21 @@
       "reach": 345,
       "photo": "./photos/Yevstratov.jpg",
       "teamid": "Epicentr",
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -509,7 +1041,7 @@
     },
     {
       "name": "Діденко",
-      "age": 21,
+      "age": "1992/09/29",
       "hand": "right",
       "height": 195,
       "id": "20",
@@ -518,9 +1050,21 @@
       "reach": 345,
       "photo": "./photos/Didenko.jpg",
       "teamid": "Epicentr",
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -529,7 +1073,7 @@
     },
     {
       "name": "Дрозд",
-      "age": 21,
+      "age": "1991/08/05",
       "hand": "right",
       "height": 195,
       "id": "21",
@@ -538,16 +1082,49 @@
       "reach": 345,
       "photo": "./photos/Drozd.jpg",
       "teamid": "Epicentr",
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0],
+      "attackK1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackKC": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackK7": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -558,7 +1135,7 @@
     },
     {
       "name": "Остапенко",
-      "age": 21,
+      "age": "1998/07/28",
       "hand": "right",
       "height": 195,
       "id": "22",
@@ -567,16 +1144,49 @@
       "reach": 345,
       "photo": "./photos/Ostapenko.jpg",
       "teamid": "Epicentr",
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0],
+      "attackK1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackKC": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackK7": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -587,7 +1197,7 @@
     },
     {
       "name": "Рогожин",
-      "age": 21,
+      "age": "1997/07/13",
       "hand": "right",
       "height": 195,
       "id": "23",
@@ -596,16 +1206,49 @@
       "reach": 345,
       "photo": "./photos/Rogojyn.jpg",
       "teamid": "Epicentr",
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0],
+      "attackK1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackKC": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackK7": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -616,7 +1259,7 @@
     },
     {
       "name": "Брова",
-      "age": 21,
+      "age": "1991/04/08",
       "hand": "right",
       "height": 195,
       "id": "24",
@@ -624,11 +1267,12 @@
       "position": "Libero",
       "reach": 345,
       "photo": "./photos/Gorden.jpg",
-      "teamid": "Epicentr"
+      "teamid": "Epicentr",
+      "percentReception": 0
     },
     {
       "name": "Гуршал",
-      "age": 23,
+      "age": "2000/05/13",
       "hand": "left",
       "height": 185,
       "id": "25",
@@ -637,16 +1281,49 @@
       "reach": 325,
       "photo": "/photos/Gurshal.jpg",
       "teamid": "Reshetylivka",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone1": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -657,7 +1334,7 @@
     },
     {
       "name": "Сотнік",
-      "age": 27,
+      "age": "1996/06/10",
       "hand": "right",
       "height": 193,
       "id": "26",
@@ -666,16 +1343,49 @@
       "reach": 320,
       "photo": "/photos/Sotnyk.jpg",
       "teamid": "Reshetylivka",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -695,27 +1405,60 @@
       "reach": 320,
       "photo": "/photos/Drofa.jpg",
       "teamid": "Reshetylivka",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
-      "winPoints": 0,
-      "leftInGame": 0,
-      "attacksInBlock": 0,
-      "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "attackZone2": [
+        10,
+        3,
+        5,
+        3,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        10,
+        1,
+        3,
+        5,
+        3
+      ],
+      "attackPipe": [
+        1,
+        3,
+        2,
+        5,
+        0,
+        0
+      ],
+      "winPoints": 38,
+      "leftInGame": 18,
+      "attacksInBlock": 10,
+      "loosePoints": 9,
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
       "serviceFailed": 0,
-      "plusMinusOnAttack": 0,
+      "plusMinusOnAttack": 19,
       "plusMinusOnService": 0,
-      "percentOfAttack": 0
+      "percentOfAttack": 51
     },
     {
       "name": "Фудар",
-      "age": 20,
+      "age": "2003/02/28",
       "hand": "right",
       "height": 198,
       "id": "28",
@@ -724,16 +1467,49 @@
       "reach": 320,
       "photo": "/photos/Fudar.jpg",
       "teamid": "Reshetylivka",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -744,7 +1520,7 @@
     },
     {
       "name": "Валяйбаба",
-      "age": 19,
+      "age": "2004/08/27",
       "hand": "right",
       "height": 203,
       "id": "29",
@@ -753,16 +1529,49 @@
       "reach": 315,
       "photo": "/photos/Baba.jpg",
       "teamid": "Reshetylivka",
-      "attackZone2": [0, 0, 0, 0, 0, 0],
-      "attackZone4": [0, 0, 0, 0, 0, 0],
-      "attackPipe": [0, 0, 0, 0, 0, 0],
+      "attackZone2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackZone4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackPipe": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -773,7 +1582,7 @@
     },
     {
       "name": "Бовсуновський",
-      "age": 22,
+      "age": "2001/04/11",
       "hand": "right",
       "height": 187,
       "id": "30",
@@ -782,9 +1591,21 @@
       "reach": 290,
       "photo": "/photos/Bovsunovskiy.jpg",
       "teamid": "Reshetylivka",
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -793,7 +1614,7 @@
     },
     {
       "name": "Скоробатюк",
-      "age": 20,
+      "age": "2003/05/11",
       "hand": "right",
       "height": 188,
       "id": "31",
@@ -802,27 +1623,30 @@
       "reach": 300,
       "photo": "/photos/Skorobatyuk.jpg",
       "teamid": "Reshetylivka",
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
       "serviceFailed": 0,
-      "plusMinusOnService": 0,
-      "distribution": [
-        { "kc": [0, 0, 0, 0, 0] },
-        { "k1": [0, 0, 0, 0, 0] },
-        { "k7": [0, 0, 0, 0, 0] },
-        { "P1": [0, 0, 0, 0, 0] },
-        { "P2": [0, 0, 0, 0, 0] },
-        { "P3": [0, 0, 0, 0, 0] },
-        { "P4": [0, 0, 0, 0, 0] }
-      ]
+      "plusMinusOnService": 0
     },
     {
       "name": "Федосєєв",
-      "age": 26,
+      "age": "1997/11/27",
       "hand": "right",
       "height": 208,
       "id": "32",
@@ -831,16 +1655,49 @@
       "reach": 320,
       "photo": "./photos/Fedoseev.jpg",
       "teamid": "Reshetylivka",
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0],
+      "attackK1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackKC": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackK7": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -851,7 +1708,7 @@
     },
     {
       "name": "Лойтаренко",
-      "age": 26,
+      "age": "1998/02/18",
       "hand": "right",
       "height": 208,
       "id": "33",
@@ -860,16 +1717,49 @@
       "reach": 325,
       "photo": "./photos/Loytarenko.jpg",
       "teamid": "Reshetylivka",
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0],
+      "attackK1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackKC": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackK7": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -880,7 +1770,7 @@
     },
     {
       "name": "Черняк",
-      "age": 29,
+      "age": "1993/03/05",
       "hand": "right",
       "height": 210,
       "id": "34",
@@ -889,16 +1779,49 @@
       "reach": 320,
       "photo": "./photos/Chernyak.jpg",
       "teamid": "Reshetylivka",
-      "attackK1": [0, 0, 0, 0, 0, 0],
-      "attackKC": [0, 0, 0, 0, 0, 0],
-      "attackK7": [0, 0, 0, 0, 0, 0],
+      "attackK1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackKC": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attackK7": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [0, 0, 0],
-      "serviceZone6": [0, 0, 0],
-      "serviceZone5": [0, 0, 0],
+      "serviceZone1": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone6": [
+        0,
+        0,
+        0
+      ],
+      "serviceZone5": [
+        0,
+        0,
+        0
+      ],
       "aces": 0,
       "servicePlus": 0,
       "serviceMinus": 0,
@@ -909,7 +1832,7 @@
     },
     {
       "name": "Остроумов",
-      "age": 38,
+      "age": "1985/03/06",
       "hand": "right",
       "height": 189,
       "id": "35",
@@ -917,11 +1840,12 @@
       "position": "Libero",
       "reach": 290,
       "photo": "./photos/Ostroumov.jpg",
-      "teamid": "Reshetylivka"
+      "teamid": "Reshetylivka",
+      "percentReception": 0
     },
     {
       "name": "Яковлєв",
-      "age": 20,
+      "age": "2003/06/24",
       "hand": "right",
       "height": 178,
       "id": "36",
@@ -929,24 +1853,61 @@
       "position": "Libero",
       "reach": 285,
       "photo": "./photos/Yakovlev.jpg",
-      "teamid": "Reshetylivka"
+      "teamid": "Reshetylivka",
+      "percentReception": 0
     }
   ],
   "clubs": [
     {
       "id": "1",
       "name": "Prometey",
-      "logo": "/photos/Prometey.jpg"
+      "logo": "/photos/Prometey.jpg",
+      "age": "26.3",
+      "winPoints": 53,
+      "leftInGame": 16,
+      "attacksInBlock": 22,
+      "loosePoints": 16,
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 15,
+      "plusMinusOnService": 0,
+      "percentOfAttack": 50
     },
     {
       "id": "2",
       "name": "Epicentr",
-      "logo": "/photos/Epicentr.jpg"
+      "logo": "/photos/Epicentr.jpg",
+      "age": 0,
+      "winPoints": 0,
+      "leftInGame": 0,
+      "attacksInBlock": 0,
+      "loosePoints": 0,
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 0,
+      "plusMinusOnService": 0,
+      "percentOfAttack": 0
     },
     {
       "id": "3",
       "name": "Reshetylivka",
-      "logo": "/photos/Resheto.jpg"
+      "logo": "/photos/Resheto.jpg",
+      "age": "24.7",
+      "winPoints": 38,
+      "leftInGame": 18,
+      "attacksInBlock": 10,
+      "loosePoints": 9,
+      "aces": 0,
+      "servicePlus": 0,
+      "serviceMinus": 0,
+      "serviceFailed": 0,
+      "plusMinusOnAttack": 19,
+      "plusMinusOnService": 0,
+      "percentOfAttack": 51
     }
   ]
 }

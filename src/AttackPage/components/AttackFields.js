@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { savePlayer } from "../../Datas/api";
+import { savePlayer, saveTeam } from "../../Datas/api";
 import { Switch } from "antd";
 import { BallForAttack } from "./BallForAttack";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
 import { DefenderZone6 } from "./DefenderZone6";
-import { useDispatch, useSelector } from "react-redux";
-import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
+import { useSelector } from "react-redux";
 
 export function AttackFields() {
-  const dispatch = useDispatch();
   const playerInfo = useSelector((state) => state.playerInfo);
+  const listOfPlayers = useSelector((state) => state.listOfPlayers);
+  const listOfTeams = useSelector((state) => state.listOfTeams);
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "attackZone1", active: false },
     { zone: "attackZone2", active: false },
@@ -36,18 +36,21 @@ export function AttackFields() {
   ];
   const classNamesForTip = ["tip", "yellowtip"];
   const [zoneValue, setZoneValue] = useState({
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
-    6: "",
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
   });
   const [diagrammValue, setDiagrammValue] = useState({
     winPoints: "",
     leftInGame: "",
     attacksInBlock: "",
     loosePoints: "",
+    plusMinusOnAttack: 0,
+    plusMinusOnService: 0,
+    percentOfAttack: 0,
   });
   function handleDiagrammValue(event) {
     setDiagrammValue({
@@ -61,38 +64,52 @@ export function AttackFields() {
       [event.target.name]: event.target.value.replace(/\D+/g, ""),
     });
   }
-  function onHandleCountClick(event) {
+  function calculateForData(obj) {
+    if (obj === playerInfo) {
+      diagrammValue.plusMinusOnAttack =
+        +diagrammValue.winPoints -
+        (+diagrammValue.attacksInBlock + +diagrammValue.loosePoints);
+    }
+    obj.winPoints += +diagrammValue.winPoints;
+    obj.leftInGame += +diagrammValue.leftInGame;
+    obj.attacksInBlock += +diagrammValue.attacksInBlock;
+    obj.loosePoints += +diagrammValue.loosePoints;
+    obj.plusMinusOnAttack += +diagrammValue.plusMinusOnAttack;
+    obj.percentOfAttack = Math.round(
+      (obj.winPoints /
+        (obj.winPoints +
+          obj.attacksInBlock +
+          obj.loosePoints +
+          obj.leftInGame)) *
+        100
+    );
+    return obj;
+  }
+  async function onHandleCountClick(event) {
     event.preventDefault();
     let totalAtt = [];
     for (let key in zoneValue) {
       totalAtt.push(+zoneValue[key]);
     }
     if (saveDataOfAttacks) {
-      playerInfo.winPoints += +diagrammValue.winPoints;
-      playerInfo.leftInGame += +diagrammValue.leftInGame;
-      playerInfo.attacksInBlock += +diagrammValue.attacksInBlock;
-      playerInfo.loosePoints += +diagrammValue.loosePoints;
-      playerInfo.plusMinusOnAttack =
-        playerInfo.winPoints -
-        (playerInfo.attacksInBlock + playerInfo.loosePoints);
-      playerInfo.percentOfAttack =
-        Math.round(
-          (playerInfo.winPoints /
-            (playerInfo.winPoints +
-              playerInfo.attacksInBlock +
-              playerInfo.loosePoints +
-              playerInfo.leftInGame)) *
-            100
-        ) + "%";
+      calculateForData(playerInfo);
       const zoneOfAtt = historyOfBalls.filter((ball) => ball.active);
       const PlayerAttHistory = playerInfo[zoneOfAtt[0].zone];
       const res = totalAtt.map((att, index) => att + PlayerAttHistory[index]);
-      const newPlayerInfo = { ...playerInfo };
       const nameOfZone = zoneOfAtt[0].zone;
+      const players = listOfPlayers.filter(
+        (player) => player.teamid === playerInfo.teamid
+      );
+      const team = listOfTeams.filter(
+        (player) => player.name === playerInfo.teamid
+      );
+      const teamAge = players.reduce((a, b) => a + b.age, 0) / players.length;
+      calculateForData(team[0]);
+      team[0].age = teamAge.toFixed(1);
       totalAtt = res;
-      newPlayerInfo[nameOfZone] = totalAtt;
-      dispatch(setInfoOfPlayer(newPlayerInfo));
-      savePlayer(newPlayerInfo);
+      playerInfo[nameOfZone] = totalAtt;
+      await savePlayer(playerInfo);
+      await saveTeam(team[0]);
       setDisableSwitch(!disableSwitch);
       setSaveDataOfAttacks(!saveDataOfAttacks);
     }
@@ -184,6 +201,7 @@ export function AttackFields() {
               onChange={handleDiagrammValue}
               value={diagrammValue.winPoints}
               placeholder="Win"
+              required
             ></input>
             <input
               style={{ backgroundColor: "yellow" }}
@@ -191,6 +209,7 @@ export function AttackFields() {
               onChange={handleDiagrammValue}
               value={diagrammValue.leftInGame}
               placeholder="Left"
+              required
             ></input>
             <input
               style={{ backgroundColor: "orange" }}
@@ -198,6 +217,7 @@ export function AttackFields() {
               onChange={handleDiagrammValue}
               value={diagrammValue.attacksInBlock}
               placeholder="block"
+              required
             ></input>
             <input
               style={{ backgroundColor: "orangered" }}
@@ -205,6 +225,7 @@ export function AttackFields() {
               onChange={handleDiagrammValue}
               value={diagrammValue.loosePoints}
               placeholder="Loose"
+              required
             ></input>
           </div>
         )}

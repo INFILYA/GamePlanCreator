@@ -23,6 +23,7 @@ export default function Page1() {
       <FirstPage />
       <div className="showRatings">
         <NavLink to={"/Ratings"}>Ratings</NavLink>
+        <NavLink to={"/Distribution"}>Distribution</NavLink>
       </div>
       <Outlet />
     </>
