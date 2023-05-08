@@ -26,8 +26,8 @@ export const saveTeam = (team) => {
   return req;
 };
 
-export const fetchPlayerInformation = (id) => {
+export const fetchPlayerInformation = (player) => {
   const options = { method: "GET" };
-  const req = jsonRequest(`/players/${id}/`, options);
+  const req = jsonRequest(`/players/${player.id}/`, options);
   return req;
 };

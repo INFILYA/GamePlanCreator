@@ -5,9 +5,11 @@ import { BallForAttack } from "./BallForAttack";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
 import { DefenderZone6 } from "./DefenderZone6";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPlayerInfo } from "../../states/reducers/playerInfoReducer";
 
 export function AttackFields() {
+  const dispatch = useDispatch();
   const playerInfo = useSelector((state) => state.playerInfo);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   const listOfTeams = useSelector((state) => state.listOfTeams);
@@ -105,11 +107,12 @@ export function AttackFields() {
       );
       const teamAge = players.reduce((a, b) => a + b.age, 0) / players.length;
       calculateForData(team[0]);
-      team[0].age = teamAge.toFixed(1);
+      team[0].age = +teamAge.toFixed(1);
       totalAtt = res;
       playerInfo[nameOfZone] = totalAtt;
       await savePlayer(playerInfo);
       await saveTeam(team[0]);
+      dispatch(fetchPlayerInfo(playerInfo));
       setDisableSwitch(!disableSwitch);
       setSaveDataOfAttacks(!saveDataOfAttacks);
     }

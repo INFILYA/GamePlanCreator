@@ -2,7 +2,7 @@
   "players": [
     {
       "name": "Шаповал",
-      "age": "1997/03/02",
+      "age": 26,
       "hand": "right",
       "height": 195,
       "id": "1",
