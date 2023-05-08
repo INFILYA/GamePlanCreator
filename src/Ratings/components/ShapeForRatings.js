@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 export default function ShapeForRatings({ amplua }) {
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
@@ -91,6 +92,9 @@ export default function ShapeForRatings({ amplua }) {
                 ))}
           </div>
         ))}
+      </div>
+      <div className="showRatings" style={{ marginTop: 10 }}>
+        <NavLink to={"/"}>Home Page</NavLink>
       </div>
     </div>
   );

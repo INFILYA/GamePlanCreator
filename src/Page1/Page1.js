@@ -3,7 +3,6 @@ import "../css/labels.css";
 import "../css/distribution.css";
 import "../css/newAttack.css";
 import "../css/service.css";
-import "../css/diagramm.css";
 import "../css/ratings.css";
 import { useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";

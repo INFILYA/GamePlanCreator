@@ -44,10 +44,10 @@ export function AttackFields() {
     6: 0,
   });
   const [diagrammValue, setDiagrammValue] = useState({
-    winPoints: "",
-    leftInGame: "",
-    attacksInBlock: "",
-    loosePoints: "",
+    winPoints: 0,
+    leftInGame: 0,
+    attacksInBlock: 0,
+    loosePoints: 0,
     plusMinusOnAttack: 0,
     plusMinusOnService: 0,
     percentOfAttack: 0,
@@ -185,7 +185,7 @@ export function AttackFields() {
           <textarea type="text" className="textcomment"></textarea>
         </div>
         <label style={{ fontSize: 30 }}>
-          {disableSwitch ? "Data Saved" : "Save Data"}
+          {disableSwitch ? "Data Saved" : "Add Data"}
         </label>
         <div className="saveBox">
           <Switch

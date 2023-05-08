@@ -1,8 +1,9 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
-import { RowsForLegendAndDiagramm } from "./components/RowsForLegend&Diagramm";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowPersonalInfo } from "../states/reducers/showPersonalInfoReducer";
+import Diagramm from "./components/Diagramm";
+
 export function PersonalInformationOfPlayer({ link }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -18,40 +19,6 @@ export function PersonalInformationOfPlayer({ link }) {
   const infosOfPlayers = [];
   for (let key in playerInfo) {
     infosOfPlayers.push([key, playerInfo[key]]);
-  }
-  const backGrounds = [
-    ["lightgreen", "Win points", "Aces and /"],
-    ["yellow", "Left in the game", "Rec on ! and -"],
-    ["orange", "Attacks in block", "Rec on + and #"],
-    ["orangered", "Loose points", "Failed Services"],
-  ];
-
-  function rightPercentageForDiagramm(index) {
-    if (link === "Attack") {
-      let totalAtt = [
-        playerInfo.winPoints,
-        playerInfo.leftInGame,
-        playerInfo.attacksInBlock,
-        playerInfo.loosePoints,
-      ];
-      const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0.001);
-      const percentOfActions = totalAtt.map((att) =>
-        Math.round((att / sumOfTotalAtt) * 100)
-      );
-      return percentOfActions[index];
-    } else if (link === "Service") {
-      let totalService = [
-        playerInfo.aces,
-        playerInfo.servicePlus,
-        playerInfo.serviceMinus,
-        playerInfo.serviceFailed,
-      ];
-      const sumOfTotalService = totalService.reduce((a, b) => a + b, 0.001);
-      const percentOfActions = totalService.map((service) =>
-        Math.round((service / sumOfTotalService) * 100)
-      );
-      return percentOfActions[index];
-    }
   }
   return (
     <>
@@ -132,57 +99,7 @@ export function PersonalInformationOfPlayer({ link }) {
           <img src={playerInfo.photo} alt="" className="photoPlayer" />
           {(link === "Service" || link === "Attack") && (
             <div style={{ display: "block" }}>
-              <div
-                style={{
-                  width: 200,
-                  height: 200,
-                  borderRadius: `50%`,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  fontSize: 50,
-                  fontWeight: "bold",
-                  background: `conic-gradient(lightgreen 0%  ${rightPercentageForDiagramm(
-                    0
-                  )}%,yellow  ${rightPercentageForDiagramm(0)}%  ${
-                    rightPercentageForDiagramm(0) +
-                    rightPercentageForDiagramm(1)
-                  }%,orange ${
-                    rightPercentageForDiagramm(0) +
-                    rightPercentageForDiagramm(1)
-                  }% ${
-                    rightPercentageForDiagramm(0) +
-                    rightPercentageForDiagramm(1) +
-                    rightPercentageForDiagramm(2)
-                  }%,orangered  ${
-                    rightPercentageForDiagramm(0) +
-                    rightPercentageForDiagramm(1) +
-                    rightPercentageForDiagramm(2)
-                  }%)`,
-                  border: "1px solid black",
-                }}
-              >
-                {link === "Attack"
-                  ? playerInfo.plusMinusOnAttack >= 0
-                    ? `+${playerInfo.plusMinusOnAttack}`
-                    : playerInfo.plusMinusOnAttack
-                  : playerInfo.plusMinusOnService >= 0
-                  ? `+${playerInfo.plusMinusOnService}`
-                  : playerInfo.plusMinusOnService}
-              </div>
-              <div className="legend">
-                {backGrounds.map((background, index) => (
-                  <RowsForLegendAndDiagramm
-                    style={{ backgroundColor: background[0] }}
-                    label={rightPercentageForDiagramm(index)}
-                    name={
-                      (link === "Attack" && background[1]) ||
-                      (link === "Service" && background[2])
-                    }
-                    key={index}
-                  />
-                ))}
-              </div>
+              <Diagramm link={link} />
             </div>
           )}
         </div>
