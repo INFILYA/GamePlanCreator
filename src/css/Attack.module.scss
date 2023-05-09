@@ -444,7 +444,7 @@
   }
   .red1APipe {
     @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
-    border-bottom: 350px solid firebrick;
+    border-bottom: 350px solid firebrick; 
   }
   .purple1APipe {
     @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);

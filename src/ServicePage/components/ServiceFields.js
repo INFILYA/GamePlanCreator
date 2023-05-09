@@ -22,9 +22,9 @@ export function ServiceFields() {
   ];
   const classNamesForTip = ["tip", "yellowtip"];
   const [zoneValue, setZoneValue] = useState({
-    1: "",
-    2: "",
-    3: "",
+    1: 0,
+    2: 0,
+    3: 0,
   });
   function handleZoneValue(event) {
     setZoneValue({

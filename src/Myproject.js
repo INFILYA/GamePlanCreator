@@ -10,8 +10,17 @@ import MiddleBlockersRating from "./Ratings/components/MiddleBlockersRating";
 import SettersRating from "./Ratings/components/SettersRating";
 import LiberosRating from "./Ratings/components/LiberoRatings";
 import TeamsRating from "./Ratings/components/TeamsRating";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchPlayers } from "./states/reducers/listOfPlayersReducer";
+import { fetchTeams } from "./states/reducers/listOfTeamsReducer";
 
 function Myproject() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchPlayers());
+    dispatch(fetchTeams());
+  }, [dispatch]);
   return (
     <>
       <div className="firstpage">

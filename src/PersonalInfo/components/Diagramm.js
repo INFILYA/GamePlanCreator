@@ -50,11 +50,6 @@ export default function Diagramm({ link }) {
         fontSize: "20px",
       },
     },
-    annotations: [
-      {
-        shapes: [{ strokeWidth: 13, stroke: "red" }],
-      },
-    ],
     series: [
       {
         name: link === "Attack" ? "Attack" : "Service",

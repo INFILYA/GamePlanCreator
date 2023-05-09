@@ -7,6 +7,7 @@ import { InputForCount } from "./InputForCount";
 import { DefenderZone6 } from "./DefenderZone6";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPlayerInfo } from "../../states/reducers/playerInfoReducer";
+import { fetchPlayers } from "../../states/reducers/listOfPlayersReducer";
 
 export function AttackFields() {
   const dispatch = useDispatch();
@@ -57,13 +58,13 @@ export function AttackFields() {
   function handleDiagrammValue(event) {
     setDiagrammValue({
       ...diagrammValue,
-      [event.target.name]: event.target.value.replace(/\D+/g, ""),
+      [event.target.name]: +event.target.value.replace(/\D+/g, ""),
     });
   }
   function handleZoneValue(event) {
     setZoneValue({
       ...zoneValue,
-      [event.target.name]: event.target.value.replace(/\D+/g, ""),
+      [event.target.name]: +event.target.value.replace(/\D+/g, ""),
     });
   }
   function calculateForData(obj) {
@@ -89,10 +90,7 @@ export function AttackFields() {
   }
   async function onHandleCountClick(event) {
     event.preventDefault();
-    let totalAtt = [];
-    for (let key in zoneValue) {
-      totalAtt.push(+zoneValue[key]);
-    }
+    let totalAtt = Object.values(zoneValue);
     if (saveDataOfAttacks) {
       calculateForData(playerInfo);
       const zoneOfAtt = historyOfBalls.filter((ball) => ball.active);
@@ -102,17 +100,16 @@ export function AttackFields() {
       const players = listOfPlayers.filter(
         (player) => player.teamid === playerInfo.teamid
       );
-      const team = listOfTeams.filter(
-        (player) => player.name === playerInfo.teamid
-      );
+      const team = listOfTeams.find((team) => team.name === playerInfo.teamid);
       const teamAge = players.reduce((a, b) => a + b.age, 0) / players.length;
-      calculateForData(team[0]);
-      team[0].age = +teamAge.toFixed(1);
+      calculateForData(team);
+      team.age = +teamAge.toFixed(1);
       totalAtt = res;
       playerInfo[nameOfZone] = totalAtt;
       await savePlayer(playerInfo);
-      await saveTeam(team[0]);
+      await saveTeam(team);
       dispatch(fetchPlayerInfo(playerInfo));
+      dispatch(fetchPlayers());
       setDisableSwitch(!disableSwitch);
       setSaveDataOfAttacks(!saveDataOfAttacks);
     }

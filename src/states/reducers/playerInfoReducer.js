@@ -3,7 +3,9 @@ import { defaultState } from "../defaultStates";
 
 export function fetchPlayerInfo(player) {
   return function (dispatch) {
-    fetchPlayerInformation(player).then((json) => dispatch(setInfoOfPlayer(json)));
+    fetchPlayerInformation(player)
+      .then(console.log("fetchPlayerInformation => DONE"))
+      .then((json) => dispatch(setInfoOfPlayer(json)));
   };
 }
 

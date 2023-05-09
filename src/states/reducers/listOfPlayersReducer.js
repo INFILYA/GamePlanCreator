@@ -1,5 +1,5 @@
 import { defaultState } from "../defaultStates";
-import { fetchPlayers as fetchPlayersApiCall } from "../../Datas/api";
+import { fetchPlayersApiCall } from "../../Datas/api";
 
 export function fetchPlayers() {
   return function (dispatch) {

@@ -6,9 +6,8 @@ export default function ShapeForRatings({ amplua }) {
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const [teams, setTeams] = useState(listOfTeams);
-  const [listOfFilteredPlayers, setListOfFilteredPlayers] = useState(
-    listOfPlayers.filter((player) => player.position === amplua)
-  );
+  const [listOfFilteredPlayers, setListOfFilteredPlayers] =
+    useState(listOfPlayers);
   const categorysForAll = [
     { category: "name", text: "Name" },
     { category: "age", text: "Age" },
@@ -71,25 +70,27 @@ export default function ShapeForRatings({ amplua }) {
                     )}
                   </div>
                 ))
-              : listOfFilteredPlayers.map((player, index) => (
-                  <div key={player.id}>
-                    {category.text !== "Name" ? (
-                      <span>
-                        {category.category === "percentOfAttack" &&
-                        amplua !== "Setter" &&
-                        amplua !== "Libero"
-                          ? player[category.category] + "%"
-                          : player[category.category]}
-                      </span>
-                    ) : (
-                      <span
-                        style={{ display: "flex", justifyContent: "start" }}
-                      >
-                        {index + 1}. {player[category.category]}
-                      </span>
-                    )}
-                  </div>
-                ))}
+              : listOfFilteredPlayers
+                  .filter((player) => player.position === amplua)
+                  .map((player, index) => (
+                    <div key={player.id}>
+                      {category.text !== "Name" ? (
+                        <span>
+                          {category.category === "percentOfAttack" &&
+                          amplua !== "Setter" &&
+                          amplua !== "Libero"
+                            ? player[category.category] + "%"
+                            : player[category.category]}
+                        </span>
+                      ) : (
+                        <span
+                          style={{ display: "flex", justifyContent: "start" }}
+                        >
+                          {index + 1}. {player[category.category]}
+                        </span>
+                      )}
+                    </div>
+                  ))}
           </div>
         ))}
       </div>

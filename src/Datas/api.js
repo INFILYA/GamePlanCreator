@@ -3,9 +3,11 @@ const jsonRequest = (url, options = {}) => {
   return fetch(SERVER_URL + url, {
     headers: { "content-type": "application/json" },
     ...options,
-  }).then((res) => res.json());
+  })
+    .then(console.log("async => DONE"))
+    .then((res) => res.json());
 };
-export const fetchPlayers = () => {
+export const fetchPlayersApiCall = () => {
   const options = { method: "GET" };
   const req = jsonRequest(`/players`, options);
   return req;
