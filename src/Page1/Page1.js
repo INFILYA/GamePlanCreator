@@ -4,7 +4,7 @@ import "../css/distribution.css";
 import "../css/newAttack.css";
 import "../css/service.css";
 import "../css/ratings.css";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FirstPage } from "./components/FirstPage";
 
 export default function Page1() {
@@ -15,7 +15,6 @@ export default function Page1() {
         <NavLink to={"/Ratings"}>Ratings</NavLink>
         <NavLink to={"/Distribution"}>Distribution</NavLink>
       </div>
-      <Outlet />
     </>
   );
 }

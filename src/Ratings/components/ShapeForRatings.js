@@ -5,9 +5,12 @@ import { NavLink } from "react-router-dom";
 export default function ShapeForRatings({ amplua }) {
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   const listOfTeams = useSelector((state) => state.listOfTeams);
-  const [teams, setTeams] = useState(listOfTeams);
-  const [listOfFilteredPlayers, setListOfFilteredPlayers] =
-    useState(listOfPlayers);
+  const [directionOfSort, setDirectionOfSort] = useState(false);
+  const [teamsOrPlayers, setTeamsOrPlayers] = useState(
+    amplua === "teams"
+      ? listOfTeams
+      : listOfPlayers.filter((player) => player.position === amplua)
+  );
   const categorysForAll = [
     { category: "name", text: "Name" },
     { category: "age", text: "Age" },
@@ -29,11 +32,12 @@ export default function ShapeForRatings({ amplua }) {
   const categorys = amplua === "Setter" ? categorysForOthers : categorysForAll;
 
   function countRankings(category) {
-    const newArr2 =
-      amplua === "teams" ? [...teams] : [...listOfFilteredPlayers];
-    newArr2.sort((a, b) => b[category] > a[category]);
-    setListOfFilteredPlayers(newArr2);
-    setTeams(newArr2);
+    const newArr2 = [...teamsOrPlayers];
+    !directionOfSort
+      ? newArr2.sort((a, b) => b[category] > a[category])
+      : newArr2.sort((a, b) => b[category] < a[category]);
+    setTeamsOrPlayers(newArr2);
+    setDirectionOfSort(!directionOfSort);
   }
 
   return (
@@ -50,47 +54,23 @@ export default function ShapeForRatings({ amplua }) {
               </button>
             </div>
             <hr />
-            {amplua === "teams"
-              ? teams.map((player, index) => (
-                  <div key={player.id}>
-                    {category.text !== "Name" ? (
-                      <span>
-                        {category.category === "percentOfAttack" &&
-                        amplua !== "Setter" &&
-                        amplua !== "Libero"
-                          ? player[category.category] + "%"
-                          : player[category.category]}
-                      </span>
-                    ) : (
-                      <span
-                        style={{ display: "flex", justifyContent: "start" }}
-                      >
-                        {index + 1}. {player[category.category]}
-                      </span>
-                    )}
-                  </div>
-                ))
-              : listOfFilteredPlayers
-                  .filter((player) => player.position === amplua)
-                  .map((player, index) => (
-                    <div key={player.id}>
-                      {category.text !== "Name" ? (
-                        <span>
-                          {category.category === "percentOfAttack" &&
-                          amplua !== "Setter" &&
-                          amplua !== "Libero"
-                            ? player[category.category] + "%"
-                            : player[category.category]}
-                        </span>
-                      ) : (
-                        <span
-                          style={{ display: "flex", justifyContent: "start" }}
-                        >
-                          {index + 1}. {player[category.category]}
-                        </span>
-                      )}
-                    </div>
-                  ))}
+            {teamsOrPlayers.map((player, index) => (
+              <div key={player.id}>
+                {category.text !== "Name" ? (
+                  <span>
+                    {category.category === "percentOfAttack" &&
+                    amplua !== "Setter" &&
+                    amplua !== "Libero"
+                      ? player[category.category] + "%"
+                      : player[category.category]}
+                  </span>
+                ) : (
+                  <span style={{ display: "flex", justifyContent: "start" }}>
+                    {index + 1}. {player[category.category]}
+                  </span>
+                )}
+              </div>
+            ))}
           </div>
         ))}
       </div>

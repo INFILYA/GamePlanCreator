@@ -8,11 +8,9 @@ import { clearMyTeamZones } from "../../states/reducers/myTeamZonesReducer";
 import { setBackRightRivalSelects } from "../../states/reducers/indexOfZonesReducer";
 import { setBackRightMyTeamSelects } from "../../states/reducers/sequanceOfZonesReducer";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
-import { useState } from "react";
 
 export function ChooseOpponentTeam() {
   const dispatch = useDispatch();
-  const [showReset, setShowReset] = useState(false);
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   function handleSetOpponentTeam(club) {
@@ -29,7 +27,6 @@ export function ChooseOpponentTeam() {
     dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setBackRightMyTeamSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setInfoOfPlayer(null));
-    setShowReset(false);
   }
   function showTeamName(team) {
     return team.name.split("", 6).join("");
@@ -39,18 +36,16 @@ export function ChooseOpponentTeam() {
       <div className="opponentTeamList">
         {listOfTeams.map((team) => (
           <button
-            onClick={() => handleSetOpponentTeam(team) || setShowReset(true)}
+            onClick={() => handleSetOpponentTeam(team)}
             className="opponentTeams"
             key={team.id}
           >
             {showTeamName(team)}
           </button>
         ))}
-        {showReset && (
-          <button onClick={resetTheBoard} className="reset">
-            Reset
-          </button>
-        )}
+        <button onClick={resetTheBoard} className="reset">
+          Reset
+        </button>
       </div>
     </>
   );

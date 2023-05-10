@@ -3,6 +3,7 @@ import { RegularLabel } from "../Labels/RegularLabel";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { AttackFields } from "./components/AttackFields";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 function Attacks() {
   const [history, sethistory] = useState([0]);
@@ -46,6 +47,10 @@ function Attacks() {
         </div>
       )}
     </>
-  ) : null;
+  ) : (
+    <div className="showRatings" style={{ marginTop: 10 }}>
+      <NavLink to={"/"}>Home Page</NavLink>
+    </div>
+  );
 }
 export default Attacks;

@@ -1,5 +1,5 @@
 import { defaultState } from "../defaultStates";
-import { fetchClubs as fetchTeamsApiCall } from "../../Datas/api";
+import { fetchTeamsApiCall } from "../../Datas/api";
 
 export function fetchTeams() {
   return function (dispatch) {

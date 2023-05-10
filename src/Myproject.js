@@ -25,34 +25,27 @@ function Myproject() {
     <>
       <div className="firstpage">
         <Routes>
-          <Route path="/" element={<Page1 />}>
-            <Route path="/Distribution" element={<Distribution />} />
-            <Route path="/Ratings" element={<Ratings />}>
-              <Route
-                path="/Ratings/RecieversRating"
-                element={<RecieversRating />}
-              />
-              <Route
-                path="/Ratings/OppositesRating"
-                element={<OppositesRating />}
-              />
-              <Route
-                path="/Ratings/MiddleBlockersRating"
-                element={<MiddleBlockersRating />}
-              />
-              <Route
-                path="/Ratings/SettersRating"
-                element={<SettersRating />}
-              />
-              <Route
-                path="/Ratings/LiberosRating"
-                element={<LiberosRating />}
-              />
-              <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
-            </Route>
-            <Route path="/attack" element={<Attacks />} />
-            <Route path="/service" element={<Service />} />
+          <Route path="/" element={<Page1 />} />
+          <Route path="/Ratings" element={<Ratings />}>
+            <Route
+              path="/Ratings/RecieversRating"
+              element={<RecieversRating />}
+            />
+            <Route
+              path="/Ratings/OppositesRating"
+              element={<OppositesRating />}
+            />
+            <Route
+              path="/Ratings/MiddleBlockersRating"
+              element={<MiddleBlockersRating />}
+            />
+            <Route path="/Ratings/SettersRating" element={<SettersRating />} />
+            <Route path="/Ratings/LiberosRating" element={<LiberosRating />} />
+            <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
           </Route>
+          <Route path="/Distribution" element={<Distribution />} />
+          <Route path="/attack" element={<Attacks />} />
+          <Route path="/service" element={<Service />} />
         </Routes>
       </div>
     </>

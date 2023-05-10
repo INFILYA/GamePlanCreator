@@ -12,7 +12,7 @@ export const fetchPlayersApiCall = () => {
   const req = jsonRequest(`/players`, options);
   return req;
 };
-export const fetchClubs = () => {
+export const fetchTeamsApiCall = () => {
   const options = { method: "GET" };
   const req = jsonRequest(`/clubs`, options);
   return req;

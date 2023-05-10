@@ -19,6 +19,7 @@ export function setInfoOfPlayer(player) {
 export function playerInfoReducer(state = defaultState.playerInfo, action) {
   switch (action.type) {
     case "SET_PLAYER_INFO":
+      localStorage.setItem("playerInfo", JSON.stringify(action.payload));
       return action.payload;
     default:
       return state;
