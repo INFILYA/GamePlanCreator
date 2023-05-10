@@ -10,6 +10,7 @@ import {
 import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
 import { setMyTeam } from "../../states/reducers/myClubReducer";
 import { MainLabel } from "./MainLabel";
+import { useState } from "react";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -19,11 +20,12 @@ export function FirstPage() {
   const playerInfo = useSelector((state) => state.playerInfo);
   const zones = useSelector((state) => state.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones);
-  const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
+  const [showMyTeam, setShowMyTeam] = useState(false);
 
   function handleSetMyTeam(club) {
     dispatch(setMyTeamPlayers(listOfPlayers, club));
     dispatch(setMyTeam(listOfTeams, club));
+    setShowMyTeam(!showMyTeam);
   }
   function moveRotationForward() {
     dispatch(rotateForwardMyTeam());
@@ -43,13 +45,10 @@ export function FirstPage() {
         <div className="rotation">
           <div style={{ display: "flex", justifyContent: "center" }}>
             {playerInfo && showPersonalInfo && (
-              <PersonalInformationOfPlayer
-                link={"page1"}
-                playerInfo={playerInfo}
-              />
+              <PersonalInformationOfPlayer link={"page1"} />
             )}
           </div>
-          <ChooseOpponentTeam />
+          <ChooseOpponentTeam setShowMyTeam={setShowMyTeam} />
           <div style={{ marginBottom: 8 }}>
             {zones.slice(0, 3).map((player, index) =>
               player ? (
@@ -113,7 +112,7 @@ export function FirstPage() {
             <button onClick={moveRotationBack}>🡆</button>
           </div>
         </div>
-        {myTeamPlayers.length > 2 ? (
+        {showMyTeam ? (
           <Squads team={"my"} />
         ) : (
           <div className="teamsquad">

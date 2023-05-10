@@ -89,7 +89,7 @@ export default function Diagramm({ link }) {
         playerInfo.attacksInBlock,
         playerInfo.loosePoints,
       ];
-      const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0.001);
+      const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0);
       const percentOfActions = totalAtt.map((att) =>
         Math.round((att / sumOfTotalAtt) * 100)
       );
@@ -101,7 +101,7 @@ export default function Diagramm({ link }) {
         playerInfo.serviceMinus,
         playerInfo.serviceFailed,
       ];
-      const sumOfTotalService = totalService.reduce((a, b) => a + b, 0.001);
+      const sumOfTotalService = totalService.reduce((a, b) => a + b, 0);
       const percentOfActions = totalService.map((service) =>
         Math.round((service / sumOfTotalService) * 100)
       );

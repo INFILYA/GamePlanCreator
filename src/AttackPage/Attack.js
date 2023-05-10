@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RegularLabel } from "../Labels/RegularLabel";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { AttackFields } from "./components/AttackFields";
-import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
 
 function Attacks() {
+  const dispatch = useDispatch();
   const [history, sethistory] = useState([0]);
   const playerInfo = useSelector((state) => state.playerInfo);
+
+  useEffect(() => {
+    dispatch(setInfoOfPlayer(JSON.parse(localStorage.getItem("playerInfo"))));
+  }, [dispatch]);
 
   function reset() {
     const newHistory = [...history];
@@ -17,7 +22,10 @@ function Attacks() {
   function addField() {
     sethistory([...history, history.length]);
   }
-  return playerInfo !== null ? (
+  if (playerInfo === null) {
+    return null;
+  }
+  return (
     <>
       <RegularLabel value={"Attack"} />
       {playerInfo.position !== "Setter" && playerInfo.position !== "Libero" && (
@@ -47,10 +55,6 @@ function Attacks() {
         </div>
       )}
     </>
-  ) : (
-    <div className="showRatings" style={{ marginTop: 10 }}>
-      <NavLink to={"/"}>Home Page</NavLink>
-    </div>
   );
 }
 export default Attacks;

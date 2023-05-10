@@ -9,7 +9,7 @@ import { setBackRightRivalSelects } from "../../states/reducers/indexOfZonesRedu
 import { setBackRightMyTeamSelects } from "../../states/reducers/sequanceOfZonesReducer";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
 
-export function ChooseOpponentTeam() {
+export function ChooseOpponentTeam({ setShowMyTeam }) {
   const dispatch = useDispatch();
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
@@ -27,6 +27,7 @@ export function ChooseOpponentTeam() {
     dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setBackRightMyTeamSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setInfoOfPlayer(null));
+    setShowMyTeam(false);
   }
   function showTeamName(team) {
     return team.name.split("", 6).join("");

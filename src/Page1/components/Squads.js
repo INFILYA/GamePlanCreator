@@ -8,6 +8,7 @@ import { setIndexOfZones } from "../../states/reducers/indexOfZonesReducer";
 import { setSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
 import { setShowPersonalInfo } from "../../states/reducers/showPersonalInfoReducer";
 
+
 export function Squads({ team }) {
   const dispatch = useDispatch();
   const rivalClub = useSelector((state) => state.rivalClub);
