@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { savePlayer, saveTeam } from "../../Datas/api";
-import { Switch } from "antd";
 import { BallForAttack } from "./BallForAttack";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
@@ -9,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPlayerInfo } from "../../states/reducers/playerInfoReducer";
 import { fetchPlayers } from "../../states/reducers/listOfPlayersReducer";
 import { fetchTeams } from "../../states/reducers/listOfTeamsReducer";
+import { Explain } from "./Explain";
 
 export function AttackFields() {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export function AttackFields() {
   const [showBalls, setShowBalls] = useState(false);
   const [saveDataOfAttacks, setSaveDataOfAttacks] = useState(false);
   const [disableSwitch, setDisableSwitch] = useState(false);
-  const [confirmReturn, setConfirmRetrun] = useState(false);
+  const [confirmReturn, setConfirmReturn] = useState(false);
   const [attackPercentageArray, setAttackPercentageArray] = useState([]);
   const [previousPlayerHistory, setPreviousPlayerHistory] = useState(null);
   const [previousTeamHistory, setPreviousTeamHistory] = useState(null);
@@ -47,7 +47,6 @@ export function AttackFields() {
     attacksInBlock: 0,
     loosePoints: 0,
     plusMinusOnAttack: 0,
-    plusMinusOnService: 0,
     percentOfAttack: 0,
   });
   const classNamesForConesAndInputs = [
@@ -96,7 +95,7 @@ export function AttackFields() {
     event.preventDefault();
     let AttacksByZone = Object.values(zoneValue);
     if (saveDataOfAttacks) {
-      setConfirmRetrun(!confirmReturn);
+      setConfirmReturn(!confirmReturn);
       setPreviousPlayerHistory({ ...playerInfo });
       setPreviousTeamHistory({
         ...teams.find((team) => team.name === playerInfo.teamid),
@@ -144,10 +143,9 @@ export function AttackFields() {
     dispatch(fetchPlayerInfo(previousPlayerHistory));
     dispatch(fetchPlayers());
     dispatch(fetchTeams());
-    setConfirmRetrun(!confirmReturn);
+    setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
   }
-  console.log(previousPlayerHistory);
   return (
     <form className="playArea" onSubmit={onHandleCountClick}>
       <div className="zoneinput">
@@ -181,92 +179,16 @@ export function AttackFields() {
         <input className="needtoclose"></input>
       </div>
       <div className="explain">
-        <div className="box">
-          <label>15%➤</label>
-          <button className="orangeSquare"></button>
-        </div>
-        <div className="box">
-          <label>25%➤</label>
-          <button className="pinkSquare"></button>
-          <label>➤15%</label>
-        </div>
-        <div className="box">
-          <label>35%➤</label>
-          <button className="purpleSquare"></button>
-          <label>➤25%</label>
-        </div>
-        <div className="box">
-          <label></label>
-          <button className="square"></button>
-          <label>➤35%</label>
-        </div>
-        <div className="comments">
-          <label>Comments:</label>
-          <textarea type="text" className="textcomment"></textarea>
-        </div>
-        {confirmReturn && (
-          <div>
-            <label style={{ fontSize: 30 }}>Return Data?</label>
-            <div>
-              <button
-                type="button"
-                className="returnButton"
-                onClick={() => returnOldData()}
-              >
-                Confirm
-              </button>
-            </div>
-          </div>
-        )}
-        <label style={{ fontSize: 30 }}>
-          {confirmReturn
-            ? "Data Saved"
-            : !disableSwitch
-            ? "Add Data"
-            : "Data Returned"}
-        </label>
-        <div className="saveBox">
-          <Switch
-            onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)}
-            disabled={disableSwitch}
-          />
-        </div>
-        {saveDataOfAttacks && (
-          <div style={{ marginTop: 10 }}>
-            <input
-              style={{ backgroundColor: "lightgreen" }}
-              name="winPoints"
-              onChange={handleDiagrammValue}
-              value={diagrammValue.winPoints}
-              placeholder="Win"
-              required
-            ></input>
-            <input
-              style={{ backgroundColor: "yellow" }}
-              name="leftInGame"
-              onChange={handleDiagrammValue}
-              value={diagrammValue.leftInGame}
-              placeholder="Left"
-              required
-            ></input>
-            <input
-              style={{ backgroundColor: "orange" }}
-              name="attacksInBlock"
-              onChange={handleDiagrammValue}
-              value={diagrammValue.attacksInBlock}
-              placeholder="block"
-              required
-            ></input>
-            <input
-              style={{ backgroundColor: "orangered" }}
-              name="loosePoints"
-              onChange={handleDiagrammValue}
-              value={diagrammValue.loosePoints}
-              placeholder="Loose"
-              required
-            ></input>
-          </div>
-        )}
+        <Explain
+          confirmReturn={confirmReturn}
+          disableSwitch={disableSwitch}
+          saveDataOfAttacks={saveDataOfAttacks}
+          setSaveDataOfAttacks={setSaveDataOfAttacks}
+          diagrammValue={diagrammValue}
+          handleDiagrammValue={handleDiagrammValue}
+          returnOldData={returnOldData}
+          type={'Attack'}
+        />
       </div>
       <div>
         <input

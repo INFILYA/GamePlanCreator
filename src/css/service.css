@@ -41,7 +41,7 @@
   font-weight: bold;
   margin: -5px 0px 0px 0px;
 }
-.zone1Service {
+.serviceZone1 {
   width: 60px;
   height: 60px;
   margin: 10px;
@@ -54,7 +54,7 @@
   position: absolute;
   color: transparent;
 }
-.zone6Service {
+.serviceZone6 {
   width: 60px;
   height: 60px;
   margin: 10px;
@@ -67,7 +67,7 @@
   position: absolute;
   color: transparent;
 }
-.zone5Service {
+.serviceZone5 {
   width: 60px;
   height: 60px;
   margin: 10px;

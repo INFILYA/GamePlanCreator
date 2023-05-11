@@ -3,53 +3,130 @@ import { BallForAttack } from "../../AttackPage/components/BallForAttack";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
 import { Recievers } from "./Recievers";
+import { Explain } from "../../AttackPage/components/Explain";
+import { savePlayer, saveTeam } from "../../Datas/api";
+import { fetchPlayerInfo } from "../../states/reducers/playerInfoReducer";
+import { fetchPlayers } from "../../states/reducers/listOfPlayersReducer";
+import { fetchTeams } from "../../states/reducers/listOfTeamsReducer";
+import { useDispatch, useSelector } from "react-redux";
 
 export function ServiceFields() {
-  const [historyOfBalls, setHistoryOfBalls] = useState([
-    { className: "zone1Service", active: false },
-    { className: "zone6Service", active: false },
-    { className: "zone5Service", active: false },
-  ]);
-  const [attackPercentageArray, setAttackPercentageArray] = useState([]);
-  const arrayForRecievers = [1, 2, 3, 4, 5];
+  const dispatch = useDispatch();
+  const playerInfo = useSelector((state) => state.playerInfo);
+  const allPlayers = useSelector((state) => state.listOfPlayers);
+  const teams = useSelector((state) => state.listOfTeams);
   const [showInputs, setShowInputs] = useState(false);
   const [showBalls, setShowBalls] = useState(false);
+  const [saveDataOfServices, setSaveDataOfServices] = useState(false);
+  const [disableSwitch, setDisableSwitch] = useState(false);
+  const [confirmReturn, setConfirmReturn] = useState(false);
+  const [previousPlayerHistory, setPreviousPlayerHistory] = useState(null);
+  const [previousTeamHistory, setPreviousTeamHistory] = useState(null);
+  const [attackPercentageArray, setAttackPercentageArray] = useState([]);
   const [tip, setTip] = useState(0);
+  const [historyOfBalls, setHistoryOfBalls] = useState([
+    { zone: "serviceZone1", active: false },
+    { zone: "serviceZone6", active: false },
+    { zone: "serviceZone5", active: false },
+  ]);
+  const [zoneValue, setZoneValue] = useState({
+    1: 0,
+    2: 0,
+    3: 0,
+  });
+  const [diagrammValue, setDiagrammValue] = useState({
+    aces: 0,
+    servicePlus: 0,
+    serviceMinus: 0,
+    serviceFailed: 0,
+    plusMinusOnService: 0,
+  });
   const classNamesForConesAndInputs = [
     ["Bluez5", "Yellowz5", "Redz5"],
     ["Bluez6", "Yellowz6", "Redz6"],
     ["Bluez1", "Yellowz1", "Redz1"],
   ];
   const classNamesForTip = ["tip", "yellowtip"];
-  const [zoneValue, setZoneValue] = useState({
-    1: 0,
-    2: 0,
-    3: 0,
-  });
+  const arrayForRecievers = [1, 2, 3, 4, 5];
+
+  function handleDiagrammValue(event) {
+    setDiagrammValue({
+      ...diagrammValue,
+      [event.target.name]: +event.target.value.replace(/\D+/g, ""),
+    });
+  }
   function handleZoneValue(event) {
     setZoneValue({
       ...zoneValue,
-      [event.target.name]: event.target.value.replace(/\D+/g, ""),
+      [event.target.name]: +event.target.value.replace(/\D+/g, ""),
     });
   }
-  function onHandleCountClick(event) {
-    event.preventDefault();
-    let final = [];
-    for (let key in zoneValue) {
-      final.push(+zoneValue[key]);
+  function calculateForData(obj) {
+    if (obj === playerInfo) {
+      diagrammValue.plusMinusOnService =
+        +diagrammValue.aces - +diagrammValue.serviceFailed;
     }
-    const new2 = final.reduce((a, b) => a + b, 0);
-    const result = final.map((obj) => Math.round((obj / new2) * 100));
-    const newObj = {
-      ...zoneValue,
+    obj.aces += +diagrammValue.aces;
+    obj.servicePlus += +diagrammValue.servicePlus;
+    obj.serviceMinus += +diagrammValue.serviceMinus;
+    obj.serviceFailed += +diagrammValue.serviceFailed;
+    obj.plusMinusOnService += +diagrammValue.plusMinusOnService;
+    return obj;
+  }
+  async function onHandleCountClick(event) {
+    event.preventDefault();
+    let ServiceByZone = Object.values(zoneValue);
+    if (saveDataOfServices) {
+      setConfirmReturn(!confirmReturn);
+      setPreviousPlayerHistory({ ...playerInfo });
+      setPreviousTeamHistory({
+        ...teams.find((team) => team.name === playerInfo.teamid),
+      });
+      calculateForData(playerInfo);
+      const zoneOfServ = historyOfBalls.find((ball) => ball.active);
+      const servHistory = playerInfo[zoneOfServ.zone];
+      const res = ServiceByZone.map((att, index) => att + servHistory[index]);
+      const nameOfZone = zoneOfServ.zone;
+      const players = allPlayers.filter(
+        (player) => player.teamid === playerInfo.teamid
+      );
+      const team = teams.find((team) => team.name === playerInfo.teamid);
+      const teamAge = players.reduce((a, b) => a + b.age, 0) / players.length;
+      calculateForData(team);
+      team.age = +teamAge.toFixed(1);
+      ServiceByZone = res;
+      playerInfo[nameOfZone] = ServiceByZone;
+      await savePlayer(playerInfo); //сохраняю одного игрока
+      await saveTeam(team); // сохраняю команду
+      dispatch(fetchPlayerInfo(playerInfo)); // обвновляю инфу игрока
+      dispatch(fetchPlayers()); // обновляю  всех игроков
+      setDisableSwitch(!disableSwitch);
+      setSaveDataOfServices(!saveDataOfServices);
+    }
+    const totalServices = ServiceByZone.reduce((a, b) => a + b, 0);
+    const result = ServiceByZone.map((obj) =>
+      Math.round((obj / totalServices) * 100)
+    );
+    const upgratedZoneValue = {
       1: result[0] + "%",
       2: result[1] + "%",
       3: result[2] + "%",
     };
-    setZoneValue(newObj);
+    setZoneValue(upgratedZoneValue);
     setAttackPercentageArray(result);
     setShowInputs(!showInputs);
   }
+  async function returnOldData() {
+    await savePlayer(previousPlayerHistory);
+    await saveTeam(previousTeamHistory);
+    dispatch(fetchPlayerInfo(previousPlayerHistory));
+    dispatch(fetchPlayers());
+    dispatch(fetchTeams());
+    setConfirmReturn(!confirmReturn);
+    alert("Last Data Returned");
+  }
+  console.log(historyOfBalls);
+  console.log(playerInfo);
   return (
     <>
       <form className="serviceField">
@@ -74,8 +151,8 @@ export function ServiceFields() {
             !ball.active ? (
               <BallForAttack
                 key={index}
-                value={ball.className.replace(/[a-z]/g, "")}
-                attack={!showBalls ? ball.className : "none"}
+                value={ball.zone.replace(/[a-z]/g, "")}
+                attack={!showBalls ? ball.zone : "none"}
                 index={index}
                 historyOfBalls={historyOfBalls}
                 setHistoryOfBalls={setHistoryOfBalls}
@@ -86,7 +163,7 @@ export function ServiceFields() {
               <BallForAttack
                 key={index}
                 value="🏐"
-                attack={ball.className + " showTheBall"}
+                attack={ball.zone + " showTheBall"}
                 index={index}
                 historyOfBalls={historyOfBalls}
                 setHistoryOfBalls={setHistoryOfBalls}
@@ -105,10 +182,16 @@ export function ServiceFields() {
           </div>
         </div>
         <div className="explain">
-          <div className="comments">
-            <label>Comments:</label>
-            <textarea type="text" className="textcomment"></textarea>
-          </div>
+          <Explain
+            confirmReturn={confirmReturn}
+            disableSwitch={disableSwitch}
+            saveDataOfAttacks={saveDataOfServices}
+            setSaveDataOfAttacks={setSaveDataOfServices}
+            diagrammValue={diagrammValue}
+            handleDiagrammValue={handleDiagrammValue}
+            returnOldData={returnOldData}
+            type={"Service"}
+          />
         </div>
         <div className="balls">
           {classNamesForConesAndInputs.map((el, index) => (
