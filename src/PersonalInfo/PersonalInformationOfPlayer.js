@@ -10,10 +10,7 @@ export function PersonalInformationOfPlayer({ link }) {
   const playerInfo = useSelector((state) => state.playerInfo);
 
   function goHome() {
-    (link === "Service" || link === "Attack") && navigate("/");
-    link === "page1" && dispatch(setShowPersonalInfo(false));
-  }
-  function showPerson() {
+    navigate("/");
     dispatch(setShowPersonalInfo(false));
   }
   const infosOfPlayers = [];
@@ -78,17 +75,11 @@ export function PersonalInformationOfPlayer({ link }) {
               {playerInfo.position !== "Libero" && (
                 <>
                   {playerInfo.position !== "Setter" && (
-                    <NavLink
-                      to={"/attack?playerId=" + playerInfo.id}
-                      onClick={() => showPerson()}
-                    >
+                    <NavLink to={"/attack?playerId=" + playerInfo.id}>
                       Attack
                     </NavLink>
                   )}
-                  <NavLink
-                    to={"/service?playerId=" + playerInfo.id}
-                    onClick={() => showPerson()}
-                  >
+                  <NavLink to={"/service?playerId=" + playerInfo.id}>
                     Service
                   </NavLink>
                 </>

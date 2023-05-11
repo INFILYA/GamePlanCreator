@@ -957,6 +957,14 @@
   margin-top: 15px;
   border: 2px solid black;
 }
+.explain .returnButton {
+  padding: 5px;
+  background-color: yellowgreen;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 15px;
+  font-weight: bold;
+}
 .explain .comments {
   text-align: start;
 }

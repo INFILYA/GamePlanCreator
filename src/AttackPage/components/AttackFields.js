@@ -8,12 +8,22 @@ import { DefenderZone6 } from "./DefenderZone6";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPlayerInfo } from "../../states/reducers/playerInfoReducer";
 import { fetchPlayers } from "../../states/reducers/listOfPlayersReducer";
+import { fetchTeams } from "../../states/reducers/listOfTeamsReducer";
 
 export function AttackFields() {
   const dispatch = useDispatch();
   const playerInfo = useSelector((state) => state.playerInfo);
-  const listOfPlayers = useSelector((state) => state.listOfPlayers);
-  const listOfTeams = useSelector((state) => state.listOfTeams);
+  const allPlayers = useSelector((state) => state.listOfPlayers);
+  const teams = useSelector((state) => state.listOfTeams);
+  const [showInputs, setShowInputs] = useState(false);
+  const [showBalls, setShowBalls] = useState(false);
+  const [saveDataOfAttacks, setSaveDataOfAttacks] = useState(false);
+  const [disableSwitch, setDisableSwitch] = useState(false);
+  const [confirmReturn, setConfirmRetrun] = useState(false);
+  const [attackPercentageArray, setAttackPercentageArray] = useState([]);
+  const [previousPlayerHistory, setPreviousPlayerHistory] = useState(null);
+  const [previousTeamHistory, setPreviousTeamHistory] = useState(null);
+  const [tip, setTip] = useState(0);
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "attackZone1", active: false },
     { zone: "attackZone2", active: false },
@@ -23,21 +33,6 @@ export function AttackFields() {
     { zone: "attackKC", active: false },
     { zone: "attackK7", active: false },
   ]);
-  const [attackPercentageArray, setAttackPercentageArray] = useState([]);
-  const [showInputs, setShowInputs] = useState(false);
-  const [showBalls, setShowBalls] = useState(false);
-  const [tip, setTip] = useState(0);
-  const [saveDataOfAttacks, setSaveDataOfAttacks] = useState(false);
-  const [disableSwitch, setDisableSwitch] = useState(false);
-  const classNamesForConesAndInputs = [
-    ["blue5A", "yellow5A", "purple5A", "red5A"],
-    ["blue5B", "yellow5B", "purple5B", "red5B"],
-    ["blue6A", "yellow6A", "purple6A", "red6A"],
-    ["blue6B", "yellow6B", "purple6B", "red6B"],
-    ["blue1A", "yellow1A", "purple1A", "red1A"],
-    ["blue1B", "yellow1B", "purple1B", "red1B"],
-  ];
-  const classNamesForTip = ["tip", "yellowtip"];
   const [zoneValue, setZoneValue] = useState({
     1: 0,
     2: 0,
@@ -55,6 +50,15 @@ export function AttackFields() {
     plusMinusOnService: 0,
     percentOfAttack: 0,
   });
+  const classNamesForConesAndInputs = [
+    ["blue5A", "yellow5A", "purple5A", "red5A"],
+    ["blue5B", "yellow5B", "purple5B", "red5B"],
+    ["blue6A", "yellow6A", "purple6A", "red6A"],
+    ["blue6B", "yellow6B", "purple6B", "red6B"],
+    ["blue1A", "yellow1A", "purple1A", "red1A"],
+    ["blue1B", "yellow1B", "purple1B", "red1B"],
+  ];
+  const classNamesForTip = ["tip", "yellowtip"];
   function handleDiagrammValue(event) {
     setDiagrammValue({
       ...diagrammValue,
@@ -90,33 +94,39 @@ export function AttackFields() {
   }
   async function onHandleCountClick(event) {
     event.preventDefault();
-    let totalAtt = Object.values(zoneValue);
+    let AttacksByZone = Object.values(zoneValue);
     if (saveDataOfAttacks) {
+      setConfirmRetrun(!confirmReturn);
+      setPreviousPlayerHistory({ ...playerInfo });
+      setPreviousTeamHistory({
+        ...teams.find((team) => team.name === playerInfo.teamid),
+      });
       calculateForData(playerInfo);
-      const zoneOfAtt = historyOfBalls.filter((ball) => ball.active);
-      const PlayerAttHistory = playerInfo[zoneOfAtt[0].zone];
-      const res = totalAtt.map((att, index) => att + PlayerAttHistory[index]);
-      const nameOfZone = zoneOfAtt[0].zone;
-      const players = listOfPlayers.filter(
+      const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
+      const attHistory = playerInfo[zoneOfAtt.zone];
+      const res = AttacksByZone.map((att, index) => att + attHistory[index]);
+      const nameOfZone = zoneOfAtt.zone;
+      const players = allPlayers.filter(
         (player) => player.teamid === playerInfo.teamid
       );
-      const team = listOfTeams.find((team) => team.name === playerInfo.teamid);
+      const team = teams.find((team) => team.name === playerInfo.teamid);
       const teamAge = players.reduce((a, b) => a + b.age, 0) / players.length;
       calculateForData(team);
       team.age = +teamAge.toFixed(1);
-      totalAtt = res;
-      playerInfo[nameOfZone] = totalAtt;
-      await savePlayer(playerInfo);
-      await saveTeam(team);
-      dispatch(fetchPlayerInfo(playerInfo));
-      dispatch(fetchPlayers());
+      AttacksByZone = res;
+      playerInfo[nameOfZone] = AttacksByZone;
+      await savePlayer(playerInfo); //сохраняю одного игрока
+      await saveTeam(team); // сохраняю команду
+      dispatch(fetchPlayerInfo(playerInfo)); // обвновляю инфу игрока
+      dispatch(fetchPlayers()); // обновляю  всех игроков
       setDisableSwitch(!disableSwitch);
       setSaveDataOfAttacks(!saveDataOfAttacks);
     }
-    const new2 = totalAtt.reduce((a, b) => a + b, 0);
-    const result = totalAtt.map((obj) => Math.round((obj / new2) * 100));
-    const newObj = {
-      ...zoneValue,
+    const totalAttacks = AttacksByZone.reduce((a, b) => a + b, 0);
+    const result = AttacksByZone.map((attacks) =>
+      Math.round((attacks / totalAttacks) * 100)
+    );
+    const upgradedZoneValue = {
       1: result[0] + "%",
       2: result[1] + "%",
       3: result[2] + "%",
@@ -124,10 +134,20 @@ export function AttackFields() {
       5: result[4] + "%",
       6: result[5] + "%",
     };
-    setZoneValue(newObj);
+    setZoneValue(upgradedZoneValue);
     setAttackPercentageArray(result);
     setShowInputs(!showInputs);
   }
+  async function returnOldData() {
+    await savePlayer(previousPlayerHistory);
+    await saveTeam(previousTeamHistory);
+    dispatch(fetchPlayerInfo(previousPlayerHistory));
+    dispatch(fetchPlayers());
+    dispatch(fetchTeams());
+    setConfirmRetrun(!confirmReturn);
+    alert("Last Data Returned");
+  }
+  console.log(previousPlayerHistory);
   return (
     <form className="playArea" onSubmit={onHandleCountClick}>
       <div className="zoneinput">
@@ -184,8 +204,26 @@ export function AttackFields() {
           <label>Comments:</label>
           <textarea type="text" className="textcomment"></textarea>
         </div>
+        {confirmReturn && (
+          <div>
+            <label style={{ fontSize: 30 }}>Return Data?</label>
+            <div>
+              <button
+                type="button"
+                className="returnButton"
+                onClick={() => returnOldData()}
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        )}
         <label style={{ fontSize: 30 }}>
-          {disableSwitch ? "Data Saved" : "Add Data"}
+          {confirmReturn
+            ? "Data Saved"
+            : !disableSwitch
+            ? "Add Data"
+            : "Data Returned"}
         </label>
         <div className="saveBox">
           <Switch

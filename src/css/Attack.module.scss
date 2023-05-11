@@ -444,7 +444,7 @@
   }
   .red1APipe {
     @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
-    border-bottom: 350px solid firebrick; 
+    border-bottom: 350px solid firebrick;
   }
   .purple1APipe {
     @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
@@ -588,6 +588,14 @@
     font-weight: bold;
     margin-top: 15px;
     border: 2px solid black;
+  }
+  .returnButton {
+    padding: 5px;
+    background-color: yellowgreen;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-weight: bold;
   }
   .comments {
     text-align: start;
