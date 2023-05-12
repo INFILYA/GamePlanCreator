@@ -121,7 +121,7 @@ export function AttackFields() {
       setDisableSwitch(!disableSwitch);
       setSaveDataOfAttacks(!saveDataOfAttacks);
     }
-    const totalAttacks = AttacksByZone.reduce((a, b) => a + b, 0);
+    const totalAttacks = AttacksByZone.reduce((a, b) => a + b, 0.0001);
     const result = AttacksByZone.map((attacks) =>
       Math.round((attacks / totalAttacks) * 100)
     );
@@ -187,7 +187,7 @@ export function AttackFields() {
           diagrammValue={diagrammValue}
           handleDiagrammValue={handleDiagrammValue}
           returnOldData={returnOldData}
-          type={'Attack'}
+          type={"Attack"}
         />
       </div>
       <div>
@@ -213,6 +213,7 @@ export function AttackFields() {
                     setHistoryOfBalls={setHistoryOfBalls}
                     setShowInputs={setShowInputs}
                     setShowBalls={setShowBalls}
+                    showInputs={showInputs}
                   />
                 ) : (
                   <BallForAttack
@@ -224,6 +225,7 @@ export function AttackFields() {
                     setHistoryOfBalls={setHistoryOfBalls}
                     setShowInputs={setShowInputs}
                     setShowBalls={setShowBalls}
+                    showInputs={showInputs}
                   />
                 )
               )
@@ -241,6 +243,7 @@ export function AttackFields() {
                     setHistoryOfBalls={setHistoryOfBalls}
                     setShowInputs={setShowInputs}
                     setShowBalls={setShowBalls}
+                    showInputs={showInputs}
                   />
                 ) : (
                   <BallForAttack
@@ -252,6 +255,7 @@ export function AttackFields() {
                     setHistoryOfBalls={setHistoryOfBalls}
                     setShowInputs={setShowInputs}
                     setShowBalls={setShowBalls}
+                    showInputs={showInputs}
                   />
                 )
               )
@@ -269,6 +273,7 @@ export function AttackFields() {
                     setHistoryOfBalls={setHistoryOfBalls}
                     setShowInputs={setShowInputs}
                     setShowBalls={setShowBalls}
+                    showInputs={showInputs}
                   />
                 ) : (
                   <BallForAttack
@@ -280,6 +285,7 @@ export function AttackFields() {
                     setHistoryOfBalls={setHistoryOfBalls}
                     setShowInputs={setShowInputs}
                     setShowBalls={setShowBalls}
+                    showInputs={showInputs}
                   />
                 )
               )
@@ -295,26 +301,28 @@ export function AttackFields() {
             range25={el[2]}
             range35={el[3]}
             historyOfBalls={historyOfBalls}
+            type={"Attack"}
           />
         ))}
       </div>
-      {showInputs && (
+      {showBalls && (
+        <div>
+          <DefenderZone6 />
+          <DefenderZone6 />
+          <DefenderZone6 />
+        </div>
+      )}
+      {showBalls && (
         <div>
           {classNamesForConesAndInputs.map((el, index) => (
             <InputForCount
               key={index}
               name={index + 1}
-              handleZoneValue={handleZoneValue}
+              onChange={handleZoneValue}
               zoneValue={zoneValue[index + 1]}
+              showInputs={showInputs}
             />
           ))}
-        </div>
-      )}
-      {!showInputs && (
-        <div>
-          <DefenderZone6 />
-          <DefenderZone6 />
-          <DefenderZone6 />
         </div>
       )}
     </form>

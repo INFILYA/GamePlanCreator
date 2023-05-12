@@ -8,18 +8,19 @@ export function BallForAttack({
   setShowInputs,
   value,
   setShowBalls,
+  showInputs,
 }) {
   const [showTheBall, setShowTheBall] = useState(true);
   function onClickSetCorrectBall(index) {
     const newBalls = [...historyOfBalls];
     if (showTheBall) {
       newBalls[index] = { ...newBalls[index], active: true };
-      setShowInputs(true);
+      setShowInputs(!showInputs);
       setShowBalls(true);
       setShowTheBall(!showTheBall);
     } else {
       newBalls[index] = { ...newBalls[index], active: false };
-      setShowInputs(false);
+      setShowInputs(!showInputs);
       setShowBalls(false);
       setShowTheBall(!showTheBall);
     }

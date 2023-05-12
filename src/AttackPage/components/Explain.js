@@ -12,29 +12,27 @@ export function Explain({
 }) {
   return (
     <>
-      {type === "Attack" && (
-        <div>
-          <div className="box">
-            <label>15%➤</label>
-            <button className="orangeSquare"></button>
-          </div>
-          <div className="box">
-            <label>25%➤</label>
-            <button className="pinkSquare"></button>
-            <label>➤15%</label>
-          </div>
-          <div className="box">
-            <label>35%➤</label>
-            <button className="purpleSquare"></button>
-            <label>➤25%</label>
-          </div>
-          <div className="box">
-            <label></label>
-            <button className="square"></button>
-            <label>➤35%</label>
-          </div>
+      <div>
+        <div className="box">
+          <label>15%➤</label>
+          <button className="orangeSquare"></button>
         </div>
-      )}
+        <div className="box">
+          <label>25%➤</label>
+          <button className="pinkSquare"></button>
+          <label>➤15%</label>
+        </div>
+        <div className="box">
+          <label>35%➤</label>
+          <button className="purpleSquare"></button>
+          <label>➤25%</label>
+        </div>
+        <div className="box">
+          <label></label>
+          <button className="square"></button>
+          <label>➤35%</label>
+        </div>
+      </div>
       <div className="comments">
         <label>Comments:</label>
         <textarea type="text" className="textcomment"></textarea>

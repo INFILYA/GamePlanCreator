@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Distribution from "./Distribution/Distribution";
-import Service from "./ServicePage/Service";
 import Attacks from "./AttackPage/Attack";
+import Service from "./AttackPage/Service";
 import Page1 from "./Page1/Page1";
 import Ratings from "./Ratings/Ratings";
 import RecieversRating from "./Ratings/components/RecieversRating";

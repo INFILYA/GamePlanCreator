@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { BallForAttack } from "../../AttackPage/components/BallForAttack";
-import { ConeReaction } from "./ConeReaction";
-import { InputForCount } from "./InputForCount";
-import { Recievers } from "./Recievers";
-import { Explain } from "../../AttackPage/components/Explain";
+import { BallForAttack } from "./BallForAttack";
+import { Explain } from "./Explain";
 import { savePlayer, saveTeam } from "../../Datas/api";
 import { fetchPlayerInfo } from "../../states/reducers/playerInfoReducer";
 import { fetchPlayers } from "../../states/reducers/listOfPlayersReducer";
 import { fetchTeams } from "../../states/reducers/listOfTeamsReducer";
 import { useDispatch, useSelector } from "react-redux";
+import { DefenderZone6 } from "./DefenderZone6";
+import { ConeReaction } from "./ConeReaction";
+import { InputForCount } from "./InputForCount";
 
 export function ServiceFields() {
   const dispatch = useDispatch();
@@ -42,9 +42,9 @@ export function ServiceFields() {
     plusMinusOnService: 0,
   });
   const classNamesForConesAndInputs = [
-    ["Bluez5", "Yellowz5", "Redz5"],
-    ["Bluez6", "Yellowz6", "Redz6"],
-    ["Bluez1", "Yellowz1", "Redz1"],
+    ["Bluez5", "Yellowz5", "Purplez5", "Redz5"],
+    ["Bluez6", "Yellowz6", "Purplez6", "Redz6"],
+    ["Bluez1", "Yellowz1", "Purplez1", "Redz1"],
   ];
   const classNamesForTip = ["tip", "yellowtip"];
   const arrayForRecievers = [1, 2, 3, 4, 5];
@@ -103,7 +103,7 @@ export function ServiceFields() {
       setDisableSwitch(!disableSwitch);
       setSaveDataOfServices(!saveDataOfServices);
     }
-    const totalServices = ServiceByZone.reduce((a, b) => a + b, 0);
+    const totalServices = ServiceByZone.reduce((a, b) => a + b, 0.0001);
     const result = ServiceByZone.map((obj) =>
       Math.round((obj / totalServices) * 100)
     );
@@ -125,8 +125,6 @@ export function ServiceFields() {
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
   }
-  console.log(historyOfBalls);
-  console.log(playerInfo);
   return (
     <>
       <form className="serviceField">
@@ -158,6 +156,7 @@ export function ServiceFields() {
                 setHistoryOfBalls={setHistoryOfBalls}
                 setShowInputs={setShowInputs}
                 setShowBalls={setShowBalls}
+                showInputs={showInputs}
               />
             ) : (
               <BallForAttack
@@ -169,6 +168,7 @@ export function ServiceFields() {
                 setHistoryOfBalls={setHistoryOfBalls}
                 setShowInputs={setShowInputs}
                 setShowBalls={setShowBalls}
+                showInputs={showInputs}
               />
             )
           )}
@@ -199,25 +199,28 @@ export function ServiceFields() {
               key={index}
               attackPercentageArray={attackPercentageArray[index]}
               range0={el[0]}
-              range10={el[1]}
-              range40={el[2]}
+              range15={el[1]}
+              range25={el[2]}
+              range35={el[3]}
               historyOfBalls={historyOfBalls}
             />
           ))}
         </div>
-        <div>
-          {classNamesForConesAndInputs.map((el, index) => (
-            <InputForCount
-              key={index}
-              name={index + 1}
-              handleZoneValue={handleZoneValue}
-              zoneValue={zoneValue[index + 1]}
-              showInputs={showInputs}
-            />
-          ))}
-        </div>
+        {showBalls && (
+          <div>
+            {classNamesForConesAndInputs.map((el, index) => (
+              <InputForCount
+                key={index}
+                name={index + 1}
+                onChange={handleZoneValue}
+                zoneValue={zoneValue[index + 1]}
+                showInputs={showInputs}
+              />
+            ))}
+          </div>
+        )}
         {!showInputs &&
-          arrayForRecievers.map((reciever) => <Recievers key={reciever} />)}
+          arrayForRecievers.map((reciever) => <DefenderZone6 key={reciever} />)}
       </form>
     </>
   );
