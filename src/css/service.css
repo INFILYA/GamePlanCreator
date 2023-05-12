@@ -126,7 +126,7 @@
   height: 115px;
   border: 1px solid black;
   background-color: transparent;
-  margin: 365px 0px 0px 0px;
+  margin: 422px 0px 0px 0px;
   font-size: 35px;
   text-align: center;
   display: inline-flex;
@@ -137,6 +137,8 @@
   color: black;
   font-size: 30px;
   font-weight: bold;
+  margin: 405px 0px -35px 0px;
+  z-index: 2;
 }
 .servicePage .defenderOn {
   width: 40px;
