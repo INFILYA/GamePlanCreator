@@ -76,7 +76,14 @@ export function ServiceFields() {
   async function onHandleCountClick(event) {
     event.preventDefault();
     let ServiceByZone = Object.values(zoneValue);
-    if (saveDataOfServices) {
+    if (
+      saveDataOfServices &&
+      diagrammValue.aces +
+        diagrammValue.servicePlus +
+        diagrammValue.serviceMinus +
+        diagrammValue.serviceFailed ===
+        ServiceByZone.reduce((a, b) => a + b, 0)
+    ) {
       setConfirmReturn(!confirmReturn);
       setPreviousPlayerHistory({ ...playerInfo });
       setPreviousTeamHistory({
@@ -102,6 +109,20 @@ export function ServiceFields() {
       dispatch(fetchPlayers()); // обновляю  всех игроков
       setDisableSwitch(!disableSwitch);
       setSaveDataOfServices(!saveDataOfServices);
+    }
+    if (
+      saveDataOfServices &&
+      diagrammValue.aces +
+        diagrammValue.servicePlus +
+        diagrammValue.serviceMinus +
+        diagrammValue.serviceFailed !==
+        ServiceByZone.reduce((a, b) => a + b, 0)
+    ) {
+      setSaveDataOfServices(!saveDataOfServices);
+      setDisableSwitch(!disableSwitch);
+      alert(
+        "Total Value of field inputs should be equal total value of data inputs! Data not overwritten!"
+      );
     }
     const totalServices = ServiceByZone.reduce((a, b) => a + b, 0.0001);
     const result = ServiceByZone.map((obj) =>

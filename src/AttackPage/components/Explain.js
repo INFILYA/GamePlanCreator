@@ -56,7 +56,7 @@ export function Explain({
           ? "Data Saved"
           : !disableSwitch
           ? "Add Data"
-          : "Data Returned"}
+          : "Data Restored"}
       </label>
       <div className="saveBox">
         <Switch

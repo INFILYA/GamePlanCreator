@@ -94,7 +94,14 @@ export function AttackFields() {
   async function onHandleCountClick(event) {
     event.preventDefault();
     let AttacksByZone = Object.values(zoneValue);
-    if (saveDataOfAttacks) {
+    if (
+      saveDataOfAttacks &&
+      diagrammValue.winPoints +
+        diagrammValue.leftInGame +
+        diagrammValue.attacksInBlock +
+        diagrammValue.loosePoints ===
+        AttacksByZone.reduce((a, b) => a + b, 0)
+    ) {
       setConfirmReturn(!confirmReturn);
       setPreviousPlayerHistory({ ...playerInfo });
       setPreviousTeamHistory({
@@ -120,6 +127,20 @@ export function AttackFields() {
       dispatch(fetchPlayers()); // обновляю  всех игроков
       setDisableSwitch(!disableSwitch);
       setSaveDataOfAttacks(!saveDataOfAttacks);
+    }
+    if (
+      saveDataOfAttacks &&
+      diagrammValue.winPoints +
+        diagrammValue.leftInGame +
+        diagrammValue.attacksInBlock +
+        diagrammValue.loosePoints !==
+        AttacksByZone.reduce((a, b) => a + b, 0)
+    ) {
+      setSaveDataOfAttacks(!saveDataOfAttacks);
+      setDisableSwitch(!disableSwitch);
+      alert(
+        "Total Value of field inputs should be equal total value of data inputs! Data not overwritten!"
+      );
     }
     const totalAttacks = AttacksByZone.reduce((a, b) => a + b, 0.0001);
     const result = AttacksByZone.map((attacks) =>
