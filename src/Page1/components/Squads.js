@@ -1,13 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
 import { pushFromMyBoard } from "../../states/reducers/myTeamPlayersReducer";
-import { pushFromRivalBoard } from "../../states/reducers/rivalPlayersReducer";
+import {
+  pushFromRivalBoard,
+  setBenchPlayers,
+} from "../../states/reducers/rivalPlayersReducer";
 import { setMyTeamZones } from "../../states/reducers/myTeamZonesReducer";
-import { setRivalZones } from "../../states/reducers/zonesReducer";
-import { setIndexOfZones } from "../../states/reducers/indexOfZonesReducer";
+import {
+  setRivalStartingSix,
+  setRivalZones,
+} from "../../states/reducers/zonesReducer";
+import {
+  setBackRightRivalSelects,
+  setIndexOfZones,
+} from "../../states/reducers/indexOfZonesReducer";
 import { setSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
-import { setShowPersonalInfo } from "../../states/reducers/showPersonalInfoReducer";
-
+import { Button } from "../../Labels/Button";
 
 export function Squads({ team }) {
   const dispatch = useDispatch();
@@ -17,11 +25,10 @@ export function Squads({ team }) {
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
   const indexOfZones = useSelector((state) => state.indexOfZones);
   const sequanceOfZones = useSelector((state) => state.sequanceOfZones);
-  const showPersonalInfo = useSelector((state) => state.showPersonalInfo);
 
   const club = team === "my" ? myClub : rivalClub;
   const players = team === "my" ? myTeamPlayers : rivalPlayers;
-  const zoness = team === "my" ? sequanceOfZones : indexOfZones;
+  const Zones = team === "my" ? sequanceOfZones : indexOfZones;
 
   function pushFromMyTeamBoard(player) {
     dispatch(pushFromMyBoard(player));
@@ -45,28 +52,36 @@ export function Squads({ team }) {
   }
   function setPlayerInfo(player) {
     dispatch(setInfoOfPlayer(player));
-    showPersonalInfo
-      ? dispatch(setShowPersonalInfo(true))
-      : dispatch(setShowPersonalInfo(!showPersonalInfo));
   }
   function correctNamesOfZones(index) {
     const zones = ["P4", "P3", "P2", "P5", "P6", "P1"];
     return zones[index];
   }
-
+  function showStartingSix() {
+    dispatch(setRivalStartingSix(rivalClub.startingSquad));
+    dispatch(
+      setBenchPlayers(
+        rivalPlayers.filter(
+          (player) =>
+            !rivalClub.startingSquad.some(
+              (copyPlayer) => copyPlayer.id === player.id
+            )
+        )
+      )
+    );
+    dispatch(setBackRightRivalSelects([]));
+  }
   return (
     <>
       <div className="teamsquad">
-        {club.map((club) => (
-          <div
-            className="teamLogo"
-            key={club.id}
-            style={team === "my" ? { direction: "rtl" } : {}}
-          >
-            <input className="teamlabel" readOnly value={club.name} />
-            <img className="photoLogo" src={club.logo} alt="" />
-          </div>
-        ))}
+        <div
+          className="teamLogo"
+          key={club.id}
+          style={team === "my" ? { direction: "rtl" } : {}}
+        >
+          <input className="teamlabel" readOnly value={club.name} />
+          <img className="photoLogo" src={club.logo} alt="" />
+        </div>
         {players.map((player) => (
           <div
             key={player.id}
@@ -75,9 +90,7 @@ export function Squads({ team }) {
           >
             <div
               className="numberPlusInput"
-              onFocus={() =>
-                setPlayerInfo(player) || dispatch(setShowPersonalInfo(true))
-              }
+              onFocus={() => setPlayerInfo(player)}
             >
               <button
                 type="text"
@@ -115,14 +128,14 @@ export function Squads({ team }) {
                 {player.name}
               </button>
             </div>
-            {zoness && (
+            {Zones && (
               <select className="moveToBoard" type="text">
                 {team === "my" ? (
                   <option defaultValue="◀">◀</option>
                 ) : (
                   <option defaultValue="▶">▶</option>
                 )}
-                {zoness.map((zone, index) => (
+                {Zones.map((zone, index) => (
                   <option
                     key={index}
                     value={`index[${[zone]}]`}
@@ -143,6 +156,9 @@ export function Squads({ team }) {
             )}
           </div>
         ))}
+        {team !== "my" && rivalPlayers.length > 6 && (
+          <Button onClick={showStartingSix} value={"Show Starting six"} />
+        )}
       </div>
     </>
   );

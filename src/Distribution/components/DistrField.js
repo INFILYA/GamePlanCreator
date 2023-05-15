@@ -34,16 +34,13 @@ export function DistrField() {
   function handleZoneValue(event) {
     setZoneValue({
       ...zoneValue,
-      [event.target.name]: event.target.value.replace(/\D+/g, ""),
+      [event.target.name]: +event.target.value.replace(/\D+/g, ""),
     });
   }
   function onHandleCountClick(event) {
     event.preventDefault();
-    let final = [];
-    for (let key in zoneValue) {
-      final.push(+zoneValue[key]);
-    }
-    const total = final.reduce((a, b) => a + b, 0);
+    let final = Object.values(zoneValue);
+    const total = final.reduce((a, b) => a + b, 0.001);
     const res = final.map((obj) => Math.round((obj / total) * 100));
     const countedResult = {
       1: res[0] + "%",
@@ -67,7 +64,7 @@ export function DistrField() {
                 <option
                   key={type}
                   onClick={() =>
-                    setZoneValue({ 1: "", 2: "", 3: "", 4: "", 5: "" }) ||
+                    setZoneValue({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }) ||
                     setShowButtonCount(!showButtonCount) ||
                     setShowButtonSelect(!showButtonSelect)
                   }

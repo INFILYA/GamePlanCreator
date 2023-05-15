@@ -10,28 +10,33 @@ import {
 import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
 import { setMyTeam } from "../../states/reducers/myClubReducer";
 import { MainLabel } from "./MainLabel";
-import { useState } from "react";
+import { saveTeam } from "../../Datas/api";
+import { Button } from "../../Labels/Button";
 
 export function FirstPage() {
   const dispatch = useDispatch();
-  const showPersonalInfo = useSelector((state) => state.showPersonalInfo);
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   const playerInfo = useSelector((state) => state.playerInfo);
   const zones = useSelector((state) => state.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones);
-  const [showMyTeam, setShowMyTeam] = useState(false);
+  const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
 
   function handleSetMyTeam(club) {
     dispatch(setMyTeamPlayers(listOfPlayers, club));
     dispatch(setMyTeam(listOfTeams, club));
-    setShowMyTeam(!showMyTeam);
   }
   function moveRotationForward() {
     dispatch(rotateForwardMyTeam());
   }
   function moveRotationBack() {
     dispatch(rotateBackMyTeam());
+  }
+  function saveStartingSix() {
+    saveTeam({
+      ...listOfTeams.find((team) => team.name === zones[0].teamid),
+      startingSquad: zones,
+    });
   }
   function correctNamesOfZones(index) {
     const zones = ["P4", "P3", "P2", "P5", "P6", "P1"];
@@ -44,11 +49,9 @@ export function FirstPage() {
         <Squads />
         <div className="rotation">
           <div style={{ display: "flex", justifyContent: "center" }}>
-            {playerInfo && showPersonalInfo && (
-              <PersonalInformationOfPlayer link={"page1"} />
-            )}
+            {playerInfo && <PersonalInformationOfPlayer link={"page1"} />}
           </div>
-          <ChooseOpponentTeam setShowMyTeam={setShowMyTeam} />
+          <ChooseOpponentTeam />
           <div style={{ marginBottom: 8 }}>
             {zones.slice(0, 3).map((player, index) =>
               player ? (
@@ -97,7 +100,12 @@ export function FirstPage() {
               )
             )}
           </div>
-          <div className="plusMinus" style={{ marginTop: 20 }}>
+          {!zones.includes(null) && (
+            <div style={{ marginTop: -30 }}>
+              <Button onClick={saveStartingSix} value={"Save starting six"} />
+            </div>
+          )}
+          <div className="plusMinus" style={{ marginTop: 10 }}>
             <button onClick={moveRotationForward}>🡄</button>
             {myTeamZones.map((player, index) =>
               player && player.position === "Setter" ? (
@@ -112,7 +120,7 @@ export function FirstPage() {
             <button onClick={moveRotationBack}>🡆</button>
           </div>
         </div>
-        {showMyTeam ? (
+        {myTeamPlayers.length > 2 ? (
           <Squads team={"my"} />
         ) : (
           <div className="teamsquad">

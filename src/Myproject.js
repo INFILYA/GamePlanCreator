@@ -3,17 +3,19 @@ import Distribution from "./Distribution/Distribution";
 import Attacks from "./AttackPage/Attack";
 import Service from "./AttackPage/Service";
 import Page1 from "./Page1/Page1";
-import Ratings from "./Ratings/Ratings";
-import RecieversRating from "./Ratings/components/RecieversRating";
-import OppositesRating from "./Ratings/components/OppositesRating";
-import MiddleBlockersRating from "./Ratings/components/MiddleBlockersRating";
-import SettersRating from "./Ratings/components/SettersRating";
-import LiberosRating from "./Ratings/components/LiberoRatings";
-import TeamsRating from "./Ratings/components/TeamsRating";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchPlayers } from "./states/reducers/listOfPlayersReducer";
 import { fetchTeams } from "./states/reducers/listOfTeamsReducer";
+import {
+  LiberosRating,
+  MiddleBlockersRating,
+  OppositesRating,
+  Ratings,
+  RecieversRating,
+  SettersRating,
+  TeamsRating,
+} from "./Ratings/Ratings";
 
 function Myproject() {
   const dispatch = useDispatch();

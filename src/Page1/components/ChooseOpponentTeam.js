@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setRivalPlayers } from "../../states/reducers/rivalPlayersReducer";
-import { setRivalTeam } from "../../states/reducers/rivalClubReducer";
+import {
+  setResetRivalTeam,
+  setRivalTeam,
+} from "../../states/reducers/rivalClubReducer";
 import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
-import { setMyTeam } from "../../states/reducers/myClubReducer";
+import { setResetMyTeam } from "../../states/reducers/myClubReducer";
 import { clearRivalZones } from "../../states/reducers/zonesReducer";
 import { clearMyTeamZones } from "../../states/reducers/myTeamZonesReducer";
 import { setBackRightRivalSelects } from "../../states/reducers/indexOfZonesReducer";
@@ -16,18 +19,19 @@ export function ChooseOpponentTeam({ setShowMyTeam }) {
   function handleSetOpponentTeam(club) {
     dispatch(setRivalPlayers(listOfPlayers, club));
     dispatch(setRivalTeam(listOfTeams, club));
+    dispatch(clearRivalZones(Array(6).fill(null)));
+    dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
   }
   function resetTheBoard() {
     dispatch(setRivalPlayers([]));
-    dispatch(setRivalTeam([]));
+    dispatch(setResetRivalTeam({}));
     dispatch(setMyTeamPlayers([]));
-    dispatch(setMyTeam([]));
+    dispatch(setResetMyTeam({}));
     dispatch(clearRivalZones(Array(6).fill(null)));
     dispatch(clearMyTeamZones(Array(6).fill(null)));
     dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setBackRightMyTeamSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setInfoOfPlayer(null));
-    setShowMyTeam(false);
   }
   function showTeamName(team) {
     return team.name.split("", 6).join("");

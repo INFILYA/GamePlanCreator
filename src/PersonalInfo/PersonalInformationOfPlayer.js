@@ -1,8 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowPersonalInfo } from "../states/reducers/showPersonalInfoReducer";
 import Diagramm from "./components/Diagramm";
+import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
 
 export function PersonalInformationOfPlayer({ link }) {
   const navigate = useNavigate();
@@ -11,12 +11,9 @@ export function PersonalInformationOfPlayer({ link }) {
 
   function goHome() {
     navigate("/");
-    dispatch(setShowPersonalInfo(false));
+    dispatch(setInfoOfPlayer(null));
   }
-  const infosOfPlayers = [];
-  for (let key in playerInfo) {
-    infosOfPlayers.push([key, playerInfo[key]]);
-  }
+  const infosOfPlayers = Object.entries(playerInfo);
   return (
     <>
       <div className="hideIcon">
@@ -42,12 +39,34 @@ export function PersonalInformationOfPlayer({ link }) {
             {link === "Service" &&
               playerInfo.position !== "Setter" &&
               infosOfPlayers
-                .slice(17, 20)
+                .slice(22, 24)
+                .map((info, index) => (
+                  <RowsForPersonalInfo
+                    name={info[0].replace(/plusMinusOn/g, "+/- ")}
+                    value={info[1]}
+                    key={index + 22}
+                  />
+                ))}
+            {link === "Service" &&
+              playerInfo.position !== "Setter" &&
+              infosOfPlayers
+                .slice(19, 22)
                 .map((info, index) => (
                   <RowsForPersonalInfo
                     name={info[0].replace(/[a-z]/g, "")}
                     value={`|${info[1].join("|")}|`}
-                    key={index + 17}
+                    key={index + 19}
+                  />
+                ))}
+            {link === "Service" &&
+              playerInfo.position === "Setter" &&
+              infosOfPlayers
+                .slice(13, 15)
+                .map((info, index) => (
+                  <RowsForPersonalInfo
+                    name={info[0].replace(/plusMinusOn/g, "+/- ")}
+                    value={info[1]}
+                    key={index + 13}
                   />
                 ))}
             {link === "Service" &&
@@ -59,6 +78,18 @@ export function PersonalInformationOfPlayer({ link }) {
                     name={info[0].replace(/[a-z]/g, "")}
                     value={`|${info[1].join("|")}|`}
                     key={index + 10}
+                  />
+                ))}
+            {link === "Attack" &&
+              infosOfPlayers
+                .slice(13, 15)
+                .map((info, index) => (
+                  <RowsForPersonalInfo
+                    name={info[0]
+                      .replace(/plusMinusOn/g, "+/- ")
+                      .replace(/percentOf/g, "% ")}
+                    value={info[1]}
+                    key={index + 13}
                   />
                 ))}
             {link === "Attack" &&

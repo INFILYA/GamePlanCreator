@@ -12,6 +12,12 @@ export function pushFromRivalBoard(player) {
     payload: player,
   };
 }
+export function setBenchPlayers(players) {
+  return {
+    type: "SET_BENCH_PLAYERS",
+    payload: players,
+  };
+}
 export function rivalPlayersReducer(state = defaultState.rivalPlayers, action) {
   switch (action.type) {
     case "SET_RIVAL_PLAYERS":
@@ -20,6 +26,8 @@ export function rivalPlayersReducer(state = defaultState.rivalPlayers, action) {
       );
     case "PUSH_FROM_RIVAL_BOARD":
       return state.filter((players) => players.id !== action.payload.id);
+    case "SET_BENCH_PLAYERS":
+      return action.payload
     default:
       return state;
   }
