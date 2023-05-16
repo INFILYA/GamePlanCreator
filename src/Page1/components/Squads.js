@@ -16,6 +16,7 @@ import {
 } from "../../states/reducers/indexOfZonesReducer";
 import { setSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
 import { Button } from "../../Labels/Button";
+import { correctNamesOfZones } from "../../Datas/api";
 
 export function Squads({ team }) {
   const dispatch = useDispatch();
@@ -53,10 +54,7 @@ export function Squads({ team }) {
   function setPlayerInfo(player) {
     dispatch(setInfoOfPlayer(player));
   }
-  function correctNamesOfZones(index) {
-    const zones = ["P4", "P3", "P2", "P5", "P6", "P1"];
-    return zones[index];
-  }
+
   function showStartingSix() {
     dispatch(setRivalStartingSix(rivalClub.startingSquad));
     dispatch(

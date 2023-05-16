@@ -80,11 +80,12 @@ export function ServiceFields() {
     event.preventDefault();
     let ServiceByZone = Object.values(zoneValue);
     while (
+      saveDataOfServices &&
       diagrammValue.aces +
         diagrammValue.servicePlus +
         diagrammValue.serviceMinus +
         diagrammValue.serviceFailed !==
-      reduce(ServiceByZone)
+        reduce(ServiceByZone)
     ) {
       alert("DATA Value not equal to ZONE value");
       return;

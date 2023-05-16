@@ -95,15 +95,13 @@ export function AttackFields() {
     event.preventDefault();
     let AttacksByZone = Object.values(zoneValue);
     while (
-      saveDataOfAttacks &&
       diagrammValue.winPoints +
         diagrammValue.leftInGame +
         diagrammValue.attacksInBlock +
         diagrammValue.loosePoints !==
-        reduce(AttacksByZone)
+      reduce(AttacksByZone)
     ) {
       alert("DATA Value not equal to ZONE value");
-      console.log(reduce(AttacksByZone));
       return;
     }
     if (saveDataOfAttacks) {
@@ -160,7 +158,7 @@ export function AttackFields() {
         <input
           type="submit"
           className="countbutton"
-          value={showInputs ? "Count" : !showBalls ? "Choose Zone" : "Close"}
+          value={showInputs ? "Count" : "Close"}
           disabled={!showInputs}
         ></input>
         <input className="needtoclose"></input>

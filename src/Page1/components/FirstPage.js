@@ -10,7 +10,7 @@ import {
 import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
 import { setMyTeam } from "../../states/reducers/myClubReducer";
 import { MainLabel } from "./MainLabel";
-import { saveTeam } from "../../Datas/api";
+import { correctNamesOfZones, saveTeam } from "../../Datas/api";
 import { Button } from "../../Labels/Button";
 
 export function FirstPage() {
@@ -37,10 +37,6 @@ export function FirstPage() {
       ...listOfTeams.find((team) => team.name === zones[0].teamid),
       startingSquad: zones,
     });
-  }
-  function correctNamesOfZones(index) {
-    const zones = ["P4", "P3", "P2", "P5", "P6", "P1"];
-    return zones[index];
   }
   return (
     <>
