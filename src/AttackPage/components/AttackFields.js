@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { savePlayer, saveTeam } from "../../Datas/api";
+import { reduce, savePlayer, saveTeam } from "../../Datas/api";
 import { BallForAttack } from "./BallForAttack";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
@@ -21,8 +21,8 @@ export function AttackFields() {
   const [disableSwitch, setDisableSwitch] = useState(false);
   const [confirmReturn, setConfirmReturn] = useState(false);
   const [attackPercentageArray, setAttackPercentageArray] = useState([]);
-  const [previousPlayerHistory, setPreviousPlayerHistory] = useState(null);
-  const [previousTeamHistory, setPreviousTeamHistory] = useState(null);
+  const [previousPlayerData, setPreviousPlayerData] = useState(null);
+  const [previousTeamData, setPreviousTeamData] = useState(null);
   const [tip, setTip] = useState(0);
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "attackZone1", active: false },
@@ -94,23 +94,26 @@ export function AttackFields() {
   async function onHandleCountClick(event) {
     event.preventDefault();
     let AttacksByZone = Object.values(zoneValue);
-    if (
-      saveDataOfAttacks &&
+    while (
       diagrammValue.winPoints +
         diagrammValue.leftInGame +
         diagrammValue.attacksInBlock +
-        diagrammValue.loosePoints ===
-        AttacksByZone.reduce((a, b) => a + b, 0)
+        diagrammValue.loosePoints !==
+      reduce(AttacksByZone)
     ) {
+      alert("DATA Value not equal to ZONE value");
+      return;
+    }
+    if (saveDataOfAttacks) {
       setConfirmReturn(!confirmReturn);
-      setPreviousPlayerHistory({ ...playerInfo });
-      setPreviousTeamHistory({
+      setPreviousPlayerData({ ...playerInfo });
+      setPreviousTeamData({
         ...teams.find((team) => team.name === playerInfo.teamid),
       });
       calculateForData(playerInfo);
       const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
       const attHistory = playerInfo[zoneOfAtt.zone];
-      const res = AttacksByZone.map((att, index) => att + attHistory[index]);
+      const result = AttacksByZone.map((att, index) => att + attHistory[index]);
       const nameOfZone = zoneOfAtt.zone;
       const players = allPlayers.filter(
         (player) => player.teamid === playerInfo.teamid
@@ -119,7 +122,7 @@ export function AttackFields() {
       const teamAge = players.reduce((a, b) => a + b.age, 0) / players.length;
       calculateForData(team);
       team.age = +teamAge.toFixed(1);
-      AttacksByZone = res;
+      AttacksByZone = result;
       playerInfo[nameOfZone] = AttacksByZone;
       await savePlayer(playerInfo); //сохраняю одного игрока
       await saveTeam(team); // сохраняю команду
@@ -128,75 +131,36 @@ export function AttackFields() {
       setDisableSwitch(!disableSwitch);
       setSaveDataOfAttacks(!saveDataOfAttacks);
     }
-    if (
-      saveDataOfAttacks &&
-      diagrammValue.winPoints +
-        diagrammValue.leftInGame +
-        diagrammValue.attacksInBlock +
-        diagrammValue.loosePoints !==
-        AttacksByZone.reduce((a, b) => a + b, 0)
-    ) {
-      setSaveDataOfAttacks(!saveDataOfAttacks);
-      setDisableSwitch(!disableSwitch);
-      alert(
-        "Total Value of field inputs should be equal total value of data inputs! Data not overwritten!"
-      );
-    }
-    const totalAttacks = AttacksByZone.reduce((a, b) => a + b, 0.0001);
+    const totalAttacks = reduce(AttacksByZone, 0.0001);
     const result = AttacksByZone.map((attacks) =>
       Math.round((attacks / totalAttacks) * 100)
     );
-    const upgradedZoneValue = {
-      1: result[0] + "%",
-      2: result[1] + "%",
-      3: result[2] + "%",
-      4: result[3] + "%",
-      5: result[4] + "%",
-      6: result[5] + "%",
-    };
+    const upgradedZoneValue = Object.fromEntries(
+      Object.entries(result).map(([key, value]) => [+key + 1, value + "%"])
+    );
     setZoneValue(upgradedZoneValue);
     setAttackPercentageArray(result);
     setShowInputs(!showInputs);
   }
   async function returnOldData() {
-    await savePlayer(previousPlayerHistory);
-    await saveTeam(previousTeamHistory);
-    dispatch(fetchPlayerInfo(previousPlayerHistory));
+    await savePlayer(previousPlayerData);
+    await saveTeam(previousTeamData);
+    dispatch(fetchPlayerInfo(previousPlayerData));
     dispatch(fetchPlayers());
     dispatch(fetchTeams());
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
   }
+
   return (
     <form className="playArea" onSubmit={onHandleCountClick}>
       <div className="zoneinput">
-        {showInputs && (
-          <input type="submit" className="countbutton" value="Count"></input>
-        )}
-        {!showInputs && (
-          <input
-            type="text"
-            className="countbutton"
-            disabled={true}
-            defaultValue={
-              historyOfBalls[0].active === true
-                ? "Zone 1"
-                : historyOfBalls[1].active === true
-                ? "Zone 2"
-                : historyOfBalls[2].active === true
-                ? "Zone 4"
-                : historyOfBalls[3].active === true
-                ? "Pipe"
-                : historyOfBalls[4].active === true
-                ? "K1"
-                : historyOfBalls[5].active === true
-                ? "KC"
-                : historyOfBalls[6].active === true
-                ? "K7"
-                : "Choose zone"
-            }
-          ></input>
-        )}
+        <input
+          type="submit"
+          className="countbutton"
+          value={showInputs ? "Count" : "Close"}
+          disabled={!showInputs}
+        ></input>
         <input className="needtoclose"></input>
       </div>
       <div className="explain">
@@ -327,24 +291,48 @@ export function AttackFields() {
         ))}
       </div>
       {showBalls && (
-        <div>
-          <DefenderZone6 />
-          <DefenderZone6 />
-          <DefenderZone6 />
-        </div>
-      )}
-      {showBalls && (
-        <div>
-          {classNamesForConesAndInputs.map((el, index) => (
-            <InputForCount
-              key={index}
-              name={index + 1}
-              onChange={handleZoneValue}
-              zoneValue={zoneValue[index + 1]}
-              showInputs={showInputs}
-            />
-          ))}
-        </div>
+        <>
+          <div>
+            <DefenderZone6 />
+            <DefenderZone6 />
+            <DefenderZone6 />
+          </div>
+          <div>
+            {classNamesForConesAndInputs.map((el, index) => (
+              <InputForCount
+                key={index}
+                name={index + 1}
+                onChange={handleZoneValue}
+                zoneValue={zoneValue[index + 1]}
+                showInputs={showInputs}
+              />
+            ))}
+          </div>
+          {saveDataOfAttacks && (
+            <div className="compareFields">
+              <div style={{ marginRight: 20 }}>
+                <label>Data value</label>
+                <input
+                  type="text"
+                  value={reduce(Object.values(diagrammValue).slice(0, 4))}
+                  readOnly
+                ></input>
+              </div>
+              <div>
+                <label className="equal">Should</label>
+                <label className="equal">be equal</label>
+              </div>
+              <div style={{ marginLeft: 20 }}>
+                <label>Zone value</label>
+                <input
+                  type="text"
+                  value={reduce(Object.values(zoneValue))}
+                  readOnly
+                ></input>
+              </div>
+            </div>
+          )}
+        </>
       )}
     </form>
   );

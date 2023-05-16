@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BallForAttack } from "./BallForAttack";
 import { Explain } from "./Explain";
-import { savePlayer, saveTeam } from "../../Datas/api";
+import { reduce, savePlayer, saveTeam } from "../../Datas/api";
 import { fetchPlayerInfo } from "../../states/reducers/playerInfoReducer";
 import { fetchPlayers } from "../../states/reducers/listOfPlayersReducer";
 import { fetchTeams } from "../../states/reducers/listOfTeamsReducer";
@@ -79,14 +79,17 @@ export function ServiceFields() {
   async function onHandleCountClick(event) {
     event.preventDefault();
     let ServiceByZone = Object.values(zoneValue);
-    if (
-      saveDataOfServices &&
+    while (
       diagrammValue.aces +
         diagrammValue.servicePlus +
         diagrammValue.serviceMinus +
-        diagrammValue.serviceFailed ===
-        ServiceByZone.reduce((a, b) => a + b, 0)
+        diagrammValue.serviceFailed !==
+      reduce(ServiceByZone)
     ) {
+      alert("DATA Value not equal to ZONE value");
+      return;
+    }
+    if (saveDataOfServices) {
       setConfirmReturn(!confirmReturn);
       setPreviousPlayerHistory({ ...playerInfo });
       setPreviousTeamHistory({
@@ -113,30 +116,14 @@ export function ServiceFields() {
       setDisableSwitch(!disableSwitch);
       setSaveDataOfServices(!saveDataOfServices);
     }
-    if (
-      saveDataOfServices &&
-      diagrammValue.aces +
-        diagrammValue.servicePlus +
-        diagrammValue.serviceMinus +
-        diagrammValue.serviceFailed !==
-        ServiceByZone.reduce((a, b) => a + b, 0)
-    ) {
-      setSaveDataOfServices(!saveDataOfServices);
-      setDisableSwitch(!disableSwitch);
-      alert(
-        "Total Value of field inputs should be equal total value of data inputs! Data not overwritten!"
-      );
-    }
-    const totalServices = ServiceByZone.reduce((a, b) => a + b, 0.0001);
+    const totalServices = reduce(ServiceByZone, 0.0001);
     const result = ServiceByZone.map((obj) =>
       Math.round((obj / totalServices) * 100)
     );
-    const upgratedZoneValue = {
-      1: result[0] + "%",
-      2: result[1] + "%",
-      3: result[2] + "%",
-    };
-    setZoneValue(upgratedZoneValue);
+    const upgradedZoneValue = Object.fromEntries(
+      Object.entries(result).map(([key, value]) => [+key + 1, value + "%"])
+    );
+    setZoneValue(upgradedZoneValue);
     setAttackPercentageArray(result);
     setShowInputs(!showInputs);
   }
@@ -245,6 +232,30 @@ export function ServiceFields() {
         )}
         {!showInputs &&
           arrayForRecievers.map((reciever) => <DefenderZone6 key={reciever} />)}
+        {saveDataOfServices && (
+          <div className="compareFields">
+            <div style={{ marginRight: 20 }}>
+              <label>Data value</label>
+              <input
+                type="text"
+                value={reduce(Object.values(diagrammValue).slice(0, 4))}
+                readOnly
+              ></input>
+            </div>
+            <div>
+              <label className="equal">Should</label>
+              <label className="equal">be equal</label>
+            </div>
+            <div style={{ marginLeft: 20 }}>
+              <label>Zone value</label>
+              <input
+                type="text"
+                value={reduce(Object.values(zoneValue))}
+                readOnly
+              ></input>
+            </div>
+          </div>
+        )}
       </form>
     </>
   );

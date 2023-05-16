@@ -33,3 +33,6 @@ export const fetchPlayerInformation = (player) => {
   const req = jsonRequest(`/players/${player.id}/`, options);
   return req;
 };
+export function reduce(arr, sum = 0) {
+  return arr.reduce((a, b) => a + b, sum);
+}

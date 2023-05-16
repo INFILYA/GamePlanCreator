@@ -26,53 +26,47 @@ function Service() {
     return null;
   }
 
-  return playerInfo !== null ? (
+  return (
     <>
       <RegularLabel value={"Service"} />
-      {playerInfo.position !== "Libero" && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: 20,
-          }}
-        >
-          <PersonalInformationOfPlayer link={"Service"} />
-        </div>
-      )}
-      {playerInfo.position !== "Libero" && (
-        <div className="servicePage">
-          <div className="atackFileds">
-            {history.map((field) =>
-              field ? <ServiceFields key={field} /> : null
-            )}
-            <div
-              style={
-                history.length > 1 ? { margin: "5px 0px 0px -100px" } : null
-              }
-            >
-              {history.length > 1 && (
-                <>
-                  <button className="reset" onClick={reset}>
-                    🡄
-                  </button>
-                </>
-              )}
-              {history.length <= 2 && (
-                <button
-                  className="reset"
-                  onClick={addField}
-                  style={history.length === 1 ? { marginTop: -10 } : null}
-                >
-                  {history.length === 1 ? `Push to start` : `🡆`}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: 20,
+        }}
+      >
+        <PersonalInformationOfPlayer link={"Service"} />
+      </div>
+      <div className="servicePage">
+        <div className="atackFileds">
+          {history.map((field) =>
+            field ? <ServiceFields key={field} /> : null
+          )}
+          <div
+            style={history.length > 1 ? { margin: "5px 0px 0px -100px" } : null}
+          >
+            {history.length > 1 && (
+              <>
+                <button className="reset" onClick={reset}>
+                  🡄
                 </button>
-              )}
-            </div>
+              </>
+            )}
+            {history.length <= 2 && (
+              <button
+                className="reset"
+                onClick={addField}
+                style={history.length === 1 ? { marginTop: -10 } : null}
+              >
+                {history.length === 1 ? `Push to start` : `🡆`}
+              </button>
+            )}
           </div>
         </div>
-      )}
+      </div>
     </>
-  ) : null;
+  );
 }
 
 export default Service;

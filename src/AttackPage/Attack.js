@@ -28,32 +28,26 @@ function Attacks() {
   return (
     <>
       <RegularLabel value={"Attack"} />
-      {playerInfo.position !== "Setter" && playerInfo.position !== "Libero" && (
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <PersonalInformationOfPlayer link={"Attack"} />
-        </div>
-      )}
-      {playerInfo.position !== "Setter" && playerInfo.position !== "Libero" && (
-        <div className="atackFileds">
-          {history.map((field) =>
-            field ? <AttackFields key={field} /> : null
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <PersonalInformationOfPlayer link={"Attack"} />
+      </div>
+      <div className="atackFileds">
+        {history.map((field) => (field ? <AttackFields key={field} /> : null))}
+        <div
+          style={history.length > 1 ? { margin: "5px 0px 0px -100px" } : null}
+        >
+          {history.length > 1 && (
+            <button className="reset" onClick={reset}>
+              🡄
+            </button>
           )}
-          <div
-            style={history.length > 1 ? { margin: "5px 0px 0px -100px" } : null}
-          >
-            {history.length > 1 && (
-              <button className="reset" onClick={reset}>
-                🡄
-              </button>
-            )}
-            {history.length <= 3 && (
-              <button className="reset" onClick={addField}>
-                {history.length === 1 ? `Push to start` : `🡆`}
-              </button>
-            )}
-          </div>
+          {history.length <= 3 && (
+            <button className="reset" onClick={addField}>
+              {history.length === 1 ? `Push to start` : `🡆`}
+            </button>
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 }

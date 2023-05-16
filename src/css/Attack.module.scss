@@ -73,6 +73,29 @@
   height: 700px;
   background-position-y: 0.2rem;
   display: inline-block;
+  .compareFields {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    input {
+      display: block;
+      width: 120px;
+      height: 30px;
+      font-size: 25px;
+      font-weight: bold;
+      justify-content: center;
+      text-align: center;
+    }
+    .equal {
+      font-weight: bold;
+      font-size: 25px;
+      width: 100px;
+      box-sizing: border-box;
+      margin: 0px 10px;
+      display: block;
+    }
+  }
   .showTheBall {
     color: black;
     background-color: transparent;

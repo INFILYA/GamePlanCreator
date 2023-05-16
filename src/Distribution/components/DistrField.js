@@ -42,13 +42,9 @@ export function DistrField() {
     let final = Object.values(zoneValue);
     const total = final.reduce((a, b) => a + b, 0.001);
     const res = final.map((obj) => Math.round((obj / total) * 100));
-    const countedResult = {
-      1: res[0] + "%",
-      2: res[1] + "%",
-      3: res[2] + "%",
-      4: res[3] + "%",
-      5: res[4] + "%",
-    };
+    const countedResult = Object.fromEntries(
+      Object.entries(res).map(([key, value]) => [+key + 1, value + "%"])
+    );
     setZoneValue(countedResult);
     setDistributionArr(res);
     setShowButtonCount(!showButtonCount);
