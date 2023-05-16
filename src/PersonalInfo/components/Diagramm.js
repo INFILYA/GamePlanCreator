@@ -11,7 +11,6 @@ export default function Diagramm({ link }) {
       backgroundColor: null,
       width: 350,
       height: 450,
-      //   styledMode: true,
     },
     title: {
       text:
