@@ -94,9 +94,11 @@ export function AttackFields() {
         (obj.winPoints +
           obj.attacksInBlock +
           obj.loosePoints +
-          obj.leftInGame)) *
+          obj.leftInGame +
+          0.0001)) *
         100
     );
+    console.log(obj.percentOfAttack);
     return obj;
   }
   async function onHandleCountClick(event) {
@@ -130,6 +132,7 @@ export function AttackFields() {
       dispatch(fetchPlayerInfo(playerInfo)); // обвновляю инфу игрока
       dispatch(fetchPlayers()); // обновляю  всех игроков
       setSaveDataOfAttacks(!saveDataOfAttacks);
+      console.log(team);
     }
     const totalAttacks = reduce(AttacksByZone, 0.0001);
     const result = AttacksByZone.map((attacks) =>

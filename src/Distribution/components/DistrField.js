@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BlockHelp } from "./BlockHelp";
 import { InputDistribution } from "./InputDistribution";
+import { reduce } from "../../Datas/api";
 
 export function DistrField() {
   const [distributionArr, setDistributionArr] = useState([]);
@@ -40,7 +41,7 @@ export function DistrField() {
   function onHandleCountClick(event) {
     event.preventDefault();
     let final = Object.values(zoneValue);
-    const total = final.reduce((a, b) => a + b, 0.001);
+    const total = reduce(final, 0.001);
     const res = final.map((obj) => Math.round((obj / total) * 100));
     const countedResult = Object.fromEntries(
       Object.entries(res).map(([key, value]) => [+key + 1, value + "%"])

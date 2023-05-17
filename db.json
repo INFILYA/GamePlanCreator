@@ -60,7 +60,7 @@
     },
     {
       "name": "Кривобок",
-      "age": "1999/05/27",
+      "age": 24,
       "hand": "right",
       "height": 194,
       "id": "3",
@@ -932,7 +932,7 @@
       "id": "1",
       "name": "Prometey",
       "logo": "/photos/Prometey.jpg",
-      "age": 0,
+      "age": 26.3,
       "winPoints": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,

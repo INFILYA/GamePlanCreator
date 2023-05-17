@@ -1074,8 +1074,8 @@
   width: 60px;
   height: 60px;
   font-size: 35px;
-  cursor: pointer;
   z-index: 12;
+  cursor: pointer;
   position: absolute;
   color: #000;
   border: 3px solid black;
@@ -1089,8 +1089,8 @@
   width: 60px;
   height: 60px;
   font-size: 35px;
-  cursor: pointer;
   z-index: 12;
+  cursor: pointer;
   position: absolute;
   color: #000;
   border: 3px solid black;
@@ -1104,8 +1104,8 @@
   width: 60px;
   height: 60px;
   font-size: 35px;
-  cursor: pointer;
   z-index: 12;
+  cursor: pointer;
   position: absolute;
   color: #000;
   border: 3px solid black;
@@ -1119,8 +1119,8 @@
   width: 60px;
   height: 60px;
   font-size: 35px;
-  cursor: pointer;
   z-index: 12;
+  cursor: pointer;
   position: absolute;
   color: #000;
   border: 3px solid black;
@@ -1134,8 +1134,8 @@
   width: 60px;
   height: 60px;
   font-size: 35px;
-  cursor: pointer;
   z-index: 12;
+  cursor: pointer;
   position: absolute;
   color: #000;
   border: 3px solid black;
@@ -1145,12 +1145,12 @@
 }
 
 .attackK1 {
-  margin: 130px 0px 0px -65px;
+  margin: 130px 0px 0px -75px;
   width: 60px;
   height: 60px;
   font-size: 35px;
-  cursor: pointer;
   z-index: 12;
+  cursor: pointer;
   position: absolute;
   color: #000;
   border: 3px solid black;
@@ -1160,12 +1160,12 @@
 }
 
 .attackK7 {
-  margin: 130px 0px 0px 35px;
+  margin: 130px 0px 0px 45px;
   width: 60px;
   height: 60px;
   font-size: 35px;
-  cursor: pointer;
   z-index: 12;
+  cursor: pointer;
   position: absolute;
   color: #000;
   border: 3px solid black;
