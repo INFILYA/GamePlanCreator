@@ -37,7 +37,7 @@ export function Explain({
         <label>Comments:</label>
         <textarea type="text" className="textcomment"></textarea>
       </div>
-      {confirmReturn && (
+      {confirmReturn ? (
         <div>
           <label style={{ fontSize: 30 }}>Return Data?</label>
           <div>
@@ -50,16 +50,17 @@ export function Explain({
             </button>
           </div>
         </div>
+      ) : (
+        <>
+          <label style={{ fontSize: 30 }}>Add Data</label>
+          <div className="saveBox">
+            <Switch
+              onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)}
+              disabled={disableSwitch}
+            />
+          </div>
+        </>
       )}
-      <label style={{ fontSize: 30 }}>
-        {confirmReturn ? "Data Saved" : "Add Data"}
-      </label>
-      <div className="saveBox">
-        <Switch
-          onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)}
-          disabled={disableSwitch}
-        />
-      </div>
       {saveDataOfAttacks && (
         <div style={{ marginTop: 10 }}>
           <input

@@ -23,7 +23,7 @@ export function CheckEquality({ checkEquality, diagrammValue, zoneValue }) {
         </div>
       ) : (
         <div>
-          <label className="equal">Everything</label>
+          <label className="equal">All</label>
           <label className="equal">OK</label>
         </div>
       )}

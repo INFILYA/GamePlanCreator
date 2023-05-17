@@ -9,8 +9,7 @@ export function MainLabel() {
       <label className="label">
         <SetDate />
         <div id="Matchup">
-          {rivalClub.name} vs
-          {myClub.name}
+          {rivalClub.name} vs {myClub.name}
         </div>
         <div className="setGame">
           Game №<input type="text" className="GameNumber" />

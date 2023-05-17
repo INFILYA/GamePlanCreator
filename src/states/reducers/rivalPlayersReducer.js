@@ -27,7 +27,7 @@ export function rivalPlayersReducer(state = defaultState.rivalPlayers, action) {
     case "PUSH_FROM_RIVAL_BOARD":
       return state.filter((players) => players.id !== action.payload.id);
     case "SET_BENCH_PLAYERS":
-      return action.payload
+      return action.payload;
     default:
       return state;
   }

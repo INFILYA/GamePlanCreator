@@ -12,7 +12,7 @@ import { setBackRightRivalSelects } from "../../states/reducers/indexOfZonesRedu
 import { setBackRightMyTeamSelects } from "../../states/reducers/sequanceOfZonesReducer";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
 
-export function ChooseOpponentTeam({ setShowMyTeam }) {
+export function ChooseOpponentTeam() {
   const dispatch = useDispatch();
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
