@@ -52,11 +52,7 @@ export function Explain({
         </div>
       )}
       <label style={{ fontSize: 30 }}>
-        {confirmReturn
-          ? "Data Saved"
-          : !disableSwitch
-          ? "Add Data"
-          : "Data Restored"}
+        {confirmReturn ? "Data Saved" : "Add Data"}
       </label>
       <div className="saveBox">
         <Switch

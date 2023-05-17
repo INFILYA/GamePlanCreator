@@ -9,6 +9,7 @@ import { fetchPlayerInfo } from "../../states/reducers/playerInfoReducer";
 import { fetchPlayers } from "../../states/reducers/listOfPlayersReducer";
 import { fetchTeams } from "../../states/reducers/listOfTeamsReducer";
 import { Explain } from "./Explain";
+import { CheckEquality } from "./CheckEquality";
 
 export function AttackFields() {
   const dispatch = useDispatch();
@@ -58,6 +59,13 @@ export function AttackFields() {
     ["blue1B", "yellow1B", "purple1B", "red1B"],
   ];
   const classNamesForTip = ["tip", "yellowtip"];
+  let AttacksByZone = Object.values(zoneValue);
+  const checkEquality =
+    diagrammValue.winPoints +
+      diagrammValue.leftInGame +
+      diagrammValue.attacksInBlock +
+      diagrammValue.loosePoints ===
+    reduce(AttacksByZone);
   function handleDiagrammValue(event) {
     setDiagrammValue({
       ...diagrammValue,
@@ -73,14 +81,14 @@ export function AttackFields() {
   function calculateForData(obj) {
     if (obj === playerInfo) {
       diagrammValue.plusMinusOnAttack =
-        +diagrammValue.winPoints -
-        (+diagrammValue.attacksInBlock + +diagrammValue.loosePoints);
+        diagrammValue.winPoints -
+        (diagrammValue.attacksInBlock + diagrammValue.loosePoints);
     }
-    obj.winPoints += +diagrammValue.winPoints;
-    obj.leftInGame += +diagrammValue.leftInGame;
-    obj.attacksInBlock += +diagrammValue.attacksInBlock;
-    obj.loosePoints += +diagrammValue.loosePoints;
-    obj.plusMinusOnAttack += +diagrammValue.plusMinusOnAttack;
+    obj.winPoints += diagrammValue.winPoints;
+    obj.leftInGame += diagrammValue.leftInGame;
+    obj.attacksInBlock += diagrammValue.attacksInBlock;
+    obj.loosePoints += diagrammValue.loosePoints;
+    obj.plusMinusOnAttack += diagrammValue.plusMinusOnAttack;
     obj.percentOfAttack = Math.round(
       (obj.winPoints /
         (obj.winPoints +
@@ -93,17 +101,8 @@ export function AttackFields() {
   }
   async function onHandleCountClick(event) {
     event.preventDefault();
-    let AttacksByZone = Object.values(zoneValue);
-    while (
-      saveDataOfAttacks &&
-      diagrammValue.winPoints +
-        diagrammValue.leftInGame +
-        diagrammValue.attacksInBlock +
-        diagrammValue.loosePoints !==
-        reduce(AttacksByZone)
-    ) {
+    while (saveDataOfAttacks && !checkEquality) {
       alert("DATA Value not equal to ZONE value");
-      console.log(reduce(AttacksByZone));
       return;
     }
     if (saveDataOfAttacks) {
@@ -130,7 +129,6 @@ export function AttackFields() {
       await saveTeam(team); // сохраняю команду
       dispatch(fetchPlayerInfo(playerInfo)); // обвновляю инфу игрока
       dispatch(fetchPlayers()); // обновляю  всех игроков
-      setDisableSwitch(!disableSwitch);
       setSaveDataOfAttacks(!saveDataOfAttacks);
     }
     const totalAttacks = reduce(AttacksByZone, 0.0001);
@@ -143,6 +141,7 @@ export function AttackFields() {
     setZoneValue(upgradedZoneValue);
     setAttackPercentageArray(result);
     setShowInputs(!showInputs);
+    setDisableSwitch(!disableSwitch);
   }
   async function returnOldData() {
     await savePlayer(previousPlayerData);
@@ -153,7 +152,6 @@ export function AttackFields() {
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
   }
-
   return (
     <form className="playArea" onSubmit={onHandleCountClick}>
       <div className="zoneinput">
@@ -311,28 +309,11 @@ export function AttackFields() {
             ))}
           </div>
           {saveDataOfAttacks && (
-            <div className="compareFields">
-              <div style={{ marginRight: 20 }}>
-                <label>Data value</label>
-                <input
-                  type="text"
-                  value={reduce(Object.values(diagrammValue).slice(0, 4))}
-                  readOnly
-                ></input>
-              </div>
-              <div>
-                <label className="equal">Should</label>
-                <label className="equal">be equal</label>
-              </div>
-              <div style={{ marginLeft: 20 }}>
-                <label>Zone value</label>
-                <input
-                  type="text"
-                  value={reduce(Object.values(zoneValue))}
-                  readOnly
-                ></input>
-              </div>
-            </div>
+            <CheckEquality
+              zoneValue={zoneValue}
+              diagrammValue={diagrammValue}
+              checkEquality={checkEquality}
+            />
           )}
         </>
       )}

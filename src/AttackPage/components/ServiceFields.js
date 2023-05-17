@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { DefenderZone6 } from "./DefenderZone6";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
+import { CheckEquality } from "./CheckEquality";
 
 export function ServiceFields() {
   const dispatch = useDispatch();
@@ -20,8 +21,8 @@ export function ServiceFields() {
   const [saveDataOfServices, setSaveDataOfServices] = useState(false);
   const [disableSwitch, setDisableSwitch] = useState(false);
   const [confirmReturn, setConfirmReturn] = useState(false);
-  const [previousPlayerHistory, setPreviousPlayerHistory] = useState(null);
-  const [previousTeamHistory, setPreviousTeamHistory] = useState(null);
+  const [previousPlayerData, setPreviousPlayerData] = useState(null);
+  const [previousTeamData, setPreviousTeamData] = useState(null);
   const [attackPercentageArray, setAttackPercentageArray] = useState([]);
   const [tip, setTip] = useState(0);
   const [historyOfBalls, setHistoryOfBalls] = useState([
@@ -49,6 +50,13 @@ export function ServiceFields() {
   const classNamesForTip = ["tip", "yellowtip"];
   const arrayForRecievers = [1, 2, 3, 4, 5];
 
+  let ServiceByZone = Object.values(zoneValue);
+  const checkEquality =
+    diagrammValue.servicePlus +
+      diagrammValue.serviceMinus +
+      diagrammValue.serviceFailed +
+      diagrammValue.aces ===
+    reduce(ServiceByZone);
   function handleDiagrammValue(event) {
     setDiagrammValue({
       ...diagrammValue,
@@ -64,36 +72,28 @@ export function ServiceFields() {
   function calculateForData(obj) {
     if (obj === playerInfo) {
       diagrammValue.plusMinusOnService =
-        +diagrammValue.aces +
-        +diagrammValue.servicePlus * 0.5 -
-        +diagrammValue.serviceFailed -
-        +diagrammValue.serviceMinus * 0.5;
+        diagrammValue.aces +
+        diagrammValue.servicePlus * 0.5 -
+        diagrammValue.serviceFailed -
+        diagrammValue.serviceMinus * 0.5;
     }
-    obj.aces += +diagrammValue.aces;
-    obj.servicePlus += +diagrammValue.servicePlus;
-    obj.serviceMinus += +diagrammValue.serviceMinus;
-    obj.serviceFailed += +diagrammValue.serviceFailed;
-    obj.plusMinusOnService += +diagrammValue.plusMinusOnService;
+    obj.aces += diagrammValue.aces;
+    obj.servicePlus += diagrammValue.servicePlus;
+    obj.serviceMinus += diagrammValue.serviceMinus;
+    obj.serviceFailed += diagrammValue.serviceFailed;
+    obj.plusMinusOnService += diagrammValue.plusMinusOnService;
     return obj;
   }
   async function onHandleCountClick(event) {
     event.preventDefault();
-    let ServiceByZone = Object.values(zoneValue);
-    while (
-      saveDataOfServices &&
-      diagrammValue.aces +
-        diagrammValue.servicePlus +
-        diagrammValue.serviceMinus +
-        diagrammValue.serviceFailed !==
-        reduce(ServiceByZone)
-    ) {
+    while (saveDataOfServices && !checkEquality) {
       alert("DATA Value not equal to ZONE value");
       return;
     }
     if (saveDataOfServices) {
       setConfirmReturn(!confirmReturn);
-      setPreviousPlayerHistory({ ...playerInfo });
-      setPreviousTeamHistory({
+      setPreviousPlayerData({ ...playerInfo });
+      setPreviousTeamData({
         ...teams.find((team) => team.name === playerInfo.teamid),
       });
       calculateForData(playerInfo);
@@ -114,7 +114,6 @@ export function ServiceFields() {
       await saveTeam(team); // сохраняю команду
       dispatch(fetchPlayerInfo(playerInfo)); // обвновляю инфу игрока
       dispatch(fetchPlayers()); // обновляю  всех игроков
-      setDisableSwitch(!disableSwitch);
       setSaveDataOfServices(!saveDataOfServices);
     }
     const totalServices = reduce(ServiceByZone, 0.0001);
@@ -127,11 +126,12 @@ export function ServiceFields() {
     setZoneValue(upgradedZoneValue);
     setAttackPercentageArray(result);
     setShowInputs(!showInputs);
+    setDisableSwitch(!disableSwitch);
   }
   async function returnOldData() {
-    await savePlayer(previousPlayerHistory);
-    await saveTeam(previousTeamHistory);
-    dispatch(fetchPlayerInfo(previousPlayerHistory));
+    await savePlayer(previousPlayerData);
+    await saveTeam(previousTeamData);
+    dispatch(fetchPlayerInfo(previousPlayerData));
     dispatch(fetchPlayers());
     dispatch(fetchTeams());
     setConfirmReturn(!confirmReturn);
@@ -219,43 +219,31 @@ export function ServiceFields() {
           ))}
         </div>
         {showBalls && (
-          <div>
-            {classNamesForConesAndInputs.map((el, index) => (
-              <InputForCount
-                key={index}
-                name={index + 1}
-                onChange={handleZoneValue}
-                zoneValue={zoneValue[index + 1]}
-                showInputs={showInputs}
-              />
-            ))}
-          </div>
-        )}
-        {!showInputs &&
-          arrayForRecievers.map((reciever) => <DefenderZone6 key={reciever} />)}
-        {saveDataOfServices && (
-          <div className="compareFields">
-            <div style={{ marginRight: 20 }}>
-              <label>Data value</label>
-              <input
-                type="text"
-                value={reduce(Object.values(diagrammValue).slice(0, 4))}
-                readOnly
-              ></input>
+          <>
+            <div>
+              {classNamesForConesAndInputs.map((el, index) => (
+                <InputForCount
+                  key={index}
+                  name={index + 1}
+                  onChange={handleZoneValue}
+                  zoneValue={zoneValue[index + 1]}
+                  showInputs={showInputs}
+                />
+              ))}
             </div>
             <div>
-              <label className="equal">Should</label>
-              <label className="equal">be equal</label>
+              {arrayForRecievers.map((reciever) => (
+                <DefenderZone6 key={reciever} />
+              ))}
             </div>
-            <div style={{ marginLeft: 20 }}>
-              <label>Zone value</label>
-              <input
-                type="text"
-                value={reduce(Object.values(zoneValue))}
-                readOnly
-              ></input>
-            </div>
-          </div>
+            {saveDataOfServices && (
+              <CheckEquality
+                zoneValue={zoneValue}
+                diagrammValue={diagrammValue}
+                checkEquality={checkEquality}
+              />
+            )}
+          </>
         )}
       </form>
     </>

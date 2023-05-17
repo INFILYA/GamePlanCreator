@@ -11,51 +11,18 @@
       "reach": 345,
       "photo": "/photos/Shapoval.jpg",
       "teamid": "Prometey",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone1": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -73,51 +40,18 @@
       "reach": 340,
       "photo": "/photos/Oleksyuk.jpg",
       "teamid": "Prometey",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone1": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -135,51 +69,18 @@
       "reach": 335,
       "photo": "./photos/Krivobok.jpg",
       "teamid": "Prometey",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -197,51 +98,18 @@
       "reach": 325,
       "photo": "./photos/Shorkin.jpg",
       "teamid": "Prometey",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -259,51 +127,18 @@
       "reach": 345,
       "photo": "./photos/Tomilin.jpg",
       "teamid": "Prometey",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -321,51 +156,18 @@
       "reach": 340,
       "photo": "./photos/Yanchuk.jpg",
       "teamid": "Prometey",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -383,21 +185,9 @@
       "reach": 340,
       "photo": "./photos/Shitkov.jpg",
       "teamid": "Prometey",
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -415,21 +205,9 @@
       "reach": 330,
       "photo": "./photos/Ryabov.jpg",
       "teamid": "Prometey",
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -447,51 +225,18 @@
       "reach": 335,
       "photo": "./photos/Gladenko.jpg",
       "teamid": "Prometey",
-      "attackK1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackKC": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackK7": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackK1": [0, 0, 0, 0, 0, 0],
+      "attackKC": [0, 0, 0, 0, 0, 0],
+      "attackK7": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -509,51 +254,18 @@
       "reach": 345,
       "photo": "./photos/Patron.jpg",
       "teamid": "Prometey",
-      "attackK1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackKC": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackK7": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackK1": [0, 0, 0, 0, 0, 0],
+      "attackKC": [0, 0, 0, 0, 0, 0],
+      "attackK7": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -571,51 +283,18 @@
       "reach": 340,
       "photo": "./photos/Klepko.jpg",
       "teamid": "Prometey",
-      "attackK1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackKC": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackK7": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackK1": [0, 0, 0, 0, 0, 0],
+      "attackKC": [0, 0, 0, 0, 0, 0],
+      "attackK7": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -646,51 +325,18 @@
       "reach": 345,
       "photo": "./photos/Raich.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone1": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -708,51 +354,18 @@
       "reach": 345,
       "photo": "./photos/Tomyn.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone1": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -770,51 +383,18 @@
       "reach": 345,
       "photo": "./photos/Penchev.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -832,51 +412,18 @@
       "reach": 345,
       "photo": "./photos/Kisilyuk.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -894,51 +441,18 @@
       "reach": 345,
       "photo": "./photos/Nalojniy.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -956,51 +470,18 @@
       "reach": 345,
       "photo": "./photos/Sidorenko.jpg",
       "teamid": "Epicentr",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1018,21 +499,9 @@
       "reach": 345,
       "photo": "./photos/Yevstratov.jpg",
       "teamid": "Epicentr",
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1050,21 +519,9 @@
       "reach": 345,
       "photo": "./photos/Didenko.jpg",
       "teamid": "Epicentr",
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1082,51 +539,18 @@
       "reach": 345,
       "photo": "./photos/Drozd.jpg",
       "teamid": "Epicentr",
-      "attackK1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackKC": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackK7": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackK1": [0, 0, 0, 0, 0, 0],
+      "attackKC": [0, 0, 0, 0, 0, 0],
+      "attackK7": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1144,51 +568,18 @@
       "reach": 345,
       "photo": "./photos/Ostapenko.jpg",
       "teamid": "Epicentr",
-      "attackK1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackKC": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackK7": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackK1": [0, 0, 0, 0, 0, 0],
+      "attackKC": [0, 0, 0, 0, 0, 0],
+      "attackK7": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1206,51 +597,18 @@
       "reach": 345,
       "photo": "./photos/Rogojyn.jpg",
       "teamid": "Epicentr",
-      "attackK1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackKC": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackK7": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackK1": [0, 0, 0, 0, 0, 0],
+      "attackKC": [0, 0, 0, 0, 0, 0],
+      "attackK7": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1281,51 +639,18 @@
       "reach": 325,
       "photo": "/photos/Gurshal.jpg",
       "teamid": "Reshetylivka",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone1": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1334,7 +659,7 @@
     },
     {
       "name": "Сотнік",
-      "age": "1996/06/10",
+      "age": 27,
       "hand": "right",
       "height": 193,
       "id": "26",
@@ -1343,51 +668,18 @@
       "reach": 320,
       "photo": "/photos/Sotnyk.jpg",
       "teamid": "Reshetylivka",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1405,51 +697,18 @@
       "reach": 320,
       "photo": "/photos/Drofa.jpg",
       "teamid": "Reshetylivka",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1467,51 +726,18 @@
       "reach": 320,
       "photo": "/photos/Fudar.jpg",
       "teamid": "Reshetylivka",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1529,51 +755,18 @@
       "reach": 315,
       "photo": "/photos/Baba.jpg",
       "teamid": "Reshetylivka",
-      "attackZone2": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackZone4": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackPipe": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackZone2": [0, 0, 0, 0, 0, 0],
+      "attackZone4": [0, 0, 0, 0, 0, 0],
+      "attackPipe": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1591,21 +784,9 @@
       "reach": 290,
       "photo": "/photos/Bovsunovskiy.jpg",
       "teamid": "Reshetylivka",
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1623,21 +804,9 @@
       "reach": 300,
       "photo": "/photos/Skorobatyuk.jpg",
       "teamid": "Reshetylivka",
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1655,51 +824,18 @@
       "reach": 320,
       "photo": "./photos/Fedoseev.jpg",
       "teamid": "Reshetylivka",
-      "attackK1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackKC": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackK7": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackK1": [0, 0, 0, 0, 0, 0],
+      "attackKC": [0, 0, 0, 0, 0, 0],
+      "attackK7": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1717,51 +853,18 @@
       "reach": 325,
       "photo": "./photos/Loytarenko.jpg",
       "teamid": "Reshetylivka",
-      "attackK1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackKC": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackK7": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackK1": [0, 0, 0, 0, 0, 0],
+      "attackKC": [0, 0, 0, 0, 0, 0],
+      "attackK7": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1779,51 +882,18 @@
       "reach": 320,
       "photo": "./photos/Chernyak.jpg",
       "teamid": "Reshetylivka",
-      "attackK1": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackKC": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "attackK7": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "attackK1": [0, 0, 0, 0, 0, 0],
+      "attackKC": [0, 0, 0, 0, 0, 0],
+      "attackK7": [0, 0, 0, 0, 0, 0],
       "plusMinusOnAttack": 0,
-      "percentOfAttack": 0,
       "winPoints": 0,
+      "percentOfAttack": 0,
       "leftInGame": 0,
       "attacksInBlock": 0,
       "loosePoints": 0,
-      "serviceZone1": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone6": [
-        0,
-        0,
-        0
-      ],
-      "serviceZone5": [
-        0,
-        0,
-        0
-      ],
+      "serviceZone1": [0, 0, 0],
+      "serviceZone6": [0, 0, 0],
+      "serviceZone5": [0, 0, 0],
       "plusMinusOnService": 0,
       "aces": 0,
       "servicePlus": 0,
@@ -1886,51 +956,18 @@
           "reach": 345,
           "photo": "/photos/Shapoval.jpg",
           "teamid": "Prometey",
-          "attackZone2": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone1": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone4": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackZone2": [0, 0, 0, 0, 0, 0],
+          "attackZone1": [0, 0, 0, 0, 0, 0],
+          "attackZone4": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -1948,51 +985,18 @@
           "reach": 345,
           "photo": "./photos/Patron.jpg",
           "teamid": "Prometey",
-          "attackK1": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackKC": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackK7": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackK1": [0, 0, 0, 0, 0, 0],
+          "attackKC": [0, 0, 0, 0, 0, 0],
+          "attackK7": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2010,51 +1014,18 @@
           "reach": 335,
           "photo": "./photos/Krivobok.jpg",
           "teamid": "Prometey",
-          "attackZone2": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone4": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackPipe": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackZone2": [0, 0, 0, 0, 0, 0],
+          "attackZone4": [0, 0, 0, 0, 0, 0],
+          "attackPipe": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2072,51 +1043,18 @@
           "reach": 340,
           "photo": "./photos/Yanchuk.jpg",
           "teamid": "Prometey",
-          "attackZone2": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone4": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackPipe": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackZone2": [0, 0, 0, 0, 0, 0],
+          "attackZone4": [0, 0, 0, 0, 0, 0],
+          "attackPipe": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2134,51 +1072,18 @@
           "reach": 335,
           "photo": "./photos/Gladenko.jpg",
           "teamid": "Prometey",
-          "attackK1": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackKC": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackK7": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackK1": [0, 0, 0, 0, 0, 0],
+          "attackKC": [0, 0, 0, 0, 0, 0],
+          "attackK7": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2196,21 +1101,9 @@
           "reach": 340,
           "photo": "./photos/Shitkov.jpg",
           "teamid": "Prometey",
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2247,51 +1140,18 @@
           "reach": 345,
           "photo": "./photos/Raich.jpg",
           "teamid": "Epicentr",
-          "attackZone2": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone1": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone4": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackZone2": [0, 0, 0, 0, 0, 0],
+          "attackZone1": [0, 0, 0, 0, 0, 0],
+          "attackZone4": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2309,51 +1169,18 @@
           "reach": 345,
           "photo": "./photos/Drozd.jpg",
           "teamid": "Epicentr",
-          "attackK1": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackKC": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackK7": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackK1": [0, 0, 0, 0, 0, 0],
+          "attackKC": [0, 0, 0, 0, 0, 0],
+          "attackK7": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2371,51 +1198,18 @@
           "reach": 345,
           "photo": "./photos/Kisilyuk.jpg",
           "teamid": "Epicentr",
-          "attackZone2": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone4": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackPipe": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackZone2": [0, 0, 0, 0, 0, 0],
+          "attackZone4": [0, 0, 0, 0, 0, 0],
+          "attackPipe": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2433,51 +1227,18 @@
           "reach": 345,
           "photo": "./photos/Penchev.jpg",
           "teamid": "Epicentr",
-          "attackZone2": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone4": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackPipe": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackZone2": [0, 0, 0, 0, 0, 0],
+          "attackZone4": [0, 0, 0, 0, 0, 0],
+          "attackPipe": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2495,51 +1256,18 @@
           "reach": 345,
           "photo": "./photos/Ostapenko.jpg",
           "teamid": "Epicentr",
-          "attackK1": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackKC": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackK7": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackK1": [0, 0, 0, 0, 0, 0],
+          "attackKC": [0, 0, 0, 0, 0, 0],
+          "attackK7": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2557,21 +1285,9 @@
           "reach": 345,
           "photo": "./photos/Didenko.jpg",
           "teamid": "Epicentr",
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2608,51 +1324,18 @@
           "reach": 325,
           "photo": "./photos/Loytarenko.jpg",
           "teamid": "Reshetylivka",
-          "attackK1": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackKC": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackK7": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackK1": [0, 0, 0, 0, 0, 0],
+          "attackKC": [0, 0, 0, 0, 0, 0],
+          "attackK7": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2670,51 +1353,18 @@
           "reach": 320,
           "photo": "/photos/Sotnyk.jpg",
           "teamid": "Reshetylivka",
-          "attackZone2": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone4": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackPipe": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackZone2": [0, 0, 0, 0, 0, 0],
+          "attackZone4": [0, 0, 0, 0, 0, 0],
+          "attackPipe": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2732,21 +1382,9 @@
           "reach": 290,
           "photo": "/photos/Bovsunovskiy.jpg",
           "teamid": "Reshetylivka",
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2764,51 +1402,18 @@
           "reach": 325,
           "photo": "/photos/Gurshal.jpg",
           "teamid": "Reshetylivka",
-          "attackZone2": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone1": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone4": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackZone2": [0, 0, 0, 0, 0, 0],
+          "attackZone1": [0, 0, 0, 0, 0, 0],
+          "attackZone4": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2826,51 +1431,18 @@
           "reach": 320,
           "photo": "/photos/Drofa.jpg",
           "teamid": "Reshetylivka",
-          "attackZone2": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackZone4": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackPipe": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackZone2": [0, 0, 0, 0, 0, 0],
+          "attackZone4": [0, 0, 0, 0, 0, 0],
+          "attackPipe": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,
@@ -2888,51 +1460,18 @@
           "reach": 320,
           "photo": "./photos/Fedoseev.jpg",
           "teamid": "Reshetylivka",
-          "attackK1": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackKC": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "attackK7": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
+          "attackK1": [0, 0, 0, 0, 0, 0],
+          "attackKC": [0, 0, 0, 0, 0, 0],
+          "attackK7": [0, 0, 0, 0, 0, 0],
           "plusMinusOnAttack": 0,
           "percentOfAttack": 0,
           "winPoints": 0,
           "leftInGame": 0,
           "attacksInBlock": 0,
           "loosePoints": 0,
-          "serviceZone1": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone6": [
-            0,
-            0,
-            0
-          ],
-          "serviceZone5": [
-            0,
-            0,
-            0
-          ],
+          "serviceZone1": [0, 0, 0],
+          "serviceZone6": [0, 0, 0],
+          "serviceZone5": [0, 0, 0],
           "plusMinusOnService": 0,
           "aces": 0,
           "servicePlus": 0,

@@ -85,9 +85,7 @@ export function PersonalInformationOfPlayer({ link }) {
                 .slice(13, 15)
                 .map((info, index) => (
                   <RowsForPersonalInfo
-                    name={info[0]
-                      .replace(/plusMinusOn/g, "+/- ")
-                      .replace(/percentOf/g, "% ")}
+                    name={info[0].replace(/plusMinusOn/g, "+/- ")}
                     value={info[1]}
                     key={index + 13}
                   />
