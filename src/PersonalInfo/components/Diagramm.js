@@ -55,26 +55,10 @@ export default function Diagramm({ link }) {
         type: "pie",
         allowPointSelect: true,
         data: [
-          [
-            link === "Attack" ? "Win" : "Aces",
-            rightPercentageForDiagramm(0),
-            true,
-          ],
-          [
-            link === "Attack" ? "In Game" : "Service +",
-            rightPercentageForDiagramm(1),
-            false,
-          ],
-          [
-            link === "Attack" ? "Block" : "Service -",
-            rightPercentageForDiagramm(2),
-            false,
-          ],
-          [
-            link === "Attack" ? "Loose" : "Service =",
-            rightPercentageForDiagramm(3),
-            false,
-          ],
+          [link === "Attack" ? "Win" : "Aces", rightPercentageForDiagramm(0), true],
+          [link === "Attack" ? "In Game" : "Service +", rightPercentageForDiagramm(1), false],
+          [link === "Attack" ? "Block" : "Service -", rightPercentageForDiagramm(2), false],
+          [link === "Attack" ? "Loose" : "Service =", rightPercentageForDiagramm(3), false],
         ],
       },
     ],
@@ -89,9 +73,7 @@ export default function Diagramm({ link }) {
         playerInfo.loosePoints,
       ];
       const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0);
-      const percentOfActions = totalAtt.map((att) =>
-        Math.round((att / sumOfTotalAtt) * 100)
-      );
+      const percentOfActions = totalAtt.map((att) => Math.round((att / sumOfTotalAtt) * 100));
       return percentOfActions[index];
     } else if (link === "Service") {
       let totalService = [

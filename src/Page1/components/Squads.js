@@ -1,15 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
 import { pushFromMyBoard } from "../../states/reducers/myTeamPlayersReducer";
-import {
-  pushFromRivalBoard,
-  setBenchPlayers,
-} from "../../states/reducers/rivalPlayersReducer";
+import { pushFromRivalBoard, setBenchPlayers } from "../../states/reducers/rivalPlayersReducer";
 import { setMyTeamZones } from "../../states/reducers/myTeamZonesReducer";
-import {
-  setRivalStartingSix,
-  setRivalZones,
-} from "../../states/reducers/zonesReducer";
+import { setRivalStartingSix, setRivalZones } from "../../states/reducers/zonesReducer";
 import {
   setBackRightRivalSelects,
   setIndexOfZones,
@@ -54,29 +48,16 @@ export function Squads({ team }) {
   function setPlayerInfo(player) {
     dispatch(setInfoOfPlayer(player));
   }
-
   function showStartingSix() {
     dispatch(setRivalStartingSix(rivalClub.startingSquad));
-    dispatch(
-      setBenchPlayers(
-        rivalPlayers.filter(
-          (player) =>
-            !rivalClub.startingSquad.some(
-              (copyPlayer) => copyPlayer.id === player.id
-            )
-        )
-      )
-    );
+    dispatch(setBenchPlayers(rivalPlayers, rivalClub.startingSquad));
     dispatch(setBackRightRivalSelects([]));
   }
+
   return (
     <>
       <div className="teamsquad">
-        <div
-          className="teamLogo"
-          key={club.id}
-          style={team === "my" ? { direction: "rtl" } : {}}
-        >
+        <div className="teamLogo" key={club.id} style={team === "my" ? { direction: "rtl" } : {}}>
           <input className="teamlabel" readOnly value={club.name} />
           <img className="photoLogo" src={club.logo} alt="" />
         </div>
@@ -86,10 +67,7 @@ export function Squads({ team }) {
             className="playerSurname"
             style={team === "my" ? { direction: "rtl" } : {}}
           >
-            <div
-              className="numberPlusInput"
-              onFocus={() => setPlayerInfo(player)}
-            >
+            <div className="numberPlusInput" onFocus={() => setPlayerInfo(player)}>
               <button
                 type="text"
                 disabled
@@ -140,11 +118,8 @@ export function Squads({ team }) {
                     onClick={
                       team === "my"
                         ? () =>
-                            setPlayerToMyTeamZone(player, zone) ||
-                            removeMyTeamSelectOption(zone)
-                        : () =>
-                            setRivalPlayerToZone(player, zone) ||
-                            removeRivalSelectOption(zone)
+                            setPlayerToMyTeamZone(player, zone) || removeMyTeamSelectOption(zone)
+                        : () => setRivalPlayerToZone(player, zone) || removeRivalSelectOption(zone)
                     }
                   >
                     {correctNamesOfZones(zone)}

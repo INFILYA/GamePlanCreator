@@ -3,10 +3,7 @@ import { PersonalInformationOfPlayer } from "../../PersonalInfo/PersonalInformat
 import { ChooseOpponentTeam } from "./ChooseOpponentTeam";
 import { IconOfPlayer } from "./IconOfPlayer";
 import { Squads } from "./Squads";
-import {
-  rotateBackMyTeam,
-  rotateForwardMyTeam,
-} from "../../states/reducers/myTeamZonesReducer";
+import { rotateBackMyTeam, rotateForwardMyTeam } from "../../states/reducers/myTeamZonesReducer";
 import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
 import { setMyTeam } from "../../states/reducers/myClubReducer";
 import { MainLabel } from "./MainLabel";
@@ -17,6 +14,7 @@ export function FirstPage() {
   const dispatch = useDispatch();
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
+  const rivalClub = useSelector((state) => state.rivalClub);
   const playerInfo = useSelector((state) => state.playerInfo);
   const zones = useSelector((state) => state.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones);
@@ -34,10 +32,11 @@ export function FirstPage() {
   }
   function saveStartingSix() {
     saveTeam({
-      ...listOfTeams.find((team) => team.name === zones[0].teamid),
+      ...rivalClub,
       startingSquad: zones,
     });
   }
+
   return (
     <>
       <MainLabel />
@@ -105,10 +104,7 @@ export function FirstPage() {
             <button onClick={moveRotationForward}>🡄</button>
             {myTeamZones.map((player, index) =>
               player && player.position === "Setter" ? (
-                <span
-                  key={player.id}
-                  style={{ marginLeft: 50, marginRight: 50, fontSize: 35 }}
-                >
+                <span key={player.id} style={{ marginLeft: 50, marginRight: 50, fontSize: 35 }}>
                   {correctNamesOfZones(index)}
                 </span>
               ) : null
