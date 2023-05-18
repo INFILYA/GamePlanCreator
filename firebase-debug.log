@@ -1,0 +1,65 @@
+[debug] [2023-05-18T09:36:20.737Z] ----------------------------------------------------------------------
+[debug] [2023-05-18T09:36:20.740Z] Command:       D:\ITschool\node.exe C:\Users\Dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-05-18T09:36:20.741Z] CLI Version:   12.0.1
+[debug] [2023-05-18T09:36:20.741Z] Platform:      win32
+[debug] [2023-05-18T09:36:20.741Z] Node Version:  v19.7.0
+[debug] [2023-05-18T09:36:20.741Z] Time:          Thu May 18 2023 12:36:20 GMT+0300 (Восточная Европа, летнее время)
+[debug] [2023-05-18T09:36:20.742Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-18T09:36:20.750Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-18T09:36:20.751Z] > authorizing via signed-in user (INFILYA@yandex.ua)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Dell\Desktop\NodeJS\my_programm
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-05-18T09:40:01.106Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2023-05-18T09:40:01.993Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2023-05-18T09:40:01.994Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project game-plan-creator (Game Plan Creator) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2023-05-18T09:40:08.804Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-05-18T09:40:08.804Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/game-plan-creator
+[debug] [2023-05-18T09:40:09.974Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com 200
+[debug] [2023-05-18T09:40:09.974Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com [omitted]
+[warn] !  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2023-05-18T09:40:09.977Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com:enable [none]
+[debug] [2023-05-18T09:40:09.977Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com:enable x-goog-quota-user=projects/game-plan-creator
+[debug] [2023-05-18T09:40:11.487Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com:enable 200
+[debug] [2023-05-18T09:40:11.487Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com:enable [omitted]
+[debug] [2023-05-18T09:40:21.500Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-05-18T09:40:21.501Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/game-plan-creator
+[debug] [2023-05-18T09:40:22.507Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com 200
+[debug] [2023-05-18T09:40:22.507Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/game-plan-creator/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2023-05-18T09:40:22.519Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/game-plan-creator [none]
+[debug] [2023-05-18T09:40:22.910Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/game-plan-creator 200
+[debug] [2023-05-18T09:40:22.911Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/game-plan-creator {"projectId":"game-plan-creator","projectNumber":"405089418751","displayName":"Game Plan Creator","name":"projects/game-plan-creator","resources":{"hostingSite":"game-plan-creator"},"state":"ACTIVE","etag":"1_41628bac-495b-46f8-b320-e5f5dc0185e4"}
+[debug] [2023-05-18T09:41:02.652Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/game-plan-creator/locations/europe-west1/instances databaseId=game-plan-creator-default-rtdb&validateOnly=true
+[debug] [2023-05-18T09:41:02.652Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/game-plan-creator/locations/europe-west1/instances {"type":"default_database"}
+[debug] [2023-05-18T09:41:03.667Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/game-plan-creator/locations/europe-west1/instances 200
+[debug] [2023-05-18T09:41:03.668Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/game-plan-creator/locations/europe-west1/instances {"name":"projects/405089418751/locations/europe-west1/instances/game-plan-creator-default-rtdb","project":"projects/405089418751","databaseUrl":"https://game-plan-creator-default-rtdb.europe-west1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2023-05-18T09:41:03.672Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/game-plan-creator/locations/europe-west1/instances databaseId=game-plan-creator-default-rtdb
+[debug] [2023-05-18T09:41:03.672Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/game-plan-creator/locations/europe-west1/instances {"type":"default_database"}
+[debug] [2023-05-18T09:41:04.323Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/game-plan-creator/locations/europe-west1/instances 200
+[debug] [2023-05-18T09:41:04.323Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/game-plan-creator/locations/europe-west1/instances {"name":"projects/405089418751/locations/europe-west1/instances/game-plan-creator-default-rtdb","project":"projects/405089418751","databaseUrl":"https://game-plan-creator-default-rtdb.europe-west1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 

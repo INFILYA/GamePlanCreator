@@ -9,6 +9,7 @@ import { setMyTeam } from "../../states/reducers/myClubReducer";
 import { MainLabel } from "./MainLabel";
 import { correctNamesOfZones, saveTeam } from "../../Datas/api";
 import { Button } from "../../Labels/Button";
+import { Auth } from "./Auth";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ export function FirstPage() {
 
   return (
     <>
+      <Auth />
       <MainLabel />
       <div style={{ display: "flex" }}>
         <Squads />
