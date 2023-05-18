@@ -81,8 +81,7 @@ export function AttackFields() {
   function calculateForData(obj) {
     if (obj === playerInfo) {
       diagrammValue.plusMinusOnAttack =
-        diagrammValue.winPoints -
-        (diagrammValue.attacksInBlock + diagrammValue.loosePoints);
+        diagrammValue.winPoints - (diagrammValue.attacksInBlock + diagrammValue.loosePoints);
     }
     obj.winPoints += diagrammValue.winPoints;
     obj.leftInGame += diagrammValue.leftInGame;
@@ -91,11 +90,7 @@ export function AttackFields() {
     obj.plusMinusOnAttack += diagrammValue.plusMinusOnAttack;
     obj.percentOfAttack = Math.round(
       (obj.winPoints /
-        (obj.winPoints +
-          obj.attacksInBlock +
-          obj.loosePoints +
-          obj.leftInGame +
-          0.0001)) *
+        (obj.winPoints + obj.attacksInBlock + obj.loosePoints + obj.leftInGame + 0.0001)) *
         100
     );
     console.log(obj.percentOfAttack);
@@ -118,13 +113,11 @@ export function AttackFields() {
       const attHistory = playerInfo[zoneOfAtt.zone];
       const result = AttacksByZone.map((att, index) => att + attHistory[index]);
       const nameOfZone = zoneOfAtt.zone;
-      const players = allPlayers.filter(
-        (player) => player.teamid === playerInfo.teamid
-      );
+      const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
       const team = teams.find((team) => team.name === playerInfo.teamid);
       const teamAge = players.reduce((a, b) => a + b.age, 0) / players.length;
       calculateForData(team);
-      team.age = +teamAge.toFixed(1);
+      team.age = Math.round(teamAge);
       AttacksByZone = result;
       playerInfo[nameOfZone] = AttacksByZone;
       await savePlayer(playerInfo); //сохраняю одного игрока
@@ -135,9 +128,7 @@ export function AttackFields() {
       console.log(team);
     }
     const totalAttacks = reduce(AttacksByZone, 0.0001);
-    const result = AttacksByZone.map((attacks) =>
-      Math.round((attacks / totalAttacks) * 100)
-    );
+    const result = AttacksByZone.map((attacks) => Math.round((attacks / totalAttacks) * 100));
     const upgradedZoneValue = Object.fromEntries(
       Object.entries(result).map(([key, value]) => [+key + 1, value + "%"])
     );

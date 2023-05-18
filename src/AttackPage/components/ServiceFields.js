@@ -101,13 +101,11 @@ export function ServiceFields() {
       const servHistory = playerInfo[zoneOfServ.zone];
       const res = ServiceByZone.map((att, index) => att + servHistory[index]);
       const nameOfZone = zoneOfServ.zone;
-      const players = allPlayers.filter(
-        (player) => player.teamid === playerInfo.teamid
-      );
+      const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
       const team = teams.find((team) => team.name === playerInfo.teamid);
       const teamAge = players.reduce((a, b) => a + b.age, 0) / players.length;
       calculateForData(team);
-      team.age = +teamAge.toFixed(1);
+      team.age = Math.round(teamAge);
       ServiceByZone = res;
       playerInfo[nameOfZone] = ServiceByZone;
       await savePlayer(playerInfo); //сохраняю одного игрока
@@ -117,9 +115,7 @@ export function ServiceFields() {
       setSaveDataOfServices(!saveDataOfServices);
     }
     const totalServices = reduce(ServiceByZone, 0.0001);
-    const result = ServiceByZone.map((obj) =>
-      Math.round((obj / totalServices) * 100)
-    );
+    const result = ServiceByZone.map((obj) => Math.round((obj / totalServices) * 100));
     const upgradedZoneValue = Object.fromEntries(
       Object.entries(result).map(([key, value]) => [+key + 1, value + "%"])
     );
@@ -143,12 +139,8 @@ export function ServiceFields() {
         <select className="typeOfService">
           <option defaultValue="Type of service">Type of service</option>
           <option onClick={showInputs ? onHandleCountClick : null}>Jump</option>
-          <option onClick={showInputs ? onHandleCountClick : null}>
-            Float
-          </option>
-          <option onClick={showInputs ? onHandleCountClick : null}>
-            Hybrid
-          </option>
+          <option onClick={showInputs ? onHandleCountClick : null}>Float</option>
+          <option onClick={showInputs ? onHandleCountClick : null}>Hybrid</option>
         </select>
         <div>
           {historyOfBalls.map((ball, index) =>
