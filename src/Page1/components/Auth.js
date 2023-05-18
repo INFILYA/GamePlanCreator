@@ -6,7 +6,7 @@ export function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-    // console.log(auth?.currentUser?.email);
+  // console.log(auth?.currentUser?.email);
 
   async function signIn() {
     try {
@@ -15,7 +15,7 @@ export function Auth() {
       console.error(err);
     }
   }
-  async function siqnInWithGoogle() {
+  async function signInWithGoogle() {
     try {
       await signInWithPopup(auth, googleProvider);
     } catch (err) {
@@ -39,7 +39,7 @@ export function Auth() {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button onClick={signIn}>Sign in</button>
-      <button onClick={siqnInWithGoogle}>Sign in with Google</button>
+      <button onClick={signInWithGoogle}>Sign in with Google</button>
       <button onClick={logout}>Log out</button>
     </div>
   );
