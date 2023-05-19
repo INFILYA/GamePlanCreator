@@ -12,12 +12,10 @@ export function setBackRightMyTeamSelects(rightZones) {
     payload: rightZones,
   };
 }
-export function sequanceOfZonesReducer(
-  state = defaultState.sequanceOfZones,
-  action
-) {
+export function sequanceOfZonesReducer(state = defaultState.sequanceOfZones, action) {
   switch (action.type) {
     case "SET_SEQUANCE_OF_ZONES":
+      // console.log(action.payload);
       return state.filter((zone) => zone !== action.payload);
     case "SET_BACK_RIGHT_MY_TEAM_SELECTS":
       return action.payload;

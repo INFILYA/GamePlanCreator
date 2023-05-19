@@ -27,7 +27,7 @@ export function myTeamZonesReducer(state = defaultState.myTeamZones, action) {
   switch (action.type) {
     case "SET_MY_TEAM_ZONES":
       return state.map((player, index) =>
-        index === action.payload.zone ? action.payload.player : player
+        index === action.payload.zone ? action.payload.player  : player
       );
     case "CLEAR_MY_TEAM_ZONES":
       return action.payload;

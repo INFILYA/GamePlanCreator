@@ -21,9 +21,9 @@ export function FirstPage() {
   const myTeamZones = useSelector((state) => state.myTeamZones);
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
 
-  function handleSetMyTeam(club) {
-    dispatch(setMyTeamPlayers(listOfPlayers, club));
-    dispatch(setMyTeam(listOfTeams, club));
+  function handleSetMyTeam(event) {
+    dispatch(setMyTeamPlayers(listOfPlayers, event.target.value));
+    dispatch(setMyTeam(listOfTeams, event.target.value));
   }
   function moveRotationForward() {
     dispatch(rotateForwardMyTeam());
@@ -37,8 +37,7 @@ export function FirstPage() {
       startingSquad: zones,
     });
   }
-  // console.log(listOfTeams);
-  // console.log(listOfPlayers);
+
   return (
     <>
       <Auth />
@@ -119,10 +118,10 @@ export function FirstPage() {
           <Squads team={"my"} />
         ) : (
           <div className="teamsquad">
-            <select className="chooseHomeTeam">
+            <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
               <option value="Choose home team">Choose home team</option>
               {listOfTeams.map((team) => (
-                <option key={team.id} onClick={() => handleSetMyTeam(team)}>
+                <option key={team.id} value={team.name}>
                   {team.name}
                 </option>
               ))}

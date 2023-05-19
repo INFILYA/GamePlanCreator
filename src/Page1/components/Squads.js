@@ -25,28 +25,45 @@ export function Squads({ team }) {
   const players = team === "my" ? myTeamPlayers : rivalPlayers;
   const Zones = team === "my" ? sequanceOfZones : indexOfZones;
 
+  function myTeamActions(event) {
+    setPlayerToMyTeamZone(event);
+    removeMyTeamSelectOption(event);
+  }
+  function setPlayerToMyTeamZone(event) {
+    const player = players.find((player) => player.id === +event.target.value.split(",")[0]);
+    const zone = +event.target.value.split(",")[1];
+    dispatch(setMyTeamZones(player, zone));
+    pushFromMyTeamBoard(player);
+  }
+  function removeMyTeamSelectOption(event) {
+    const zone = +event.target.value.split(",")[1];
+    dispatch(setSequanceOfZones(zone));
+  }
   function pushFromMyTeamBoard(player) {
     dispatch(pushFromMyBoard(player));
+  }
+
+  function rivalTeamActions(event) {
+    setRivalPlayerToZone(event);
+    removeRivalSelectOption(event);
+  }
+  function setRivalPlayerToZone(event) {
+    const player = players.find((player) => player.id === +event.target.value.split(",")[0]);
+    const zone = +event.target.value.split(",")[1];
+    dispatch(setRivalZones(player, zone));
+    pushFromBoard(player);
+  }
+  function removeRivalSelectOption(event) {
+    const zone = +event.target.value.split(",")[1];
+    dispatch(setIndexOfZones(zone));
   }
   function pushFromBoard(player) {
     dispatch(pushFromRivalBoard(player));
   }
-  function setPlayerToMyTeamZone(player, index) {
-    dispatch(setMyTeamZones(player, index));
-    pushFromMyTeamBoard(player);
-  }
-  function setRivalPlayerToZone(player, zone) {
-    dispatch(setRivalZones(player, zone));
-    pushFromBoard(player);
-  }
-  function removeRivalSelectOption(zone) {
-    dispatch(setIndexOfZones(zone));
-  }
-  function removeMyTeamSelectOption(index) {
-    dispatch(setSequanceOfZones(index));
-  }
+
   function setPlayerInfo(player) {
     dispatch(setInfoOfPlayer(player));
+    console.log(player);
   }
   function showStartingSix() {
     dispatch(setRivalStartingSix(rivalClub.startingSquad));
@@ -105,23 +122,18 @@ export function Squads({ team }) {
               </button>
             </div>
             {Zones && (
-              <select className="moveToBoard" type="text">
+              <select
+                className="moveToBoard"
+                type="text"
+                onChange={team === "my" ? myTeamActions : rivalTeamActions}
+              >
                 {team === "my" ? (
                   <option defaultValue="◀">◀</option>
                 ) : (
                   <option defaultValue="▶">▶</option>
                 )}
                 {Zones.map((zone, index) => (
-                  <option
-                    key={index}
-                    value={`index[${[zone]}]`}
-                    onClick={
-                      team === "my"
-                        ? () =>
-                            setPlayerToMyTeamZone(player, zone) || removeMyTeamSelectOption(zone)
-                        : () => setRivalPlayerToZone(player, zone) || removeRivalSelectOption(zone)
-                    }
-                  >
+                  <option key={index} value={[player.id, zone]}>
                     {correctNamesOfZones(zone)}
                   </option>
                 ))}

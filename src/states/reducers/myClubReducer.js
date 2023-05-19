@@ -1,9 +1,9 @@
 import { defaultState } from "../defaultStates";
 
-export function setMyTeam(listOfTeams, team) {
+export function setMyTeam(listOfTeams, name) {
   return {
     type: "SET_MY_TEAM",
-    payload: { listOfTeams, team },
+    payload: { listOfTeams, name },
   };
 }
 export function setResetMyTeam(team) {
@@ -15,9 +15,7 @@ export function setResetMyTeam(team) {
 export function myClubReducer(state = defaultState.myClub, action) {
   switch (action.type) {
     case "SET_MY_TEAM":
-      return action.payload.listOfTeams.find(
-        (teams) => teams.id === action.payload.team.id
-      );
+      return action.payload.listOfTeams.find((teams) => teams.name === action.payload.name);
     case "RESET_MY_TEAM":
       return action.payload;
     default:

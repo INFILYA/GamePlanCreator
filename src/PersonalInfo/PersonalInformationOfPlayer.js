@@ -3,6 +3,7 @@ import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
 import { useDispatch, useSelector } from "react-redux";
 import Diagramm from "./components/Diagramm";
 import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
+import { compare } from "../Datas/api";
 
 export function PersonalInformationOfPlayer({ link }) {
   const navigate = useNavigate();
@@ -13,7 +14,9 @@ export function PersonalInformationOfPlayer({ link }) {
     navigate("/");
     dispatch(setInfoOfPlayer(null));
   }
-  const infosOfPlayers = Object.entries(playerInfo).sort((a, b) => a[0] > b[0]);
+
+  const infosOfPlayers = Object.entries(playerInfo);
+  infosOfPlayers.sort((a, b) => compare(a, b));
   const infosOfAttackers = [
     infosOfPlayers[1],
     infosOfPlayers[17],

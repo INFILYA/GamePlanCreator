@@ -18,6 +18,7 @@ import {
 } from "./Ratings/Ratings";
 import { dataBase } from "./config/firebase";
 import { getDocs, collection } from "firebase/firestore";
+import { compare } from "./Datas/api";
 
 function Myproject() {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function Myproject() {
       try {
         const data = await getDocs(collection);
         const list = data.docs.map((doc) => ({ ...doc.data(), id: +doc.id }));
-        const sortedList = list.sort((a, b) => a.id > b.id);
+        const sortedList = [...list].sort((a, b) => compare(a.id, b.id));
         type === "club" ? dispatch(setAllTeams(sortedList)) : dispatch(setAllPlayers(sortedList));
       } catch (error) {
         console.error(error);

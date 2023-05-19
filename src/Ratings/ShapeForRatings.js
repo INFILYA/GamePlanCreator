@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { compare } from "../Datas/api";
 
 export default function ShapeForRatings({ amplua }) {
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const [directionOfSort, setDirectionOfSort] = useState(false);
   const [teamsOrPlayers, setTeamsOrPlayers] = useState(
-    amplua === "teams"
-      ? listOfTeams
-      : listOfPlayers.filter((player) => player.position === amplua)
+    amplua === "teams" ? listOfTeams : listOfPlayers.filter((player) => player.position === amplua)
   );
   const categorysForAll = [
     { category: "name", text: "Name" },
@@ -34,8 +33,8 @@ export default function ShapeForRatings({ amplua }) {
   function countRankings(category) {
     const newArr2 = [...teamsOrPlayers];
     !directionOfSort
-      ? newArr2.sort((a, b) => b[category] > a[category])
-      : newArr2.sort((a, b) => b[category] < a[category]);
+      ? newArr2.sort((a, b) => compare(b[category], a[category]))
+      : newArr2.sort((a, b) => compare(a[category], b[category]));
     setTeamsOrPlayers(newArr2);
     setDirectionOfSort(!directionOfSort);
   }
