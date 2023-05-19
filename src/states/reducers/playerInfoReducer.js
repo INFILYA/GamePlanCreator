@@ -20,7 +20,11 @@ export function playerInfoReducer(state = defaultState.playerInfo, action) {
   switch (action.type) {
     case "SET_PLAYER_INFO":
       localStorage.setItem("playerInfo", JSON.stringify(action.payload));
-      return action.payload;
+      const orderedPlayerInfo = { ...action.payload };
+      const infosOfPlayers =
+        action.payload &&
+        Object.fromEntries(Object.entries(orderedPlayerInfo).sort((a, b) => a > b));
+      return infosOfPlayers;
     default:
       return state;
   }

@@ -13,8 +13,7 @@ export function PersonalInformationOfPlayer({ link }) {
     navigate("/");
     dispatch(setInfoOfPlayer(null));
   }
-  const orderedPlayerInfo = { ...playerInfo };
-  const infosOfPlayers = Object.entries(orderedPlayerInfo).sort((a, b) => a > b);
+  const infosOfPlayers = Object.entries(playerInfo);
   const infosOfAttackers = [
     ...infosOfPlayers.slice(1, 2),
     ...infosOfPlayers.slice(17, 19),
