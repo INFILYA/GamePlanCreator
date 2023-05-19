@@ -3,10 +3,10 @@ import { fetchTeamsApiCall } from "../../Datas/api";
 
 export function fetchTeams() {
   return function (dispatch) {
-    fetchTeamsApiCall().then((json) => dispatch(setAllTeamss(json)));
+    fetchTeamsApiCall().then((json) => dispatch(setAllTeams(json)));
   };
 }
-export function setAllTeamss(listOfTeams) {
+export function setAllTeams(listOfTeams) {
   return {
     type: "SET_ALL_TEAMS",
     payload: listOfTeams,

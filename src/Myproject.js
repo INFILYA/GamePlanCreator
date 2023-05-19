@@ -5,8 +5,8 @@ import Service from "./AttackPage/Service";
 import Page1 from "./Page1/Page1";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchPlayers } from "./states/reducers/listOfPlayersReducer";
-import { fetchTeams } from "./states/reducers/listOfTeamsReducer";
+import { setAllPlayers } from "./states/reducers/listOfPlayersReducer";
+import { setAllTeams } from "./states/reducers/listOfTeamsReducer";
 import {
   LiberosRating,
   MiddleBlockersRating,
@@ -16,31 +16,37 @@ import {
   SettersRating,
   TeamsRating,
 } from "./Ratings/Ratings";
+import { dataBase } from "./config/firebase";
+import { getDocs, collection } from "firebase/firestore";
 
 function Myproject() {
   const dispatch = useDispatch();
+  const clubsCollectionRefs = collection(dataBase, "clubs");
+  const playersCollectionRefs = collection(dataBase, "players");
+
+  async function getCollection(collection, type) {
+    try {
+      const data = await getDocs(collection);
+      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      type === "club" ? dispatch(setAllTeams(list)) : dispatch(setAllPlayers(list));
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
-    dispatch(fetchPlayers());
-    dispatch(fetchTeams());
-  }, [dispatch]);
+    getCollection(clubsCollectionRefs, "club");
+    getCollection(playersCollectionRefs, "players");
+  }, []);
   return (
     <>
       <div className="firstpage">
         <Routes>
           <Route path="/" element={<Page1 />} />
           <Route path="/Ratings" element={<Ratings />}>
-            <Route
-              path="/Ratings/RecieversRating"
-              element={<RecieversRating />}
-            />
-            <Route
-              path="/Ratings/OppositesRating"
-              element={<OppositesRating />}
-            />
-            <Route
-              path="/Ratings/MiddleBlockersRating"
-              element={<MiddleBlockersRating />}
-            />
+            <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />
+            <Route path="/Ratings/OppositesRating" element={<OppositesRating />} />
+            <Route path="/Ratings/MiddleBlockersRating" element={<MiddleBlockersRating />} />
             <Route path="/Ratings/SettersRating" element={<SettersRating />} />
             <Route path="/Ratings/LiberosRating" element={<LiberosRating />} />
             <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
