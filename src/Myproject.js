@@ -24,20 +24,19 @@ function Myproject() {
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const playersCollectionRefs = collection(dataBase, "players");
 
-  async function getCollection(collection, type) {
-    try {
-      const data = await getDocs(collection);
-      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      type === "club" ? dispatch(setAllTeams(list)) : dispatch(setAllPlayers(list));
-    } catch (error) {
-      console.error(error);
-    }
-  } 
-
   useEffect(() => {
+    async function getCollection(collection, type) {
+      try {
+        const data = await getDocs(collection);
+        const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        type === "club" ? dispatch(setAllTeams(list)) : dispatch(setAllPlayers(list));
+      } catch (error) {
+        console.error(error);
+      }
+    }
     getCollection(clubsCollectionRefs, "club");
     getCollection(playersCollectionRefs, "players");
-  }, []);
+  }, [dispatch, playersCollectionRefs, clubsCollectionRefs]);
   return (
     <>
       <div className="firstpage">

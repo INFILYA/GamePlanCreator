@@ -37,7 +37,8 @@ export function FirstPage() {
       startingSquad: zones,
     });
   }
-
+  console.log(listOfTeams);
+  console.log(listOfPlayers);
   return (
     <>
       <Auth />
@@ -114,7 +115,7 @@ export function FirstPage() {
             <button onClick={moveRotationBack}>🡆</button>
           </div>
         </div>
-        {myTeamPlayers.length > 2 ? (
+        {myTeamPlayers.length >= 1 ? (
           <Squads team={"my"} />
         ) : (
           <div className="teamsquad">

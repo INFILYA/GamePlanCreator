@@ -13,7 +13,15 @@ export function PersonalInformationOfPlayer({ link }) {
     navigate("/");
     dispatch(setInfoOfPlayer(null));
   }
-  const infosOfPlayers = Object.entries(playerInfo);
+  const orderedPlayerInfo = { ...playerInfo };
+  const infosOfPlayers = Object.entries(orderedPlayerInfo).sort((a, b) => a > b);
+  const infosOfAttackers = [
+    ...infosOfPlayers.slice(1, 2),
+    ...infosOfPlayers.slice(17, 19),
+    ...infosOfPlayers.slice(6, 8),
+    ...infosOfPlayers.slice(12, 13),
+  ];
+
   return (
     <>
       <div className="hideIcon">
@@ -22,95 +30,56 @@ export function PersonalInformationOfPlayer({ link }) {
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="info">
-            {infosOfPlayers.slice(1, 4).map((info, index) => (
-              <RowsForPersonalInfo
-                name={info[0]}
-                value={info[1]}
-                key={index + 1}
-              />
+            {infosOfAttackers.map((info, index) => (
+              <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
             ))}
-            {infosOfPlayers.slice(5, 8).map((info, index) => (
-              <RowsForPersonalInfo
-                name={info[0]}
-                value={info[1]}
-                key={index + 5}
-              />
-            ))}
-            {link === "Service" &&
-              playerInfo.position !== "Setter" &&
+            {link === "Attack" &&
               infosOfPlayers
-                .slice(22, 24)
+                .slice(2, 5)
+                .map((info, index) => (
+                  <RowsForPersonalInfo
+                    name={info[0].replace(/[a-z]/g, "")}
+                    value={`|${info[1].join("|")}|`}
+                    key={index + 2}
+                  />
+                ))}
+            {link === "Attack" &&
+              infosOfPlayers
+                .slice(15, 16)
                 .map((info, index) => (
                   <RowsForPersonalInfo
                     name={info[0].replace(/plusMinusOn/g, "+/- ")}
                     value={info[1]}
+                    key={index + 15}
+                  />
+                ))}
+            {link === "Service" &&
+              infosOfPlayers
+                .slice(22, 25)
+                .map((info, index) => (
+                  <RowsForPersonalInfo
+                    name={info[0].replace(/[a-z]/g, "")}
+                    value={`|${info[1].join("|")}|`}
                     key={index + 22}
                   />
                 ))}
             {link === "Service" &&
-              playerInfo.position !== "Setter" &&
               infosOfPlayers
-                .slice(19, 22)
-                .map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0].replace(/[a-z]/g, "")}
-                    value={`|${info[1].join("|")}|`}
-                    key={index + 19}
-                  />
-                ))}
-            {link === "Service" &&
-              playerInfo.position === "Setter" &&
-              infosOfPlayers
-                .slice(13, 15)
+                .slice(16, 17)
                 .map((info, index) => (
                   <RowsForPersonalInfo
                     name={info[0].replace(/plusMinusOn/g, "+/- ")}
                     value={info[1]}
-                    key={index + 13}
-                  />
-                ))}
-            {link === "Service" &&
-              playerInfo.position === "Setter" &&
-              infosOfPlayers
-                .slice(10, 13)
-                .map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0].replace(/[a-z]/g, "")}
-                    value={`|${info[1].join("|")}|`}
-                    key={index + 10}
-                  />
-                ))}
-            {link === "Attack" &&
-              infosOfPlayers
-                .slice(13, 15)
-                .map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0].replace(/plusMinusOn/g, "+/- ")}
-                    value={info[1]}
-                    key={index + 13}
-                  />
-                ))}
-            {link === "Attack" &&
-              infosOfPlayers
-                .slice(10, 13)
-                .map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0].replace(/[a-z]/g, "")}
-                    value={`|${info[1].join("|")}|`}
-                    key={index + 10}
+                    key={index + 16}
                   />
                 ))}
             <div className="row" style={{ justifyContent: "space-evenly" }}>
               {playerInfo.position !== "Libero" && (
                 <>
                   {playerInfo.position !== "Setter" && (
-                    <NavLink to={"/attack?playerId=" + playerInfo.id}>
-                      Attack
-                    </NavLink>
+                    <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>
                   )}
-                  <NavLink to={"/service?playerId=" + playerInfo.id}>
-                    Service
-                  </NavLink>
+                  <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
                 </>
               )}
               <button onClick={() => goHome()}>Cancel</button>
