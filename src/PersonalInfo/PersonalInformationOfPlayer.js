@@ -20,6 +20,11 @@ export function PersonalInformationOfPlayer({ link }) {
     ...infosOfPlayers.slice(6, 8),
     ...infosOfPlayers.slice(12, 13),
   ];
+  const infoOfLibero = [
+    ...infosOfPlayers.slice(0, 3),
+    ...infosOfPlayers.slice(5, 6),
+    ...infosOfPlayers.slice(7, 9),
+  ];
 
   return (
     <>
@@ -29,9 +34,13 @@ export function PersonalInformationOfPlayer({ link }) {
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="info">
-            {infosOfAttackers.map((info, index) => (
-              <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
-            ))}
+            {playerInfo.position !== "Libero"
+              ? infosOfAttackers.map((info, index) => (
+                  <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
+                ))
+              : infoOfLibero.map((info, index) => (
+                  <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
+                ))}
             {link === "Attack" &&
               infosOfPlayers
                 .slice(2, 5)

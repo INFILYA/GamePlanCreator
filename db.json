@@ -290,7 +290,7 @@
       "number": 13,
       "position": "MBlocker",
       "reach": 340,
-      "photo": "./photos/Klepko.jpg",
+      "photo": "/photos/Klepko.jpg",
       "teamid": "Prometey",
       "attackK1": [0, 0, 0, 0, 0, 0],
       "attackKC": [0, 0, 0, 0, 0, 0],
@@ -319,7 +319,7 @@
       "number": 19,
       "position": "Libero",
       "reach": 310,
-      "photo": "./photos/Boyko.jpg",
+      "photo": "/photos/Boyko.jpg",
       "teamid": "Prometey",
       "percentReception": 0
     },

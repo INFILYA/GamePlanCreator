@@ -28,8 +28,9 @@ function Myproject() {
     async function getCollection(collection, type) {
       try {
         const data = await getDocs(collection);
-        const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        type === "club" ? dispatch(setAllTeams(list)) : dispatch(setAllPlayers(list));
+        const list = data.docs.map((doc) => ({ ...doc.data(), id: +doc.id }));
+        const sortedList = [...list].sort((a, b) => a.id > b.id);
+        type === "club" ? dispatch(setAllTeams(sortedList)) : dispatch(setAllPlayers(sortedList));
       } catch (error) {
         console.error(error);
       }
