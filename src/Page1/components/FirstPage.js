@@ -37,8 +37,8 @@ export function FirstPage() {
       startingSquad: zones,
     });
   }
-  console.log(listOfTeams);
-  console.log(listOfPlayers);
+  // console.log(listOfTeams);
+  // console.log(listOfPlayers);
   return (
     <>
       <Auth />

@@ -13,19 +13,23 @@ export function PersonalInformationOfPlayer({ link }) {
     navigate("/");
     dispatch(setInfoOfPlayer(null));
   }
-  const infosOfPlayers = Object.entries(playerInfo);
+  const infosOfPlayers = Object.entries(playerInfo).sort((a, b) => a[0] > b[0]);
   const infosOfAttackers = [
-    ...infosOfPlayers.slice(1, 2),
-    ...infosOfPlayers.slice(17, 19),
-    ...infosOfPlayers.slice(6, 8),
-    ...infosOfPlayers.slice(12, 13),
+    infosOfPlayers[1],
+    infosOfPlayers[17],
+    infosOfPlayers[18],
+    infosOfPlayers[6],
+    infosOfPlayers[7],
+    infosOfPlayers[12],
   ];
   const infoOfLibero = [
-    ...infosOfPlayers.slice(0, 3),
-    ...infosOfPlayers.slice(5, 6),
-    ...infosOfPlayers.slice(7, 9),
+    infosOfPlayers[0],
+    infosOfPlayers[1],
+    infosOfPlayers[2],
+    infosOfPlayers[5],
+    infosOfPlayers[7],
+    infosOfPlayers[8],
   ];
-
   return (
     <>
       <div className="hideIcon">
