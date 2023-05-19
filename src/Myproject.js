@@ -32,7 +32,7 @@ function Myproject() {
     } catch (error) {
       console.error(error);
     }
-  }
+  } 
 
   useEffect(() => {
     getCollection(clubsCollectionRefs, "club");
