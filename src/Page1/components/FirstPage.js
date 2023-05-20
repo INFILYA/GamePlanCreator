@@ -43,10 +43,6 @@ export function FirstPage() {
     try {
       const docRef = doc(dataBase, "clubs", team.id);
       await setDoc(docRef, team);
-      // const data = await getDocs(clubsCollectionRefs);
-      // const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      // const listOfPlayers = [...list].sort((a, b) => compare(a.id, b.id));
-      // dispatch(setAllTeams(listOfPlayers));
     } catch (error) {
       console.error(error);
     }

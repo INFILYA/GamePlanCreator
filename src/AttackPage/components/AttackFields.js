@@ -11,10 +11,12 @@ import { Explain } from "./Explain";
 import { CheckEquality } from "./CheckEquality";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { dataBase } from "../../config/firebase";
+import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
 
 export function AttackFields() {
   const dispatch = useDispatch();
   const playersCollectionRefs = collection(dataBase, "players");
+  const clubsCollectionRefs = collection(dataBase, "clubs");
   const playerInfo = useSelector((state) => state.playerInfo);
   const allPlayers = useSelector((state) => state.listOfPlayers);
   const teams = useSelector((state) => state.listOfTeams);
@@ -124,7 +126,6 @@ export function AttackFields() {
       savePlayer(playerInfo); //сохраняю одного игрока
       saveTeam(team); // сохраняю команду
       setSaveDataOfAttacks(!saveDataOfAttacks);
-      // console.log(team);
     }
     const totalAttacks = reduce(AttacksByZone, 0.0001);
     const result = AttacksByZone.map((attacks) => Math.round((attacks / totalAttacks) * 100));
@@ -160,6 +161,10 @@ export function AttackFields() {
     try {
       const docRef = doc(dataBase, "clubs", team.id);
       await setDoc(docRef, team);
+      const data = await getDocs(clubsCollectionRefs);
+      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      const listOfPlayers = [...list].sort((a, b) => compare(a.id, b.id));
+      dispatch(setAllTeams(listOfPlayers));
     } catch (error) {
       console.error(error);
     }

@@ -11,10 +11,12 @@ import { InputForCount } from "./InputForCount";
 import { CheckEquality } from "./CheckEquality";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { dataBase } from "../../config/firebase";
+import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
 
 export function ServiceFields() {
   const dispatch = useDispatch();
   const playersCollectionRefs = collection(dataBase, "players");
+  const clubsCollectionRefs = collection(dataBase, "clubs");
   const playerInfo = useSelector((state) => state.playerInfo);
   const allPlayers = useSelector((state) => state.listOfPlayers);
   const teams = useSelector((state) => state.listOfTeams);
@@ -146,6 +148,10 @@ export function ServiceFields() {
   const saveTeam = async (team) => {
     try {
       await setDoc(doc(dataBase, "clubs", team.id), team);
+      const data = await getDocs(clubsCollectionRefs);
+      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      const listOfPlayers = [...list].sort((a, b) => compare(a.id, b.id));
+      dispatch(setAllTeams(listOfPlayers));
     } catch (error) {
       console.error(error);
     }
