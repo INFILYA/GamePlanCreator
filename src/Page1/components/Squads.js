@@ -84,7 +84,7 @@ export function Squads({ team }) {
             className="playerSurname"
             style={team === "my" ? { direction: "rtl" } : {}}
           >
-            <div className="numberPlusInput" onFocus={() => setPlayerInfo(player)}>
+            <div className="numberPlusInput" onClick={() => setPlayerInfo(player)}>
               <button
                 type="text"
                 disabled
