@@ -10,7 +10,7 @@ export function IconOfPlayer({ player, zones }) {
   return (
     <>
       {zones && <img src={player.photo} alt=""></img>}
-      <div className="numberPlusInput" onFocus={() => setPlayerInfo(player)}>
+      <div className="numberPlusInput" onClick={() => setPlayerInfo(player)}>
         <button type="text" disabled className="playerNumber">
           {player.number}
         </button>
