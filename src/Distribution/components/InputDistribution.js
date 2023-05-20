@@ -3,6 +3,7 @@ export function InputDistribution({
   zoneValue,
   handleZoneValue,
   name,
+  showButtonCount,
 }) {
   return (
     <>
@@ -17,6 +18,7 @@ export function InputDistribution({
         value={zoneValue}
         onChange={handleZoneValue}
         required
+        readOnly={!showButtonCount}
       ></input>
     </>
   );

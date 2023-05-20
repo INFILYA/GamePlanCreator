@@ -38,6 +38,11 @@ export function DistrField() {
       [event.target.name]: +event.target.value.replace(/\D+/g, ""),
     });
   }
+  function handleSelectOption(event) {
+    setZoneValue({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 });
+    setShowButtonCount(!showButtonCount);
+    setShowButtonSelect(!showButtonSelect);
+  }
   function onHandleCountClick(event) {
     event.preventDefault();
     let final = Object.values(zoneValue);
@@ -54,19 +59,16 @@ export function DistrField() {
     <>
       <div className="distribution">
         <form className="distrfield" onSubmit={onHandleCountClick}>
-          <select className="types" defaultValue="Choose type">
+          <select
+            className="types"
+            defaultValue="Choose type"
+            onChange={handleSelectOption}
+            disabled={!showButtonSelect}
+          >
             <option disabled={true}>Choose type</option>
             {typesOfSituations.map((type) =>
               showButtonSelect ? (
-                <option
-                  key={type}
-                  onClick={() =>
-                    setZoneValue({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }) ||
-                    setShowButtonCount(!showButtonCount) ||
-                    setShowButtonSelect(!showButtonSelect)
-                  }
-                  value={type}
-                >
+                <option key={type} value={type}>
                   {type}
                 </option>
               ) : (
@@ -90,6 +92,7 @@ export function DistrField() {
                     zoneValue={zoneValue[input]}
                     handleZoneValue={handleZoneValue}
                     name={input}
+                    showButtonCount={showButtonCount}
                   />
                 ))}
               </div>
@@ -103,13 +106,14 @@ export function DistrField() {
                     zoneValue={zoneValue[input]}
                     handleZoneValue={handleZoneValue}
                     name={input}
+                    showButtonCount={showButtonCount}
                   />
                 ))}
               </div>
             </div>
           )}
           {showButtonCount && (
-            <button className="count" type="submit">
+            <button className="count" type="submit" disabled={!showButtonCount}>
               Count
             </button>
           )}
@@ -117,10 +121,7 @@ export function DistrField() {
         {!showButtonCount && (
           <div className="notice">
             {!zoneValue ? (
-              <input
-                defaultValue="Please choose type of the call"
-                readOnly
-              ></input>
+              <input defaultValue="Please choose type of the call" readOnly></input>
             ) : (
               <input placeholder="Leave your notice"></input>
             )}

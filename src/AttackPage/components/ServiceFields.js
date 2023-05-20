@@ -136,11 +136,11 @@ export function ServiceFields() {
   return (
     <>
       <form className="serviceField">
-        <select className="typeOfService">
+        <select className="typeOfService" onChange={showInputs ? onHandleCountClick : null}>
           <option defaultValue="Type of service">Type of service</option>
-          <option onClick={showInputs ? onHandleCountClick : null}>Jump</option>
-          <option onClick={showInputs ? onHandleCountClick : null}>Float</option>
-          <option onClick={showInputs ? onHandleCountClick : null}>Hybrid</option>
+          <option>Jump</option>
+          <option>Float</option>
+          <option>Hybrid</option>
         </select>
         <div>
           {historyOfBalls.map((ball, index) =>
