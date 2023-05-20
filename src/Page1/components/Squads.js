@@ -30,7 +30,7 @@ export function Squads({ team }) {
     removeMyTeamSelectOption(event);
   }
   function setPlayerToMyTeamZone(event) {
-    const player = players.find((player) => player.id === +event.target.value.split(",")[0]);
+    const player = players.find((player) => player.id === event.target.value.split(",")[0]);
     const zone = +event.target.value.split(",")[1];
     dispatch(setMyTeamZones(player, zone));
     pushFromMyTeamBoard(player);
@@ -48,7 +48,7 @@ export function Squads({ team }) {
     removeRivalSelectOption(event);
   }
   function setRivalPlayerToZone(event) {
-    const player = players.find((player) => player.id === +event.target.value.split(",")[0]);
+    const player = players.find((player) => player.id === event.target.value.split(",")[0]);
     const zone = +event.target.value.split(",")[1];
     dispatch(setRivalZones(player, zone));
     pushFromBoard(player);
@@ -63,7 +63,7 @@ export function Squads({ team }) {
 
   function setPlayerInfo(player) {
     dispatch(setInfoOfPlayer(player));
-    console.log(player);
+    // console.log(player);
   }
   function showStartingSix() {
     dispatch(setRivalStartingSix(rivalClub.startingSquad));

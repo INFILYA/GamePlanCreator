@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { BallForAttack } from "./BallForAttack";
 import { Explain } from "./Explain";
-import { reduce, savePlayer, saveTeam } from "../../Datas/api";
-import { fetchPlayerInfo } from "../../states/reducers/playerInfoReducer";
-import { fetchPlayers } from "../../states/reducers/listOfPlayersReducer";
-import { fetchTeams } from "../../states/reducers/listOfTeamsReducer";
+import { compare, reduce } from "../../Datas/api";
+import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
+import { setAllPlayers } from "../../states/reducers/listOfPlayersReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { DefenderZone6 } from "./DefenderZone6";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
 import { CheckEquality } from "./CheckEquality";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { dataBase } from "../../config/firebase";
 
 export function ServiceFields() {
   const dispatch = useDispatch();
+  const playersCollectionRefs = collection(dataBase, "players");
   const playerInfo = useSelector((state) => state.playerInfo);
   const allPlayers = useSelector((state) => state.listOfPlayers);
   const teams = useSelector((state) => state.listOfTeams);
@@ -84,7 +86,7 @@ export function ServiceFields() {
     obj.plusMinusOnService += diagrammValue.plusMinusOnService;
     return obj;
   }
-  async function onHandleCountClick(event) {
+  function onHandleCountClick(event) {
     event.preventDefault();
     while (saveDataOfServices && !checkEquality) {
       alert("DATA Value not equal to ZONE value");
@@ -108,10 +110,8 @@ export function ServiceFields() {
       team.age = Math.round(teamAge);
       ServiceByZone = res;
       playerInfo[nameOfZone] = ServiceByZone;
-      await savePlayer(playerInfo); //сохраняю одного игрока
-      await saveTeam(team); // сохраняю команду
-      dispatch(fetchPlayerInfo(playerInfo)); // обвновляю инфу игрока
-      dispatch(fetchPlayers()); // обновляю  всех игроков
+      savePlayer(playerInfo); //сохраняю одного игрока
+      saveTeam(team); // сохраняю команду
       setSaveDataOfServices(!saveDataOfServices);
     }
     const totalServices = reduce(ServiceByZone, 0.0001);
@@ -124,15 +124,33 @@ export function ServiceFields() {
     setShowInputs(!showInputs);
     setDisableSwitch(!disableSwitch);
   }
-  async function returnOldData() {
-    await savePlayer(previousPlayerData);
-    await saveTeam(previousTeamData);
-    dispatch(fetchPlayerInfo(previousPlayerData));
-    dispatch(fetchPlayers());
-    dispatch(fetchTeams());
+  function returnOldData() {
+    savePlayer(previousPlayerData);
+    saveTeam(previousTeamData);
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
   }
+
+  const savePlayer = async (player) => {
+    try {
+      await setDoc(doc(dataBase, "players", player.id), player);
+      const data = await getDocs(playersCollectionRefs);
+      const list = data.docs.map((doc) => ({ ...doc.data(), id: +doc.id }));
+      const listOfPlayers = [...list].sort((a, b) => compare(a.id, b.id));
+      dispatch(setAllPlayers(listOfPlayers));
+      dispatch(setInfoOfPlayer(listOfPlayers.find((players) => players.id === player.id)));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const saveTeam = async (team) => {
+    try {
+      await setDoc(doc(dataBase, "clubs", team.id), team);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <form className="serviceField">

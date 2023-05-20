@@ -1,18 +1,20 @@
 import { useState } from "react";
-import { reduce, savePlayer, saveTeam } from "../../Datas/api";
+import { compare, reduce } from "../../Datas/api";
 import { BallForAttack } from "./BallForAttack";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
 import { DefenderZone6 } from "./DefenderZone6";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPlayerInfo } from "../../states/reducers/playerInfoReducer";
-import { fetchPlayers } from "../../states/reducers/listOfPlayersReducer";
-import { fetchTeams } from "../../states/reducers/listOfTeamsReducer";
+import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
+import { setAllPlayers } from "../../states/reducers/listOfPlayersReducer";
 import { Explain } from "./Explain";
 import { CheckEquality } from "./CheckEquality";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { dataBase } from "../../config/firebase";
 
 export function AttackFields() {
   const dispatch = useDispatch();
+  const playersCollectionRefs = collection(dataBase, "players");
   const playerInfo = useSelector((state) => state.playerInfo);
   const allPlayers = useSelector((state) => state.listOfPlayers);
   const teams = useSelector((state) => state.listOfTeams);
@@ -93,10 +95,9 @@ export function AttackFields() {
         (obj.winPoints + obj.attacksInBlock + obj.loosePoints + obj.leftInGame + 0.0001)) *
         100
     );
-    console.log(obj.percentOfAttack);
     return obj;
   }
-  async function onHandleCountClick(event) {
+  function onHandleCountClick(event) {
     event.preventDefault();
     while (saveDataOfAttacks && !checkEquality) {
       alert("DATA Value not equal to ZONE value");
@@ -120,12 +121,10 @@ export function AttackFields() {
       team.age = Math.round(teamAge);
       AttacksByZone = result;
       playerInfo[nameOfZone] = AttacksByZone;
-      await savePlayer(playerInfo); //сохраняю одного игрока
-      await saveTeam(team); // сохраняю команду
-      dispatch(fetchPlayerInfo(playerInfo)); // обвновляю инфу игрока
-      dispatch(fetchPlayers()); // обновляю  всех игроков
+      savePlayer(playerInfo); //сохраняю одного игрока
+      saveTeam(team); // сохраняю команду
       setSaveDataOfAttacks(!saveDataOfAttacks);
-      console.log(team);
+      // console.log(team);
     }
     const totalAttacks = reduce(AttacksByZone, 0.0001);
     const result = AttacksByZone.map((attacks) => Math.round((attacks / totalAttacks) * 100));
@@ -137,15 +136,34 @@ export function AttackFields() {
     setShowInputs(!showInputs);
     setDisableSwitch(!disableSwitch);
   }
-  async function returnOldData() {
-    await savePlayer(previousPlayerData);
-    await saveTeam(previousTeamData);
-    dispatch(fetchPlayerInfo(previousPlayerData));
-    dispatch(fetchPlayers());
-    dispatch(fetchTeams());
+  function returnOldData() {
+    savePlayer(previousPlayerData);
+    saveTeam(previousTeamData);
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
   }
+
+  const savePlayer = async (player) => {
+    try {
+      const docRef = doc(dataBase, "players", player.id);
+      await setDoc(docRef, player);
+      const data = await getDocs(playersCollectionRefs);
+      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      const listOfPlayers = [...list].sort((a, b) => compare(+a.id, +b.id));
+      dispatch(setAllPlayers(listOfPlayers));
+      dispatch(setInfoOfPlayer(listOfPlayers.find((players) => players.id === player.id)));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const saveTeam = async (team) => {
+    try {
+      const docRef = doc(dataBase, "clubs", team.id);
+      await setDoc(docRef, team);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <form className="playArea" onSubmit={onHandleCountClick}>
       <div className="zoneinput">

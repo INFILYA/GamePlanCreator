@@ -9,7 +9,7 @@ export function PersonalInformationOfPlayer({ link }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const playerInfo = useSelector((state) => state.playerInfo);
-
+  console.log(playerInfo);
   function goHome() {
     navigate("/");
     dispatch(setInfoOfPlayer(null));
@@ -33,6 +33,7 @@ export function PersonalInformationOfPlayer({ link }) {
     infosOfPlayers[7],
     infosOfPlayers[8],
   ];
+  console.log(infosOfPlayers);
   return (
     <>
       <div className="hideIcon">

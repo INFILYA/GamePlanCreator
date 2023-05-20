@@ -7,9 +7,11 @@ import { rotateBackMyTeam, rotateForwardMyTeam } from "../../states/reducers/myT
 import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
 import { setMyTeam } from "../../states/reducers/myClubReducer";
 import { MainLabel } from "./MainLabel";
-import { correctNamesOfZones, saveTeam } from "../../Datas/api";
+import { correctNamesOfZones } from "../../Datas/api";
 import { Button } from "../../Labels/Button";
 import { Auth } from "./Auth";
+import { doc, setDoc } from "firebase/firestore";
+import { dataBase } from "../../config/firebase";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -37,7 +39,18 @@ export function FirstPage() {
       startingSquad: zones,
     });
   }
-
+  const saveTeam = async (team) => {
+    try {
+      const docRef = doc(dataBase, "clubs", team.id);
+      await setDoc(docRef, team);
+      // const data = await getDocs(clubsCollectionRefs);
+      // const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      // const listOfPlayers = [...list].sort((a, b) => compare(a.id, b.id));
+      // dispatch(setAllTeams(listOfPlayers));
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
       <Auth />

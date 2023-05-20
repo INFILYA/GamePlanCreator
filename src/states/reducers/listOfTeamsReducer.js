@@ -1,11 +1,5 @@
 import { defaultState } from "../defaultStates";
-import { fetchTeamsApiCall } from "../../Datas/api";
 
-export function fetchTeams() {
-  return function (dispatch) {
-    fetchTeamsApiCall().then((json) => dispatch(setAllTeams(json)));
-  };
-}
 export function setAllTeams(listOfTeams) {
   return {
     type: "SET_ALL_TEAMS",

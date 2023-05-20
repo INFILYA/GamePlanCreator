@@ -1,13 +1,4 @@
-import { fetchPlayerInformation } from "../../Datas/api";
 import { defaultState } from "../defaultStates";
-
-export function fetchPlayerInfo(player) {
-  return function (dispatch) {
-    fetchPlayerInformation(player)
-      .then(console.log("fetchPlayerInformation => DONE"))
-      .then((json) => dispatch(setInfoOfPlayer(json)));
-  };
-}
 
 export function setInfoOfPlayer(player) {
   return {

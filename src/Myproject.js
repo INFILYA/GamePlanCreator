@@ -24,14 +24,14 @@ function Myproject() {
   const dispatch = useDispatch();
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const playersCollectionRefs = collection(dataBase, "players");
-
   useEffect(() => {
     async function getCollection(collection, type) {
       try {
         const data = await getDocs(collection);
-        const list = data.docs.map((doc) => ({ ...doc.data(), id: +doc.id }));
-        const sortedList = [...list].sort((a, b) => compare(a.id, b.id));
+        const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        const sortedList = [...list].sort((a, b) => compare(+a.id, +b.id));
         type === "club" ? dispatch(setAllTeams(sortedList)) : dispatch(setAllPlayers(sortedList));
+        // console.log(sortedList);
       } catch (error) {
         console.error(error);
       }

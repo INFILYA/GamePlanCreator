@@ -1,11 +1,4 @@
 import { defaultState } from "../defaultStates";
-import { fetchPlayersApiCall } from "../../Datas/api";
-
-export function fetchPlayers() {
-  return function (dispatch) {
-    fetchPlayersApiCall().then((json) => dispatch(setAllPlayers(json)));
-  };
-}
 
 export function setAllPlayers(listOfPlayers) {
   return {
@@ -13,10 +6,7 @@ export function setAllPlayers(listOfPlayers) {
     payload: listOfPlayers,
   };
 }
-export function listOfPlayersReducer(
-  state = defaultState.listOfPlayers,
-  action
-) {
+export function listOfPlayersReducer(state = defaultState.listOfPlayers, action) {
   switch (action.type) {
     case "SET_ALL_PLAYERS":
       action.payload.map((player) =>
