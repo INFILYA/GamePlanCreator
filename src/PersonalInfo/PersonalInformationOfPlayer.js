@@ -5,17 +5,18 @@ import Diagramm from "./components/Diagramm";
 import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
 import { compare } from "../Datas/api";
 import { upgradeAge } from "../states/reducers/listOfPlayersReducer";
+import { auth } from "../config/firebase";
 
 export function PersonalInformationOfPlayer({ link }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const registratedUser = auth?.currentUser?.uid !== undefined;
   const playerInfos = useSelector((state) => state.playerInfo);
   const playerInfo = upgradeAge(playerInfos);
   function goHome() {
     navigate("/");
     dispatch(setInfoOfPlayer(null));
   }
-  console.log(playerInfo);
   const infosOfPlayers = Object.entries(playerInfo);
   infosOfPlayers.sort((a, b) => compare(a, b));
   const infosOfAttackers = [
@@ -50,6 +51,7 @@ export function PersonalInformationOfPlayer({ link }) {
                   <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
                 ))}
             {link === "Attack" &&
+              registratedUser &&
               infosOfPlayers
                 .slice(2, 5)
                 .map((info, index) => (
@@ -60,6 +62,7 @@ export function PersonalInformationOfPlayer({ link }) {
                   />
                 ))}
             {link === "Attack" &&
+              registratedUser &&
               infosOfPlayers
                 .slice(15, 16)
                 .map((info, index) => (
@@ -70,6 +73,7 @@ export function PersonalInformationOfPlayer({ link }) {
                   />
                 ))}
             {link === "Service" &&
+              registratedUser &&
               infosOfPlayers
                 .slice(22, 25)
                 .map((info, index) => (
@@ -80,6 +84,7 @@ export function PersonalInformationOfPlayer({ link }) {
                   />
                 ))}
             {link === "Service" &&
+              registratedUser &&
               infosOfPlayers
                 .slice(16, 17)
                 .map((info, index) => (
@@ -102,7 +107,7 @@ export function PersonalInformationOfPlayer({ link }) {
             </div>
           </div>
           <img src={playerInfo.photo} alt="" className="photoPlayer" />
-          {(link === "Service" || link === "Attack") && (
+          {(link === "Service" || link === "Attack") && registratedUser && (
             <div style={{ display: "block" }}>
               <Diagramm link={link} />
             </div>

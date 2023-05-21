@@ -11,7 +11,7 @@ import { correctNamesOfZones } from "../../Datas/api";
 import { Button } from "../../Labels/Button";
 import { Auth } from "./Auth";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
-import { dataBase } from "../../config/firebase";
+import { auth, dataBase } from "../../config/firebase";
 import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
 
 export function FirstPage() {
@@ -24,7 +24,7 @@ export function FirstPage() {
   const myTeamZones = useSelector((state) => state.myTeamZones);
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
   const clubsCollectionRefs = collection(dataBase, "clubs");
-
+  const registratedUser = auth?.currentUser?.uid !== undefined;
   function handleSetMyTeam(event) {
     dispatch(setMyTeamPlayers(listOfPlayers, event.target.value));
     dispatch(setMyTeam(listOfTeams, event.target.value));
@@ -112,7 +112,7 @@ export function FirstPage() {
               )
             )}
           </div>
-          {!zones.includes(null) && (
+          {!zones.includes(null) && registratedUser && (
             <div style={{ marginTop: -30 }}>
               <Button onClick={saveStartingSix} value={"Save starting six"} />
             </div>

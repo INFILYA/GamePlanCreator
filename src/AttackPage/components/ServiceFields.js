@@ -20,6 +20,7 @@ export function ServiceFields() {
   const playerInfo = useSelector((state) => state.playerInfo);
   const allPlayers = useSelector((state) => state.listOfPlayers);
   const teams = useSelector((state) => state.listOfTeams);
+  const [showDataOfAttacks, setShowDataOfAttacks] = useState(false);
   const [showInputs, setShowInputs] = useState(false);
   const [showBalls, setShowBalls] = useState(false);
   const [saveDataOfServices, setSaveDataOfServices] = useState(false);
@@ -156,10 +157,30 @@ export function ServiceFields() {
     }
   };
 
+  function showData(event) {
+    event.preventDefault();
+    const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
+    const attHistory = playerInfo[zoneOfAtt.zone];
+    const totalAttacks = reduce(attHistory, 0.0001);
+    const result = attHistory.map((attacks) => Math.round((attacks / totalAttacks) * 100));
+    const upgradedZoneValue = Object.fromEntries(
+      Object.entries(result).map(([key, value]) => [+key + 1, value + "%"])
+    );
+    setZoneValue(upgradedZoneValue);
+    setAttackPercentageArray(result);
+    setShowInputs(!showInputs);
+    setDisableSwitch(!disableSwitch);
+    setShowDataOfAttacks(!showDataOfAttacks);
+  }
+
   return (
     <>
       <form className="serviceField">
-        <select className="typeOfService" onChange={showInputs ? onHandleCountClick : null}>
+        <select
+          className="typeOfService"
+          onChange={!showDataOfAttacks ? onHandleCountClick : showData}
+          disabled={!showInputs}
+        >
           <option defaultValue="Type of service">Type of service</option>
           <option>Jump</option>
           <option>Float</option>
@@ -211,6 +232,8 @@ export function ServiceFields() {
             diagrammValue={diagrammValue}
             handleDiagrammValue={handleDiagrammValue}
             returnOldData={returnOldData}
+            showDataOfAttacks={showDataOfAttacks}
+            setShowDataOfAttacks={setShowDataOfAttacks}
             type={"Service"}
           />
         </div>
@@ -229,22 +252,26 @@ export function ServiceFields() {
         </div>
         {showBalls && (
           <>
-            <div>
-              {classNamesForConesAndInputs.map((el, index) => (
-                <InputForCount
-                  key={index}
-                  name={index + 1}
-                  onChange={handleZoneValue}
-                  zoneValue={zoneValue[index + 1]}
-                  showInputs={showInputs}
-                />
-              ))}
-            </div>
-            <div>
-              {arrayForRecievers.map((reciever) => (
-                <DefenderZone6 key={reciever} />
-              ))}
-            </div>
+            {!showDataOfAttacks && (
+              <>
+                <div>
+                  {classNamesForConesAndInputs.map((el, index) => (
+                    <InputForCount
+                      key={index}
+                      name={index + 1}
+                      onChange={handleZoneValue}
+                      zoneValue={zoneValue[index + 1]}
+                      showInputs={showInputs}
+                    />
+                  ))}
+                </div>
+                <div>
+                  {arrayForRecievers.map((reciever) => (
+                    <DefenderZone6 key={reciever} />
+                  ))}
+                </div>
+              </>
+            )}
             {saveDataOfServices && (
               <CheckEquality
                 zoneValue={zoneValue}

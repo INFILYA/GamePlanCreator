@@ -11,6 +11,7 @@ import {
 import { setSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
 import { Button } from "../../Labels/Button";
 import { correctNamesOfZones } from "../../Datas/api";
+import { auth } from "../../config/firebase";
 
 export function Squads({ team }) {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ export function Squads({ team }) {
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
   const indexOfZones = useSelector((state) => state.indexOfZones);
   const sequanceOfZones = useSelector((state) => state.sequanceOfZones);
+  const registratedUser = auth?.currentUser?.uid !== undefined;
 
   const club = team === "my" ? myClub : rivalClub;
   const players = team === "my" ? myTeamPlayers : rivalPlayers;
@@ -63,7 +65,6 @@ export function Squads({ team }) {
 
   function setPlayerInfo(player) {
     dispatch(setInfoOfPlayer(player));
-    // console.log(player);
   }
   function showStartingSix() {
     dispatch(setRivalStartingSix(rivalPlayers, rivalClub.startingSquad));
@@ -141,7 +142,7 @@ export function Squads({ team }) {
             )}
           </div>
         ))}
-        {team !== "my" && rivalPlayers.length > 6 && (
+        {team !== "my" && rivalPlayers.length > 6 && registratedUser && (
           <Button onClick={showStartingSix} value={"Show Starting six"} />
         )}
       </div>

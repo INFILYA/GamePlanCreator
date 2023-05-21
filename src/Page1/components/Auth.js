@@ -5,8 +5,10 @@ import { createUserWithEmailAndPassword, signInWithPopup, signOut } from "fireba
 export function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // console.log(auth?.currentUser?.email);
+  const [showEmailField, setShowEmailField] = useState(true);
+  const registratedUser = auth?.currentUser?.uid !== undefined;
+  const userPhoto = auth?.currentUser?.photoURL;
+  const userName = auth?.currentUser?.displayName;
 
   async function signIn() {
     try {
@@ -18,6 +20,8 @@ export function Auth() {
   async function signInWithGoogle() {
     try {
       await signInWithPopup(auth, googleProvider);
+      alert("You are Welcome!");
+      setShowEmailField(!showEmailField);
     } catch (err) {
       console.error(err);
     }
@@ -25,22 +29,38 @@ export function Auth() {
   async function logout() {
     try {
       await signOut(auth);
+      alert("Please come back, We are waiting for you!");
+      setShowEmailField(!showEmailField);
     } catch (err) {
       console.error(err);
     }
   }
 
   return (
-    <div>
-      <input placeholder="Email..." type="text" onChange={(e) => setEmail(e.target.value)} />
-      <input
-        placeholder="Password..."
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={signIn}>Sign in</button>
-      <button onClick={signInWithGoogle}>Sign in with Google</button>
-      <button onClick={logout}>Log out</button>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      {registratedUser ? (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img src={userPhoto} alt="" style={{ marginRight: 20, height: 60 }} />
+          <h2>Welcome, {userName}</h2>
+        </div>
+      ) : (
+        <div style={{ height: 67.8 }}></div>
+      )}
+      <div className="registrPanel">
+        {showEmailField && (
+          <>
+            <input placeholder="Email..." type="text" onChange={(e) => setEmail(e.target.value)} />
+            <input
+              placeholder="Password..."
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button onClick={signIn}>Sign in</button>
+            <button onClick={signInWithGoogle}>Sign in with Google</button>
+          </>
+        )}
+        {!showEmailField && <button onClick={logout}>Log out</button>}
+      </div>
     </div>
   );
 }

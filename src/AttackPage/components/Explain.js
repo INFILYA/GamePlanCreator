@@ -1,4 +1,5 @@
 import { Switch } from "antd";
+import { auth } from "../../config/firebase";
 
 export function Explain({
   confirmReturn,
@@ -9,7 +10,11 @@ export function Explain({
   handleDiagrammValue,
   returnOldData,
   type,
+  setShowDataOfAttacks,
+  showDataOfAttacks,
 }) {
+  const admin = auth?.currentUser?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
+  const registratedUser = auth?.currentUser?.uid !== undefined;
   return (
     <>
       <div>
@@ -41,21 +46,30 @@ export function Explain({
         <div>
           <label style={{ fontSize: 30 }}>Return Data?</label>
           <div>
-            <button
-              type="button"
-              className="returnButton"
-              onClick={() => returnOldData()}
-            >
+            <button type="button" className="returnButton" onClick={() => returnOldData()}>
               Confirm
             </button>
           </div>
         </div>
       ) : (
+        admin && (
+          <>
+            <label style={{ fontSize: 30 }}>Add Data</label>
+            <div className="saveBox">
+              <Switch
+                onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)}
+                disabled={disableSwitch}
+              />
+            </div>
+          </>
+        )
+      )}
+      {registratedUser && (
         <>
-          <label style={{ fontSize: 30 }}>Add Data</label>
+          <label style={{ fontSize: 30 }}>Show Data</label>
           <div className="saveBox">
             <Switch
-              onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)}
+              onChange={() => setShowDataOfAttacks(!showDataOfAttacks)}
               disabled={disableSwitch}
             />
           </div>
@@ -67,9 +81,7 @@ export function Explain({
             style={{ backgroundColor: "lightgreen" }}
             name={type === "Attack" ? "winPoints" : "aces"}
             onChange={handleDiagrammValue}
-            value={
-              type === "Attack" ? diagrammValue.winPoints : diagrammValue.aces
-            }
+            value={type === "Attack" ? diagrammValue.winPoints : diagrammValue.aces}
             placeholder={type === "Attack" ? "Win" : "Aces"}
             required
           ></input>
@@ -77,11 +89,7 @@ export function Explain({
             style={{ backgroundColor: "yellow" }}
             name={type === "Attack" ? "leftInGame" : "servicePlus"}
             onChange={handleDiagrammValue}
-            value={
-              type === "Attack"
-                ? diagrammValue.leftInGame
-                : diagrammValue.servicePlus
-            }
+            value={type === "Attack" ? diagrammValue.leftInGame : diagrammValue.servicePlus}
             placeholder={type === "Attack" ? "Left" : "servicePlus"}
             required
           ></input>
@@ -89,11 +97,7 @@ export function Explain({
             style={{ backgroundColor: "orange" }}
             name={type === "Attack" ? "attacksInBlock" : "serviceMinus"}
             onChange={handleDiagrammValue}
-            value={
-              type === "Attack"
-                ? diagrammValue.attacksInBlock
-                : diagrammValue.serviceMinus
-            }
+            value={type === "Attack" ? diagrammValue.attacksInBlock : diagrammValue.serviceMinus}
             placeholder={type === "Attack" ? "block" : "serviceMinus"}
             required
           ></input>
@@ -101,11 +105,7 @@ export function Explain({
             style={{ backgroundColor: "orangered" }}
             name={type === "Attack" ? "loosePoints" : "serviceFailed"}
             onChange={handleDiagrammValue}
-            value={
-              type === "Attack"
-                ? diagrammValue.loosePoints
-                : diagrammValue.serviceFailed
-            }
+            value={type === "Attack" ? diagrammValue.loosePoints : diagrammValue.serviceFailed}
             placeholder={type === "Attack" ? "Loose" : "serviceFailed"}
             required
           ></input>

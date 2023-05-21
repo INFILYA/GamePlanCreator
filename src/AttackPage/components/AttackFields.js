@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {  reduce } from "../../Datas/api";
+import { reduce } from "../../Datas/api";
 import { BallForAttack } from "./BallForAttack";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
@@ -20,6 +20,7 @@ export function AttackFields() {
   const playerInfo = useSelector((state) => state.playerInfo);
   const allPlayers = useSelector((state) => state.listOfPlayers);
   const teams = useSelector((state) => state.listOfTeams);
+  const [showDataOfAttacks, setShowDataOfAttacks] = useState(false);
   const [showInputs, setShowInputs] = useState(false);
   const [showBalls, setShowBalls] = useState(false);
   const [saveDataOfAttacks, setSaveDataOfAttacks] = useState(false);
@@ -144,7 +145,23 @@ export function AttackFields() {
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
   }
-  
+
+  function showData(event) {
+    event.preventDefault();
+    const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
+    const attHistory = playerInfo[zoneOfAtt.zone];
+    const totalAttacks = reduce(attHistory, 0.0001);
+    const result = attHistory.map((attacks) => Math.round((attacks / totalAttacks) * 100));
+    const upgradedZoneValue = Object.fromEntries(
+      Object.entries(result).map(([key, value]) => [+key + 1, value + "%"])
+    );
+    setZoneValue(upgradedZoneValue);
+    setAttackPercentageArray(result);
+    setShowInputs(!showInputs);
+    setDisableSwitch(!disableSwitch);
+    setShowDataOfAttacks(!showDataOfAttacks);
+  }
+
   const savePlayer = async (player) => {
     try {
       const docRef = doc(dataBase, "players", player.id);
@@ -169,7 +186,7 @@ export function AttackFields() {
     }
   };
   return (
-    <form className="playArea" onSubmit={onHandleCountClick}>
+    <form className="playArea" onSubmit={!showDataOfAttacks ? onHandleCountClick : showData}>
       <div className="zoneinput">
         <input
           type="submit"
@@ -188,6 +205,8 @@ export function AttackFields() {
           diagrammValue={diagrammValue}
           handleDiagrammValue={handleDiagrammValue}
           returnOldData={returnOldData}
+          showDataOfAttacks={showDataOfAttacks}
+          setShowDataOfAttacks={setShowDataOfAttacks}
           type={"Attack"}
         />
       </div>
@@ -313,17 +332,19 @@ export function AttackFields() {
             <DefenderZone6 />
             <DefenderZone6 />
           </div>
-          <div>
-            {classNamesForConesAndInputs.map((el, index) => (
-              <InputForCount
-                key={index}
-                name={index + 1}
-                onChange={handleZoneValue}
-                zoneValue={zoneValue[index + 1]}
-                showInputs={showInputs}
-              />
-            ))}
-          </div>
+          {!showDataOfAttacks && (
+            <div>
+              {classNamesForConesAndInputs.map((el, index) => (
+                <InputForCount
+                  key={index}
+                  name={index + 1}
+                  onChange={handleZoneValue}
+                  zoneValue={zoneValue[index + 1]}
+                  showInputs={showInputs}
+                />
+              ))}
+            </div>
+          )}
           {saveDataOfAttacks && (
             <CheckEquality
               zoneValue={zoneValue}
