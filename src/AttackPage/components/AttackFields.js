@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { compare, reduce } from "../../Datas/api";
+import {  reduce } from "../../Datas/api";
 import { BallForAttack } from "./BallForAttack";
 import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
@@ -151,9 +151,8 @@ export function AttackFields() {
       await setDoc(docRef, player);
       const data = await getDocs(playersCollectionRefs);
       const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      const listOfPlayers = [...list].sort((a, b) => compare(+a.id, +b.id));
-      dispatch(setAllPlayers(listOfPlayers));
-      dispatch(setInfoOfPlayer(listOfPlayers.find((players) => players.id === player.id)));
+      dispatch(setAllPlayers(list));
+      dispatch(setInfoOfPlayer(list.find((players) => players.id === player.id)));
     } catch (error) {
       console.error(error);
     }
@@ -164,13 +163,11 @@ export function AttackFields() {
       await setDoc(docRef, team);
       const data = await getDocs(clubsCollectionRefs);
       const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      const listOfPlayers = [...list].sort((a, b) => compare(a.id, b.id));
-      dispatch(setAllTeams(listOfPlayers));
+      dispatch(setAllTeams(list));
     } catch (error) {
       console.error(error);
     }
   };
-  console.log(playerInfo);
   return (
     <form className="playArea" onSubmit={onHandleCountClick}>
       <div className="zoneinput">
