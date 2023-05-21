@@ -66,7 +66,7 @@ export function Squads({ team }) {
     // console.log(player);
   }
   function showStartingSix() {
-    dispatch(setRivalStartingSix(rivalClub.startingSquad));
+    dispatch(setRivalStartingSix(rivalPlayers, rivalClub.startingSquad));
     dispatch(setBenchPlayers(rivalPlayers, rivalClub.startingSquad));
     dispatch(setBackRightRivalSelects([]));
   }

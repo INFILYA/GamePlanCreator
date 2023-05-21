@@ -9,9 +9,6 @@ export function setAllPlayers(listOfPlayers) {
 export function listOfPlayersReducer(state = defaultState.listOfPlayers, action) {
   switch (action.type) {
     case "SET_ALL_PLAYERS":
-      // action.payload.map((player) =>
-      //   typeof player.age === "string" ? (player.age = upgradeAge(player)) : ""
-      // );
       return action.payload;
     default:
       return state;

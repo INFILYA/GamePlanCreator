@@ -10,8 +10,9 @@ import { MainLabel } from "./MainLabel";
 import { correctNamesOfZones } from "../../Datas/api";
 import { Button } from "../../Labels/Button";
 import { Auth } from "./Auth";
-import { doc, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { dataBase } from "../../config/firebase";
+import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ export function FirstPage() {
   const zones = useSelector((state) => state.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones);
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
+  const clubsCollectionRefs = collection(dataBase, "clubs");
 
   function handleSetMyTeam(event) {
     dispatch(setMyTeamPlayers(listOfPlayers, event.target.value));
@@ -36,17 +38,21 @@ export function FirstPage() {
   function saveStartingSix() {
     saveTeam({
       ...rivalClub,
-      startingSquad: zones,
+      startingSquad: zones.map((zone) => zone.id),
     });
   }
   const saveTeam = async (team) => {
     try {
       const docRef = doc(dataBase, "clubs", team.id);
       await setDoc(docRef, team);
+      const data = await getDocs(clubsCollectionRefs);
+      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      dispatch(setAllTeams(list));
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <>
       <Auth />

@@ -6,10 +6,10 @@ export function setRivalZones(player, zone) {
     payload: { player, zone },
   };
 }
-export function setRivalStartingSix(starters) {
+export function setRivalStartingSix(players, starters) {
   return {
     type: "SET_RIVAL_STARTING_SIX",
-    payload: starters,
+    payload: { players, starters },
   };
 }
 export function clearRivalZones(clear) {
@@ -25,7 +25,9 @@ export function zonesReducer(state = defaultState.zones, action) {
         index === action.payload.zone ? action.payload.player : player
       );
     case "SET_RIVAL_STARTING_SIX":
-      return action.payload;
+      return action.payload.players.filter((player) =>
+        action.payload.starters.some((startPlayer) => startPlayer === player.id)
+      );
     case "CLEAR_RIVAL_ZONES":
       return action.payload;
     default:

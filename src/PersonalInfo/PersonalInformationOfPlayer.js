@@ -15,7 +15,7 @@ export function PersonalInformationOfPlayer({ link }) {
     navigate("/");
     dispatch(setInfoOfPlayer(null));
   }
-
+  console.log(playerInfo);
   const infosOfPlayers = Object.entries(playerInfo);
   infosOfPlayers.sort((a, b) => compare(a, b));
   const infosOfAttackers = [

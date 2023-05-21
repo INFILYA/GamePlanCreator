@@ -1,11 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
 
 export function IconOfPlayer({ player, zones }) {
   const dispatch = useDispatch();
+  const listOfPlayers = useSelector((state) => state.listOfPlayers);
 
   function setPlayerInfo(player) {
-    dispatch(setInfoOfPlayer(player));
+    dispatch(setInfoOfPlayer(listOfPlayers.find((players) => players.id === player.id)));
   }
   return (
     <>

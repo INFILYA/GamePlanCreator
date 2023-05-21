@@ -144,7 +144,7 @@ export function AttackFields() {
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
   }
-
+  
   const savePlayer = async (player) => {
     try {
       const docRef = doc(dataBase, "players", player.id);

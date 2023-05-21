@@ -138,7 +138,7 @@ export function ServiceFields() {
     try {
       await setDoc(doc(dataBase, "players", player.id), player);
       const data = await getDocs(playersCollectionRefs);
-      const list = data.docs.map((doc) => ({ ...doc.data(), id: +doc.id }));
+      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       dispatch(setAllPlayers(list));
       dispatch(setInfoOfPlayer(list.find((players) => players.id === player.id)));
     } catch (error) {
