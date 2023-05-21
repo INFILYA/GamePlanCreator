@@ -6,7 +6,7 @@ import { InputForCount } from "./InputForCount";
 import { DefenderZone6 } from "./DefenderZone6";
 import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
-import { setAllPlayers } from "../../states/reducers/listOfPlayersReducer";
+import { setAllPlayers, upgradeAge } from "../../states/reducers/listOfPlayersReducer";
 import { Explain } from "./Explain";
 import { CheckEquality } from "./CheckEquality";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
@@ -118,9 +118,10 @@ export function AttackFields() {
       const nameOfZone = zoneOfAtt.zone;
       const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
       const team = teams.find((team) => team.name === playerInfo.teamid);
-      const teamAge = players.reduce((a, b) => a + b.age, 0) / players.length;
+      const upgradedPlayers = players.map((player) => upgradeAge(player));
+      const teamAge = upgradedPlayers.reduce((a, b) => a + b.age, 0) / players.length;
       calculateForData(team);
-      team.age = Math.round(teamAge);
+      team.age = +teamAge.toFixed(1);
       AttacksByZone = result;
       playerInfo[nameOfZone] = AttacksByZone;
       savePlayer(playerInfo); //сохраняю одного игрока
@@ -169,6 +170,7 @@ export function AttackFields() {
       console.error(error);
     }
   };
+  console.log(playerInfo);
   return (
     <form className="playArea" onSubmit={onHandleCountClick}>
       <div className="zoneinput">

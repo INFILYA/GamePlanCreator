@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Diagramm from "./components/Diagramm";
 import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
 import { compare } from "../Datas/api";
+import { upgradeAge } from "../states/reducers/listOfPlayersReducer";
 
 export function PersonalInformationOfPlayer({ link }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const playerInfo = useSelector((state) => state.playerInfo);
-  console.log(playerInfo);
+  const playerInfos = useSelector((state) => state.playerInfo);
+  const playerInfo = upgradeAge(playerInfos);
   function goHome() {
     navigate("/");
     dispatch(setInfoOfPlayer(null));
@@ -33,7 +34,6 @@ export function PersonalInformationOfPlayer({ link }) {
     infosOfPlayers[7],
     infosOfPlayers[8],
   ];
-  console.log(infosOfPlayers);
   return (
     <>
       <div className="hideIcon">

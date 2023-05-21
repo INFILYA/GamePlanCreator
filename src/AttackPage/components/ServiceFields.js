@@ -3,7 +3,7 @@ import { BallForAttack } from "./BallForAttack";
 import { Explain } from "./Explain";
 import { compare, reduce } from "../../Datas/api";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
-import { setAllPlayers } from "../../states/reducers/listOfPlayersReducer";
+import { setAllPlayers, upgradeAge } from "../../states/reducers/listOfPlayersReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { DefenderZone6 } from "./DefenderZone6";
 import { ConeReaction } from "./ConeReaction";
@@ -107,9 +107,10 @@ export function ServiceFields() {
       const nameOfZone = zoneOfServ.zone;
       const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
       const team = teams.find((team) => team.name === playerInfo.teamid);
-      const teamAge = players.reduce((a, b) => a + b.age, 0) / players.length;
+      const upgradedPlayers = players.map((player) => upgradeAge(player));
+      const teamAge = upgradedPlayers.reduce((a, b) => a + b.age, 0) / players.length;
       calculateForData(team);
-      team.age = Math.round(teamAge);
+      team.age = +teamAge.toFixed(1);
       ServiceByZone = res;
       playerInfo[nameOfZone] = ServiceByZone;
       savePlayer(playerInfo); //сохраняю одного игрока
