@@ -12,6 +12,7 @@ import { indexOfZonesReducer } from "./reducers/indexOfZonesReducer";
 import { myTeamZonesReducer } from "./reducers/myTeamZonesReducer";
 import { sequanceOfZonesReducer } from "./reducers/sequanceOfZonesReducer";
 import { playerInfoReducer } from "./reducers/playerInfoReducer";
+import { showEmailFieldReducer } from "./reducers/showEmailFieldReducer";
 
 const rootReducer = combineReducers({
   listOfTeams: listOfTeamsReducer,
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   myTeamZones: myTeamZonesReducer,
   sequanceOfZones: sequanceOfZonesReducer,
   playerInfo: playerInfoReducer,
+  showEmailField: showEmailFieldReducer,
 });
 
 export const store = createStore(

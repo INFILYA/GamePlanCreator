@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth, googleProvider } from "../../config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowEmailField } from "../../states/reducers/showEmailFieldReducer";
 
 export function Auth() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showEmailField, setShowEmailField] = useState(true);
+  const showEmailField = useSelector((state) => state.showEmailField);
   const registratedUser = auth?.currentUser?.uid !== undefined;
   const userPhoto = auth?.currentUser?.photoURL;
   const userName = auth?.currentUser?.displayName;
-
+  useEffect(() => {
+    dispatch(setShowEmailField(registratedUser));
+  }, [dispatch, registratedUser]);
   async function signIn() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
@@ -21,7 +26,7 @@ export function Auth() {
     try {
       await signInWithPopup(auth, googleProvider);
       alert("You are Welcome!");
-      setShowEmailField(!showEmailField);
+      dispatch(setShowEmailField(!registratedUser));
     } catch (err) {
       console.error(err);
     }
@@ -30,7 +35,7 @@ export function Auth() {
     try {
       await signOut(auth);
       alert("Please come back, We are waiting for you!");
-      setShowEmailField(!showEmailField);
+      dispatch(setShowEmailField(!registratedUser));
     } catch (err) {
       console.error(err);
     }
@@ -47,7 +52,7 @@ export function Auth() {
         <div style={{ height: 67.8 }}></div>
       )}
       <div className="registrPanel">
-        {showEmailField && (
+        {!showEmailField && (
           <>
             <input placeholder="Email..." type="text" onChange={(e) => setEmail(e.target.value)} />
             <input
@@ -59,7 +64,7 @@ export function Auth() {
             <button onClick={signInWithGoogle}>Sign in with Google</button>
           </>
         )}
-        {!showEmailField && <button onClick={logout}>Log out</button>}
+        {showEmailField && <button onClick={logout}>Log out</button>}
       </div>
     </div>
   );
