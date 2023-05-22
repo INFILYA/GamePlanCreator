@@ -42,10 +42,17 @@ export function Auth() {
   }
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        backgroundColor: "blueviolet",
+      }}
+    >
       {registratedUser ? (
         <div style={{ display: "flex", alignItems: "center" }}>
-          <img src={userPhoto} alt="" style={{ marginRight: 20, height: 60 }} />
+          <img src={userPhoto} alt="" style={{ marginRight: 20, height: 60, borderRadius: 50 }} />
           <h2>Welcome, {userName}</h2>
         </div>
       ) : (
