@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD9NJg_dZxLqW4VNebJxPH9gmqDesM32RM",
@@ -17,6 +18,7 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 export const dataBase = getFirestore(app);
+export const storage = getStorage(app)
 
 // const playersCollectionRefs = collection(dataBase, "players");
 // const clubsCollectionRefs = collection(dataBase, "clubs");
