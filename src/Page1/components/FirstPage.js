@@ -23,7 +23,7 @@ export function FirstPage() {
   const myTeamZones = useSelector((state) => state.myTeamZones);
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
   const clubsCollectionRefs = collection(dataBase, "clubs");
-  const registratedUser = auth?.currentUser?.uid !== undefined;
+  const admin = auth?.currentUser?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
   function handleSetMyTeam(event) {
     dispatch(setMyTeamPlayers(listOfPlayers, event.target.value));
     dispatch(setMyTeam(listOfTeams, event.target.value));
@@ -110,7 +110,7 @@ export function FirstPage() {
               )
             )}
           </div>
-          {!zones.includes(null) && registratedUser && (
+          {!zones.includes(null) && admin && (
             <div style={{ marginTop: -30 }}>
               <Button onClick={saveStartingSix} value={"Save starting six"} />
             </div>
