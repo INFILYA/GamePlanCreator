@@ -16,7 +16,7 @@ import {
   SettersRating,
   TeamsRating,
 } from "./Ratings/Ratings";
-import { auth, dataBase } from "./config/firebase";
+import { dataBase } from "./config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { compare } from "./Datas/api";
 
@@ -37,7 +37,6 @@ function Myproject() {
     }
     getCollection(clubsCollectionRefs, "club");
     getCollection(playersCollectionRefs, "players");
-    alert(`Hello ${auth?.currentUser?.displayName}`);
   }, [dispatch, playersCollectionRefs, clubsCollectionRefs]);
 
   return (

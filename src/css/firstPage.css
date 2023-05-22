@@ -297,6 +297,6 @@ select {
   font-size: 20px;
   margin: 5px;
   padding: 5px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 10px;
 }

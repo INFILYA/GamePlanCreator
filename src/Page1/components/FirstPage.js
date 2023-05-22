@@ -6,7 +6,6 @@ import { Squads } from "./Squads";
 import { rotateBackMyTeam, rotateForwardMyTeam } from "../../states/reducers/myTeamZonesReducer";
 import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
 import { setMyTeam } from "../../states/reducers/myClubReducer";
-import { MainLabel } from "./MainLabel";
 import { correctNamesOfZones } from "../../Datas/api";
 import { Button } from "../../Labels/Button";
 import { Auth } from "./Auth";
@@ -56,7 +55,6 @@ export function FirstPage() {
   return (
     <>
       <Auth />
-      <MainLabel />
       <div style={{ display: "flex" }}>
         <Squads />
         <div className="rotation">

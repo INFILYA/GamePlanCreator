@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
-import { RegularLabel } from "../Labels/RegularLabel";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { AttackFields } from "./components/AttackFields";
 import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
+import { Auth } from "../Page1/components/Auth";
+import { setShowEmailField } from "../states/reducers/showEmailFieldReducer";
+import { auth } from "../config/firebase";
 
 function Attacks() {
   const dispatch = useDispatch();
   const [history, sethistory] = useState([0]);
+  const [refreshPage, setRefreshPage] = useState(false);
   const playerInfo = useSelector((state) => state.playerInfo);
+  const registratedUser = auth?.currentUser?.uid !== undefined;
 
   useEffect(() => {
     dispatch(setInfoOfPlayer(JSON.parse(localStorage.getItem("playerInfo"))));
-  }, [dispatch]);
+    dispatch(setShowEmailField(registratedUser));
+    setTimeout(() => setRefreshPage(true), 500);
+  }, [dispatch, registratedUser]);
 
   function reset() {
     const newHistory = [...history];
@@ -27,15 +33,13 @@ function Attacks() {
   }
   return (
     <>
-      <RegularLabel value={"Attack"} />
+      {refreshPage && <Auth />}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <PersonalInformationOfPlayer link={"Attack"} />
       </div>
       <div className="atackFileds">
         {history.map((field) => (field ? <AttackFields key={field} /> : null))}
-        <div
-          style={history.length > 1 ? { margin: "5px 0px 0px -100px" } : null}
-        >
+        <div style={history.length > 1 ? { margin: "5px 0px 0px -100px" } : null}>
           {history.length > 1 && (
             <button className="reset" onClick={reset}>
               🡄

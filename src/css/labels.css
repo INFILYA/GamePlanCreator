@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 50px;
-  border: 5px black solid;
+  /* border: 5px black solid; */
   background-color: cadetblue;
   color: black;
   font-weight: bold;
@@ -22,7 +22,6 @@
   font-size: 25px;
   border: none;
   background-color: transparent;
-  width: 400px;
 }
 .setGame {
   position: inherit;

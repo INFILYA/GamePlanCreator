@@ -3,9 +3,12 @@ import { auth, googleProvider } from "../../config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowEmailField } from "../../states/reducers/showEmailFieldReducer";
+import { SetDate } from "./SetDate";
 
 export function Auth() {
   const dispatch = useDispatch();
+  const rivalClub = useSelector((state) => state.rivalClub);
+  const myClub = useSelector((state) => state.myClub);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const showEmailField = useSelector((state) => state.showEmailField);
@@ -47,16 +50,20 @@ export function Auth() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "blueviolet",
       }}
     >
       {registratedUser ? (
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <img src={userPhoto} alt="" style={{ marginRight: 20, height: 60, borderRadius: 50 }} />
-          <h2>Welcome, {userName}</h2>
-        </div>
+        <>
+          <div style={{ display: "flex", alignItems: "center", width: 350 }}>
+            <img src={userPhoto} alt="" style={{ marginRight: 20, height: 60, borderRadius: 50 }} />
+            <h2>{userName}</h2>
+          </div>
+          <div style={{fontSize:40 , fontWeight:600}}>
+            {rivalClub.name} vs {myClub.name}
+          </div>
+        </>
       ) : (
-        <div style={{ height: 67.8 }}></div>
+        <div style={{ height: 67.8, width: 350 }}></div>
       )}
       <div className="registrPanel">
         {!showEmailField && (
@@ -71,7 +78,12 @@ export function Auth() {
             <button onClick={signInWithGoogle}>Sign in with Google</button>
           </>
         )}
-        {showEmailField && <button onClick={logout}>Log out</button>}
+        {showEmailField && (
+          <div style={{ width: 350 }}>
+            <SetDate />
+            <button onClick={logout}>Log out</button>
+          </div>
+        )}
       </div>
     </div>
   );

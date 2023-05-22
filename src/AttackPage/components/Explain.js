@@ -52,7 +52,8 @@ export function Explain({
           </div>
         </div>
       ) : (
-        admin && (
+        admin &&
+        !showDataOfAttacks && (
           <>
             <label style={{ fontSize: 30 }}>Add Data</label>
             <div className="saveBox">
@@ -64,7 +65,7 @@ export function Explain({
           </>
         )
       )}
-      {registratedUser && (
+      {registratedUser && !saveDataOfAttacks && (
         <>
           <label style={{ fontSize: 30 }}>Show Data</label>
           <div className="saveBox">
