@@ -25,7 +25,6 @@ function Myproject() {
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const playersCollectionRefs = collection(dataBase, "players");
   useEffect(() => {
-    alert("Salut Bro");
     async function getCollection(collection, type) {
       try {
         const data = await getDocs(collection);
@@ -39,6 +38,7 @@ function Myproject() {
     getCollection(clubsCollectionRefs, "club");
     getCollection(playersCollectionRefs, "players");
   }, [dispatch, playersCollectionRefs, clubsCollectionRefs]);
+  alert("Salut Bro");
   return (
     <>
       <div className="firstpage">
