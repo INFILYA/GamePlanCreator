@@ -25,6 +25,7 @@ function Myproject() {
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const playersCollectionRefs = collection(dataBase, "players");
   useEffect(() => {
+    console.log("Salut Bro");
     async function getCollection(collection, type) {
       try {
         const data = await getDocs(collection);

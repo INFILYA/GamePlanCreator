@@ -20,28 +20,3 @@ export const googleProvider = new GoogleAuthProvider();
 export const dataBase = getFirestore(app);
 export const storage = getStorage(app)
 
-// const playersCollectionRefs = collection(dataBase, "players");
-// const clubsCollectionRefs = collection(dataBase, "clubs");
-
-// export const savePlayer = async (player) => {
-//   try {
-//     const docRef = doc(dataBase, "players", player.id);
-//     await setDoc(docRef, player);
-//     const data = await getDocs(playersCollectionRefs);
-//     const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-//     return list
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-// export const saveTeam = async (team) => {
-//   try {
-//     const docRef = doc(dataBase, "clubs", team.id);
-//     await setDoc(docRef, team);
-//     const data = await getDocs(clubsCollectionRefs);
-//     const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-//     return list;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
