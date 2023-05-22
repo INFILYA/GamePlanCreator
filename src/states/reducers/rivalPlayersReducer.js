@@ -34,8 +34,4 @@ export function rivalPlayersReducer(state = defaultState.rivalPlayers, action) {
       return state;
   }
 }
-// rivalPlayers.filter(
-//   (player) =>
-//     !rivalClub.startingSquad.some(
-//       (copyPlayer) => copyPlayer.id === player.id
-//     )
+

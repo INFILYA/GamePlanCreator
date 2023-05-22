@@ -31,7 +31,6 @@ function Myproject() {
         const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
         const sortedList = [...list].sort((a, b) => compare(+a.id, +b.id));
         type === "club" ? dispatch(setAllTeams(sortedList)) : dispatch(setAllPlayers(sortedList));
-        // console.log(sortedList);
       } catch (error) {
         console.error(error);
       }

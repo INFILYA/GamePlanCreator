@@ -38,7 +38,7 @@ export const dataBase = getFirestore(app);
 //     await setDoc(docRef, team);
 //     const data = await getDocs(clubsCollectionRefs);
 //     const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-//     return list
+//     return list;
 //   } catch (error) {
 //     console.error(error);
 //   }

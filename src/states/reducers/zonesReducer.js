@@ -25,9 +25,17 @@ export function zonesReducer(state = defaultState.zones, action) {
         index === action.payload.zone ? action.payload.player : player
       );
     case "SET_RIVAL_STARTING_SIX":
-      return action.payload.players.filter((player) =>
-        action.payload.starters.some((startPlayer) => startPlayer === player.id)
-      );
+      const startingSix = action.payload.starters;
+      const allPlayers = action.payload.players;
+      const correctStartingSix = [];
+      for (let i = 0; i < startingSix.length; i++) {
+        for (let j = 0; j < allPlayers.length; j++) {
+          if (startingSix[i] === allPlayers[j].id) {
+            correctStartingSix.push(allPlayers[j]);
+          }
+        }
+      }
+      return correctStartingSix;
     case "CLEAR_RIVAL_ZONES":
       return action.payload;
     default:
