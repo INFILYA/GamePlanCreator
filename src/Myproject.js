@@ -37,8 +37,9 @@ function Myproject() {
     }
     getCollection(clubsCollectionRefs, "club");
     getCollection(playersCollectionRefs, "players");
+    alert(`Hello ${auth?.currentUser?.displayName}`);
   }, [dispatch, playersCollectionRefs, clubsCollectionRefs]);
-  alert(`Hello ${auth?.currentUser?.displayName}`);
+
   return (
     <>
       <div className="firstpage">
