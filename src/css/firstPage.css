@@ -11,8 +11,8 @@ body {
 .firstpage .teamsquad {
   font-size: 25px;
   width: 400px;
-  border: 2px black solid;
-  background-color: burlywood;
+  border: 4px dimgray solid;
+  background-color: gainsboro;
   text-align: center;
   padding: 0px 10px 0px 10px;
   border-radius: 45px;
@@ -40,7 +40,7 @@ body {
   border-radius: 20px;
   padding: 10px 10px 0px 10px;
   z-index: 5;
-  background-color: khaki;
+  background-color: gainsboro;
   justify-content: space-around;
 }
 .firstpage .hideIcon img {
@@ -292,11 +292,46 @@ select {
   transform: translateY(-7px);
   transition: 0.3s;
 }
-.registrPanel input,
+
 .registrPanel button {
   font-size: 20px;
   margin: 5px;
   padding: 5px;
-  /* border: 2px solid black; */
   border-radius: 10px;
+}
+
+.registrPanel .google:hover,
+.registrPanel .facebook:hover {
+  box-shadow: 0 15px 20px lemonchiffon;
+  transform: translateY(-7px);
+  transition: 0.3s;
+}
+.registrPanel .google,
+.registrPanel .facebook {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  margin: 0px 10px;
+}
+.registrPanel .google {
+  background: url("../photos/google.jpg") no-repeat center center;
+  background-size: cover;
+}
+.registrPanel .facebook {
+  background: url("../photos/facebook.jpg") no-repeat center center;
+  background-size: cover;
+}
+.registrPanel .logout {
+  padding: 10px;
+  font-weight: bold;
+  background-color: lemonchiffon;
+  box-sizing: border-box;
+  border: 4px solid silver;
+}
+.registrPanel .logout:hover {
+  box-shadow: 0 15px 20px lemonchiffon;
+  transform: translateY(-7px);
+  transition: 0.3s;
+  background-color: lemonchiffon;
 }

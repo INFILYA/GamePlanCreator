@@ -1,7 +1,7 @@
 .ratingTable {
   width: 100%;
   border: 2px solid black;
-  background-color: khaki;
+  background-color: gainsboro;
   margin-top: 10px;
   box-sizing: border-box;
 }

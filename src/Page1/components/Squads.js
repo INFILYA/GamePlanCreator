@@ -75,7 +75,7 @@ export function Squads({ team }) {
   return (
     <>
       <div className="teamsquad">
-        <div className="teamLogo" key={club.id} style={team === "my" ? { direction: "rtl" } : {}}>
+        <div className="teamLogo" key={club.id} style={team === "my" ? { direction: "rtl" } : null}>
           <input className="teamlabel" readOnly value={club.name} />
           <img className="photoLogo" src={club.logo} alt="" />
         </div>
@@ -142,7 +142,7 @@ export function Squads({ team }) {
             )}
           </div>
         ))}
-        {team !== "my" && rivalPlayers.length > 6 && registratedUser && (
+        {team !== "my" && rivalPlayers.length > 11 && registratedUser && (
           <Button onClick={showStartingSix} value={"Show Starting six"} />
         )}
       </div>
