@@ -38,7 +38,7 @@ function Myproject() {
     getCollection(clubsCollectionRefs, "club");
     getCollection(playersCollectionRefs, "players");
   }, [dispatch, playersCollectionRefs, clubsCollectionRefs]);
-  alert("Salut Bro!!!");
+  alert("Salut Brother!!!");
   return (
     <>
       <div className="firstpage">
