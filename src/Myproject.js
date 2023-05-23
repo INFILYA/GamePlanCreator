@@ -46,7 +46,7 @@ function Myproject() {
   return (
     <>
       <div className="firstpage">
-        {refreshPage && <Auth />}
+        {refreshPage && <Auth setRefreshPage={setRefreshPage} />}
         <Routes>
           <Route path="/" element={<Page1 />} />
           <Route path="/Ratings" element={<Ratings />}>

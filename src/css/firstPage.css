@@ -6,7 +6,7 @@ body {
 }
 .firstpage {
   margin: 10px 0px 0px 0px;
-  height: 700px;
+  /* height: 700px; */
 }
 .firstpage .teamsquad {
   font-size: 25px;

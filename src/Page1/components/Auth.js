@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setShowEmailField } from "../../states/reducers/showEmailFieldReducer";
 import { SetDate } from "./SetDate";
 
-export function Auth() {
+export function Auth({setRefreshPage}) {
   const dispatch = useDispatch();
   const rivalClub = useSelector((state) => state.rivalClub);
   const myClub = useSelector((state) => state.myClub);
@@ -25,6 +25,7 @@ export function Auth() {
     } catch (err) {
       console.error(err);
     }
+    setRefreshPage(false);
   }
   async function logout() {
     try {
@@ -33,6 +34,7 @@ export function Auth() {
     } catch (err) {
       console.error(err);
     }
+    setRefreshPage(false);
   }
   async function signInWithFaceBook() {
     try {
@@ -42,6 +44,7 @@ export function Auth() {
     } catch (err) {
       console.error(err);
     }
+    setRefreshPage(false);
   }
 
   return (
