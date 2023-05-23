@@ -1,10 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import ShapeForRatings from "./ShapeForRatings";
 import { Auth } from "../Page1/components/Auth";
-import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import { setShowEmailField } from "../states/reducers/showEmailFieldReducer";
-import { auth } from "../config/firebase";
+import { useState } from "react";
 
 export function MiddleBlockersRating() {
   return <ShapeForRatings amplua={"MBlocker"} />;
@@ -26,14 +23,8 @@ export function TeamsRating() {
 }
 
 export function Ratings() {
-  const dispatch = useDispatch();
-  const registratedUser = auth?.currentUser?.uid !== undefined;
   const [refreshPage, setRefreshPage] = useState(false);
-
-  useEffect(() => {
-    dispatch(setShowEmailField(registratedUser));
-    setTimeout(() => setRefreshPage(true), 500);
-  }, [dispatch, registratedUser]);
+  setTimeout(() => setRefreshPage(true), 500);
   return (
     <>
       {refreshPage && <Auth />}

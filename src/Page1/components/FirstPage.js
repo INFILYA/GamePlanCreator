@@ -21,9 +21,11 @@ export function FirstPage() {
   const playerInfo = useSelector((state) => state.playerInfo);
   const zones = useSelector((state) => state.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones);
-  const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
+  const myClub = useSelector((state) => state.myClub);
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const admin = auth?.currentUser?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
+  const registratedUser = auth?.currentUser?.uid !== undefined;
+
   function handleSetMyTeam(event) {
     dispatch(setMyTeamPlayers(listOfPlayers, event.target.value));
     dispatch(setMyTeam(listOfTeams, event.target.value));
@@ -115,19 +117,21 @@ export function FirstPage() {
               <Button onClick={saveStartingSix} value={"Save starting six"} />
             </div>
           )}
-          <div className="plusMinus" style={{ marginTop: 10 }}>
-            <button onClick={moveRotationForward}>🡄</button>
-            {myTeamZones.map((player, index) =>
-              player && player.position === "Setter" ? (
-                <span key={player.id} style={{ marginLeft: 50, marginRight: 50, fontSize: 35 }}>
-                  {correctNamesOfZones(index)}
-                </span>
-              ) : null
-            )}
-            <button onClick={moveRotationBack}>🡆</button>
-          </div>
+          {myTeamZones.some((zone) => zone?.position === "Setter") && registratedUser && (
+            <div className="plusMinus" style={{ marginTop: 10 }}>
+              <button onClick={moveRotationForward}>🡄</button>
+              {myTeamZones.map((player, index) =>
+                player && player.position === "Setter" ? (
+                  <span key={player.id} style={{ marginLeft: 50, marginRight: 50, fontSize: 35 }}>
+                    {correctNamesOfZones(index)}
+                  </span>
+                ) : null
+              )}
+              <button onClick={moveRotationBack}>🡆</button>
+            </div>
+          )}
         </div>
-        {myTeamPlayers.length >= 1 ? (
+        {myClub?.id ? (
           <Squads team={"my"} />
         ) : (
           <div className="teamsquad">

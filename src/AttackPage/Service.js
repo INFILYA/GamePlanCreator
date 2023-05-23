@@ -4,21 +4,17 @@ import { ServiceFields } from "./components/ServiceFields";
 import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
 import { Auth } from "../Page1/components/Auth";
-import { setShowEmailField } from "../states/reducers/showEmailFieldReducer";
-import { auth } from "../config/firebase";
 
 function Service() {
   const dispatch = useDispatch();
   const [history, sethistory] = useState([0]);
   const [refreshPage, setRefreshPage] = useState(false);
   const playerInfo = useSelector((state) => state.playerInfo);
-  const registratedUser = auth?.currentUser?.uid !== undefined;
 
   useEffect(() => {
     dispatch(setInfoOfPlayer(JSON.parse(localStorage.getItem("playerInfo"))));
-    dispatch(setShowEmailField(registratedUser));
     setTimeout(() => setRefreshPage(true), 500);
-  }, [dispatch, registratedUser]);
+  }, [dispatch]);
 
   function reset() {
     const newHistory = [...history];
