@@ -3,7 +3,7 @@ import Distribution from "./Distribution/Distribution";
 import Attacks from "./AttackPage/Attack";
 import Service from "./AttackPage/Service";
 import Page1 from "./Page1/Page1";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { setAllPlayers } from "./states/reducers/listOfPlayersReducer";
 import { setAllTeams } from "./states/reducers/listOfTeamsReducer";
@@ -19,20 +19,18 @@ import {
   SettersRating,
   TeamsRating,
 } from "./Ratings/Ratings";
-import { auth, dataBase } from "./config/firebase";
+import { dataBase } from "./config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { compare } from "./Datas/api";
-import { Button } from "./StaticHelpModules/Button";
+import { ENGTUTORIAL, UKRTUTORIAL } from "./StaticHelpModules/Button";
+import { Tutorial } from "./Tutorial";
 
 function Myproject() {
   const dispatch = useDispatch();
+  const changeLanguage = useSelector((state) => state.changeLanguage);
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const playersCollectionRefs = collection(dataBase, "players");
   const [refreshPage, setRefreshPage] = useState(false);
-  const [showTutorial, setShowTutorial] = useState(true);
-  const [changeLanguage, setChangeLanguage] = useState(false);
-  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
-  // const user = auth?.currentUser?.displayName;
 
   useEffect(() => {
     async function getCollection(collection, type) {
@@ -49,50 +47,15 @@ function Myproject() {
     getCollection(playersCollectionRefs, "players");
     setTimeout(() => setRefreshPage(true), 500);
   }, [dispatch, playersCollectionRefs, clubsCollectionRefs]);
-  function hideTutorial() {
-    setShowTutorial(!showTutorial);
-  }
-
+  const TUTORIAL = !changeLanguage ? UKRTUTORIAL : ENGTUTORIAL;
   return (
     <>
+      <div className="textForTutorial">
+        {TUTORIAL.map((card, index) => (
+          <Tutorial text={card} key={index} />
+        ))}
+      </div>
       <div className="firstpage">
-        {showTutorial && !isRegistratedUser && (
-          <div className="grab">
-            <div className="tutorial">
-              <div className="changeLanguage">
-                <button
-                  onClick={() => setChangeLanguage(true)}
-                  style={changeLanguage ? { backgroundColor: "gold" } : null}
-                >
-                  Eng
-                </button>
-                <button
-                  onClick={() => setChangeLanguage(false)}
-                  style={!changeLanguage ? { backgroundColor: "gold" } : null}
-                >
-                  Ukr
-                </button>
-              </div>
-              {!changeLanguage ? (
-                <>
-                  <h1>Вітаю!</h1>
-                  <span></span>
-                  <div className="exit">
-                    <Button onClick={hideTutorial} value={"Розпочати роботу"} className="exit" />
-                  </div>
-                </>
-              ) : (
-                <>
-                  <h1>Welcome!</h1>
-                  <span></span>
-                  <div className="exit">
-                    <Button onClick={hideTutorial} value={"Start Working"} className="exit" />
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-        )}
         {refreshPage && <Auth setRefreshPage={setRefreshPage} />}
         <Routes>
           <Route path="/" element={<Page1 />} />

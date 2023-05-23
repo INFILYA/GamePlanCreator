@@ -11,4 +11,5 @@ export const defaultState = {
   sequanceOfZones: [5, 2, 1, 0, 3, 4],
   playerInfo: null,
   showEmailField: true,
+  changeLanguage: false,
 };
