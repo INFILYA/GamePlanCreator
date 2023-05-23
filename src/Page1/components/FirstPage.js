@@ -134,7 +134,7 @@ export function FirstPage() {
         ) : (
           <div className="teamsquad">
             <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
-              <option value="Choose home team">Choose home team</option>
+              <option value="Choose home team">Choose team</option>
               {listOfTeams.map((team) => (
                 <option key={team.id} value={team.name}>
                   {team.name}

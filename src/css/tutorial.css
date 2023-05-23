@@ -1,0 +1,25 @@
+.tutorial {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  border: 2px solid black;
+  background-color: gainsboro;
+  transform: translate(-50%, -50%);
+  z-index: 22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grab {
+  position: absolute;
+  width: 99%;
+  height: 99%;
+  top: 50%;
+  left: 50%;
+  border: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  z-index: 22;
+}

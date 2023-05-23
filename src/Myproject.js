@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { setAllPlayers } from "./states/reducers/listOfPlayersReducer";
 import { setAllTeams } from "./states/reducers/listOfTeamsReducer";
 import { Auth } from "./Page1/components/Auth";
+import "../src/css/tutorial.css";
 
 import {
   LiberosRating,
@@ -18,7 +19,7 @@ import {
   SettersRating,
   TeamsRating,
 } from "./Ratings/Ratings";
-import { dataBase } from "./config/firebase";
+import { auth, dataBase } from "./config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { compare } from "./Datas/api";
 
@@ -27,6 +28,9 @@ function Myproject() {
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const playersCollectionRefs = collection(dataBase, "players");
   const [refreshPage, setRefreshPage] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(true);
+  const registratedUser = auth?.currentUser?.uid !== undefined;
+
   useEffect(() => {
     async function getCollection(collection, type) {
       try {
@@ -42,25 +46,37 @@ function Myproject() {
     getCollection(playersCollectionRefs, "players");
     setTimeout(() => setRefreshPage(true), 500);
   }, [dispatch, playersCollectionRefs, clubsCollectionRefs]);
-
+  function hideTutorial() {
+    setShowTutorial(!showTutorial);
+  }
   return (
     <>
       <div className="firstpage">
-        {refreshPage && <Auth setRefreshPage={setRefreshPage} />}
-        <Routes>
-          <Route path="/" element={<Page1 />} />
-          <Route path="/Ratings" element={<Ratings />}>
-            <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />
-            <Route path="/Ratings/OppositesRating" element={<OppositesRating />} />
-            <Route path="/Ratings/MiddleBlockersRating" element={<MiddleBlockersRating />} />
-            <Route path="/Ratings/SettersRating" element={<SettersRating />} />
-            <Route path="/Ratings/LiberosRating" element={<LiberosRating />} />
-            <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
-          </Route>
-          <Route path="/Distribution" element={<Distribution />} />
-          <Route path="/attack" element={<Attacks />} />
-          <Route path="/service" element={<Service />} />
-        </Routes>
+        <div>
+          {showTutorial && !registratedUser && (
+            <div className="grab">
+              <div className="tutorial">
+                Here Will be Enter Welcome
+                <button onClick={hideTutorial}>X</button>
+              </div>
+            </div>
+          )}
+          {refreshPage && <Auth setRefreshPage={setRefreshPage} />}
+          <Routes>
+            <Route path="/" element={<Page1 />} />
+            <Route path="/Ratings" element={<Ratings />}>
+              <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />
+              <Route path="/Ratings/OppositesRating" element={<OppositesRating />} />
+              <Route path="/Ratings/MiddleBlockersRating" element={<MiddleBlockersRating />} />
+              <Route path="/Ratings/SettersRating" element={<SettersRating />} />
+              <Route path="/Ratings/LiberosRating" element={<LiberosRating />} />
+              <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
+            </Route>
+            <Route path="/Distribution" element={<Distribution />} />
+            <Route path="/attack" element={<Attacks />} />
+            <Route path="/service" element={<Service />} />
+          </Routes>
+        </div>
       </div>
     </>
   );

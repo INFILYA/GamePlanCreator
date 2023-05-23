@@ -121,25 +121,25 @@ export function Squads({ team }) {
               >
                 {player.name}
               </button>
+              {Zones && (
+                <select
+                  className="moveToBoard"
+                  type="text"
+                  onChange={team === "my" ? myTeamActions : rivalTeamActions}
+                >
+                  {team === "my" ? (
+                    <option defaultValue="◀">◀</option>
+                  ) : (
+                    <option defaultValue="▶">▶</option>
+                  )}
+                  {Zones.map((zone, index) => (
+                    <option key={index} value={[player.id, zone]}>
+                      {correctNamesOfZones(zone)}
+                    </option>
+                  ))}
+                </select>
+              )}
             </div>
-            {Zones && (
-              <select
-                className="moveToBoard"
-                type="text"
-                onChange={team === "my" ? myTeamActions : rivalTeamActions}
-              >
-                {team === "my" ? (
-                  <option defaultValue="◀">◀</option>
-                ) : (
-                  <option defaultValue="▶">▶</option>
-                )}
-                {Zones.map((zone, index) => (
-                  <option key={index} value={[player.id, zone]}>
-                    {correctNamesOfZones(zone)}
-                  </option>
-                ))}
-              </select>
-            )}
           </div>
         ))}
         {team !== "my" && rivalPlayers.length > 11 && registratedUser && (
