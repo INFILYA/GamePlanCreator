@@ -23,7 +23,7 @@ export function FirstPage() {
   const myClub = useSelector((state) => state.myClub);
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const admin = auth?.currentUser?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
-  const registratedUser = auth?.currentUser?.uid !== undefined;
+  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
 
   function handleSetMyTeam(event) {
     dispatch(setMyTeamPlayers(listOfPlayers, event.target.value));
@@ -115,7 +115,7 @@ export function FirstPage() {
               <Button onClick={saveStartingSix} value={"Save starting six"} />
             </div>
           )}
-          {myTeamZones.some((zone) => zone?.position === "Setter") && registratedUser && (
+          {myTeamZones.some((zone) => zone?.position === "Setter") && isRegistratedUser && (
             <div className="plusMinus" style={{ marginTop: 10 }}>
               <button onClick={moveRotationForward}>🡄</button>
               {myTeamZones.map((player, index) =>

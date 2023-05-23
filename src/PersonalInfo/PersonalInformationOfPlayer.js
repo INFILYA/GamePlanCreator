@@ -10,7 +10,7 @@ import { auth } from "../config/firebase";
 export function PersonalInformationOfPlayer({ link }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const registratedUser = auth?.currentUser?.uid !== undefined;
+  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
   const playerInfos = useSelector((state) => state.playerInfo);
   const playerInfo = upgradeAge(playerInfos);
   function goHome() {
@@ -51,7 +51,7 @@ export function PersonalInformationOfPlayer({ link }) {
                   <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
                 ))}
             {link === "Attack" &&
-              registratedUser &&
+              isRegistratedUser &&
               infosOfPlayers
                 .slice(2, 5)
                 .map((info, index) => (
@@ -62,7 +62,7 @@ export function PersonalInformationOfPlayer({ link }) {
                   />
                 ))}
             {link === "Attack" &&
-              registratedUser &&
+              isRegistratedUser &&
               infosOfPlayers
                 .slice(15, 16)
                 .map((info, index) => (
@@ -73,7 +73,7 @@ export function PersonalInformationOfPlayer({ link }) {
                   />
                 ))}
             {link === "Service" &&
-              registratedUser &&
+              isRegistratedUser &&
               infosOfPlayers
                 .slice(22, 25)
                 .map((info, index) => (
@@ -84,7 +84,7 @@ export function PersonalInformationOfPlayer({ link }) {
                   />
                 ))}
             {link === "Service" &&
-              registratedUser &&
+              isRegistratedUser &&
               infosOfPlayers
                 .slice(16, 17)
                 .map((info, index) => (
@@ -107,7 +107,7 @@ export function PersonalInformationOfPlayer({ link }) {
             </div>
           </div>
           <img src={playerInfo.photo} alt="" className="photoPlayer" />
-          {(link === "Service" || link === "Attack") && registratedUser && (
+          {(link === "Service" || link === "Attack") && isRegistratedUser && (
             <div style={{ display: "block" }}>
               <Diagramm link={link} />
             </div>

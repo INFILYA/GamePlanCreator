@@ -14,7 +14,7 @@ export function Explain({
   showDataOfAttacks,
 }) {
   const admin = auth?.currentUser?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
-  const registratedUser = auth?.currentUser?.uid !== undefined;
+  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
   return (
     <>
       <div>
@@ -65,7 +65,7 @@ export function Explain({
           </>
         )
       )}
-      {registratedUser && !saveDataOfAttacks && (
+      {isRegistratedUser && !saveDataOfAttacks && (
         <>
           <label style={{ fontSize: 30 }}>Show Data</label>
           <div className="saveBox">

@@ -5,23 +5,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { setShowEmailField } from "../../states/reducers/showEmailFieldReducer";
 import { SetDate } from "./SetDate";
 
-export function Auth({setRefreshPage}) {
+export function Auth({ setRefreshPage }) {
   const dispatch = useDispatch();
   const rivalClub = useSelector((state) => state.rivalClub);
   const myClub = useSelector((state) => state.myClub);
   const showEmailField = useSelector((state) => state.showEmailField);
-  const registratedUser = auth?.currentUser?.uid !== undefined;
+  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
   const userPhoto = auth?.currentUser?.photoURL;
   const userName = auth?.currentUser?.displayName;
 
   useEffect(() => {
-    dispatch(setShowEmailField(registratedUser));
-  }, [dispatch, registratedUser]);
+    dispatch(setShowEmailField(isRegistratedUser));
+  }, [dispatch, isRegistratedUser]);
 
   async function signInWithGoogle() {
     try {
       await signInWithPopup(auth, googleProvider);
-      dispatch(setShowEmailField(!registratedUser));
+      dispatch(setShowEmailField(!isRegistratedUser));
     } catch (err) {
       console.error(err);
     }
@@ -30,7 +30,7 @@ export function Auth({setRefreshPage}) {
   async function logout() {
     try {
       await signOut(auth);
-      dispatch(setShowEmailField(!registratedUser));
+      dispatch(setShowEmailField(!isRegistratedUser));
     } catch (err) {
       console.error(err);
     }
@@ -40,7 +40,7 @@ export function Auth({setRefreshPage}) {
     try {
       const provider = new FacebookAuthProvider();
       await signInWithPopup(auth, provider);
-      dispatch(setShowEmailField(!registratedUser));
+      dispatch(setShowEmailField(!isRegistratedUser));
     } catch (err) {
       console.error(err);
     }
@@ -56,7 +56,7 @@ export function Auth({setRefreshPage}) {
         marginBottom: 10,
       }}
     >
-      {registratedUser ? (
+      {isRegistratedUser ? (
         <>
           <div style={{ display: "flex", alignItems: "center", width: 400 }}>
             <img

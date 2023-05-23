@@ -22,6 +22,7 @@ import {
 import { auth, dataBase } from "./config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { compare } from "./Datas/api";
+import { Button } from "./StaticHelpModules/Button";
 
 function Myproject() {
   const dispatch = useDispatch();
@@ -29,7 +30,9 @@ function Myproject() {
   const playersCollectionRefs = collection(dataBase, "players");
   const [refreshPage, setRefreshPage] = useState(false);
   const [showTutorial, setShowTutorial] = useState(true);
-  const registratedUser = auth?.currentUser?.uid !== undefined;
+  const [changeLanguage, setChangeLanguage] = useState(false);
+  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
+  const user = auth?.currentUser?.displayName;
 
   useEffect(() => {
     async function getCollection(collection, type) {
@@ -49,34 +52,62 @@ function Myproject() {
   function hideTutorial() {
     setShowTutorial(!showTutorial);
   }
+
   return (
     <>
       <div className="firstpage">
-        <div>
-          {showTutorial && !registratedUser && (
-            <div className="grab">
-              <div className="tutorial">
-                Here Will be Enter Welcome
-                <button onClick={hideTutorial}>X</button>
+        {showTutorial && !isRegistratedUser && (
+          <div className="grab">
+            <div className="tutorial">
+              <div className="changeLanguage">
+                <button
+                  onClick={() => setChangeLanguage(true)}
+                  style={changeLanguage ? { backgroundColor: "gold" } : null}
+                >
+                  Eng
+                </button>
+                <button
+                  onClick={() => setChangeLanguage(false)}
+                  style={!changeLanguage ? { backgroundColor: "gold" } : null}
+                >
+                  Ukr
+                </button>
               </div>
+              {!changeLanguage ? (
+                <>
+                  <h1>Вітаю!</h1>
+                  <span></span>
+                  <div className="exit">
+                    <Button onClick={hideTutorial} value={"Розпочати роботу"} className="exit" />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h1>Welcome!</h1>
+                  <span></span>
+                  <div className="exit">
+                    <Button onClick={hideTutorial} value={"Start Working"} className="exit" />
+                  </div>
+                </>
+              )}
             </div>
-          )}
-          {refreshPage && <Auth setRefreshPage={setRefreshPage} />}
-          <Routes>
-            <Route path="/" element={<Page1 />} />
-            <Route path="/Ratings" element={<Ratings />}>
-              <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />
-              <Route path="/Ratings/OppositesRating" element={<OppositesRating />} />
-              <Route path="/Ratings/MiddleBlockersRating" element={<MiddleBlockersRating />} />
-              <Route path="/Ratings/SettersRating" element={<SettersRating />} />
-              <Route path="/Ratings/LiberosRating" element={<LiberosRating />} />
-              <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
-            </Route>
-            <Route path="/Distribution" element={<Distribution />} />
-            <Route path="/attack" element={<Attacks />} />
-            <Route path="/service" element={<Service />} />
-          </Routes>
-        </div>
+          </div>
+        )}
+        {refreshPage && <Auth setRefreshPage={setRefreshPage} />}
+        <Routes>
+          <Route path="/" element={<Page1 />} />
+          <Route path="/Ratings" element={<Ratings />}>
+            <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />
+            <Route path="/Ratings/OppositesRating" element={<OppositesRating />} />
+            <Route path="/Ratings/MiddleBlockersRating" element={<MiddleBlockersRating />} />
+            <Route path="/Ratings/SettersRating" element={<SettersRating />} />
+            <Route path="/Ratings/LiberosRating" element={<LiberosRating />} />
+            <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
+          </Route>
+          <Route path="/Distribution" element={<Distribution />} />
+          <Route path="/attack" element={<Attacks />} />
+          <Route path="/service" element={<Service />} />
+        </Routes>
       </div>
     </>
   );

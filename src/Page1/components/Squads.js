@@ -21,7 +21,7 @@ export function Squads({ team }) {
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
   const indexOfZones = useSelector((state) => state.indexOfZones);
   const sequanceOfZones = useSelector((state) => state.sequanceOfZones);
-  const registratedUser = auth?.currentUser?.uid !== undefined;
+  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
 
   const club = team === "my" ? myClub : rivalClub;
   const players = team === "my" ? myTeamPlayers : rivalPlayers;
@@ -142,7 +142,7 @@ export function Squads({ team }) {
             </div>
           </div>
         ))}
-        {team !== "my" && rivalPlayers.length > 11 && registratedUser && (
+        {team !== "my" && rivalPlayers.length > 11 && isRegistratedUser && (
           <Button onClick={showStartingSix} value={"Show Starting six"} />
         )}
       </div>
