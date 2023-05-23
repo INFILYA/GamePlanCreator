@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { DistrField } from "./components/DistrField";
-import { Auth } from "../Page1/components/Auth";
 
 function Distribution() {
   const [history, sethistory] = useState([0]);
-  const [refreshPage, setRefreshPage] = useState(false);
-  setTimeout(() => setRefreshPage(true), 500);
 
   function reset() {
     const newHistory = [...history];
@@ -18,7 +15,6 @@ function Distribution() {
   }
   return (
     <>
-      {refreshPage && <Auth />}
       <h1>Distribution</h1>
       <div className="belowcort">
         {history.map((field) => (field ? <DistrField key={field} /> : null))}

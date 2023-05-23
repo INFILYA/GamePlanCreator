@@ -1,7 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
 import ShapeForRatings from "./ShapeForRatings";
-import { Auth } from "../Page1/components/Auth";
-import { useState } from "react";
 
 export function MiddleBlockersRating() {
   return <ShapeForRatings amplua={"MBlocker"} />;
@@ -23,11 +21,8 @@ export function TeamsRating() {
 }
 
 export function Ratings() {
-  const [refreshPage, setRefreshPage] = useState(false);
-  setTimeout(() => setRefreshPage(true), 500);
   return (
     <>
-      {refreshPage && <Auth />}
       <h1>Ratings</h1>
       <div className="showRatings">
         <NavLink to={"/Ratings/RecieversRating"}>Recievers</NavLink>

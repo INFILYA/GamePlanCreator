@@ -3,18 +3,15 @@ import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformation
 import { AttackFields } from "./components/AttackFields";
 import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
-import { Auth } from "../Page1/components/Auth";
 
 
 function Attacks() {
   const dispatch = useDispatch();
   const [history, sethistory] = useState([0]);
-  const [refreshPage, setRefreshPage] = useState(false);
   const playerInfo = useSelector((state) => state.playerInfo);
 
   useEffect(() => {
     dispatch(setInfoOfPlayer(JSON.parse(localStorage.getItem("playerInfo"))));
-    setTimeout(() => setRefreshPage(true), 500);
   }, [dispatch]);
 
   function reset() {
@@ -30,7 +27,6 @@ function Attacks() {
   }
   return (
     <>
-      {refreshPage && <Auth />}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <PersonalInformationOfPlayer link={"Attack"} />
       </div>

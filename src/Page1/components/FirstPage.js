@@ -7,8 +7,7 @@ import { rotateBackMyTeam, rotateForwardMyTeam } from "../../states/reducers/myT
 import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
 import { setMyTeam } from "../../states/reducers/myClubReducer";
 import { correctNamesOfZones } from "../../Datas/api";
-import { Button } from "../../Labels/Button";
-import { Auth } from "./Auth";
+import { Button } from "../../StaticHelpModules/Button";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { auth, dataBase } from "../../config/firebase";
 import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
@@ -56,7 +55,6 @@ export function FirstPage() {
 
   return (
     <>
-      <Auth />
       <div style={{ display: "flex" }}>
         <Squads />
         <div className="rotation">

@@ -4,9 +4,11 @@ import Attacks from "./AttackPage/Attack";
 import Service from "./AttackPage/Service";
 import Page1 from "./Page1/Page1";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { setAllPlayers } from "./states/reducers/listOfPlayersReducer";
 import { setAllTeams } from "./states/reducers/listOfTeamsReducer";
+import { Auth } from "./Page1/components/Auth";
+
 import {
   LiberosRating,
   MiddleBlockersRating,
@@ -24,6 +26,7 @@ function Myproject() {
   const dispatch = useDispatch();
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const playersCollectionRefs = collection(dataBase, "players");
+  const [refreshPage, setRefreshPage] = useState(false);
   useEffect(() => {
     async function getCollection(collection, type) {
       try {
@@ -37,11 +40,13 @@ function Myproject() {
     }
     getCollection(clubsCollectionRefs, "club");
     getCollection(playersCollectionRefs, "players");
+    setTimeout(() => setRefreshPage(true), 500);
   }, [dispatch, playersCollectionRefs, clubsCollectionRefs]);
 
   return (
     <>
       <div className="firstpage">
+        {refreshPage && <Auth />}
         <Routes>
           <Route path="/" element={<Page1 />} />
           <Route path="/Ratings" element={<Ratings />}>

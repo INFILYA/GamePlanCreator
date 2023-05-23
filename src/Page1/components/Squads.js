@@ -9,7 +9,7 @@ import {
   setIndexOfZones,
 } from "../../states/reducers/indexOfZonesReducer";
 import { setSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
-import { Button } from "../../Labels/Button";
+import { Button } from "../../StaticHelpModules/Button";
 import { correctNamesOfZones } from "../../Datas/api";
 import { auth } from "../../config/firebase";
 

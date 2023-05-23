@@ -3,17 +3,14 @@ import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformation
 import { ServiceFields } from "./components/ServiceFields";
 import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
-import { Auth } from "../Page1/components/Auth";
 
 function Service() {
   const dispatch = useDispatch();
   const [history, sethistory] = useState([0]);
-  const [refreshPage, setRefreshPage] = useState(false);
   const playerInfo = useSelector((state) => state.playerInfo);
 
   useEffect(() => {
     dispatch(setInfoOfPlayer(JSON.parse(localStorage.getItem("playerInfo"))));
-    setTimeout(() => setRefreshPage(true), 500);
   }, [dispatch]);
 
   function reset() {
@@ -30,7 +27,6 @@ function Service() {
 
   return (
     <>
-      {refreshPage && <Auth />}
       <div
         style={{
           display: "flex",

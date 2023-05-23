@@ -7,7 +7,7 @@ import { upgradeAge } from "../states/reducers/listOfPlayersReducer";
 export default function ShapeForRatings({ amplua }) {
   const Players = useSelector((state) => state.listOfPlayers);
   const listOfTeams = useSelector((state) => state.listOfTeams);
-  const listOfPlayers = Players.map((player) => upgradeAge(player))
+  const listOfPlayers = Players.map((player) => upgradeAge(player));
   const [directionOfSort, setDirectionOfSort] = useState(false);
   const [teamsOrPlayers, setTeamsOrPlayers] = useState(
     amplua === "teams" ? listOfTeams : listOfPlayers.filter((player) => player.position === amplua)
