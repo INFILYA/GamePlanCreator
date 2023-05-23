@@ -1,5 +1,6 @@
 body {
-  margin: 0 7%;
+  margin: auto;
+  width: 1666px;
   box-sizing: border-box;
   text-align: center;
 }
