@@ -1,17 +1,16 @@
 body {
-  margin: auto;
-  width: 1666px;
-  box-sizing: border-box;
   text-align: center;
 }
-.firstpage {
-  margin: 10px 0px 0px 0px;
+#root {
+  max-width: 1720px;
+  margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
 }
 .firstpage .teamsquad {
   font-size: 25px;
-  min-width: 373.3px;
-  max-width: 373.3px;
+  width: 25%;
+  min-width: 325px;
   border: 4px dimgray solid;
   background-color: gainsboro;
   text-align: center;
@@ -155,8 +154,8 @@ body {
   margin-top: 1%;
   display: inline-block;
   height: 585px;
-  max-width: 866px;
-  min-width: 866px;
+  width: 60%;
+  min-width: 750px;
   border-radius: 45px;
 }
 .firstpage .opponentTeamList {
@@ -261,6 +260,8 @@ select {
 .showRatings {
   display: flex;
   justify-content: center;
+  width: 100%;
+  min-width: 1445px;
 }
 .showRatings a {
   width: 250px;
