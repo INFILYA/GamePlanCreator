@@ -32,7 +32,7 @@ function Myproject() {
   const [showTutorial, setShowTutorial] = useState(true);
   const [changeLanguage, setChangeLanguage] = useState(false);
   const isRegistratedUser = auth?.currentUser?.uid !== undefined;
-  const user = auth?.currentUser?.displayName;
+  // const user = auth?.currentUser?.displayName;
 
   useEffect(() => {
     async function getCollection(collection, type) {
