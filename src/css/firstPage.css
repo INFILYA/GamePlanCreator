@@ -6,14 +6,12 @@ body {
 }
 .firstpage {
   margin: 10px 0px 0px 0px;
-  /* height: 700px; */
   width: 100%;
 }
 .firstpage .teamsquad {
   font-size: 25px;
-  /* min-width: 373.3px; */
-  max-width: 21%;
-  min-width: 21%;
+  min-width: 373.3px;
+  max-width: 373.3px;
   border: 4px dimgray solid;
   background-color: gainsboro;
   text-align: center;
@@ -158,8 +156,8 @@ body {
   margin-top: 1%;
   display: inline-block;
   height: 585px;
-  max-width: 54%;
-  min-width: 54%;
+  max-width: 866px;
+  min-width: 866px;
   border-radius: 45px;
 }
 .firstpage .opponentTeamList {

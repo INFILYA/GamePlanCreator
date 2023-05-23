@@ -54,6 +54,8 @@ export function Auth({ setRefreshPage }) {
         justifyContent: "space-between",
         alignItems: "center",
         marginBottom: 10,
+        width:1666,
+        margin :"auto"
       }}
     >
       {isRegistratedUser ? (
