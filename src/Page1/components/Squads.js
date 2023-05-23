@@ -85,60 +85,64 @@ export function Squads({ team }) {
             className="playerSurname"
             style={team === "my" ? { direction: "rtl" } : {}}
           >
-            <div className="numberPlusInput" onClick={() => setPlayerInfo(player)}>
-              <button
-                type="text"
-                disabled
-                className="playerNumber"
-                style={
-                  team === "my"
-                    ? {
-                        backgroundColor: "fuchsia",
-                        borderTopRightRadius: 20,
-                        borderBottomRightRadius: 20,
-                        borderTopLeftRadius: 0,
-                        borderBottomLeftRadius: 0,
-                      }
-                    : {}
-                }
-              >
-                {player.number}
-              </button>
-              <button
-                type="text"
-                className="input"
-                style={
-                  team === "my"
-                    ? {
-                        backgroundColor: "darkgray",
-                        borderTopLeftRadius: 20,
-                        borderBottomLeftRadius: 20,
-                        borderTopRightRadius: 0,
-                        borderBottomRightRadius: 0,
-                      }
-                    : {}
-                }
-              >
-                {player.name}
-              </button>
-              {Zones && (
-                <select
-                  className="moveToBoard"
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div className="numberPlusInput" onClick={() => setPlayerInfo(player)}>
+                <button
                   type="text"
-                  onChange={team === "my" ? myTeamActions : rivalTeamActions}
+                  disabled
+                  className="playerNumber"
+                  style={
+                    team === "my"
+                      ? {
+                          backgroundColor: "fuchsia",
+                          borderTopRightRadius: 20,
+                          borderBottomRightRadius: 20,
+                          borderTopLeftRadius: 0,
+                          borderBottomLeftRadius: 0,
+                        }
+                      : {}
+                  }
                 >
-                  {team === "my" ? (
-                    <option defaultValue="◀">◀</option>
-                  ) : (
-                    <option defaultValue="▶">▶</option>
-                  )}
-                  {Zones.map((zone, index) => (
-                    <option key={index} value={[player.id, zone]}>
-                      {correctNamesOfZones(zone)}
-                    </option>
-                  ))}
-                </select>
-              )}
+                  {player.number}
+                </button>
+                <button
+                  type="text"
+                  className="input"
+                  style={
+                    team === "my"
+                      ? {
+                          backgroundColor: "darkgray",
+                          borderTopLeftRadius: 20,
+                          borderBottomLeftRadius: 20,
+                          borderTopRightRadius: 0,
+                          borderBottomRightRadius: 0,
+                        }
+                      : {}
+                  }
+                >
+                  {player.name}
+                </button>
+              </div>
+              <div>
+                {Zones && (
+                  <select
+                    className="moveToBoard"
+                    type="text"
+                    onChange={team === "my" ? myTeamActions : rivalTeamActions}
+                  >
+                    {team === "my" ? (
+                      <option defaultValue="◀">◀</option>
+                    ) : (
+                      <option defaultValue="▶">▶</option>
+                    )}
+                    {Zones.map((zone, index) => (
+                      <option key={index} value={[player.id, zone]}>
+                        {correctNamesOfZones(zone)}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </div>
             </div>
           </div>
         ))}

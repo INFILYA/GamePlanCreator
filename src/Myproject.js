@@ -39,7 +39,7 @@ function Myproject() {
       try {
         const data = await getDocs(collection);
         const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        const sortedList = [...list].sort((a, b) => compare(+a.id, +b.id));
+        const sortedList = [...list].sort((a, b) => compare(a.number, b.number));
         type === "club" ? dispatch(setAllTeams(sortedList)) : dispatch(setAllPlayers(sortedList));
       } catch (error) {
         console.error(error);

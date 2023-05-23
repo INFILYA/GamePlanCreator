@@ -90,6 +90,7 @@ export function ServiceFields() {
     return obj;
   }
   function onHandleCountClick(event) {
+    if (event.keyCode === 13) return false;
     event.preventDefault();
     while (saveDataOfServices && !checkEquality) {
       alert("DATA Value not equal to ZONE value");
@@ -175,7 +176,7 @@ export function ServiceFields() {
 
   return (
     <>
-      <form className="serviceField">
+      <form className="serviceField" onSubmit={(event) => event.preventDefault()}>
         <select
           className="typeOfService"
           onChange={!showDataOfAttacks ? onHandleCountClick : showData}
