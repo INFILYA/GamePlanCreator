@@ -21,9 +21,9 @@ export function FirstPage() {
   const zones = useSelector((state) => state.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones);
   const myClub = useSelector((state) => state.myClub);
+  const isRegistratedUser = useSelector((state) => state.isRegistratedUser);
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const admin = auth?.currentUser?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
-  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
 
   function handleSetMyTeam(event) {
     dispatch(setMyTeamPlayers(listOfPlayers, event.target.value));

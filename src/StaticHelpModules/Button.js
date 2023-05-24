@@ -27,7 +27,7 @@ const attackAndService = (
   <div>
     Крім того, програма надасть вам можливість візуалізувати свої плани за допомогою зрозумілого
     графічного інтерфейсу. Відобразити візуально напрямок атак та подач в процентному співвідношенні
-    з кожної зони та по кожній позиції усіх активних гравців ПВЛУ.
+    з кожної зони та по кожній позиції усіх гравців ПВЛУ.
     <img alt="" className="aboutAttack" />
   </div>
 );
@@ -68,9 +68,11 @@ const lastWord = (
     головному - розробці ефективної стратегії для вашого колективу. Я завжди відкритий до отримання
     вашого фідбеку та пропозицій щодо поліпшення функціоналу. Бажаю вам успіхів та вдалого складання
     планів для вашої команди! З найкращими побажаннями, Пилип Гармаш.
+    <div>
+      <img alt="" className="lastWord" />
+    </div>
   </div>
 );
-
 
 const enterWordEng = (
   <div>
@@ -134,6 +136,9 @@ const lastWordEng = (
     - developing an effective strategy for your team. I am always open to receiving your feedback
     and suggestions for improving the functionality. I wish you success and smooth planning for your
     team! Best regards, Pylyp Harmash.
+    <div>
+      <img alt="" className="lastWord" />
+    </div>
   </div>
 );
 export const UKRTUTORIAL = [

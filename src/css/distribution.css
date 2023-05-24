@@ -189,14 +189,15 @@
 }
 .reset {
   border-radius: 5px;
-  font-size: 30px;
+  font-size: 25px;
+  padding: 5px;
   font-weight: bold;
   margin: 10px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   display: block;
   background-color: orangered;
-  border: 2px solid black;
+  border: 1px solid black;
   min-width: 37px;
 }
 .reset:hover {

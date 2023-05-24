@@ -1,5 +1,5 @@
 import { Switch } from "antd";
-import { auth } from "../../config/firebase";
+import { useSelector } from "react-redux";
 
 export function Explain({
   confirmReturn,
@@ -13,8 +13,9 @@ export function Explain({
   setShowDataOfAttacks,
   showDataOfAttacks,
 }) {
-  const admin = auth?.currentUser?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
-  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
+  const userInfo = useSelector((state) => state.userInfo);
+  const isRegistratedUser = useSelector((state) => state.isRegistratedUser);
+  const admin = userInfo.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
   return (
     <>
       <div>

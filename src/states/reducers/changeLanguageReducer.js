@@ -7,7 +7,7 @@ export function setChangeLanguage(boolean) {
   };
 }
 
-export function changeLanguageReducer(state = defaultState.showEmailField, action) {
+export function changeLanguageReducer(state = defaultState.changeLanguage, action) {
   switch (action.type) {
     case "SET_CHANGE_LANGUAGE":
       return action.payload;

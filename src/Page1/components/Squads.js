@@ -11,7 +11,6 @@ import {
 import { setSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
 import { Button } from "../../StaticHelpModules/Button";
 import { correctNamesOfZones } from "../../Datas/api";
-import { auth } from "../../config/firebase";
 
 export function Squads({ team }) {
   const dispatch = useDispatch();
@@ -21,11 +20,12 @@ export function Squads({ team }) {
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
   const indexOfZones = useSelector((state) => state.indexOfZones);
   const sequanceOfZones = useSelector((state) => state.sequanceOfZones);
-  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
+  const isRegistratedUser = useSelector((state) => state.isRegistratedUser);
 
   const club = team === "my" ? myClub : rivalClub;
   const players = team === "my" ? myTeamPlayers : rivalPlayers;
   const Zones = team === "my" ? sequanceOfZones : indexOfZones;
+
 
   function myTeamActions(event) {
     setPlayerToMyTeamZone(event);

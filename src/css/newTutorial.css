@@ -12,7 +12,7 @@
 .grab .tutorial {
   position: absolute;
   max-width: 1000px;
-  max-height: 730px;
+  max-height: 800px;
   background-color: white;
   display: flex;
   align-items: center;
@@ -26,6 +26,50 @@
   transform: translate(-50%, -50%);
   z-index: 22;
 }
+.grab .tutorial .hideBackground {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  z-index: 24;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 22;
+}
+.grab .tutorial .hideBackground .confirmationForExit {
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  border: 2px solid black;
+  background-color: gainsboro;
+  border-radius: 15px;
+  top: 35%;
+  left: 30%;
+}
+.grab .tutorial .hideBackground .confirmationForExit button {
+  margin: 0px 10px;
+  border: 1px solid black;
+}
+.grab .tutorial .exit {
+  position: absolute;
+  top: 88%;
+}
+.grab .tutorial .exit button {
+  margin: 0px 10px;
+  border: 1px solid black;
+}
+.grab .tutorial .switch {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  top: 89.5%;
+  left: 73%;
+}
+.grab .tutorial .switch label {
+  margin-left: 10px;
+  font-size: 15px;
+}
 .grab .tutorial .changeLanguage {
   position: absolute;
   bottom: 93%;
@@ -36,20 +80,25 @@
   margin: 3px;
   font-size: 15px;
   font-weight: bold;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
-}
-.grab .tutorial .changeLanguage button :hover {
-  box-shadow: 0 15px 20px gold;
-  transform: translateY(-5px);
-  background-color: gold;
-  transition: 0.3s;
 }
 
 .textForTutorial div {
   font-size: 25px;
   padding: 5px;
   line-height: 1.5;
+}
+.textForTutorial div .lastWord {
+  max-width: 1000px;
+  width: 100%;
+  height: 400px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  margin: 20px 0px;
+  background: url("../../public/photos/Harmash.jpg") no-repeat center center;
+  background-size: cover;
+  width: 300px;
 }
 .textForTutorial div .aboutFirstPage {
   max-width: 1000px;
@@ -110,11 +159,6 @@
   margin: 20px 0px;
   background: url("../photos/Registration.jpg") no-repeat center center;
   background-size: cover;
-}
-
-.exit {
-  position: absolute;
-  top: 88%;
 }
 
 /*# sourceMappingURL=newTutorial.css.map */

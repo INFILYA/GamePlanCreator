@@ -4,7 +4,7 @@ import Attacks from "./AttackPage/Attack";
 import Service from "./AttackPage/Service";
 import Page1 from "./Page1/Page1";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { setAllPlayers } from "./states/reducers/listOfPlayersReducer";
 import { setAllTeams } from "./states/reducers/listOfTeamsReducer";
 import { Auth } from "./Page1/components/Auth";
@@ -28,9 +28,9 @@ import { Tutorial } from "./Tutorial";
 function Myproject() {
   const dispatch = useDispatch();
   const changeLanguage = useSelector((state) => state.changeLanguage);
+  const isShowedTutorial = useSelector((state) => state.isShowedTutorial);
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const playersCollectionRefs = collection(dataBase, "players");
-  const [refreshPage, setRefreshPage] = useState(false);
 
   useEffect(() => {
     async function getCollection(collection, type) {
@@ -45,18 +45,19 @@ function Myproject() {
     }
     getCollection(clubsCollectionRefs, "club");
     getCollection(playersCollectionRefs, "players");
-    setTimeout(() => setRefreshPage(true), 500);
   }, [dispatch, playersCollectionRefs, clubsCollectionRefs]);
   const TUTORIAL = !changeLanguage ? UKRTUTORIAL : ENGTUTORIAL;
   return (
     <>
-      <div className="textForTutorial">
-        {TUTORIAL.map((card, index) => (
-          <Tutorial text={card} key={index} />
-        ))}
-      </div>
+      {!isShowedTutorial && (
+        <div className="textForTutorial">
+          {TUTORIAL.map((card, index) => (
+            <Tutorial text={card} key={index} />
+          ))}
+        </div>
+      )}
       <div className="firstpage">
-        {refreshPage && <Auth setRefreshPage={setRefreshPage} />}
+        <Auth />
         <Routes>
           <Route path="/" element={<Page1 />} />
           <Route path="/Ratings" element={<Ratings />}>

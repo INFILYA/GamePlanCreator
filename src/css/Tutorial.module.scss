@@ -16,6 +16,10 @@
   background: url($link) no-repeat center center;
   background-size: cover;
 }
+@mixin forButtons {
+  margin: 0px 10px;
+  border: 1px solid black;
+}
 .grab {
   position: fixed;
   border: 2px solid black;
@@ -24,7 +28,7 @@
   .tutorial {
     position: absolute;
     max-width: 1000px;
-    max-height: 730px;
+    max-height: 800px;
     background-color: white;
     display: flex;
     align-items: center;
@@ -32,6 +36,43 @@
     border-radius: 15px;
     box-sizing: border-box;
     @include tutorGrab;
+    .hideBackground {
+      background-color: rgba(0, 0, 0, 0.8);
+      position: absolute;
+      z-index: 24;
+      @include tutorGrab;
+      .confirmationForExit {
+        position: absolute;
+        width: 400px;
+        height: 200px;
+        border: 2px solid black;
+        background-color: gainsboro;
+        border-radius: 15px;
+        top: 35%;
+        left: 30%;
+        button {
+          @include forButtons;
+        }
+      }
+    }
+    .exit {
+      position: absolute;
+      top: 88%;
+      button {
+        @include forButtons;
+      }
+    }
+    .switch {
+      display: flex;
+      position: absolute;
+      align-items: center;
+      top: 89.5%;
+      left: 73%;
+      label {
+        margin-left: 10px;
+        font-size: 15px;
+      }
+    }
     .changeLanguage {
       position: absolute;
       bottom: 93%;
@@ -41,14 +82,8 @@
         margin: 3px;
         font-size: 15px;
         font-weight: bold;
-        border: 2px solid black;
+        border: 1px solid black;
         border-radius: 5px;
-        :hover {
-          box-shadow: 0 15px 20px gold;
-          transform: translateY(-5px);
-          background-color: gold;
-          transition: 0.3s;
-        }
       }
     }
   }
@@ -57,6 +92,10 @@
   font-size: 25px;
   padding: 5px;
   line-height: 1.5;
+  .lastWord {
+    @include forText(400px, "../../public/photos/Harmash.jpg");
+    width: 300px;
+  }
   .aboutFirstPage {
     @include forText(450px, "../photos/FirstPage.jpg");
   }
@@ -76,7 +115,3 @@
     @include forText(150px, "../photos/Registration.jpg");
   }
 }
-.exit {
-    position: absolute;
-    top: 88%;
-  }

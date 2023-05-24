@@ -65,7 +65,7 @@ body {
 .firstpage .hideIcon a,
 .firstpage .hideIcon button {
   margin: 10px 5px 10px 5px;
-  border: 2px solid black;
+  border: 1px solid black;
   background-color: cornflowerblue;
   border-radius: 5px;
   text-decoration: none;
@@ -171,7 +171,7 @@ body {
   margin: 10px;
   display: inline-block;
   padding: 5px;
-  border: 4px solid black;
+  border: 1px solid black;
 }
 .firstpage .rotation .hideIcon {
   position: absolute;
@@ -274,7 +274,7 @@ select {
 }
 .showRatings a {
   width: 250px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
   background-color: cornflowerblue;
   text-decoration: none;
@@ -293,13 +293,14 @@ select {
   transition: 0.3s;
 }
 .regularButton {
-  font-size: 25px;
-  margin-top: 10px;
-  border: 3px solid black;
+  font-size: 22px;
+  margin: 10px;
+  border: none;
   background-color: gold;
-  padding: 4px 10px 4px 10px;
+  padding: 5px 10px;
   border-radius: 50px;
   font-weight: bold;
+  border: 1px solid black;
 }
 .regularButton:hover {
   box-shadow: 0 15px 20px gold;

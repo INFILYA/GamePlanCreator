@@ -12,8 +12,10 @@ import { indexOfZonesReducer } from "./reducers/indexOfZonesReducer";
 import { myTeamZonesReducer } from "./reducers/myTeamZonesReducer";
 import { sequanceOfZonesReducer } from "./reducers/sequanceOfZonesReducer";
 import { playerInfoReducer } from "./reducers/playerInfoReducer";
-import { showEmailFieldReducer } from "./reducers/showEmailFieldReducer";
+import { userInfoReducer } from "./reducers/userInfoReducer";
 import { changeLanguageReducer } from "./reducers/changeLanguageReducer";
+import { isRegistratedUserReducer } from "./reducers/isRegistratedUserReducer";
+import { isShowedTutorialReducer } from "./reducers/isShowedTutorialReducer";
 
 const rootReducer = combineReducers({
   listOfTeams: listOfTeamsReducer,
@@ -27,8 +29,10 @@ const rootReducer = combineReducers({
   myTeamZones: myTeamZonesReducer,
   sequanceOfZones: sequanceOfZonesReducer,
   playerInfo: playerInfoReducer,
-  showEmailField: showEmailFieldReducer,
+  userInfo: userInfoReducer,
+  isRegistratedUser: isRegistratedUserReducer,
   changeLanguage: changeLanguageReducer,
+  isShowedTutorial: isShowedTutorialReducer,
 });
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

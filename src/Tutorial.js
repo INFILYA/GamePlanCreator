@@ -1,21 +1,35 @@
-import { useState } from "react";
-import { auth } from "./config/firebase";
+import { useEffect, useState } from "react";
 import { Button } from "./StaticHelpModules/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { setChangeLanguage } from "./states/reducers/changeLanguageReducer";
+import { setisShowedTutorial } from "./states/reducers/isShowedTutorialReducer";
+import { Switch } from "antd";
 
 export function Tutorial({ text }) {
   const dispatch = useDispatch();
   const changeLanguage = useSelector((state) => state.changeLanguage);
   const [showTutorial, setShowTutorial] = useState(true);
-  const isRegistratedUser = auth?.currentUser?.uid !== undefined;
+  const [confirmRepeat, setConfirmReapeat] = useState(false);
 
+  useEffect(() => {
+    dispatch(setisShowedTutorial(JSON.parse(localStorage.getItem("isShowedTutorial"))));
+  }, [dispatch]);
+
+  function nextPage() {
+    setShowTutorial(false);
+  }
   function hideTutorial() {
-    setShowTutorial(!showTutorial);
+    dispatch(setisShowedTutorial(true));
+  }
+  function leftTutorial() {
+    setConfirmReapeat(!confirmRepeat);
+  }
+  function setConfirmNotShowAgainTutorial() {
+    setConfirmReapeat(!confirmRepeat);
   }
   return (
     <>
-      {showTutorial && !isRegistratedUser && (
+      {showTutorial && (
         <div className="grab">
           <div className="tutorial">
             <div className="changeLanguage">
@@ -36,15 +50,47 @@ export function Tutorial({ text }) {
               <>
                 <div>{text}</div>
                 <div className="exit">
-                  <Button onClick={hideTutorial} value={"Далі"} className="exit" />
+                  <Button onClick={nextPage} value={"Далі"} />
                 </div>
+                <div className="switch">
+                  <Switch
+                    onChange={setConfirmNotShowAgainTutorial}
+                    checked={confirmRepeat}
+                  ></Switch>
+                  <label htmlFor="">Закрити і ніколи не показувати</label>
+                </div>
+                {confirmRepeat && (
+                  <div className="hideBackground">
+                    <div className="confirmationForExit">
+                      <h2>Ви впевнені?</h2>
+                      <Button onClick={hideTutorial} value={"Так"} />
+                      <Button onClick={leftTutorial} value={"Ні"} />
+                    </div>
+                  </div>
+                )}
               </>
             ) : (
               <>
                 <div>{text}</div>
                 <div className="exit">
-                  <Button onClick={hideTutorial} value={"Next"} className="exit" />
+                  <Button onClick={nextPage} value={"Next"} className="exit" />
                 </div>
+                <div className="switch">
+                  <Switch
+                    onChange={setConfirmNotShowAgainTutorial}
+                    checked={confirmRepeat}
+                  ></Switch>
+                  <label htmlFor="">Close and never show it again</label>
+                </div>
+                {confirmRepeat && (
+                  <div className="hideBackground">
+                    <div className="confirmationForExit">
+                      <h2>Are you sure?</h2>
+                      <Button onClick={hideTutorial} value={"Yes"} />
+                      <Button onClick={leftTutorial} value={"No"} />
+                    </div>
+                  </div>
+                )}
               </>
             )}
           </div>

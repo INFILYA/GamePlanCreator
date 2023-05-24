@@ -42,7 +42,7 @@ export function ChooseOpponentTeam() {
         {listOfTeams.map((team) => (
           <button
             onClick={() => handleSetOpponentTeam(team)}
-            className="opponentTeams"
+            className="regularButton"
             key={team.id}
           >
             {showTeamName(team)}
