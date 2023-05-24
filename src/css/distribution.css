@@ -3,7 +3,6 @@
   justify-content: center;
   flex-wrap: wrap;
   box-sizing: border-box;
-  margin: 0px 0px 0px 0px;
 }
 .belowcort .distribution {
   height: 300px;
@@ -192,12 +191,13 @@
   border-radius: 5px;
   font-size: 30px;
   font-weight: bold;
-  margin: 10px 0px 0px 0px;
+  margin: 10px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   display: block;
   background-color: orangered;
   border: 2px solid black;
+  min-width: 37px;
 }
 .reset:hover {
   box-shadow: 0 15px 20px orangered;
@@ -205,4 +205,9 @@
 }
 .belowcort .addResetButtons {
   display: block;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

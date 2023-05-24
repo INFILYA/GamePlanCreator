@@ -27,36 +27,24 @@ function Service() {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginBottom: 20,
-        }}
-      >
+      <div className="personalInfoForAttack">
         <PersonalInformationOfPlayer link={"Service"} />
+      </div>
+      <div className="pagination">
+        {history.length > 1 && (
+          <button className="reset" onClick={reset}>
+            -
+          </button>
+        )}
+        {history.length <= 2 && (
+          <button className="reset" onClick={addField}>
+            {history.length === 1 ? `Push to start` : `+`}
+          </button>
+        )}
       </div>
       <div className="servicePage">
         <div className="atackFileds">
           {history.map((field) => (field ? <ServiceFields key={field} /> : null))}
-          <div style={history.length > 1 ? { margin: "5px 0px 0px -100px" } : null}>
-            {history.length > 1 && (
-              <>
-                <button className="reset" onClick={reset}>
-                  🡄
-                </button>
-              </>
-            )}
-            {history.length <= 2 && (
-              <button
-                className="reset"
-                onClick={addField}
-                style={history.length === 1 ? { marginTop: -10 } : null}
-              >
-                {history.length === 1 ? `Push to start` : `🡆`}
-              </button>
-            )}
-          </div>
         </div>
       </div>
     </>

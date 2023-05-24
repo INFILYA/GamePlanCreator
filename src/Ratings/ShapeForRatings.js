@@ -15,12 +15,10 @@ export default function ShapeForRatings({ amplua }) {
   const categorysForAll = [
     { category: "name", text: "Name" },
     { category: "age", text: "Age" },
-    { category: "winPoints", text: "Points by Attack" },
+    { category: "winPoints", text: " Points in Attack" },
     { category: "plusMinusOnAttack", text: "+/- on Attack" },
     { category: "plusMinusOnService", text: "+/- on Service" },
-    amplua !== "Libero"
-      ? { category: "percentOfAttack", text: "% on Attack" }
-      : { category: "height", text: "Height" },
+    { category: "percentOfAttack", text: "% on Attack" },
   ];
   const categorysForOthers = [
     { category: "name", text: "Name" },
@@ -42,7 +40,7 @@ export default function ShapeForRatings({ amplua }) {
   }
 
   return (
-    <div style={{ height: 700 }}>
+    <>
       <div className="ratingTable">
         {categorys.map((category) => (
           <div className="ratingRow" key={category.category}>
@@ -54,30 +52,25 @@ export default function ShapeForRatings({ amplua }) {
                 {category.text}
               </button>
             </div>
-            <hr />
-            {teamsOrPlayers.map((player, index) => (
-              <div key={player.id}>
-                {category.text !== "Name" ? (
-                  <span>
-                    {category.category === "percentOfAttack" &&
-                    amplua !== "Setter" &&
-                    amplua !== "Libero"
-                      ? player[category.category] + "%"
-                      : player[category.category]}
-                  </span>
-                ) : (
-                  <span style={{ display: "flex", justifyContent: "start" }}>
-                    {index + 1}. {player[category.category]}
-                  </span>
-                )}
-              </div>
-            ))}
+            {teamsOrPlayers.map((player, index) =>
+              category.text !== "Name" ? (
+                <span key={player.id}>
+                  {category.category === "percentOfAttack" && amplua !== "Setter"
+                    ? player[category.category] + "%"
+                    : player[category.category]}
+                </span>
+              ) : (
+                <span key={player.id} style={{ display: "flex", justifyContent: "start" }}>
+                  {index + 1}. {player[category.category]}
+                </span>
+              )
+            )}
           </div>
         ))}
       </div>
       <div className="showRatings" style={{ marginTop: 10 }}>
         <NavLink to={"/"}>Home Page</NavLink>
       </div>
-    </div>
+    </>
   );
 }

@@ -85,7 +85,6 @@ export function Squads({ team }) {
             className="playerSurname"
             style={team === "my" ? { direction: "rtl" } : {}}
           >
-            <div style={{ display: "flex", justifyContent: "center" }}>
               <div className="numberPlusInput" onClick={() => setPlayerInfo(player)}>
                 <button
                   type="text"
@@ -143,7 +142,6 @@ export function Squads({ team }) {
                   </select>
                 )}
               </div>
-            </div>
           </div>
         ))}
         {team !== "my" && rivalPlayers.length > 11 && isRegistratedUser && (

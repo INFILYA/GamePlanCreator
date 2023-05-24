@@ -55,8 +55,6 @@ export function Auth({ setRefreshPage }) {
         alignItems: "center",
         marginBottom: 10,
         margin: "0 auto",
-        width: "100%",
-        minWidth: 1445,
       }}
     >
       {isRegistratedUser ? (

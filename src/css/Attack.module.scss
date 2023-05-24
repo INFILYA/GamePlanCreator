@@ -58,7 +58,12 @@
   border-right: $borderRight solid transparent;
   rotate: $rotate;
 }
+
 // Основной CSS
+.personalInfoForAttack {
+  display: flex;
+  justify-content: center;
+}
 .none {
   display: none;
 }

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { setAllPlayers } from "./states/reducers/listOfPlayersReducer";
 import { setAllTeams } from "./states/reducers/listOfTeamsReducer";
 import { Auth } from "./Page1/components/Auth";
-import "../src/css/tutorial.css";
+import "../src/css/newTutorial.css";
 
 import {
   LiberosRating,

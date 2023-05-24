@@ -3,25 +3,27 @@ body {
 }
 #root {
   max-width: 1720px;
+  min-width: 1315px;
+  height: 900px;
   margin: 0 auto;
   width: 100%;
-  box-sizing: border-box;
 }
 .firstpage .teamsquad {
   font-size: 25px;
-  width: 25%;
-  min-width: 325px;
+  width: 22%;
+  min-width: 280px;
   border: 4px dimgray solid;
   background-color: gainsboro;
   text-align: center;
-  padding: 0px 10px 0px 10px;
+  padding: 0px 10px;
   border-radius: 45px;
-  height: 700px;
+  min-height: 700px;
+  box-sizing: border-box;
 }
 .firstpage .teamLogo {
   display: flex;
   justify-content: center;
-  margin: 20px 0px 20px 0px;
+  margin: 20px 0px;
 }
 .firstpage .teamlabel {
   font-size: 40px;
@@ -101,6 +103,8 @@ body {
 
 .firstpage .playerSurname {
   height: 44px;
+  display: flex;
+  justify-content: center;
 }
 .firstpage .innerSquad .playerPhoto {
   display: none;
@@ -130,7 +134,7 @@ body {
   font-size: inherit;
 }
 .firstpage .input {
-  width: 200px;
+  min-width: 200px;
   height: 40px;
   background-color: khaki;
   border: 2px solid black;
@@ -140,6 +144,7 @@ body {
   font-weight: bold;
   color: black;
   text-align: center;
+  width: 100%;
 }
 .firstpage .smallBox .input {
   background-color: darkgray;
@@ -154,7 +159,7 @@ body {
   margin-top: 1%;
   display: inline-block;
   height: 585px;
-  width: 60%;
+  width: 56%;
   min-width: 750px;
   border-radius: 45px;
 }
@@ -252,6 +257,12 @@ select {
   display: flex;
   text-align: center;
 }
+.firstpage .rotation .plusMinus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
 .firstpage .rotation .plusMinus button {
   font-size: 35px;
   width: 50px;
@@ -260,8 +271,6 @@ select {
 .showRatings {
   display: flex;
   justify-content: center;
-  width: 100%;
-  min-width: 1445px;
 }
 .showRatings a {
   width: 250px;

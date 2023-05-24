@@ -16,20 +16,20 @@ function Distribution() {
   return (
     <>
       <h1>Distribution</h1>
+      <div className="pagination">
+        {history.length > 1 && (
+          <button className="reset" onClick={reset}>
+            -
+          </button>
+        )}
+        {history.length <= 6 && (
+          <button className="reset" onClick={addField}>
+            {history.length === 1 ? `Push to start` : `+`}
+          </button>
+        )}
+      </div>  
       <div className="belowcort">
         {history.map((field) => (field ? <DistrField key={field} /> : null))}
-        <div>
-          {history.length > 1 && (
-            <button className="reset" onClick={reset}>
-              🡄
-            </button>
-          )}
-          {history.length <= 6 && (
-            <button className="reset" onClick={addField}>
-              {history.length === 1 ? `Push to start` : `🡆`}
-            </button>
-          )}
-        </div>
       </div>
       <div className="showRatings" style={{ marginTop: 10 }}>
         <NavLink to={"/"}>Home Page</NavLink>

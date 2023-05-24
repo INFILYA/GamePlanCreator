@@ -1,9 +1,3 @@
-.atackFileds {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-}
 .servicePage .firstinputs {
   justify-content: center;
   display: flex;
@@ -34,12 +28,15 @@
 }
 .typeOfService {
   font-size: 25px;
-  width: 58%;
+  width: 313px;
   text-align: center;
   background-color: #0272be;
   color: white;
   font-weight: bold;
   margin: -5px 0px 0px 0px;
+}
+.typeOfService[disabled] {
+  opacity: 1;
 }
 .serviceZone1 {
   width: 60px;

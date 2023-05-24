@@ -116,8 +116,8 @@ export function FirstPage() {
             </div>
           )}
           {myTeamZones.some((zone) => zone?.position === "Setter") && isRegistratedUser && (
-            <div className="plusMinus" style={{ marginTop: 10 }}>
-              <button onClick={moveRotationForward}>🡄</button>
+            <div className="plusMinus">
+              <button onClick={moveRotationForward}>-</button>
               {myTeamZones.map((player, index) =>
                 player && player.position === "Setter" ? (
                   <span key={player.id} style={{ marginLeft: 50, marginRight: 50, fontSize: 35 }}>
@@ -125,7 +125,7 @@ export function FirstPage() {
                   </span>
                 ) : null
               )}
-              <button onClick={moveRotationBack}>🡆</button>
+              <button onClick={moveRotationBack}>+</button>
             </div>
           )}
         </div>
