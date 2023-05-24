@@ -68,9 +68,6 @@ export default function ShapeForRatings({ amplua }) {
           </div>
         ))}
       </div>
-      <div className="showRatings" style={{ marginTop: 10 }}>
-        <NavLink to={"/"}>Home Page</NavLink>
-      </div>
     </>
   );
 }

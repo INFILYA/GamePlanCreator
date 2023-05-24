@@ -33,6 +33,9 @@ export function Ratings() {
         <NavLink to={"/Ratings/TeamsRating"}>Teams</NavLink>
       </div>
       <Outlet />
+      <div className="showRatings" style={{ marginTop: 10 }}>
+        <NavLink to={"/"}>Home Page</NavLink>
+      </div>
     </>
   );
 }
