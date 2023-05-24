@@ -29,7 +29,6 @@ export function Ratings() {
         <NavLink to={"/Ratings/OppositesRating"}>Opposites</NavLink>
         <NavLink to={"/Ratings/MiddleBlockersRating"}>MiddleBlockers</NavLink>
         <NavLink to={"/Ratings/SettersRating"}>Setters</NavLink>
-        {/* <NavLink to={"/Ratings/LiberosRating"}>Liberos</NavLink> */}
         <NavLink to={"/Ratings/TeamsRating"}>Teams</NavLink>
       </div>
       <Outlet />
