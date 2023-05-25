@@ -97,7 +97,7 @@
     width: 300px;
   }
   .aboutFirstPage {
-    @include forText(450px, "../photos/FirstPage.jpg");
+    @include forText(455px, "../photos/FirstPage.jpg");
   }
   .aboutAttack {
     @include forText(450px, "../photos/Attack.jpg");

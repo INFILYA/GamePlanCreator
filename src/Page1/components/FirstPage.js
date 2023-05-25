@@ -3,14 +3,24 @@ import { PersonalInformationOfPlayer } from "../../PersonalInfo/PersonalInformat
 import { ChooseOpponentTeam } from "./ChooseOpponentTeam";
 import { IconOfPlayer } from "./IconOfPlayer";
 import { Squads } from "./Squads";
-import { rotateBackMyTeam, rotateForwardMyTeam } from "../../states/reducers/myTeamZonesReducer";
+import {
+  clearMyTeamZones,
+  rotateBackMyTeam,
+  rotateForwardMyTeam,
+} from "../../states/reducers/myTeamZonesReducer";
 import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
-import { setMyTeam } from "../../states/reducers/myClubReducer";
+import { setMyTeam, setResetMyTeam } from "../../states/reducers/myClubReducer";
 import { correctNamesOfZones } from "../../Datas/api";
 import { Button } from "../../StaticHelpModules/Button";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { auth, dataBase } from "../../config/firebase";
 import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
+import { setRivalPlayers } from "../../states/reducers/rivalPlayersReducer";
+import { setResetRivalTeam } from "../../states/reducers/rivalClubReducer";
+import { clearRivalZones } from "../../states/reducers/zonesReducer";
+import { setBackRightRivalSelects } from "../../states/reducers/indexOfZonesReducer";
+import { setBackRightMyTeamSelects } from "../../states/reducers/sequanceOfZonesReducer";
+import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -24,6 +34,18 @@ export function FirstPage() {
   const isRegistratedUser = useSelector((state) => state.isRegistratedUser);
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const admin = auth?.currentUser?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
+
+  function resetTheBoard() {
+    dispatch(setRivalPlayers([]));
+    dispatch(setResetRivalTeam([]));
+    dispatch(setMyTeamPlayers([]));
+    dispatch(setResetMyTeam([]));
+    dispatch(clearRivalZones(Array(6).fill(null)));
+    dispatch(clearMyTeamZones(Array(6).fill(null)));
+    dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
+    dispatch(setBackRightMyTeamSelects([5, 2, 1, 0, 3, 4]));
+    dispatch(setInfoOfPlayer(null));
+  }
 
   function handleSetMyTeam(event) {
     dispatch(setMyTeamPlayers(listOfPlayers, event.target.value));
@@ -52,64 +74,74 @@ export function FirstPage() {
       console.error(error);
     }
   };
-
   return (
     <>
       <div style={{ display: "flex" }}>
         <Squads />
         <div className="rotation">
+          {rivalClub.length !== 0 && (
+            <button onClick={resetTheBoard} className="reset" style={{marginTop:-20}}>
+              Reset
+            </button>
+          )}
           <div style={{ display: "flex", justifyContent: "center" }}>
             {playerInfo && <PersonalInformationOfPlayer link={"page1"} />}
           </div>
-          <ChooseOpponentTeam />
-          <div style={{ marginBottom: 8 }}>
-            {zones.slice(0, 3).map((player, index) =>
-              player ? (
-                <div className="container" key={player.id}>
-                  <IconOfPlayer player={player} zones={zones} />
-                </div>
-              ) : (
-                <div className="container" key={"_" + index}>
-                  {correctNamesOfZones(index)}
-                </div>
-              )
-            )}
-          </div>
-          <div>
-            {myTeamZones.slice(0, 3).map((player, index) =>
-              player ? (
-                <div className="smallBox" key={player.id}>
-                  <IconOfPlayer player={player} />
-                </div>
-              ) : (
-                <div className="smallBox" key={"x" + index}></div>
-              )
-            )}
-          </div>
-          <div style={{ marginBottom: 9 }}>
-            {zones.slice(3, 6).map((player, index) =>
-              player ? (
-                <div className="container" key={player.id}>
-                  <IconOfPlayer player={player} zones={zones} />
-                </div>
-              ) : (
-                <div className="container" key={"_" + index}>
-                  {correctNamesOfZones(index + 3)}
-                </div>
-              )
-            )}
-          </div>
-          <div>
-            {myTeamZones.slice(3, 6).map((player, index) =>
-              player ? (
-                <div className="smallBox" key={player.id}>
-                  <IconOfPlayer player={player} />
-                </div>
-              ) : (
-                <div className="smallBox" key={"x" + index}></div>
-              )
-            )}
-          </div>
+          {rivalClub.length < 1 ? (
+            <ChooseOpponentTeam />
+          ) : (
+            <div>
+              <div style={{ marginBottom: 8 }}>
+                {zones.slice(0, 3).map((player, index) =>
+                  player ? (
+                    <div className="container" key={player.id}>
+                      <IconOfPlayer player={player} zones={zones} />
+                    </div>
+                  ) : (
+                    <div className="container" key={"_" + index}>
+                      {correctNamesOfZones(index)}
+                    </div>
+                  )
+                )}
+              </div>
+              <div>
+                {myTeamZones.slice(0, 3).map((player, index) =>
+                  player ? (
+                    <div className="smallBox" key={player.id}>
+                      <IconOfPlayer player={player} />
+                    </div>
+                  ) : (
+                    <div className="smallBox" key={"x" + index}></div>
+                  )
+                )}
+              </div>
+              <div style={{ marginBottom: 9 }}>
+                {zones.slice(3, 6).map((player, index) =>
+                  player ? (
+                    <div className="container" key={player.id}>
+                      <IconOfPlayer player={player} zones={zones} />
+                    </div>
+                  ) : (
+                    <div className="container" key={"_" + index}>
+                      {correctNamesOfZones(index + 3)}
+                    </div>
+                  )
+                )}
+              </div>
+              <div>
+                {myTeamZones.slice(3, 6).map((player, index) =>
+                  player ? (
+                    <div className="smallBox" key={player.id}>
+                      <IconOfPlayer player={player} />
+                    </div>
+                  ) : (
+                    <div className="smallBox" key={"x" + index}></div>
+                  )
+                )}
+              </div>
+            </div>
+          )}
+
           {!zones.includes(null) && admin && (
             <div style={{ marginTop: -30 }}>
               <Button onClick={saveStartingSix} value={"Save starting six"} />
@@ -133,14 +165,16 @@ export function FirstPage() {
           <Squads team={"my"} />
         ) : (
           <div className="teamsquad">
-            <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
-              <option value="Choose home team">Choose team</option>
-              {listOfTeams.map((team) => (
-                <option key={team.id} value={team.name}>
-                  {team.name}
-                </option>
-              ))}
-            </select>
+            {rivalClub.length !== 0 && (
+              <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
+                <option value="Choose home team">Choose your team</option>
+                {listOfTeams.map((team) => (
+                  <option key={team.id} value={team.name}>
+                    {team.name}
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
         )}
       </div>

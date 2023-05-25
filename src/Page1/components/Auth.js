@@ -81,12 +81,20 @@ export function Auth() {
             />
             <h2>{userInfo.displayName}</h2>
           </div>
-          <div style={{ fontSize: 40, fontWeight: 600 }}>
-            {rivalClub.name} vs {myClub.name}
-          </div>
+          {rivalClub.length === 0 ? (
+            <div className="matchup">
+              <div>Choose rival team</div>
+            </div>
+          ) : (
+            <div className="matchup">
+              <img src={rivalClub.logo} alt=""></img>
+              vs
+              {myClub.length !== 0 && <img src={myClub.logo} alt=""></img>}
+            </div>
+          )}
         </>
       )}
-      {!isRegistratedUser && <div style={{ height: 67.8, width: 400 }}></div>}
+      {!isRegistratedUser && <div style={{ height: 80, width: 400 }}></div>}
       <div className="registrPanel">
         {!isRegistratedUser && (
           <div style={{ display: "flex", alignItems: "center" }}>

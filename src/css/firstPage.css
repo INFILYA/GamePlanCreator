@@ -12,10 +12,9 @@ body {
   font-size: 25px;
   width: 22%;
   min-width: 280px;
-  border: 4px dimgray solid;
   background-color: gainsboro;
   text-align: center;
-  padding: 0px 10px;
+  padding: 0px 10px 10px 10px;
   border-radius: 45px;
   min-height: 700px;
   box-sizing: border-box;
@@ -38,11 +37,11 @@ body {
   display: block;
   align-items: center;
   box-sizing: border-box;
-  border: 4px solid black;
   border-radius: 20px;
   padding: 10px 10px 0px 10px;
   z-index: 5;
-  background-color: gainsboro;
+  border: 1px solid black;
+  background-color: lightsteelblue;
   justify-content: space-around;
 }
 .firstpage .hideIcon img {
@@ -164,7 +163,7 @@ body {
   border-radius: 45px;
 }
 .firstpage .opponentTeamList {
-  margin-top: -20px;
+  margin-top: 20px;
 }
 .firstpage .rotation .reset {
   font-size: 20px;
@@ -176,18 +175,6 @@ body {
 .firstpage .rotation .hideIcon {
   position: absolute;
   margin-top: 50px;
-}
-.firstpage .opponentTeamList .opponentTeams {
-  font-size: 20px;
-  padding: 5px;
-  border: 4px black solid;
-  background-color: gold;
-  text-align: center;
-  margin: 10px;
-  display: inline-block;
-  border-radius: 45px;
-  cursor: pointer;
-  font-weight: bold;
 }
 .opponentTeams:hover {
   box-shadow: 0 15px 20px gold;
@@ -297,7 +284,7 @@ select {
   margin: 10px;
   border: none;
   background-color: gold;
-  padding: 5px 10px;
+  padding: 5px;
   border-radius: 50px;
   font-weight: bold;
   border: 1px solid black;
@@ -349,4 +336,29 @@ select {
   transform: translateY(-7px);
   transition: 0.3s;
   background-color: lemonchiffon;
+}
+.matchup {
+  font-size: 40px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+.matchup img {
+  width: 80px;
+  height: 80px;
+  margin: 0px 20px;
+  box-sizing: border-box;
+}
+.firstpage .opponentTeamList .Logo {
+  width: 155 px;
+  height: 160px;
+  padding: 40px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+}
+.firstpage .opponentTeamList .Logo:hover {
+  transform: translateY(-15px);
+  transition: 1s;
+  transform: scale(1.5);
 }
