@@ -351,9 +351,9 @@ select {
   box-sizing: border-box;
 }
 .firstpage .opponentTeamList .Logo {
-  width: 155 px;
-  height: 160px;
-  padding: 40px;
+  width: 145 px;
+  height: 150px;
+  padding: 10px 47px;
   border: 2px solid transparent;
   border-radius: 3px;
 }
