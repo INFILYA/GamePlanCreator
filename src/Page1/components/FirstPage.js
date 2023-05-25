@@ -80,7 +80,7 @@ export function FirstPage() {
         <Squads />
         <div className="rotation">
           {rivalClub.length !== 0 && (
-            <button onClick={resetTheBoard} className="reset" style={{marginTop:-20}}>
+            <button onClick={resetTheBoard} className="reset" style={{ marginTop: -20 }}>
               Reset
             </button>
           )}
@@ -167,7 +167,7 @@ export function FirstPage() {
           <div className="teamsquad">
             {rivalClub.length !== 0 && (
               <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
-                <option value="Choose home team">Choose your team</option>
+                <option value="Choose home team">Choose team</option>
                 {listOfTeams.map((team) => (
                   <option key={team.id} value={team.name}>
                     {team.name}

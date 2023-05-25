@@ -51,7 +51,7 @@ const ratings = (
 const personalInfo = (
   <div>
     І на додачу , персональна інформація по кожному гравцю з діаграмою ефективності в атаці і на
-    подачі.
+    подачі. На даний момент наявна інформація більше ніж на 100 гравців.
     <img alt="" className="aboutInfo" />
   </div>
 );
@@ -119,7 +119,8 @@ const ratingsEng = (
 const personalInfoEng = (
   <div>
     And as an addition, there is personal information available for each player, including a diagram
-    showing their efficiency in attack and serving.
+    showing their efficiency in attack and serving. At the moment, information is available for more
+    than 100 players.
     <img alt="" className="aboutInfo" />
   </div>
 );
