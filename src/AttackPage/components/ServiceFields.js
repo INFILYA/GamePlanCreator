@@ -12,11 +12,13 @@ import { CheckEquality } from "./CheckEquality";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { dataBase } from "../../config/firebase";
 import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
+import { setUserVersion } from "../../states/reducers/userVersionReducer";
 
 export function ServiceFields() {
   const dispatch = useDispatch();
   const playersCollectionRefs = collection(dataBase, "players");
   const clubsCollectionRefs = collection(dataBase, "clubs");
+  const userVersion = useSelector((state) => state.userVersion);
   const playerInfo = useSelector((state) => state.playerInfo);
   const allPlayers = useSelector((state) => state.listOfPlayers);
   const teams = useSelector((state) => state.listOfTeams);
@@ -115,6 +117,7 @@ export function ServiceFields() {
       team.age = +teamAge.toFixed(1);
       ServiceByZone = res;
       playerInfo[nameOfZone] = ServiceByZone;
+      refreshVersionOFAdmin(1);
       savePlayer(playerInfo); //сохраняю одного игрока
       saveTeam(team); // сохраняю команду
       setSaveDataOfServices(!saveDataOfServices);
@@ -130,11 +133,22 @@ export function ServiceFields() {
     setDisableSwitch(!disableSwitch);
   }
   function returnOldData() {
+    refreshVersionOFAdmin(-1);
     savePlayer(previousPlayerData);
     saveTeam(previousTeamData);
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
   }
+
+  const refreshVersionOFAdmin = async (count) => {
+    try {
+      const docVersionRef = doc(dataBase, "versionChecker", "currentVersion");
+      await setDoc(docVersionRef, { currentVersion: userVersion + count });
+      dispatch(setUserVersion(userVersion + count));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const savePlayer = async (player) => {
     try {

@@ -81,7 +81,7 @@ export function Squads({ team }) {
         </div>
         {players.map((player) => (
           <div
-            key={player.id}
+            key={player.name}
             className="playerSurname"
             style={team === "my" ? { direction: "rtl" } : {}}
           >

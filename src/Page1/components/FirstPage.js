@@ -13,7 +13,7 @@ import { setMyTeam, setResetMyTeam } from "../../states/reducers/myClubReducer";
 import { correctNamesOfZones } from "../../Datas/api";
 import { Button } from "../../StaticHelpModules/Button";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
-import { auth, dataBase } from "../../config/firebase";
+import { dataBase } from "../../config/firebase";
 import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
 import { setRivalPlayers } from "../../states/reducers/rivalPlayersReducer";
 import { setResetRivalTeam } from "../../states/reducers/rivalClubReducer";
@@ -32,8 +32,9 @@ export function FirstPage() {
   const myTeamZones = useSelector((state) => state.myTeamZones);
   const myClub = useSelector((state) => state.myClub);
   const isRegistratedUser = useSelector((state) => state.isRegistratedUser);
+  const userInfo = useSelector((state) => state.userInfo);
   const clubsCollectionRefs = collection(dataBase, "clubs");
-  const admin = auth?.currentUser?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
+  const admin = userInfo?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
 
   function resetTheBoard() {
     dispatch(setRivalPlayers([]));
@@ -94,7 +95,7 @@ export function FirstPage() {
               <div style={{ marginBottom: 8 }}>
                 {zones.slice(0, 3).map((player, index) =>
                   player ? (
-                    <div className="container" key={player.id}>
+                    <div className="container" key={player.name}>
                       <IconOfPlayer player={player} zones={zones} />
                     </div>
                   ) : (
@@ -107,7 +108,7 @@ export function FirstPage() {
               <div>
                 {myTeamZones.slice(0, 3).map((player, index) =>
                   player ? (
-                    <div className="smallBox" key={player.id}>
+                    <div className="smallBox" key={player.name}>
                       <IconOfPlayer player={player} />
                     </div>
                   ) : (
@@ -118,7 +119,7 @@ export function FirstPage() {
               <div style={{ marginBottom: 9 }}>
                 {zones.slice(3, 6).map((player, index) =>
                   player ? (
-                    <div className="container" key={player.id}>
+                    <div className="container" key={player.name}>
                       <IconOfPlayer player={player} zones={zones} />
                     </div>
                   ) : (
@@ -131,7 +132,7 @@ export function FirstPage() {
               <div>
                 {myTeamZones.slice(3, 6).map((player, index) =>
                   player ? (
-                    <div className="smallBox" key={player.id}>
+                    <div className="smallBox" key={player.name}>
                       <IconOfPlayer player={player} />
                     </div>
                   ) : (
@@ -152,7 +153,7 @@ export function FirstPage() {
               <button onClick={moveRotationForward}>-</button>
               {myTeamZones.map((player, index) =>
                 player && player.position === "Setter" ? (
-                  <span key={player.id} style={{ marginLeft: 50, marginRight: 50, fontSize: 35 }}>
+                  <span key={player.name} style={{ marginLeft: 50, marginRight: 50, fontSize: 35 }}>
                     {correctNamesOfZones(index)}
                   </span>
                 ) : null

@@ -30,7 +30,7 @@ export function zonesReducer(state = defaultState.zones, action) {
       const correctStartingSix = [];
       for (let i = 0; i < startingSix.length; i++) {
         for (let j = 0; j < allPlayers.length; j++) {
-          if (startingSix[i] === allPlayers[j].id) {
+          if (startingSix[i] === allPlayers[j].name) {
             correctStartingSix.push(allPlayers[j]);
           }
         }

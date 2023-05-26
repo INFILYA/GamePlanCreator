@@ -14,4 +14,5 @@ export const defaultState = {
   isRegistratedUser: false,
   changeLanguage: false,
   isShowedTutorial: false,
+  userVersion: null,
 };

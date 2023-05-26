@@ -12,11 +12,13 @@ import { CheckEquality } from "./CheckEquality";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { dataBase } from "../../config/firebase";
 import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
+import { setUserVersion } from "../../states/reducers/userVersionReducer";
 
 export function AttackFields() {
   const dispatch = useDispatch();
   const playersCollectionRefs = collection(dataBase, "players");
   const clubsCollectionRefs = collection(dataBase, "clubs");
+  const userVersion = useSelector((state) => state.userVersion);
   const playerInfo = useSelector((state) => state.playerInfo);
   const allPlayers = useSelector((state) => state.listOfPlayers);
   const teams = useSelector((state) => state.listOfTeams);
@@ -125,6 +127,7 @@ export function AttackFields() {
       team.age = +teamAge.toFixed(1);
       AttacksByZone = result;
       playerInfo[nameOfZone] = AttacksByZone;
+      refreshVersionOFAdmin(1); //перезаписываю версию
       savePlayer(playerInfo); //сохраняю одного игрока
       saveTeam(team); // сохраняю команду
       setSaveDataOfAttacks(!saveDataOfAttacks);
@@ -140,8 +143,9 @@ export function AttackFields() {
     setDisableSwitch(!disableSwitch);
   }
   function returnOldData() {
-    savePlayer(previousPlayerData);
-    saveTeam(previousTeamData);
+    refreshVersionOFAdmin(-1); //откатываю версию
+    savePlayer(previousPlayerData); //лткатываю данные одного игрока
+    saveTeam(previousTeamData); // откатываю данные команды
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
   }
@@ -162,10 +166,20 @@ export function AttackFields() {
     setShowDataOfAttacks(!showDataOfAttacks);
   }
 
+  const refreshVersionOFAdmin = async (count) => {
+    try {
+      const docVersionRef = doc(dataBase, "versionChecker", "currentVersion");
+      await setDoc(docVersionRef, { currentVersion: userVersion + count });
+      dispatch(setUserVersion(userVersion + count));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const savePlayer = async (player) => {
     try {
-      const docRef = doc(dataBase, "players", player.id);
-      await setDoc(docRef, player);
+      const docPlayerRef = doc(dataBase, "players", player.id);
+      await setDoc(docPlayerRef, player);
       const data = await getDocs(playersCollectionRefs);
       const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       dispatch(setAllPlayers(list));
@@ -176,8 +190,8 @@ export function AttackFields() {
   };
   const saveTeam = async (team) => {
     try {
-      const docRef = doc(dataBase, "clubs", team.id);
-      await setDoc(docRef, team);
+      const docTeamRef = doc(dataBase, "clubs", team.id);
+      await setDoc(docTeamRef, team);
       const data = await getDocs(clubsCollectionRefs);
       const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       dispatch(setAllTeams(list));

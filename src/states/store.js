@@ -16,6 +16,7 @@ import { userInfoReducer } from "./reducers/userInfoReducer";
 import { changeLanguageReducer } from "./reducers/changeLanguageReducer";
 import { isRegistratedUserReducer } from "./reducers/isRegistratedUserReducer";
 import { isShowedTutorialReducer } from "./reducers/isShowedTutorialReducer";
+import { userVersionReducer } from "./reducers/userVersionReducer";
 
 const rootReducer = combineReducers({
   listOfTeams: listOfTeamsReducer,
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   isRegistratedUser: isRegistratedUserReducer,
   changeLanguage: changeLanguageReducer,
   isShowedTutorial: isShowedTutorialReducer,
+  userVersion: userVersionReducer,
 });
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
