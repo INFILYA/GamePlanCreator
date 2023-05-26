@@ -16,24 +16,14 @@
   z-index: 1;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
 }
-.servicePage .serviceField {
-  background: url(../photos/area8.jpg) no-repeat center center;
-  background-position-x: 0.7rem;
-  text-align: center;
-  background-size: 98%;
-  width: 540px;
-  height: 700px;
-  background-position-y: 0.2rem;
-  display: inline-block;
-}
 .typeOfService {
   font-size: 25px;
-  width: 313px;
+  width: 316px;
   text-align: center;
   background-color: #0272be;
   color: white;
   font-weight: bold;
-  margin: -5px 0px 0px 0px;
+  margin: -5px 1px 0px 0px;
 }
 .typeOfService[disabled] {
   opacity: 1;

@@ -68,16 +68,10 @@
   display: none;
 }
 .playArea {
-  background: url(../photos/area8.jpg) no-repeat center center;
-  background-position-x: center;
-  background-position-y: center;
-  background-size: auto;
-  background-position-x: 0.7rem;
+  background: url(../photos/area8.jpg) no-repeat;
   text-align: center;
-  background-size: 98%;
-  width: 540px;
+  width: 525px;
   height: 700px;
-  background-position-y: 0.2rem;
   display: inline-block;
   .compareFields {
     margin-top: 40px;

@@ -190,7 +190,7 @@ export function ServiceFields() {
 
   return (
     <>
-      <form className="serviceField" onSubmit={(event) => event.preventDefault()}>
+      <form className="playArea" onSubmit={(event) => event.preventDefault()}>
         <select
           className="typeOfService"
           onChange={!showDataOfAttacks ? onHandleCountClick : showData}
