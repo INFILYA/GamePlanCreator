@@ -79,7 +79,7 @@ export function ServiceFields() {
   function calculateForData(obj) {
     if (obj === playerInfo) {
       diagrammValue.plusMinusOnService =
-        diagrammValue.aces +
+        diagrammValue.aces * 2 +
         diagrammValue.servicePlus * 0.5 -
         diagrammValue.serviceFailed -
         diagrammValue.serviceMinus * 0.5;

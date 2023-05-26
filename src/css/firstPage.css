@@ -356,6 +356,7 @@ select {
   padding: 10px 47px;
   border: 2px solid transparent;
   border-radius: 3px;
+  cursor: pointer;
 }
 .firstpage .opponentTeamList .Logo:hover {
   transform: translateY(-15px);
