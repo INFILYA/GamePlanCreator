@@ -4,6 +4,7 @@ import {
   FacebookAuthProvider,
   createUserWithEmailAndPassword,
   signOut,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { SetDate } from "./SetDate";
@@ -17,6 +18,7 @@ export function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showEmailPanel, setShowEmailPanel] = useState(false);
+  const [showSignInPanel, setShowSignInPanel] = useState(false);
   const rivalClub = useSelector((state) => state.rivalClub);
   const myClub = useSelector((state) => state.myClub);
   const userInfo = useSelector((state) => state.userInfo);
@@ -73,12 +75,25 @@ export function Auth() {
       await createUserWithEmailAndPassword(auth, email, password);
     } catch (err) {
       console.error(err);
+      alert("Sorry , account with this name already existed. Please , try again");
     } finally {
       saveUserInfo();
       setShowEmailPanel(false);
+      setShowSignInPanel(!showSignInPanel);
     }
   }
-
+  async function logInWithEmail(e) {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (err) {
+      console.error(err);
+      alert("Sorry , we cant find your account. Please , create a new one");
+    } finally {
+      saveUserInfo();
+      setShowEmailPanel(!showEmailPanel);
+    }
+  }
   return (
     <div
       style={{
@@ -117,7 +132,10 @@ export function Auth() {
         {!isRegistratedUser && (
           <div style={{ display: "flex", alignItems: "center" }}>
             {showEmailPanel && (
-              <form className="emailPanel" onSubmit={signInWithEmail}>
+              <form
+                className="emailPanel"
+                onSubmit={showSignInPanel ? signInWithEmail : logInWithEmail}
+              >
                 <div>
                   <label>Email:</label>
                   <input
@@ -134,15 +152,34 @@ export function Auth() {
                     required
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <button type="submit">Sign in</button>
-                  <button onClick={() => setShowEmailPanel(!showEmailPanel)}>Back</button>
-                  <div></div>
+                  {showSignInPanel ? (
+                    <>
+                      <button type="submit">Sign in</button>
+                      <button type="button" onClick={() => setShowSignInPanel(!showSignInPanel)}>
+                        Back
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button type="submit">Log in</button>
+                      <button type="button" onClick={() => setShowEmailPanel(!showEmailPanel)}>
+                        Back
+                      </button>
+                      <div>Dont have account?</div>
+                      <button
+                        type="button"
+                        className="createAccount"
+                        onClick={() => setShowSignInPanel(!showSignInPanel)}
+                      >
+                        Create an account
+                      </button>
+                    </>
+                  )}
                 </div>
               </form>
             )}
             {!showEmailPanel && (
               <>
-                <label style={{ fontSize: 30, fontWeight: "bold" }}>Sign in with:</label>
                 <button
                   className="email"
                   onClick={() => setShowEmailPanel(!showEmailPanel)}

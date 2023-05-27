@@ -58,7 +58,7 @@ const personalInfo = (
 const awarness = (
   <div>
     Повний функціонал програми ви зможете отримати лише за умови простої та безкоштовної регестрації
-    через Google або Facebook.
+    через Google , Facebook або @Email.
     <img alt="" className="awarness" />
   </div>
 );
@@ -127,7 +127,7 @@ const personalInfoEng = (
 const awarnessEng = (
   <div>
     You can access the full functionality of the program only after a simple and free registration
-    via Google or Facebook.
+    via Google , Facebook or @Email.
     <img alt="" className="awarness" />
   </div>
 );

@@ -112,6 +112,7 @@
     @include forText(450px, "../photos/PersonalInfo.jpg");
   }
   .awarness {
-    @include forText(150px, "../photos/Registration.jpg");
+    @include forText(220px, "../photos/Registration.jpg");
+    background-size: 50%;
   }
 }

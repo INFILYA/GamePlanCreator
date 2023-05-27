@@ -34,7 +34,7 @@ export function FirstPage() {
   const myClub = useSelector((state) => state.myClub);
   const userInfo = useSelector((state) => state.userInfo);
   const clubsCollectionRefs = collection(dataBase, "clubs");
-  const admin = userInfo?.uid === "rwjHQE9Rztf8kUBUGr5P4KnGBIO2";
+  const admin = userInfo?.uid === "rYgseT2QJHgENKAlKRqmaixYjRK2";
   const [isRegistratedUser] = useAuthState(auth);
 
   function resetTheBoard() {

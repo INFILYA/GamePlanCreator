@@ -17,7 +17,7 @@ export function Explain({
 }) {
   const userInfo = useSelector((state) => state.userInfo);
   const [isRegistratedUser] = useAuthState(auth);
-  const admin = userInfo?.uid === "rwjHQE9Rztf8kUBUGr5P4KnGBIO2";
+  const admin = userInfo?.uid === "rYgseT2QJHgENKAlKRqmaixYjRK2";
   return (
     <>
       <div>
