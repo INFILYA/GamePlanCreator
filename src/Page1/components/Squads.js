@@ -11,6 +11,8 @@ import {
 import { setSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
 import { Button } from "../../StaticHelpModules/Button";
 import { correctNamesOfZones } from "../../Datas/api";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../config/firebase";
 
 export function Squads({ team }) {
   const dispatch = useDispatch();
@@ -20,12 +22,17 @@ export function Squads({ team }) {
   const myTeamPlayers = useSelector((state) => state.myTeamPlayers);
   const indexOfZones = useSelector((state) => state.indexOfZones);
   const sequanceOfZones = useSelector((state) => state.sequanceOfZones);
-  const isRegistratedUser = useSelector((state) => state.isRegistratedUser);
+  const zones = useSelector((state) => state.zones);
+  const [isRegistratedUser] = useAuthState(auth);
 
   const club = team === "my" ? myClub : rivalClub;
   const players = team === "my" ? myTeamPlayers : rivalPlayers;
   const Zones = team === "my" ? sequanceOfZones : indexOfZones;
-
+  const showButtonStartingSix =
+    team !== "my" &&
+    zones.every((zone) => zone === null) &&
+    isRegistratedUser &&
+    rivalPlayers.length > 1;
 
   function myTeamActions(event) {
     setPlayerToMyTeamZone(event);
@@ -85,68 +92,66 @@ export function Squads({ team }) {
             className="playerSurname"
             style={team === "my" ? { direction: "rtl" } : {}}
           >
-              <div className="numberPlusInput" onClick={() => setPlayerInfo(player)}>
-                <button
+            <div className="numberPlusInput" onClick={() => setPlayerInfo(player)}>
+              <button
+                type="text"
+                disabled
+                className="playerNumber"
+                style={
+                  team === "my"
+                    ? {
+                        backgroundColor: "fuchsia",
+                        borderTopRightRadius: 20,
+                        borderBottomRightRadius: 20,
+                        borderTopLeftRadius: 0,
+                        borderBottomLeftRadius: 0,
+                      }
+                    : {}
+                }
+              >
+                {player.number}
+              </button>
+              <button
+                type="text"
+                className="input"
+                style={
+                  team === "my"
+                    ? {
+                        backgroundColor: "darkgray",
+                        borderTopLeftRadius: 20,
+                        borderBottomLeftRadius: 20,
+                        borderTopRightRadius: 0,
+                        borderBottomRightRadius: 0,
+                      }
+                    : {}
+                }
+              >
+                {player.name}
+              </button>
+            </div>
+            <div>
+              {Zones && (
+                <select
+                  className="moveToBoard"
                   type="text"
-                  disabled
-                  className="playerNumber"
-                  style={
-                    team === "my"
-                      ? {
-                          backgroundColor: "fuchsia",
-                          borderTopRightRadius: 20,
-                          borderBottomRightRadius: 20,
-                          borderTopLeftRadius: 0,
-                          borderBottomLeftRadius: 0,
-                        }
-                      : {}
-                  }
+                  onChange={team === "my" ? myTeamActions : rivalTeamActions}
                 >
-                  {player.number}
-                </button>
-                <button
-                  type="text"
-                  className="input"
-                  style={
-                    team === "my"
-                      ? {
-                          backgroundColor: "darkgray",
-                          borderTopLeftRadius: 20,
-                          borderBottomLeftRadius: 20,
-                          borderTopRightRadius: 0,
-                          borderBottomRightRadius: 0,
-                        }
-                      : {}
-                  }
-                >
-                  {player.name}
-                </button>
-              </div>
-              <div>
-                {Zones && (
-                  <select
-                    className="moveToBoard"
-                    type="text"
-                    onChange={team === "my" ? myTeamActions : rivalTeamActions}
-                  >
-                    {team === "my" ? (
-                      <option defaultValue="◀">◀</option>
-                    ) : (
-                      <option defaultValue="▶">▶</option>
-                    )}
-                    {Zones.map((zone, index) => (
-                      <option key={index} value={[player.id, zone]}>
-                        {correctNamesOfZones(zone)}
-                      </option>
-                    ))}
-                  </select>
-                )}
-              </div>
+                  {team === "my" ? (
+                    <option defaultValue="◀">◀</option>
+                  ) : (
+                    <option defaultValue="▶">▶</option>
+                  )}
+                  {Zones.map((zone, index) => (
+                    <option key={index} value={[player.id, zone]}>
+                      {correctNamesOfZones(zone)}
+                    </option>
+                  ))}
+                </select>
+              )}
+            </div>
           </div>
         ))}
-        {team !== "my" && rivalPlayers.length > 11 && isRegistratedUser && (
-          <Button onClick={showStartingSix} value={"Show Starting six"} />
-        )}
+        {showButtonStartingSix && <Button onClick={showStartingSix} value={"Show Starting six"} />}
       </div>
     </>
   );

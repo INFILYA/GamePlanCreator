@@ -6,10 +6,11 @@ import "../css/service.css";
 import "../css/ratings.css";
 import { NavLink } from "react-router-dom";
 import { FirstPage } from "./components/FirstPage";
-import { useSelector } from "react-redux";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../config/firebase";
 
 export default function Page1() {
-  const isRegistratedUser = useSelector((state) => state.isRegistratedUser);
+  const [isRegistratedUser] = useAuthState(auth);
   return (
     <>
       <FirstPage />

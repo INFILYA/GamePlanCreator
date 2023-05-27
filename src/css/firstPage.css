@@ -32,7 +32,19 @@ body {
   text-align: center;
   font-weight: bold;
 }
-
+.firstpage .opponentTeamList .Logo {
+  width: 145 px;
+  height: 150px;
+  padding: 10px 47px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.firstpage .opponentTeamList .Logo:hover {
+  transform: translateY(-15px);
+  transition: 1s;
+  transform: scale(1.5);
+}
 .firstpage .hideIcon {
   display: block;
   align-items: center;
@@ -295,71 +307,3 @@ select {
   transition: 0.3s;
 }
 
-.registrPanel button {
-  font-size: 20px;
-  margin: 5px;
-  padding: 5px;
-  border-radius: 10px;
-}
-
-.registrPanel .google:hover,
-.registrPanel .facebook:hover {
-  box-shadow: 0 15px 20px lemonchiffon;
-  transform: translateY(-7px);
-  transition: 0.3s;
-}
-.registrPanel .google,
-.registrPanel .facebook {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  border: none;
-  margin: 0px 10px;
-}
-.registrPanel .google {
-  background: url("../photos/google.jpg") no-repeat center center;
-  background-size: cover;
-}
-.registrPanel .facebook {
-  background: url("../photos/facebook.jpg") no-repeat center center;
-  background-size: cover;
-}
-.registrPanel .logout {
-  padding: 10px;
-  font-weight: bold;
-  background-color: lemonchiffon;
-  box-sizing: border-box;
-  border: 4px solid silver;
-}
-.registrPanel .logout:hover {
-  box-shadow: 0 15px 20px lemonchiffon;
-  transform: translateY(-7px);
-  transition: 0.3s;
-  background-color: lemonchiffon;
-}
-.matchup {
-  font-size: 40px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  height: 80px;
-}
-.matchup img {
-  width: 80px;
-  height: 80px;
-  margin: 0px 20px;
-  box-sizing: border-box;
-}
-.firstpage .opponentTeamList .Logo {
-  width: 145 px;
-  height: 150px;
-  padding: 10px 47px;
-  border: 2px solid transparent;
-  border-radius: 3px;
-  cursor: pointer;
-}
-.firstpage .opponentTeamList .Logo:hover {
-  transform: translateY(-15px);
-  transition: 1s;
-  transform: scale(1.5);
-}

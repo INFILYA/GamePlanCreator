@@ -9,6 +9,7 @@ import { setAllPlayers } from "./states/reducers/listOfPlayersReducer";
 import { setAllTeams } from "./states/reducers/listOfTeamsReducer";
 import { Auth } from "./Page1/components/Auth";
 import "../src/css/newTutorial.css";
+import "../src/css/newHeader.css";
 import {
   LiberosRating,
   MiddleBlockersRating,

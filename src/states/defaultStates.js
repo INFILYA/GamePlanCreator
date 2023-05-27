@@ -11,7 +11,6 @@ export const defaultState = {
   sequanceOfZones: [5, 2, 1, 0, 3, 4],
   playerInfo: null,
   userInfo: null,
-  isRegistratedUser: false,
   changeLanguage: false,
   isShowedTutorial: false,
   userVersion: null,

@@ -5,11 +5,13 @@ import Diagramm from "./components/Diagramm";
 import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
 import { compare } from "../Datas/api";
 import { upgradeAge } from "../states/reducers/listOfPlayersReducer";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../config/firebase";
 
 export function PersonalInformationOfPlayer({ link }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isRegistratedUser = useSelector((state) => state.isRegistratedUser);
+  const [isRegistratedUser] = useAuthState(auth);
   const playerInfos = useSelector((state) => state.playerInfo);
   const playerInfo = upgradeAge(playerInfos);
   function goHome() {

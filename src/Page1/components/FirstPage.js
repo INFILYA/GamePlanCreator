@@ -13,7 +13,7 @@ import { setMyTeam, setResetMyTeam } from "../../states/reducers/myClubReducer";
 import { correctNamesOfZones } from "../../Datas/api";
 import { Button } from "../../StaticHelpModules/Button";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
-import { dataBase } from "../../config/firebase";
+import { auth, dataBase } from "../../config/firebase";
 import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
 import { setRivalPlayers } from "../../states/reducers/rivalPlayersReducer";
 import { setResetRivalTeam } from "../../states/reducers/rivalClubReducer";
@@ -21,6 +21,7 @@ import { clearRivalZones } from "../../states/reducers/zonesReducer";
 import { setBackRightRivalSelects } from "../../states/reducers/indexOfZonesReducer";
 import { setBackRightMyTeamSelects } from "../../states/reducers/sequanceOfZonesReducer";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -31,10 +32,10 @@ export function FirstPage() {
   const zones = useSelector((state) => state.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones);
   const myClub = useSelector((state) => state.myClub);
-  const isRegistratedUser = useSelector((state) => state.isRegistratedUser);
   const userInfo = useSelector((state) => state.userInfo);
   const clubsCollectionRefs = collection(dataBase, "clubs");
-  const admin = userInfo?.uid === "D7yAMMxiXnMbYP7OjrnEPCqV64H2";
+  const admin = userInfo?.uid === "rwjHQE9Rztf8kUBUGr5P4KnGBIO2";
+  const [isRegistratedUser] = useAuthState(auth);
 
   function resetTheBoard() {
     dispatch(setRivalPlayers([]));
