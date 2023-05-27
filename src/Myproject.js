@@ -24,6 +24,7 @@ import { compare } from "./Datas/api";
 import { ENGTUTORIAL, UKRTUTORIAL } from "./StaticHelpModules/Button";
 import { Tutorial } from "./Tutorial";
 import { setUserVersion } from "./states/reducers/userVersionReducer";
+import { setisShowedTutorial } from "./states/reducers/isShowedTutorialReducer";
 
 function Myproject() {
   const dispatch = useDispatch();
@@ -41,12 +42,13 @@ function Myproject() {
         const adminVersion = list[0].currentVersion;
         dispatch(setUserVersion(adminVersion));
         if (adminVersion === userVersion) {
-          dispatch(setAllTeams(JSON.parse(localStorage.getItem("clubs"))));
           dispatch(setAllPlayers(JSON.parse(localStorage.getItem("players"))));
           console.log(`Versions are equal ${userVersion} = ${adminVersion}`);
           return;
         }
         if (adminVersion !== userVersion) {
+          dispatch(setisShowedTutorial(false));
+          localStorage.setItem("isShowedTutorial", JSON.stringify(false));
           localStorage.setItem("userVersion", JSON.stringify(adminVersion));
           getTeams();
           getPlayers();
