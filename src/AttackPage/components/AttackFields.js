@@ -123,8 +123,10 @@ export function AttackFields() {
       const team = teams.find((team) => team.name === playerInfo.teamid);
       const upgradedPlayers = players.map((player) => upgradeAge(player));
       const teamAge = upgradedPlayers.reduce((a, b) => a + b.age, 0) / players.length;
+      const teamHeight = upgradedPlayers.reduce((a, b) => a + b.height, 0) / players.length;
       calculateForData(team);
       team.age = +teamAge.toFixed(1);
+      team.height = +teamHeight.toFixed(1);
       AttacksByZone = result;
       playerInfo[nameOfZone] = AttacksByZone;
       refreshVersionOFAdmin(1); //перезаписываю версию

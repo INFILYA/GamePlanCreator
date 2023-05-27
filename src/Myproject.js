@@ -43,7 +43,8 @@ function Myproject() {
         dispatch(setUserVersion(adminVersion));
         if (adminVersion === userVersion) {
           dispatch(setAllPlayers(JSON.parse(localStorage.getItem("players"))));
-          console.log(`Versions are equal ${userVersion} = ${adminVersion}`);
+          dispatch(setAllTeams(JSON.parse(localStorage.getItem("clubs"))));
+          console.log(`Versions of DATA are equal ${userVersion} = ${adminVersion}`);
           return;
         }
         if (adminVersion !== userVersion) {
@@ -52,7 +53,7 @@ function Myproject() {
           localStorage.setItem("userVersion", JSON.stringify(adminVersion));
           getTeams();
           getPlayers();
-          console.log(`Versions are not equal ${userVersion} != ${adminVersion}`);
+          console.log(`Versions of DATA are not equal ${userVersion} != ${adminVersion}`);
           return;
         }
       } catch (error) {

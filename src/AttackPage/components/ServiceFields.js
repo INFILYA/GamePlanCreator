@@ -113,7 +113,9 @@ export function ServiceFields() {
       const team = teams.find((team) => team.name === playerInfo.teamid);
       const upgradedPlayers = players.map((player) => upgradeAge(player));
       const teamAge = upgradedPlayers.reduce((a, b) => a + b.age, 0) / players.length;
+      const teamHeight = upgradedPlayers.reduce((a, b) => a + b.height, 0) / players.length;
       calculateForData(team);
+      team.height = +teamHeight.toFixed(1);
       team.age = +teamAge.toFixed(1);
       ServiceByZone = res;
       playerInfo[nameOfZone] = ServiceByZone;

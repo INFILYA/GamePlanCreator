@@ -11,9 +11,11 @@ export default function ShapeForRatings({ amplua }) {
   const [teamsOrPlayers, setTeamsOrPlayers] = useState(
     amplua === "teams" ? listOfTeams : listOfPlayers.filter((player) => player.position === amplua)
   );
+
   const categorysForAll = [
     { category: "name", text: "Name" },
     { category: "age", text: "Age" },
+    { category: "height", text: "Height" },
     { category: "winPoints", text: " Points in Attack" },
     { category: "plusMinusOnAttack", text: "+/- on Attack" },
     { category: "plusMinusOnService", text: "+/- on Service" },
@@ -22,6 +24,7 @@ export default function ShapeForRatings({ amplua }) {
   const categorysForOthers = [
     { category: "name", text: "Name" },
     { category: "age", text: "Age" },
+    { category: "height", text: "Height" },
     { category: "aces", text: "Aces" },
     { category: "serviceFailed", text: "Service Failed" },
     { category: "plusMinusOnService", text: "+/- on Service" },
@@ -41,8 +44,8 @@ export default function ShapeForRatings({ amplua }) {
   return (
     <>
       <div className="ratingTable">
-        {categorys.map((category) => (
-          <div className="ratingRow" key={category.category}>
+        {categorys.map((category, index) => (
+          <div className="ratingRow" key={index}>
             <div>
               <button
                 onClick={() => countRankings(category.category)}
@@ -53,14 +56,14 @@ export default function ShapeForRatings({ amplua }) {
             </div>
             {teamsOrPlayers.map((player, index) =>
               category.text !== "Name" ? (
-                <span key={player.id}>
+                <span key={index}>
                   {category.category === "percentOfAttack" && amplua !== "Setter"
                     ? player[category.category] + "%"
                     : player[category.category]}
                 </span>
               ) : (
-                <span key={player.id} style={{ display: "flex", justifyContent: "start" }}>
-                  {index + 1}. {player[category.category]}
+                <span key={index} style={{ display: "flex", justifyContent: "start" }}>
+                  {index + 1}. {player[category.category].slice(0, 10)}
                 </span>
               )
             )}
