@@ -51,14 +51,14 @@
 }
 
 .emailPanel {
-  position: absolute;
-  width: 400px;
+  position: fixed;
   background-color: darkgray;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
   z-index: 25;
+  padding: 10px;
 }
 .emailPanel .google {
   background: url("../photos/google.jpg") no-repeat center center;
