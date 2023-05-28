@@ -9,5 +9,5 @@ export function SetDate() {
     hour12: false,
   };
   const Data = date.toLocaleDateString("en-US", options);
-  return <button className="date">{Data}</button>;
+  return <div className="date">{Data}</div>;
 }

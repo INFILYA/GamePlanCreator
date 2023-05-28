@@ -1,65 +1,115 @@
-.registrPanel button {
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  height: 80px;
+}
+.header .block {
+  display: flex;
+  width: 400px;
+  align-items: center;
+}
+.header .matchup {
+  font-size: 40px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+.header .matchup img {
+  width: 80px;
+  height: 80px;
+  margin: 0px 20px;
+  box-sizing: border-box;
+}
+.header .logout {
+  background-color: indianred;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  box-sizing: border-box;
+  border: 4px solid silver;
+}
+.header .login {
+  background-color: cornflowerblue;
+  padding: 10px;
+  font-weight: bold;
+  box-sizing: border-box;
+  border: 4px solid silver;
+}
+.header button {
   font-size: 20px;
   margin: 5px;
   padding: 5px;
   border-radius: 10px;
 }
-.registrPanel button:hover {
+.header button:hover {
   box-shadow: 0 15px 20px lemonchiffon;
   transform: translateY(-7px);
   transition: 0.3s;
 }
-.registrPanel .google {
-  background: url("../photos/google.jpg") no-repeat center center;
-  background-size: cover;
-  border-radius: 50px;
-  width: 50px;
-  height: 50px;
-  border: none;
-  margin: 0px 10px;
-}
-.registrPanel .facebook {
-  background: url("../photos/facebook.jpg") no-repeat center center;
-  background-size: cover;
-  border-radius: 50px;
-  width: 50px;
-  height: 50px;
-  border: none;
-  margin: 0px 10px;
-}
-.registrPanel .email {
-  background: url("../photos/email.jpg") no-repeat center center;
-  background-size: cover;
-  border-radius: 0px;
-  width: 50px;
-  height: 50px;
-  border: none;
-  margin: 0px 10px;
-}
-.registrPanel .logout {
-  padding: 10px;
-  font-weight: bold;
-  background-color: lemonchiffon;
-  box-sizing: border-box;
-  border: 4px solid silver;
-}
-.registrPanel .emailPanel {
+
+.emailPanel {
   position: absolute;
   width: 400px;
   background-color: darkgray;
-  top: 1%;
-  right: 5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 15px;
   z-index: 25;
 }
-.registrPanel .emailPanel .createAccount {
+.emailPanel .google {
+  background: url("../photos/google.jpg") no-repeat center center;
+  background-size: cover;
+  width: 45px;
+  height: 45px;
+  border: none;
+  margin: 10px 10px;
+  border-radius: 50%;
+}
+.emailPanel .google:hover {
+  transform: translateY(-10px);
+  transition: 0.7s;
+  background-color: transparent;
+}
+.emailPanel .facebook {
+  background: url("../photos/facebook.jpg") no-repeat center center;
+  background-size: cover;
+  width: 45px;
+  height: 45px;
+  border: none;
+  margin: 10px 10px;
+  border-radius: 50%;
+}
+.emailPanel .facebook:hover {
+  transform: translateY(-10px);
+  transition: 0.7s;
+  background-color: transparent;
+}
+.emailPanel .email {
+  background: url("../photos/email.jpg") no-repeat center center;
+  background-size: cover;
+  width: 45px;
+  height: 45px;
+  border: none;
+  margin: 10px 10px;
+  border-radius: 50%;
+}
+.emailPanel .email:hover {
+  transform: translateY(-10px);
+  transition: 0.7s;
+  background-color: transparent;
+}
+.emailPanel .createAccount {
   font-size: 15px;
   width: 150px;
   font-size: 100;
   border: none;
-  background-color: cornflowerblue;
+  background-color: transparent;
 }
-.registrPanel .emailPanel input {
+.emailPanel input {
   margin: 10px auto;
   font-size: 25px;
   border-radius: 10px;
@@ -71,7 +121,7 @@
   align-items: center;
   font-weight: bold;
 }
-.registrPanel .emailPanel button {
+.emailPanel button {
   margin: 10px auto;
   font-size: 25px;
   border-radius: 10px;
@@ -84,10 +134,10 @@
   font-weight: bold;
   background-color: cornflowerblue;
 }
-.registrPanel .emailPanel button:hover {
+.emailPanel button:hover {
   background-color: indianred;
 }
-.registrPanel .emailPanel label {
+.emailPanel label {
   margin: 10px auto;
   font-size: 25px;
   border-radius: 10px;
@@ -99,20 +149,6 @@
   align-items: center;
   font-weight: bold;
   font-size: 30px;
-}
-
-.matchup {
-  font-size: 40px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  height: 80px;
-}
-.matchup img {
-  width: 80px;
-  height: 80px;
-  margin: 0px 20px;
-  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=newHeader.css.map */

@@ -25,6 +25,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 export function FirstPage() {
   const dispatch = useDispatch();
+  const [isRegistratedUser] = useAuthState(auth);
   const listOfTeams = useSelector((state) => state.listOfTeams);
   const listOfPlayers = useSelector((state) => state.listOfPlayers);
   const rivalClub = useSelector((state) => state.rivalClub);
@@ -32,10 +33,8 @@ export function FirstPage() {
   const zones = useSelector((state) => state.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones);
   const myClub = useSelector((state) => state.myClub);
-  const userInfo = useSelector((state) => state.userInfo);
   const clubsCollectionRefs = collection(dataBase, "clubs");
-  const admin = userInfo?.uid === "rYgseT2QJHgENKAlKRqmaixYjRK2";
-  const [isRegistratedUser] = useAuthState(auth);
+  const admin = isRegistratedUser?.uid === "rYgseT2QJHgENKAlKRqmaixYjRK2";
 
   function resetTheBoard() {
     dispatch(setRivalPlayers([]));

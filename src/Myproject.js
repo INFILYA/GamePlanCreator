@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setAllPlayers } from "./states/reducers/listOfPlayersReducer";
 import { setAllTeams } from "./states/reducers/listOfTeamsReducer";
-import { Auth } from "./Page1/components/Auth";
+import { Auth } from "./Header/components/Auth";
 import "../src/css/newTutorial.css";
 import "../src/css/newHeader.css";
 import {
@@ -26,6 +26,7 @@ import { ENGTUTORIAL, UKRTUTORIAL } from "./StaticHelpModules/Button";
 import { Tutorial } from "./Tutorial";
 import { setUserVersion } from "./states/reducers/userVersionReducer";
 import { setisShowedTutorial } from "./states/reducers/isShowedTutorialReducer";
+import { Header } from "./Header/Header";
 
 function Myproject() {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ function Myproject() {
   const playersCollectionRefs = collection(dataBase, "players");
   const currentVersion = collection(dataBase, "versionChecker");
   const userVersion = JSON.parse(localStorage.getItem("userVersion")) || null;
+
   useEffect(() => {
     async function checkVersionOfData() {
       try {
@@ -96,9 +98,10 @@ function Myproject() {
         </div>
       )}
       <div className="firstpage">
-        <Auth />
+        <Header />
         <Routes>
           <Route path="/" element={<Page1 />} />
+          <Route path="/Auth" element={<Auth />} />
           <Route path="/Ratings" element={<Ratings />}>
             <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />
             <Route path="/Ratings/OppositesRating" element={<OppositesRating />} />

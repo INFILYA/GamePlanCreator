@@ -1,6 +1,5 @@
 import { Switch } from "antd";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useSelector } from "react-redux";
 import { auth } from "../../config/firebase";
 
 export function Explain({
@@ -15,9 +14,8 @@ export function Explain({
   setShowDataOfAttacks,
   showDataOfAttacks,
 }) {
-  const userInfo = useSelector((state) => state.userInfo);
   const [isRegistratedUser] = useAuthState(auth);
-  const admin = userInfo?.uid === "rYgseT2QJHgENKAlKRqmaixYjRK2";
+  const admin = isRegistratedUser?.uid === "rYgseT2QJHgENKAlKRqmaixYjRK2";
   return (
     <>
       <div>
