@@ -349,7 +349,7 @@ export function AttackFields() {
             <DefenderZone6 />
           </div>
           {!showDataOfAttacks && (
-            <div>
+            <div style={{ display: "contents" }}>
               {classNamesForConesAndInputs.map((el, index) => (
                 <InputForCount
                   key={index}

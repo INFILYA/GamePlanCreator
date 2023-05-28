@@ -271,7 +271,7 @@ export function ServiceFields() {
           <>
             {!showDataOfAttacks && (
               <>
-                <div>
+                <div style={{ display: "contents" }}>
                   {classNamesForConesAndInputs.map((el, index) => (
                     <InputForCount
                       key={index}
