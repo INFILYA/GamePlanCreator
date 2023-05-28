@@ -73,14 +73,6 @@
   border-right: 35px solid transparent;
   rotate: 0deg;
 }
-.playArea .blue5Azone2 {
-  border-bottom: 262px solid transparent;
-  margin-top: 169px;
-  margin-left: -133px;
-  border-left: 0px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: 0deg;
-}
 .playArea .yellow5Bzone2 {
   border-bottom: 271px solid pink;
   margin-top: 158px;
@@ -99,14 +91,6 @@
 }
 .playArea .purple5Bzone2 {
   border-bottom: 271px solid purple;
-  margin-top: 158px;
-  margin-left: -112px;
-  border-left: 5px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -8.7deg;
-}
-.playArea .blue5Bzone2 {
-  border-bottom: 271px solid transparent;
   margin-top: 158px;
   margin-left: -112px;
   border-left: 5px solid transparent;
@@ -137,14 +121,6 @@
   border-right: 35px solid transparent;
   rotate: -19deg;
 }
-.playArea .blue6Azone2 {
-  border-bottom: 271px solid transparent;
-  margin-top: 152px;
-  margin-left: -90px;
-  border-left: 5px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -19deg;
-}
 .playArea .yellow6Bzone2 {
   border-bottom: 271px solid pink;
   margin-top: 142px;
@@ -163,14 +139,6 @@
 }
 .playArea .purple6Bzone2 {
   border-bottom: 271px solid purple;
-  margin-top: 142px;
-  margin-left: -72px;
-  border-left: 10px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -30.4deg;
-}
-.playArea .blue6Bzone2 {
-  border-bottom: 271px solid transparent;
   margin-top: 142px;
   margin-left: -72px;
   border-left: 10px solid transparent;
@@ -201,14 +169,6 @@
   border-right: 35px solid transparent;
   rotate: -43.2deg;
 }
-.playArea .blue1Azone2 {
-  border-bottom: 273px solid transparent;
-  margin-top: 125px;
-  margin-left: -56px;
-  border-left: 16px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -43.2deg;
-}
 .playArea .yellow1Bzone2 {
   border-bottom: 274px solid pink;
   margin-top: 102px;
@@ -227,14 +187,6 @@
 }
 .playArea .purple1Bzone2 {
   border-bottom: 274px solid purple;
-  margin-top: 102px;
-  margin-left: -32px;
-  border-left: 7px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -53deg;
-}
-.playArea .blue1Bzone2 {
-  border-bottom: 274px solid transparent;
   margin-top: 102px;
   margin-left: -32px;
   border-left: 7px solid transparent;
@@ -265,14 +217,6 @@
   border-right: 35px solid transparent;
   rotate: 0deg;
 }
-.playArea .blue5Azone1 {
-  border-bottom: 342px solid transparent;
-  margin-top: 89px;
-  margin-left: -133px;
-  border-left: 0px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: 0deg;
-}
 .playArea .yellow5Bzone1 {
   border-bottom: 350px solid pink;
   margin-top: 80px;
@@ -291,14 +235,6 @@
 }
 .playArea .purple5Bzone1 {
   border-bottom: 350px solid purple;
-  margin-top: 80px;
-  margin-left: -114px;
-  border-left: 5px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -7.6deg;
-}
-.playArea .blue5Bzone1 {
-  border-bottom: 350px solid transparent;
   margin-top: 80px;
   margin-left: -114px;
   border-left: 5px solid transparent;
@@ -329,14 +265,6 @@
   border-right: 35px solid transparent;
   rotate: -15.2deg;
 }
-.playArea .blue6Azone1 {
-  border-bottom: 350px solid transparent;
-  margin-top: 74px;
-  margin-left: -91px;
-  border-left: 5px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -15.2deg;
-}
 .playArea .yellow6Bzone1 {
   border-bottom: 350px solid pink;
   margin-top: 66px;
@@ -355,14 +283,6 @@
 }
 .playArea .purple6Bzone1 {
   border-bottom: 350px solid purple;
-  margin-top: 66px;
-  margin-left: -71px;
-  border-left: 10px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -23.6deg;
-}
-.playArea .blue6Bzone1 {
-  border-bottom: 350px solid transparent;
   margin-top: 66px;
   margin-left: -71px;
   border-left: 10px solid transparent;
@@ -393,14 +313,6 @@
   border-right: 35px solid transparent;
   rotate: -33deg;
 }
-.playArea .blue1Azone1 {
-  border-bottom: 353px solid transparent;
-  margin-top: 54px;
-  margin-left: -53px;
-  border-left: 16px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -33deg;
-}
 .playArea .yellow1Bzone1 {
   border-bottom: 350px solid pink;
   margin-top: 39px;
@@ -419,14 +331,6 @@
 }
 .playArea .purple1Bzone1 {
   border-bottom: 350px solid purple;
-  margin-top: 39px;
-  margin-left: -25px;
-  border-left: 7px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -41deg;
-}
-.playArea .blue1Bzone1 {
-  border-bottom: 350px solid transparent;
   margin-top: 39px;
   margin-left: -25px;
   border-left: 7px solid transparent;
@@ -457,14 +361,6 @@
   border-right: 11px solid transparent;
   rotate: 53deg;
 }
-.playArea .blue5Azone4 {
-  border-bottom: 277px solid transparent;
-  margin-top: 101px;
-  margin-left: -17px;
-  border-left: 35px solid transparent;
-  border-right: 11px solid transparent;
-  rotate: 53deg;
-}
 .playArea .yellow5Bzone4 {
   border-bottom: 273px solid pink;
   margin-top: 125px;
@@ -483,14 +379,6 @@
 }
 .playArea .purple5Bzone4 {
   border-bottom: 273px solid purple;
-  margin-top: 125px;
-  margin-left: -2px;
-  border-left: 35px solid transparent;
-  border-right: 16px solid transparent;
-  rotate: 42.2deg;
-}
-.playArea .blue5Bzone4 {
-  border-bottom: 273px solid transparent;
   margin-top: 125px;
   margin-left: -2px;
   border-left: 35px solid transparent;
@@ -521,14 +409,6 @@
   border-right: 10px solid transparent;
   rotate: 30.4deg;
 }
-.playArea .blue6Azone4 {
-  border-bottom: 271px solid transparent;
-  margin-top: 143px;
-  margin-left: 21px;
-  border-left: 35px solid transparent;
-  border-right: 10px solid transparent;
-  rotate: 30.4deg;
-}
 .playArea .yellow6Bzone4 {
   border-bottom: 271px solid pink;
   margin-top: 154px;
@@ -547,14 +427,6 @@
 }
 .playArea .purple6Bzone4 {
   border-bottom: 271px solid purple;
-  margin-top: 154px;
-  margin-left: 45px;
-  border-left: 35px solid transparent;
-  border-right: 5px solid transparent;
-  rotate: 20deg;
-}
-.playArea .blue6Bzone4 {
-  border-bottom: 271px solid transparent;
   margin-top: 154px;
   margin-left: 45px;
   border-left: 35px solid transparent;
@@ -585,14 +457,6 @@
   border-right: 5px solid transparent;
   rotate: 9.7deg;
 }
-.playArea .blue1Azone4 {
-  border-bottom: 271px solid transparent;
-  margin-top: 160px;
-  margin-left: 66px;
-  border-left: 35px solid transparent;
-  border-right: 5px solid transparent;
-  rotate: 9.7deg;
-}
 .playArea .yellow1Bzone4 {
   border-bottom: 271px solid pink;
   margin-top: 162px;
@@ -611,14 +475,6 @@
 }
 .playArea .purple1Bzone4 {
   border-bottom: 271px solid purple;
-  margin-top: 162px;
-  margin-left: 90px;
-  border-left: 35px solid transparent;
-  border-right: 0px solid transparent;
-  rotate: 0deg;
-}
-.playArea .blue1Bzone4 {
-  border-bottom: 271px solid transparent;
   margin-top: 162px;
   margin-left: 90px;
   border-left: 35px solid transparent;
@@ -649,14 +505,6 @@
   rotate: 17deg;
   border-bottom: 354px solid pink;
 }
-.playArea .blue5APipe {
-  margin-top: 69px;
-  margin-left: -83px;
-  border-left: 22px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 17deg;
-  border-bottom: 354px solid transparent;
-}
 .playArea .red5BPipe {
   margin-top: 73px;
   margin-left: -67px;
@@ -680,14 +528,6 @@
   border-right: 12px solid transparent;
   rotate: 9.3deg;
   border-bottom: 354px solid pink;
-}
-.playArea .blue5BPipe {
-  margin-top: 73px;
-  margin-left: -67px;
-  border-left: 29px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 9.3deg;
-  border-bottom: 354px solid transparent;
 }
 .playArea .red6APipe {
   margin-top: 79px;
@@ -713,14 +553,6 @@
   rotate: 1deg;
   border-bottom: 350px solid pink;
 }
-.playArea .blue6APipe {
-  margin-top: 79px;
-  margin-left: -45px;
-  border-left: 33px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 1deg;
-  border-bottom: 350px solid transparent;
-}
 .playArea .red6BPipe {
   margin-top: 78px;
   margin-left: -8px;
@@ -744,14 +576,6 @@
   border-right: 33px solid transparent;
   rotate: -3deg;
   border-bottom: 350px solid pink;
-}
-.playArea .blue6BPipe {
-  margin-top: 78px;
-  margin-left: -8px;
-  border-left: 12px solid transparent;
-  border-right: 33px solid transparent;
-  rotate: -3deg;
-  border-bottom: 350px solid transparent;
 }
 .playArea .red1APipe {
   margin-top: 74.63px;
@@ -777,14 +601,6 @@
   rotate: -11.3deg;
   border-bottom: 350px solid pink;
 }
-.playArea .blue1APipe {
-  margin-top: 74.63px;
-  margin-left: 12px;
-  border-left: 21px solid transparent;
-  border-right: 29px solid transparent;
-  rotate: -11.3deg;
-  border-bottom: 350px solid transparent;
-}
 .playArea .red1BPipe {
   margin-top: 66px;
   margin-left: 41px;
@@ -809,13 +625,149 @@
   rotate: -19deg;
   border-bottom: 355px solid pink;
 }
-.playArea .blue1BPipe {
-  margin-top: 66px;
-  margin-left: 41px;
+.playArea .red5AK1 {
+  border-bottom: 245px solid firebrick;
+  margin-top: 158px;
+  margin-left: -107px;
+  border-left: 27px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 13deg;
+}
+.playArea .red5BK1 {
+  border-bottom: 243px solid firebrick;
+  margin-top: 164px;
+  margin-left: -81px;
+  border-left: 22px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 4deg;
+}
+.playArea .red6AK1 {
+  border-bottom: 242px solid firebrick;
+  margin-top: 164px;
+  margin-left: -68px;
+  border-left: 37px solid transparent;
+  border-right: 7px solid transparent;
+  rotate: -9deg;
+}
+.playArea .red6BK1 {
+  border-bottom: 235px solid firebrick;
+  margin-top: 163px;
+  margin-left: -35px;
+  border-left: 22px solid transparent;
+  border-right: 21px solid transparent;
+  rotate: -18deg;
+}
+.playArea .red1AK1 {
+  border-bottom: 230px solid firebrick;
+  margin-top: 155px;
+  margin-left: -6px;
   border-left: 12px solid transparent;
-  border-right: 16px solid transparent;
-  rotate: -19deg;
-  border-bottom: 355px solid transparent;
+  border-right: 29px solid transparent;
+  rotate: -27.3deg;
+}
+.playArea .red1BK1 {
+  border-bottom: 234px solid firebrick;
+  margin-top: 142.5px;
+  margin-left: 13px;
+  border-left: 7px solid transparent;
+  border-right: 22px solid transparent;
+  rotate: -36deg;
+}
+.playArea .purple5AK1 {
+  border-bottom: 245px solid purple;
+  margin-top: 158px;
+  margin-left: -107px;
+  border-left: 27px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 13deg;
+}
+.playArea .purple5BK1 {
+  border-bottom: 243px solid purple;
+  margin-top: 164px;
+  margin-left: -81px;
+  border-left: 22px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 4deg;
+}
+.playArea .purple6AK1 {
+  border-bottom: 242px solid purple;
+  margin-top: 164px;
+  margin-left: -68px;
+  border-left: 37px solid transparent;
+  border-right: 7px solid transparent;
+  rotate: -9deg;
+}
+.playArea .purple6BK1 {
+  border-bottom: 235px solid purple;
+  margin-top: 163px;
+  margin-left: -35px;
+  border-left: 22px solid transparent;
+  border-right: 21px solid transparent;
+  rotate: -18deg;
+}
+.playArea .purple1AK1 {
+  border-bottom: 230px solid purple;
+  margin-top: 155px;
+  margin-left: -6px;
+  border-left: 12px solid transparent;
+  border-right: 29px solid transparent;
+  rotate: -27.3deg;
+}
+.playArea .purple1BK1 {
+  border-bottom: 234px solid purple;
+  margin-top: 142.5px;
+  margin-left: 13px;
+  border-left: 7px solid transparent;
+  border-right: 22px solid transparent;
+  rotate: -36deg;
+}
+.playArea .yellow5AK1 {
+  border-bottom: 245px solid pink;
+  margin-top: 158px;
+  margin-left: -107px;
+  border-left: 27px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 13deg;
+}
+.playArea .yellow5BK1 {
+  border-bottom: 243px solid pink;
+  margin-top: 164px;
+  margin-left: -81px;
+  border-left: 22px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 4deg;
+}
+.playArea .yellow6AK1 {
+  border-bottom: 242px solid pink;
+  margin-top: 164px;
+  margin-left: -68px;
+  border-left: 37px solid transparent;
+  border-right: 7px solid transparent;
+  rotate: -9deg;
+}
+.playArea .yellow6BK1 {
+  border-bottom: 235px solid pink;
+  margin-top: 163px;
+  margin-left: -35px;
+  border-left: 22px solid transparent;
+  border-right: 21px solid transparent;
+  rotate: -18deg;
+}
+.playArea .yellow1AK1 {
+  border-bottom: 230px solid pink;
+  margin-top: 155px;
+  margin-left: -6px;
+  border-left: 12px solid transparent;
+  border-right: 29px solid transparent;
+  rotate: -27.3deg;
+}
+.playArea .yellow1BK1 {
+  border-bottom: 234px solid pink;
+  margin-top: 142.5px;
+  margin-left: 13px;
+  border-left: 7px solid transparent;
+  border-right: 22px solid transparent;
+  rotate: -36deg;
 }
 .playArea .balls button {
   background-color: transparent;

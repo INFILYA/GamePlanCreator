@@ -45,7 +45,11 @@ export default function ShapeForRatings({ amplua }) {
     <>
       <div className="ratingTable">
         {categorys.map((category, index) => (
-          <div className="ratingRow" key={index}>
+          <div
+            className="ratingRow"
+            key={index}
+            style={category.text === "Name" ? { width: "220px" } : {}}
+          >
             <div>
               <button
                 onClick={() => countRankings(category.category)}
@@ -63,7 +67,7 @@ export default function ShapeForRatings({ amplua }) {
                 </span>
               ) : (
                 <span key={index} style={{ display: "flex", justifyContent: "start" }}>
-                  {index + 1}. {player[category.category].slice(0, 10)}
+                  {index + 1}. {player[category.category]}
                 </span>
               )
             )}
