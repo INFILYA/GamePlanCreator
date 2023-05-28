@@ -4,12 +4,10 @@ import { auth } from "../config/firebase";
 import { useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 export function Header() {
   const navigate = useNavigate();
   const [isRegistratedUser] = useAuthState(auth);
-  const [showAuth, setShowAuth] = useState(false);
   const rivalClub = useSelector((state) => state.rivalClub);
   const myClub = useSelector((state) => state.myClub);
 
