@@ -48,7 +48,7 @@ export function Tutorial({ text }) {
             </div>
             {!changeLanguage ? (
               <>
-                <div>{text}</div>
+                {text}
                 <div className="exit">
                   <Button onClick={nextPage} value={"Далі"} />
                 </div>

@@ -1,4 +1,3 @@
-import "../../css/highchart.css";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { useSelector } from "react-redux";
