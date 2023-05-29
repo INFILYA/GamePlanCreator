@@ -10,7 +10,6 @@ export function Header() {
   const [isRegistratedUser] = useAuthState(auth);
   const rivalClub = useSelector((state) => state.rivalClub);
   const myClub = useSelector((state) => state.myClub);
-  console.log(isRegistratedUser);
   function openAuthWindow() {
     navigate("/Auth");
   }
