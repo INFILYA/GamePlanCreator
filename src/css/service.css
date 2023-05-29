@@ -103,6 +103,7 @@
 .servicePage .yellowtip {
   background-color: yellow;
   border: 2px black solid;
+  margin: 320px 0px -105px -35px;
 }
 .servicePage .tip {
   background-color: transparent;

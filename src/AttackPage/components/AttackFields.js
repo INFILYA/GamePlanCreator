@@ -31,7 +31,8 @@ export function AttackFields() {
   const [attackPercentageArray, setAttackPercentageArray] = useState([]);
   const [previousPlayerData, setPreviousPlayerData] = useState(null);
   const [previousTeamData, setPreviousTeamData] = useState(null);
-  const [tip, setTip] = useState(0);
+  const [tip4, setTip4] = useState(0);
+  const [tip2, setTip2] = useState(0);
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "attackZone1", active: false },
     { zone: "attackZone2", active: false },
@@ -65,7 +66,8 @@ export function AttackFields() {
     ["blue1A", "yellow1A", "purple1A", "red1A"],
     ["blue1B", "yellow1B", "purple1B", "red1B"],
   ];
-  const classNamesForTip = ["tip", "yellowtip"];
+  const classNamesForTip4 = ["tip4", "yellowtip4"];
+  const classNamesForTip2 = ["tip2", "yellowtip2"];
   let AttacksByZone = Object.values(zoneValue);
   const checkEquality =
     diagrammValue.winPoints +
@@ -229,9 +231,17 @@ export function AttackFields() {
       <div>
         <input
           type="button"
-          className={classNamesForTip[tip]}
+          className={classNamesForTip4[tip2]}
           value="Tip"
-          onClick={() => setTip((tip + 1) % 2)}
+          onClick={() => setTip2((tip2 + 1) % 2)}
+        ></input>
+      </div>
+      <div>
+        <input
+          type="button"
+          className={classNamesForTip2[tip4]}
+          value="Tip"
+          onClick={() => setTip4((tip4 + 1) % 2)}
         ></input>
       </div>
       <div>

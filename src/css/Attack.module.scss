@@ -41,12 +41,14 @@
   height: 40px;
   margin-top: 210px;
   font-size: 25px;
-  margin-left: 20px;
   border-radius: 45px;
   position: absolute;
   margin-bottom: -105px;
   z-index: 3;
 }
+// @mixin tips2 {
+
+// }
 @mixin boxSize {
   width: 30px;
   border: 2px solid black;
@@ -673,13 +675,37 @@
     font-weight: bold;
     z-index: 2;
   }
-  .yellowtip {
+  .yellowtip4 {
     background-color: yellow;
     border: 2px black solid;
+    margin-left: 20px;
     @include tips;
   }
-  .tip {
+  .yellowtip2 {
+    background-color: yellow;
+    border: 2px black solid;
+    margin-left: -100px;
     @include tips;
+  }
+  .tip4 {
+    @include tips;
+    margin-left: 20px;
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    &:hover {
+      background: yellow;
+      background-color: yellow;
+      box-shadow: 0 15px 20px yellow;
+      color: black;
+      transform: translateY(-7px);
+      transition: 0.3s;
+      border: 2px black solid;
+    }
+  }
+  .tip2 {
+    @include tips;
+    margin-left: -100px;
     background-color: transparent;
     color: transparent;
     border: none;
