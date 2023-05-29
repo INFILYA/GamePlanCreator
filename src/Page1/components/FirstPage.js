@@ -34,8 +34,7 @@ export function FirstPage() {
   const myTeamZones = useSelector((state) => state.myTeamZones);
   const myClub = useSelector((state) => state.myClub);
   const clubsCollectionRefs = collection(dataBase, "clubs");
-  const admin = isRegistratedUser?.uid === "C4Ho0fhxUINV2zUucjQBvmoktcD3";
-  console.log(admin);
+  const admin = isRegistratedUser?.uid === "7bSxPLITtrPknGnwKfzazxwjOd82";
   function resetTheBoard() {
     dispatch(setRivalPlayers([]));
     dispatch(setResetRivalTeam([]));
