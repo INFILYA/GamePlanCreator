@@ -32,15 +32,12 @@ function Myproject() {
   const dispatch = useDispatch();
   const changeLanguage = useSelector((state) => state.changeLanguage);
   const isShowedTutorial = useSelector((state) => state.isShowedTutorial);
-  const clubsCollectionRefs = collection(dataBase, "clubs");
-  const playersCollectionRefs = collection(dataBase, "players");
-  const currentVersion = collection(dataBase, "versionChecker");
   const userVersion = JSON.parse(localStorage.getItem("userVersion")) || null;
 
   useEffect(() => {
     async function checkVersionOfData() {
       try {
-        const data = await getDocs(currentVersion);
+        const data = await getDocs(collection(dataBase, "versionChecker"));
         const list = data.docs.map((doc) => doc.data());
         const adminVersion = list[0].currentVersion;
         dispatch(setUserVersion(adminVersion));
@@ -65,7 +62,7 @@ function Myproject() {
     }
     async function getPlayers() {
       try {
-        const data = await getDocs(playersCollectionRefs);
+        const data = await getDocs(collection(dataBase, "players"));
         const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
         const sortedPlayers = [...list].sort((a, b) => compare(a.number, b.number));
         dispatch(setAllPlayers(sortedPlayers));
@@ -76,7 +73,7 @@ function Myproject() {
     }
     async function getTeams() {
       try {
-        const data = await getDocs(clubsCollectionRefs);
+        const data = await getDocs(collection(dataBase, "clubs"));
         const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
         const sortedTeams = [...list].sort((a, b) => compare(a.number, b.number));
         dispatch(setAllTeams(sortedTeams));
@@ -86,7 +83,7 @@ function Myproject() {
       }
     }
     checkVersionOfData();
-  }, [dispatch, playersCollectionRefs, clubsCollectionRefs, currentVersion, userVersion]);
+  }, [dispatch, userVersion]);
   const TUTORIAL = !changeLanguage ? UKRTUTORIAL : ENGTUTORIAL;
   return (
     <>
