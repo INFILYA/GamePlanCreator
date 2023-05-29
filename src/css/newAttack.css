@@ -13,6 +13,7 @@
   width: 525px;
   height: 700px;
   display: inline-block;
+  margin: 0px 0px 0px -1px;
 }
 .playArea .compareFields {
   margin-top: 40px;
@@ -768,6 +769,294 @@
   border-left: 7px solid transparent;
   border-right: 22px solid transparent;
   rotate: -36deg;
+}
+.playArea .red5AKC {
+  border-bottom: 240px solid firebrick;
+  margin-top: 153px;
+  margin-left: -78px;
+  border-left: 22px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 30deg;
+}
+.playArea .red5BKC {
+  border-bottom: 245px solid firebrick;
+  margin-top: 157px;
+  margin-left: -62px;
+  border-left: 29px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 18.3deg;
+}
+.playArea .red6AKC {
+  border-bottom: 247px solid firebrick;
+  margin-top: 160px;
+  margin-left: -40px;
+  border-left: 33px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 6deg;
+}
+.playArea .red6BKC {
+  border-bottom: 249px solid firebrick;
+  margin-top: 160px;
+  margin-left: -4px;
+  border-left: 12px solid transparent;
+  border-right: 33px solid transparent;
+  rotate: 0deg;
+}
+.playArea .red1AKC {
+  border-bottom: 251px solid firebrick;
+  margin-top: 156px;
+  margin-left: 18px;
+  border-left: 12px solid transparent;
+  border-right: 29px solid transparent;
+  rotate: -11.3deg;
+}
+.playArea .red1BKC {
+  border-bottom: 250px solid firebrick;
+  margin-top: 152px;
+  margin-left: 42px;
+  border-left: 12px solid transparent;
+  border-right: 22px solid transparent;
+  rotate: -22deg;
+}
+.playArea .purple5AKC {
+  border-bottom: 240px solid purple;
+  margin-top: 153px;
+  margin-left: -78px;
+  border-left: 22px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 30deg;
+}
+.playArea .purple5BKC {
+  border-bottom: 245px solid purple;
+  margin-top: 157px;
+  margin-left: -62px;
+  border-left: 29px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 18.3deg;
+}
+.playArea .purple6AKC {
+  border-bottom: 247px solid purple;
+  margin-top: 160px;
+  margin-left: -40px;
+  border-left: 33px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 6deg;
+}
+.playArea .purple6BKC {
+  border-bottom: 249px solid purple;
+  margin-top: 160px;
+  margin-left: -4px;
+  border-left: 12px solid transparent;
+  border-right: 33px solid transparent;
+  rotate: 0deg;
+}
+.playArea .purple1AKC {
+  border-bottom: 251px solid purple;
+  margin-top: 156px;
+  margin-left: 18px;
+  border-left: 12px solid transparent;
+  border-right: 29px solid transparent;
+  rotate: -11.3deg;
+}
+.playArea .purple1BKC {
+  border-bottom: 250px solid purple;
+  margin-top: 152px;
+  margin-left: 42px;
+  border-left: 12px solid transparent;
+  border-right: 22px solid transparent;
+  rotate: -22deg;
+}
+.playArea .yellow5AKC {
+  border-bottom: 240px solid pink;
+  margin-top: 153px;
+  margin-left: -78px;
+  border-left: 22px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 30deg;
+}
+.playArea .yellow5BKC {
+  border-bottom: 245px solid pink;
+  margin-top: 157px;
+  margin-left: -62px;
+  border-left: 29px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 18.3deg;
+}
+.playArea .yellow6AKC {
+  border-bottom: 247px solid pink;
+  margin-top: 160px;
+  margin-left: -40px;
+  border-left: 33px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 6deg;
+}
+.playArea .yellow6BKC {
+  border-bottom: 249px solid pink;
+  margin-top: 160px;
+  margin-left: -4px;
+  border-left: 12px solid transparent;
+  border-right: 33px solid transparent;
+  rotate: 0deg;
+}
+.playArea .yellow1AKC {
+  border-bottom: 251px solid pink;
+  margin-top: 156px;
+  margin-left: 18px;
+  border-left: 12px solid transparent;
+  border-right: 29px solid transparent;
+  rotate: -11.3deg;
+}
+.playArea .yellow1BKC {
+  border-bottom: 250px solid pink;
+  margin-top: 152px;
+  margin-left: 42px;
+  border-left: 12px solid transparent;
+  border-right: 22px solid transparent;
+  rotate: -22deg;
+}
+.playArea .red5AK7 {
+  border-bottom: 264px solid firebrick;
+  margin-top: 120px;
+  margin-left: -41px;
+  border-left: 25px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 42deg;
+}
+.playArea .red5BK7 {
+  border-bottom: 264px solid firebrick;
+  margin-top: 133px;
+  margin-left: -26px;
+  border-left: 26px solid transparent;
+  border-right: 16px solid transparent;
+  rotate: 31.2deg;
+}
+.playArea .red6AK7 {
+  border-bottom: 251px solid firebrick;
+  margin-top: 153px;
+  margin-left: -12px;
+  border-left: 35px solid transparent;
+  border-right: 10px solid transparent;
+  rotate: 17.4deg;
+}
+.playArea .red6BK7 {
+  border-bottom: 253px solid firebrick;
+  margin-top: 157px;
+  margin-left: 16px;
+  border-left: 34px solid transparent;
+  border-right: 5px solid transparent;
+  rotate: 7deg;
+}
+.playArea .red1AK7 {
+  border-bottom: 254px solid firebrick;
+  margin-top: 159px;
+  margin-left: 56px;
+  border-left: 0px solid transparent;
+  border-right: 35px solid transparent;
+  rotate: 3.7deg;
+}
+.playArea .red1BK7 {
+  border-bottom: 254px solid firebrick;
+  margin-top: 158px;
+  margin-left: 78px;
+  border-left: 0px solid transparent;
+  border-right: 36px solid transparent;
+  rotate: -5deg;
+}
+.playArea .purple5AK7 {
+  border-bottom: 264px solid purple;
+  margin-top: 120px;
+  margin-left: -41px;
+  border-left: 25px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 42deg;
+}
+.playArea .purple5BK7 {
+  border-bottom: 264px solid purple;
+  margin-top: 133px;
+  margin-left: -26px;
+  border-left: 26px solid transparent;
+  border-right: 16px solid transparent;
+  rotate: 31.2deg;
+}
+.playArea .purple6AK7 {
+  border-bottom: 251px solid purple;
+  margin-top: 153px;
+  margin-left: -12px;
+  border-left: 35px solid transparent;
+  border-right: 10px solid transparent;
+  rotate: 17.4deg;
+}
+.playArea .purple6BK7 {
+  border-bottom: 253px solid purple;
+  margin-top: 157px;
+  margin-left: 16px;
+  border-left: 34px solid transparent;
+  border-right: 5px solid transparent;
+  rotate: 7deg;
+}
+.playArea .purple1AK7 {
+  border-bottom: 254px solid purple;
+  margin-top: 159px;
+  margin-left: 56px;
+  border-left: 0px solid transparent;
+  border-right: 35px solid transparent;
+  rotate: 3.7deg;
+}
+.playArea .purple1BK7 {
+  border-bottom: 254px solid purple;
+  margin-top: 158px;
+  margin-left: 78px;
+  border-left: 0px solid transparent;
+  border-right: 36px solid transparent;
+  rotate: -5deg;
+}
+.playArea .yellow5AK7 {
+  border-bottom: 264px solid pink;
+  margin-top: 120px;
+  margin-left: -41px;
+  border-left: 25px solid transparent;
+  border-right: 12px solid transparent;
+  rotate: 42deg;
+}
+.playArea .yellow5BK7 {
+  border-bottom: 264px solid pink;
+  margin-top: 133px;
+  margin-left: -26px;
+  border-left: 26px solid transparent;
+  border-right: 16px solid transparent;
+  rotate: 31.2deg;
+}
+.playArea .yellow6AK7 {
+  border-bottom: 251px solid pink;
+  margin-top: 153px;
+  margin-left: -12px;
+  border-left: 35px solid transparent;
+  border-right: 10px solid transparent;
+  rotate: 17.4deg;
+}
+.playArea .yellow6BK7 {
+  border-bottom: 253px solid pink;
+  margin-top: 157px;
+  margin-left: 16px;
+  border-left: 34px solid transparent;
+  border-right: 5px solid transparent;
+  rotate: 7deg;
+}
+.playArea .yellow1AK7 {
+  border-bottom: 254px solid pink;
+  margin-top: 159px;
+  margin-left: 56px;
+  border-left: 0px solid transparent;
+  border-right: 35px solid transparent;
+  rotate: 3.7deg;
+}
+.playArea .yellow1BK7 {
+  border-bottom: 254px solid pink;
+  margin-top: 158px;
+  margin-left: 78px;
+  border-left: 0px solid transparent;
+  border-right: 36px solid transparent;
+  rotate: -5deg;
 }
 .playArea .balls button {
   background-color: transparent;

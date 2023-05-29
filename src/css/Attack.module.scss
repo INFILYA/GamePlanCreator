@@ -73,6 +73,7 @@
   width: 525px;
   height: 700px;
   display: inline-block;
+  margin: 0px 0px 0px -1px;
   .compareFields {
     margin-top: 40px;
     display: flex;
@@ -120,10 +121,6 @@
     border-bottom: 262px solid purple;
     @include forCons(169px, -133px, 0px, 35px, 0deg);
   }
-  // .blue5Azone2 {
-  //   border-bottom: 262px solid transparent;
-  //   @include forCons(169px, -133px, 0px, 35px, 0deg);
-  // }
   .yellow5Bzone2 {
     border-bottom: 271px solid pink;
     @include forCons(158px, -112px, 5px, 35px, -8.7deg);
@@ -136,10 +133,6 @@
     border-bottom: 271px solid purple;
     @include forCons(158px, -112px, 5px, 35px, -8.7deg);
   }
-  // .blue5Bzone2 {
-  //   border-bottom: 271px solid transparent;
-  //   @include forCons(158px, -112px, 5px, 35px, -8.7deg);
-  // }
   .yellow6Azone2 {
     border-bottom: 271px solid pink;
     @include forCons(152px, -90px, 5px, 35px, -19deg);
@@ -152,10 +145,6 @@
     border-bottom: 271px solid purple;
     @include forCons(152px, -90px, 5px, 35px, -19deg);
   }
-  // .blue6Azone2 {
-  //   border-bottom: 271px solid transparent;
-  //   @include forCons(152px, -90px, 5px, 35px, -19deg);
-  // }
   .yellow6Bzone2 {
     border-bottom: 271px solid pink;
     @include forCons(142px, -72px, 10px, 35px, -30.4deg);
@@ -168,10 +157,6 @@
     border-bottom: 271px solid purple;
     @include forCons(142px, -72px, 10px, 35px, -30.4deg);
   }
-  // .blue6Bzone2 {
-  //   border-bottom: 271px solid transparent;
-  //   @include forCons(142px, -72px, 10px, 35px, -30.4deg);
-  // }
   .yellow1Azone2 {
     border-bottom: 273px solid pink;
     @include forCons(125px, -56px, 16px, 35px, -43.2deg);
@@ -184,10 +169,6 @@
     border-bottom: 273px solid purple;
     @include forCons(125px, -56px, 16px, 35px, -43.2deg);
   }
-  // .blue1Azone2 {
-  //   border-bottom: 273px solid transparent;
-  //   @include forCons(125px, -56px, 16px, 35px, -43.2deg);
-  // }
   .yellow1Bzone2 {
     border-bottom: 274px solid pink;
     @include forCons(102px, -32px, 7px, 35px, -53deg);
@@ -200,10 +181,6 @@
     border-bottom: 274px solid purple;
     @include forCons(102px, -32px, 7px, 35px, -53deg);
   }
-  // .blue1Bzone2 {
-  //   border-bottom: 274px solid transparent;
-  //   @include forCons(102px, -32px, 7px, 35px, -53deg);
-  // }
   .yellow5Azone1 {
     border-bottom: 342px solid pink;
     @include forCons(89px, -133px, 0px, 35px, 0deg);
@@ -216,10 +193,6 @@
     border-bottom: 342px solid purple;
     @include forCons(89px, -133px, 0px, 35px, 0deg);
   }
-  // .blue5Azone1 {
-  //   border-bottom: 342px solid transparent;
-  //   @include forCons(89px, -133px, 0px, 35px, 0deg);
-  // }
   .yellow5Bzone1 {
     border-bottom: 350px solid pink;
     @include forCons(80px, -114px, 5px, 35px, -7.6deg);
@@ -232,10 +205,6 @@
     border-bottom: 350px solid purple;
     @include forCons(80px, -114px, 5px, 35px, -7.6deg);
   }
-  // .blue5Bzone1 {
-  //   border-bottom: 350px solid transparent;
-  //   @include forCons(80px, -114px, 5px, 35px, -7.6deg);
-  // }
   .yellow6Azone1 {
     border-bottom: 350px solid pink;
     @include forCons(74px, -91px, 5px, 35px, -15.2deg);
@@ -248,10 +217,6 @@
     border-bottom: 350px solid purple;
     @include forCons(74px, -91px, 5px, 35px, -15.2deg);
   }
-  // .blue6Azone1 {
-  //   border-bottom: 350px solid transparent;
-  //   @include forCons(74px, -91px, 5px, 35px, -15.2deg);
-  // }
   .yellow6Bzone1 {
     border-bottom: 350px solid pink;
     @include forCons(66px, -71px, 10px, 35px, -23.6deg);
@@ -264,10 +229,6 @@
     border-bottom: 350px solid purple;
     @include forCons(66px, -71px, 10px, 35px, -23.6deg);
   }
-  // .blue6Bzone1 {
-  //   border-bottom: 350px solid transparent;
-  //   @include forCons(66px, -71px, 10px, 35px, -23.6deg);
-  // }
   .yellow1Azone1 {
     border-bottom: 353px solid pink;
     @include forCons(54px, -53px, 16px, 35px, -33deg);
@@ -280,10 +241,6 @@
     border-bottom: 353px solid purple;
     @include forCons(54px, -53px, 16px, 35px, -33deg);
   }
-  // .blue1Azone1 {
-  //   border-bottom: 353px solid transparent;
-  //   @include forCons(54px, -53px, 16px, 35px, -33deg);
-  // }
   .yellow1Bzone1 {
     border-bottom: 350px solid pink;
     @include forCons(39px, -25px, 7px, 35px, -41deg);
@@ -296,10 +253,6 @@
     border-bottom: 350px solid purple;
     @include forCons(39px, -25px, 7px, 35px, -41deg);
   }
-  // .blue1Bzone1 {
-  //   border-bottom: 350px solid transparent;
-  //   @include forCons(39px, -25px, 7px, 35px, -41deg);
-  // }
   // 4 зона
   .yellow5Azone4 {
     border-bottom: 277px solid pink;
@@ -313,10 +266,6 @@
     border-bottom: 277px solid purple;
     @include forCons(101px, -17px, 35px, 11px, 53deg);
   }
-  // .blue5Azone4 {
-  //   border-bottom: 277px solid transparent;
-  //   @include forCons(101px, -17px, 35px, 11px, 53deg);
-  // }
   .yellow5Bzone4 {
     border-bottom: 273px solid pink;
     @include forCons(125px, -2px, 35px, 16px, 42.2deg);
@@ -329,10 +278,6 @@
     border-bottom: 273px solid purple;
     @include forCons(125px, -2px, 35px, 16px, 42.2deg);
   }
-  // .blue5Bzone4 {
-  //   border-bottom: 273px solid transparent;
-  //   @include forCons(125px, -2px, 35px, 16px, 42.2deg);
-  // }
   .yellow6Azone4 {
     border-bottom: 271px solid pink;
     @include forCons(143px, 21px, 35px, 10px, 30.4deg);
@@ -345,10 +290,6 @@
     border-bottom: 271px solid purple;
     @include forCons(143px, 21px, 35px, 10px, 30.4deg);
   }
-  // .blue6Azone4 {
-  //   border-bottom: 271px solid transparent;
-  //   @include forCons(143px, 21px, 35px, 10px, 30.4deg);
-  // }
   .yellow6Bzone4 {
     border-bottom: 271px solid pink;
     @include forCons(154px, 45px, 35px, 5px, 20deg);
@@ -361,10 +302,6 @@
     border-bottom: 271px solid purple;
     @include forCons(154px, 45px, 35px, 5px, 20deg);
   }
-  // .blue6Bzone4 {
-  //   border-bottom: 271px solid transparent;
-  //   @include forCons(154px, 45px, 35px, 5px, 20deg);
-  // }
   .yellow1Azone4 {
     border-bottom: 271px solid pink;
     @include forCons(160px, 66px, 35px, 5px, 9.7deg);
@@ -377,10 +314,6 @@
     border-bottom: 271px solid purple;
     @include forCons(160px, 66px, 35px, 5px, 9.7deg);
   }
-  // .blue1Azone4 {
-  //   border-bottom: 271px solid transparent;
-  //   @include forCons(160px, 66px, 35px, 5px, 9.7deg);
-  // }
   .yellow1Bzone4 {
     border-bottom: 271px solid pink;
     @include forCons(162px, 90px, 35px, 0px, 0deg);
@@ -393,10 +326,6 @@
     border-bottom: 271px solid purple;
     @include forCons(162px, 90px, 35px, 0px, 0deg);
   }
-  // .blue1Bzone4 {
-  //   border-bottom: 271px solid transparent;
-  //   @include forCons(162px, 90px, 35px, 0px, 0deg);
-  // }
   // Пайп
   .red5APipe {
     @include forCons(69px, -83px, 22px, 12px, 17deg);
@@ -410,10 +339,6 @@
     @include forCons(69px, -83px, 22px, 12px, 17deg);
     border-bottom: 354px solid pink;
   }
-  // .blue5APipe {
-  //   @include forCons(69px, -83px, 22px, 12px, 17deg);
-  //   border-bottom: 354px solid transparent;
-  // }
   .red5BPipe {
     @include forCons(73px, -67px, 29px, 12px, 9.3deg);
     border-bottom: 354px solid firebrick;
@@ -426,10 +351,6 @@
     @include forCons(73px, -67px, 29px, 12px, 9.3deg);
     border-bottom: 354px solid pink;
   }
-  // .blue5BPipe {
-  //   @include forCons(73px, -67px, 29px, 12px, 9.3deg);
-  //   border-bottom: 354px solid transparent;
-  // }
   .red6APipe {
     @include forCons(79px, -45px, 33px, 12px, 1deg);
     border-bottom: 350px solid firebrick;
@@ -442,10 +363,6 @@
     @include forCons(79px, -45px, 33px, 12px, 1deg);
     border-bottom: 350px solid pink;
   }
-  // .blue6APipe {
-  //   @include forCons(79px, -45px, 33px, 12px, 1deg);
-  //   border-bottom: 350px solid transparent;
-  // }
   .red6BPipe {
     @include forCons(78px, -8px, 12px, 33px, -3deg);
     border-bottom: 350px solid firebrick;
@@ -458,10 +375,6 @@
     @include forCons(78px, -8px, 12px, 33px, -3deg);
     border-bottom: 350px solid pink;
   }
-  // .blue6BPipe {
-  //   @include forCons(78px, -8px, 12px, 33px, -3deg);
-  //   border-bottom: 350px solid transparent;
-  // }
   .red1APipe {
     @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
     border-bottom: 350px solid firebrick;
@@ -474,10 +387,6 @@
     @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
     border-bottom: 350px solid pink;
   }
-  // .blue1APipe {
-  //   @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
-  //   border-bottom: 350px solid transparent;
-  // }
   .red1BPipe {
     @include forCons(66px, 41px, 12px, 16px, -19deg);
     border-bottom: 355px solid firebrick;
@@ -490,10 +399,6 @@
     @include forCons(66px, 41px, 12px, 16px, -19deg);
     border-bottom: 355px solid pink;
   }
-  // .blue1BPipe {
-  //   @include forCons(66px, 41px, 12px, 16px, -19deg);
-  //   border-bottom: 355px solid transparent;
-  // }
   .red5AK1 {
     border-bottom: 245px solid firebrick;
     @include forCons(158px, -107px, 27px, 12px, 13deg);
@@ -566,6 +471,159 @@
   .yellow1BK1 {
     border-bottom: 234px solid pink;
     @include forCons(142.5px, 13px, 7px, 22px, -36deg);
+  }
+  // /* KC */
+  // /* Выше 35% */
+  .red5AKC {
+    border-bottom: 240px solid firebrick;
+    @include forCons(153px, -78px, 22px, 12px, 30deg);
+  }
+  .red5BKC {
+    border-bottom: 245px solid firebrick;
+    @include forCons(157px, -62px, 29px, 12px, 18.3deg);
+  }
+  .red6AKC {
+    border-bottom: 247px solid firebrick;
+    @include forCons(160px, -40px, 33px, 12px, 6deg);
+  }
+  .red6BKC {
+    border-bottom: 249px solid firebrick;
+    @include forCons(160px, -4px, 12px, 33px, 0deg);
+  }
+  .red1AKC {
+    border-bottom: 251px solid firebrick;
+    @include forCons(156px, 18px, 12px, 29px, -11.3deg);
+  }
+  .red1BKC {
+    border-bottom: 250px solid firebrick;
+    @include forCons(152px, 42px, 12px, 22px, -22deg);
+  }
+  // /* От 25 до 35% */
+  .purple5AKC {
+    border-bottom: 240px solid purple;
+    @include forCons(153px, -78px, 22px, 12px, 30deg);
+  }
+  .purple5BKC {
+    border-bottom: 245px solid purple;
+    @include forCons(157px, -62px, 29px, 12px, 18.3deg);
+  }
+  .purple6AKC {
+    border-bottom: 247px solid purple;
+    @include forCons(160px, -40px, 33px, 12px, 6deg);
+  }
+  .purple6BKC {
+    border-bottom: 249px solid purple;
+    @include forCons(160px, -4px, 12px, 33px, 0deg);
+  }
+  .purple1AKC {
+    border-bottom: 251px solid purple;
+    @include forCons(156px, 18px, 12px, 29px, -11.3deg);
+  }
+  .purple1BKC {
+    border-bottom: 250px solid purple;
+    @include forCons(152px, 42px, 12px, 22px, -22deg);
+  }
+  // /* От 15 до 25% */
+  .yellow5AKC {
+    border-bottom: 240px solid pink;
+    @include forCons(153px, -78px, 22px, 12px, 30deg);
+  }
+  .yellow5BKC {
+    border-bottom: 245px solid pink;
+    @include forCons(157px, -62px, 29px, 12px, 18.3deg);
+  }
+  .yellow6AKC {
+    border-bottom: 247px solid pink;
+    @include forCons(160px, -40px, 33px, 12px, 6deg);
+  }
+  .yellow6BKC {
+    border-bottom: 249px solid pink;
+    @include forCons(160px, -4px, 12px, 33px, 0deg);
+  }
+  .yellow1AKC {
+    border-bottom: 251px solid pink;
+    @include forCons(156px, 18px, 12px, 29px, -11.3deg);
+  }
+  .yellow1BKC {
+    border-bottom: 250px solid pink;
+    @include forCons(152px, 42px, 12px, 22px, -22deg);
+  }
+  // /* K7 */
+  // /* Выше 35% */
+  .red5AK7 {
+    border-bottom: 264px solid firebrick;
+    @include forCons(120px, -41px, 25px, 12px, 42deg);
+  }
+  .red5BK7 {
+    border-bottom: 264px solid firebrick;
+    @include forCons(133px, -26px, 26px, 16px, 31.2deg);
+  }
+  .red6AK7 {
+    border-bottom: 251px solid firebrick;
+    @include forCons(153px, -12px, 35px, 10px, 17.4deg);
+  }
+  .red6BK7 {
+    border-bottom: 253px solid firebrick;
+    @include forCons(157px, 16px, 34px, 5px, 7deg);
+  }
+  .red1AK7 {
+    border-bottom: 254px solid firebrick;
+    @include forCons(159px, 56px, 0px, 35px, 3.7deg);
+  }
+  .red1BK7 {
+    border-bottom: 254px solid firebrick;
+    @include forCons(158px, 78px, 0px, 36px, -5deg);
+  }
+
+  // /* От 25 до 35% */
+  .purple5AK7 {
+    border-bottom: 264px solid purple;
+    @include forCons(120px, -41px, 25px, 12px, 42deg);
+  }
+  .purple5BK7 {
+    border-bottom: 264px solid purple;
+    @include forCons(133px, -26px, 26px, 16px, 31.2deg);
+  }
+  .purple6AK7 {
+    border-bottom: 251px solid purple;
+    @include forCons(153px, -12px, 35px, 10px, 17.4deg);
+  }
+  .purple6BK7 {
+    border-bottom: 253px solid purple;
+    @include forCons(157px, 16px, 34px, 5px, 7deg);
+  }
+  .purple1AK7 {
+    border-bottom: 254px solid purple;
+    @include forCons(159px, 56px, 0px, 35px, 3.7deg);
+  }
+  .purple1BK7 {
+    border-bottom: 254px solid purple;
+    @include forCons(158px, 78px, 0px, 36px, -5deg);
+  }
+
+  .yellow5AK7 {
+    border-bottom: 264px solid pink;
+    @include forCons(120px, -41px, 25px, 12px, 42deg);
+  }
+  .yellow5BK7 {
+    border-bottom: 264px solid pink;
+    @include forCons(133px, -26px, 26px, 16px, 31.2deg);
+  }
+  .yellow6AK7 {
+    border-bottom: 251px solid pink;
+    @include forCons(153px, -12px, 35px, 10px, 17.4deg);
+  }
+  .yellow6BK7 {
+    border-bottom: 253px solid pink;
+    @include forCons(157px, 16px, 34px, 5px, 7deg);
+  }
+  .yellow1AK7 {
+    border-bottom: 254px solid pink;
+    @include forCons(159px, 56px, 0px, 35px, 3.7deg);
+  }
+  .yellow1BK7 {
+    border-bottom: 254px solid pink;
+    @include forCons(158px, 78px, 0px, 36px, -5deg);
   }
 
   // ТУТ
@@ -794,111 +852,3 @@
   margin: 130px 0px 0px 45px;
   @include attackShape;
 }
-
-// /* KC */
-// /* Выше 35% */
-//  .red5AKC {
-// }
-//  .red5BKC {
-// }
-//  .red6AKC {
-// }
-//  .red6BKC {
-// }
-//  .red1AKC {
-// }
-//  .red1BKC {
-// }
-// /* От 25 до 35% */
-//  .purple5AKC {
-// }
-//  .purple5BKC {
-// }
-//  .purple6AKC {
-// }
-//  .purple6BKC {
-// }
-//  .purple1AKC {
-// }
-//  .purple1BKC {
-// }
-// /* От 15 до 25% */
-//  .yellow5AKC {
-// }
-//  .yellow5BKC {
-// }
-//  .yellow6AKC {
-// }
-//  .yellow6BKC {
-// }
-//  .yellow1AKC {
-// }
-//  .yellow1BKC {
-// }
-// /* Меньше 15% */
-//  .blue5AKC {
-// }
-//  .blue5BKC {
-// }
-//  .blue6AKC {
-// }
-//  .blue6BKC {
-// }
-//  .blue1AKC {
-// }
-//  .blue1BKC {
-// }
-
-// /* K7 */
-// /* Выше 35% */
-//  .red5AK7 {
-// }
-//  .red5BK7 {
-// }
-//  .red6AK7 {
-// }
-//  .red6BK7 {
-// }
-//  .red1AK7 {
-// }
-//  .red1BK7 {
-// }
-// /* От 25 до 35% */
-//  .purple5AK7 {
-// }
-//  .purple5BK7 {
-// }
-//  .purple6AK7 {
-// }
-//  .purple6BK7 {
-// }
-//  .purple1AK7 {
-// }
-//  .purple1BK7 {
-// }
-// /* От 15 до 25% */
-//  .yellow5AK7 {
-// }
-//  .yellow5BK7 {
-// }
-//  .yellow6AK7 {
-// }
-//  .yellow6BK7 {
-// }
-//  .yellow1AK7 {
-// }
-//  .yellow1BK7 {
-// }
-// /* Меньше 15% */
-//  .blue5AK7 {
-// }
-//  .blue5BK7 {
-// }
-//  .blue6AK7 {
-// }
-//  .blue6BK7 {
-// }
-//  .blue1AK7 {
-// }
-//  .blue1BK7 {
-// }
