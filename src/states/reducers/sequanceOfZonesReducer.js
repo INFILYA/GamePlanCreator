@@ -23,7 +23,6 @@ export function sequanceOfZonesReducer(state = defaultState.sequanceOfZones, act
     case "SET_SEQUANCE_OF_ZONES":
       return state.filter((zone) => zone !== action.payload);
     case "RESET_SEQUANCE_OF_ZONES":
-      console.log("loh");
       return [...state, action.payload.zones.indexOf(action.payload.player)];
     case "SET_BACK_RIGHT_MY_TEAM_SELECTS":
       return action.payload;

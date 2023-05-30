@@ -10,7 +10,7 @@ import {
 } from "../../states/reducers/indexOfZonesReducer";
 import { setSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
 import { Button } from "../../StaticHelpModules/Button";
-import { correctNamesOfZones } from "../../Datas/api";
+import { compare, correctNamesOfZones } from "../../Datas/api";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../config/firebase";
 
@@ -141,7 +141,9 @@ export function Squads({ team }) {
                   ) : (
                     <option defaultValue="▶">▶</option>
                   )}
-                  {Zones.map((zone, index) => (
+                  {Zones.sort((a, b) =>
+                    compare(correctNamesOfZones(a), correctNamesOfZones(b))
+                  ).map((zone, index) => (
                     <option key={index} value={[player.id, zone]}>
                       {correctNamesOfZones(zone)}
                     </option>
