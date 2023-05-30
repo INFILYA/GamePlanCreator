@@ -35,14 +35,18 @@ export function FirstPage() {
   const myClub = useSelector((state) => state.myClub);
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const admin = isRegistratedUser?.uid === "7bSxPLITtrPknGnwKfzazxwjOd82";
-  function resetTheBoard() {
+
+  function resetTheBoardForRivalTeam() {
     dispatch(setRivalPlayers([]));
     dispatch(setResetRivalTeam([]));
+    dispatch(clearRivalZones(Array(6).fill(null)));
+    dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
+    dispatch(setInfoOfPlayer(null));
+  }
+  function resetTheBoardForMyClub() {
     dispatch(setMyTeamPlayers([]));
     dispatch(setResetMyTeam([]));
-    dispatch(clearRivalZones(Array(6).fill(null)));
     dispatch(clearMyTeamZones(Array(6).fill(null)));
-    dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setBackRightMyTeamSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setInfoOfPlayer(null));
   }
@@ -80,9 +84,18 @@ export function FirstPage() {
         <Squads />
         <div className="rotation">
           {rivalClub.length !== 0 && (
-            <button onClick={resetTheBoard} className="reset" style={{ marginTop: -20 }}>
-              Reset
-            </button>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <button
+                onClick={resetTheBoardForRivalTeam}
+                className="reset"
+                style={{ marginTop: -20 }}
+              >
+                Reset
+              </button>
+              <button onClick={resetTheBoardForMyClub} className="reset" style={{ marginTop: -20 }}>
+                Reset
+              </button>
+            </div>
           )}
           <div style={{ display: "flex", justifyContent: "center" }}>
             {playerInfo && <PersonalInformationOfPlayer link={"page1"} />}
@@ -95,7 +108,7 @@ export function FirstPage() {
                 {zones.slice(0, 3).map((player, index) =>
                   player ? (
                     <div className="container" key={player.name}>
-                      <IconOfPlayer player={player} zones={zones} />
+                      <IconOfPlayer player={player} zones={zones} type={"rival"} />
                     </div>
                   ) : (
                     <div className="container" key={"_" + index}>
@@ -108,7 +121,7 @@ export function FirstPage() {
                 {myTeamZones.slice(0, 3).map((player, index) =>
                   player ? (
                     <div className="smallBox" key={player.name}>
-                      <IconOfPlayer player={player} />
+                      <IconOfPlayer player={player} zones={myTeamZones} type={"my"} />
                     </div>
                   ) : (
                     <div className="smallBox" key={"x" + index}></div>
@@ -119,7 +132,7 @@ export function FirstPage() {
                 {zones.slice(3, 6).map((player, index) =>
                   player ? (
                     <div className="container" key={player.name}>
-                      <IconOfPlayer player={player} zones={zones} />
+                      <IconOfPlayer player={player} zones={zones} type={"rival"} />
                     </div>
                   ) : (
                     <div className="container" key={"_" + index}>
@@ -132,7 +145,7 @@ export function FirstPage() {
                 {myTeamZones.slice(3, 6).map((player, index) =>
                   player ? (
                     <div className="smallBox" key={player.name}>
-                      <IconOfPlayer player={player} />
+                      <IconOfPlayer player={player} zones={myTeamZones} type={"my"} />
                     </div>
                   ) : (
                     <div className="smallBox" key={"x" + index}></div>
@@ -147,7 +160,7 @@ export function FirstPage() {
               <Button onClick={saveStartingSix} value={"Save starting six"} />
             </div>
           )}
-          {myTeamZones.some((zone) => zone?.position === "Setter") && isRegistratedUser && (
+          {myTeamZones.every((zone) => zone !== null) && isRegistratedUser && (
             <div className="plusMinus">
               <button onClick={moveRotationForward}>-</button>
               {myTeamZones.map((player, index) =>

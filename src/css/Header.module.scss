@@ -40,6 +40,14 @@
     width: 400px;
     align-items: center;
   }
+  .home {
+    background: url("../photos/home.jpg") no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 60px;
+    width: 60px;
+    border: transparent;
+  }
   .matchup {
     font-size: 40px;
     font-weight: 600;

@@ -306,4 +306,9 @@ select {
   transform: translateY(-7px);
   transition: 0.3s;
 }
-
+.firstpage .container .cancel {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+}

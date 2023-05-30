@@ -1,17 +1,24 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { SetDate } from "../Page1/components/SetDate";
 import { auth } from "../config/firebase";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
 
 export function Header() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isRegistratedUser] = useAuthState(auth);
   const rivalClub = useSelector((state) => state.rivalClub);
   const myClub = useSelector((state) => state.myClub);
+
   function openAuthWindow() {
     navigate("/Auth");
+  }
+  function goHome() {
+    dispatch(setInfoOfPlayer(null));
+    navigate("/");
   }
   async function logout() {
     try {
@@ -24,6 +31,7 @@ export function Header() {
   return (
     <div className="header">
       <div className="block">
+        <button type="button" className="home" onClick={() => goHome()}></button>
         <img
           src={isRegistratedUser?.photoURL}
           alt=""

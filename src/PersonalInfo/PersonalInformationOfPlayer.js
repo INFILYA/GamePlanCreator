@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
 import { useDispatch, useSelector } from "react-redux";
 import Diagramm from "./components/Diagramm";
@@ -9,15 +9,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 
 export function PersonalInformationOfPlayer({ link }) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isRegistratedUser] = useAuthState(auth);
-  const playerInfos = useSelector((state) => state.playerInfo);
-  const playerInfo = upgradeAge(playerInfos);
-  function goHome() {
-    navigate("/");
-    dispatch(setInfoOfPlayer(null));
-  }
+  const playerInfo = upgradeAge(useSelector((state) => state.playerInfo));
+  const page1 = link === "page1";
+  const service = link === "Service";
+  const attack = link === "Attack";
+  const libero = playerInfo.position !== "Libero";
+  const setter = playerInfo.position !== "Setter";
   const infosOfPlayers = Object.entries(playerInfo);
   infosOfPlayers.sort((a, b) => compare(a, b));
   const infosOfAttackers = [
@@ -44,14 +43,14 @@ export function PersonalInformationOfPlayer({ link }) {
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="info">
-            {playerInfo.position !== "Libero"
+            {libero
               ? infosOfAttackers.map((info, index) => (
                   <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
                 ))
               : infoOfLibero.map((info, index) => (
                   <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
                 ))}
-            {link === "Attack" &&
+            {attack &&
               isRegistratedUser &&
               infosOfPlayers
                 .slice(2, 5)
@@ -62,7 +61,7 @@ export function PersonalInformationOfPlayer({ link }) {
                     key={index + 2}
                   />
                 ))}
-            {link === "Attack" &&
+            {attack &&
               isRegistratedUser &&
               infosOfPlayers
                 .slice(15, 16)
@@ -73,7 +72,7 @@ export function PersonalInformationOfPlayer({ link }) {
                     key={index + 15}
                   />
                 ))}
-            {link === "Service" &&
+            {service &&
               isRegistratedUser &&
               infosOfPlayers
                 .slice(22, 25)
@@ -84,7 +83,7 @@ export function PersonalInformationOfPlayer({ link }) {
                     key={index + 22}
                   />
                 ))}
-            {link === "Service" &&
+            {service &&
               isRegistratedUser &&
               infosOfPlayers
                 .slice(16, 17)
@@ -96,19 +95,17 @@ export function PersonalInformationOfPlayer({ link }) {
                   />
                 ))}
             <div className="row" style={{ justifyContent: "space-evenly" }}>
-              {playerInfo.position !== "Libero" && (
+              {libero && (
                 <>
-                  {playerInfo.position !== "Setter" && (
-                    <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>
-                  )}
+                  {setter && <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>}
                   <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
                 </>
               )}
-              <button onClick={() => goHome()}>Cancel</button>
+              {page1 && <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>}
             </div>
           </div>
           <img src={playerInfo.photo} alt="" className="photoPlayer" />
-          {(link === "Service" || link === "Attack") && isRegistratedUser && (
+          {(service || attack) && isRegistratedUser && (
             <div style={{ display: "block" }}>
               <Diagramm link={link} />
             </div>

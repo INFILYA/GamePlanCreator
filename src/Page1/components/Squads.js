@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
-import { pushFromMyBoard } from "../../states/reducers/myTeamPlayersReducer";
-import { pushFromRivalBoard, setBenchPlayers } from "../../states/reducers/rivalPlayersReducer";
+import { pushToMyBoard } from "../../states/reducers/myTeamPlayersReducer";
+import { pushToRivalBoard, setBenchPlayers } from "../../states/reducers/rivalPlayersReducer";
 import { setMyTeamZones } from "../../states/reducers/myTeamZonesReducer";
 import { setRivalStartingSix, setRivalZones } from "../../states/reducers/zonesReducer";
 import {
@@ -42,14 +42,14 @@ export function Squads({ team }) {
     const player = players.find((player) => player.id === event.target.value.split(",")[0]);
     const zone = +event.target.value.split(",")[1];
     dispatch(setMyTeamZones(player, zone));
-    pushFromMyTeamBoard(player);
+    pushToMyTeamBoard(player);
   }
   function removeMyTeamSelectOption(event) {
     const zone = +event.target.value.split(",")[1];
     dispatch(setSequanceOfZones(zone));
   }
-  function pushFromMyTeamBoard(player) {
-    dispatch(pushFromMyBoard(player));
+  function pushToMyTeamBoard(player) {
+    dispatch(pushToMyBoard(player));
   }
 
   function rivalTeamActions(event) {
@@ -67,7 +67,7 @@ export function Squads({ team }) {
     dispatch(setIndexOfZones(zone));
   }
   function pushFromBoard(player) {
-    dispatch(pushFromRivalBoard(player));
+    dispatch(pushToRivalBoard(player));
   }
 
   function setPlayerInfo(player) {

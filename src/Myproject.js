@@ -22,7 +22,7 @@ import {
 import { dataBase } from "./config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { compare } from "./Datas/api";
-import { ENGTUTORIAL, UKRTUTORIAL } from "./StaticHelpModules/Button";
+import { ENGTUTORIAL, UKRTUTORIAL } from "./StaticHelpModules/textForTutorial";
 import { Tutorial } from "./Tutorial";
 import { setUserVersion } from "./states/reducers/userVersionReducer";
 import { setisShowedTutorial } from "./states/reducers/isShowedTutorialReducer";

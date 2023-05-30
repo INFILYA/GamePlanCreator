@@ -34,9 +34,6 @@ export function Ratings() {
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Outlet />
       </div>
-      <div className="showRatings" style={{ marginTop: 10 }}>
-        <NavLink to={"/"}>Home Page</NavLink>
-      </div>
     </>
   );
 }

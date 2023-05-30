@@ -6,6 +6,12 @@ export function setRivalPlayers(listOfPlayers, players) {
     payload: { listOfPlayers, players },
   };
 }
+export function pushToRivalBoard(player) {
+  return {
+    type: "PUSH_TO_RIVAL_BOARD",
+    payload: player,
+  };
+}
 export function pushFromRivalBoard(player) {
   return {
     type: "PUSH_FROM_RIVAL_BOARD",
@@ -24,8 +30,10 @@ export function rivalPlayersReducer(state = defaultState.rivalPlayers, action) {
       return action.payload.listOfPlayers.filter(
         (players) => players.teamid === action.payload.players.name
       );
-    case "PUSH_FROM_RIVAL_BOARD":
+    case "PUSH_TO_RIVAL_BOARD":
       return state.filter((players) => players.id !== action.payload.id);
+    case "PUSH_FROM_RIVAL_BOARD":
+      return [...state, action.payload];
     case "SET_BENCH_PLAYERS":
       return action.payload.players.filter(
         (player) => !action.payload.starters.some((startPlayer) => startPlayer === player.name)

@@ -6,6 +6,12 @@ export function setIndexOfZones(index) {
     payload: index,
   };
 }
+export function resetIndexOfZones(zones, player) {
+  return {
+    type: "RESET_INDEX_OF_ZONES",
+    payload: { zones, player },
+  };
+}
 export function setBackRightRivalSelects(rightZones) {
   return {
     type: "SET_BACK_RIGHT_RIVAL_SELECTS",
@@ -16,6 +22,8 @@ export function indexOfZonesReducer(state = defaultState.indexOfZones, action) {
   switch (action.type) {
     case "SET_INDEX_OF_ZONES":
       return state.filter((zone) => zone !== action.payload);
+    case "RESET_INDEX_OF_ZONES":
+      return [...state, action.payload.zones.indexOf(action.payload.player)];
     case "SET_BACK_RIGHT_RIVAL_SELECTS":
       return action.payload;
     default:

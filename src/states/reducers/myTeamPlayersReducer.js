@@ -6,6 +6,12 @@ export function setMyTeamPlayers(listOfPlayers, name) {
     payload: { listOfPlayers, name },
   };
 }
+export function pushToMyBoard(player) {
+  return {
+    type: "PUSH_TO_MY_BOARD",
+    payload: player,
+  };
+}
 export function pushFromMyBoard(player) {
   return {
     type: "PUSH_FROM_MY_BOARD",
@@ -18,8 +24,11 @@ export function myTeamPlayersReducer(state = defaultState.myTeamPlayers, action)
       return action.payload.listOfPlayers.filter(
         (players) => players.teamid === action.payload.name
       );
-    case "PUSH_FROM_MY_BOARD":
+    case "PUSH_TO_MY_BOARD":
       return state.filter((players) => players.id !== action.payload.id);
+    case "PUSH_FROM_MY_BOARD":
+      return [...state, action.payload];
+
     default:
       return state;
   }

@@ -6,6 +6,12 @@ export function setMyTeamZones(player, zone) {
     payload: { player, zone },
   };
 }
+export function resetMyTeamZones(name) {
+  return {
+    type: "RESET_MY_TEAM_ZONES",
+    payload: name,
+  };
+}
 export function clearMyTeamZones(clear) {
   return {
     type: "CLEAR_MY_TEAM_ZONES",
@@ -27,8 +33,10 @@ export function myTeamZonesReducer(state = defaultState.myTeamZones, action) {
   switch (action.type) {
     case "SET_MY_TEAM_ZONES":
       return state.map((player, index) =>
-        index === action.payload.zone ? action.payload.player  : player
+        index === action.payload.zone ? action.payload.player : player
       );
+    case "RESET_MY_TEAM_ZONES":
+      return state.map((player) => (player?.name === action.payload ? null : player));
     case "CLEAR_MY_TEAM_ZONES":
       return action.payload;
     case "ROTATE_FORWARD_MY_TEAM":

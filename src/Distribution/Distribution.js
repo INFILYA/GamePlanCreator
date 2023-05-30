@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { DistrField } from "./components/DistrField";
 
 function Distribution() {
@@ -30,9 +29,6 @@ function Distribution() {
       </div>  
       <div className="belowcort">
         {history.map((field) => (field ? <DistrField key={field} /> : null))}
-      </div>
-      <div className="showRatings" style={{ marginTop: 10 }}>
-        <NavLink to={"/"}>Home Page</NavLink>
       </div>
     </>
   );
