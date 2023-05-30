@@ -83,8 +83,8 @@ export function FirstPage() {
       <div style={{ display: "flex" }}>
         <Squads />
         <div className="rotation">
-          {rivalClub.length !== 0 && (
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            {rivalClub.length !== 0 ? (
               <button
                 onClick={resetTheBoardForRivalTeam}
                 className="reset"
@@ -92,15 +92,19 @@ export function FirstPage() {
               >
                 Reset
               </button>
+            ) : (
+              <div></div>
+            )}
+            {myClub.length !== 0 && (
               <button onClick={resetTheBoardForMyClub} className="reset" style={{ marginTop: -20 }}>
                 Reset
               </button>
-            </div>
-          )}
+            )}
+          </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
             {playerInfo && <PersonalInformationOfPlayer link={"page1"} />}
           </div>
-          {rivalClub.length < 1 ? (
+          {rivalClub.length < 1 && myClub.length < 1 ? (
             <ChooseOpponentTeam />
           ) : (
             <div>
