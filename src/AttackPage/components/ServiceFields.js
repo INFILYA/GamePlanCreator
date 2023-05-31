@@ -21,11 +21,9 @@ export function ServiceFields() {
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const userVersion = useSelector((state) => state.userVersion.userVersion);
   const playerInfos = useSelector((state) => state.playerInfo.playerInfo);
-  const Players = useSelector((state) => state.listOfPlayers.listOfPlayers);
-  const teams = useSelector((state) => state.listOfTeams.listOfTeams);
-  const allTeams = [...teams];
+  const allPlayers = useSelector((state) => state.listOfPlayers.listOfPlayers);
+  const allTeams = useSelector((state) => state.listOfTeams.listOfTeams);
   const playerInfo = { ...playerInfos };
-  const allPlayers = [...Players];
   const [showDataOfAttacks, setShowDataOfAttacks] = useState(false);
   const [showInputs, setShowInputs] = useState(false);
   const [showBalls, setShowBalls] = useState(false);
@@ -106,7 +104,7 @@ export function ServiceFields() {
       setConfirmReturn(!confirmReturn);
       setPreviousPlayerData({ ...playerInfo });
       setPreviousTeamData({
-        ...teams.find((team) => team.name === playerInfo.teamid),
+        ...allTeams.find((team) => team.name === playerInfo.teamid),
       });
       calculateForData(playerInfo);
       const zoneOfServ = historyOfBalls.find((ball) => ball.active);
@@ -118,14 +116,15 @@ export function ServiceFields() {
       const upgradedPlayers = players.map((player) => upgradeAge(player));
       const teamAge = upgradedPlayers.reduce((a, b) => a + b.age, 0) / players.length;
       const teamHeight = upgradedPlayers.reduce((a, b) => a + b.height, 0) / players.length;
-      calculateForData(team);
-      team.height = +teamHeight.toFixed(1);
-      team.age = +teamAge.toFixed(1);
+      const newTeam = { ...team };
+      calculateForData(newTeam);
+      newTeam.height = +teamHeight.toFixed(1);
+      newTeam.age = +teamAge.toFixed(1);
       ServiceByZone = res;
       playerInfo[nameOfZone] = ServiceByZone;
       refreshVersionOFAdmin(1);
       savePlayer(playerInfo); //сохраняю одного игрока
-      saveTeam(team); // сохраняю команду
+      saveTeam(newTeam); // сохраняю команду
       setSaveDataOfServices(!saveDataOfServices);
     }
     const totalServices = reduce(ServiceByZone, 0.0001);
