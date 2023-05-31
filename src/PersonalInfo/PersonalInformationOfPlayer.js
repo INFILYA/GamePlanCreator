@@ -2,16 +2,16 @@ import { NavLink } from "react-router-dom";
 import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
 import { useDispatch, useSelector } from "react-redux";
 import Diagramm from "./components/Diagramm";
-import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
 import { compare } from "../Datas/api";
-import { upgradeAge } from "../states/reducers/listOfPlayersReducer";
+import { upgradeAge } from "../StaticHelpModules/Button";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
+import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
 
 export function PersonalInformationOfPlayer({ link }) {
   const dispatch = useDispatch();
   const [isRegistratedUser] = useAuthState(auth);
-  const playerInfo = upgradeAge(useSelector((state) => state.playerInfo));
+  const playerInfo = upgradeAge(useSelector((state) => state.playerInfo.playerInfo));
   const page1 = link === "page1";
   const service = link === "Service";
   const attack = link === "Attack";
@@ -101,7 +101,9 @@ export function PersonalInformationOfPlayer({ link }) {
                   <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
                 </>
               )}
-              {page1 && <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>}
+              {page1 && (
+                <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>
+              )}
             </div>
           </div>
           <img src={playerInfo.photo} alt="" className="photoPlayer" />

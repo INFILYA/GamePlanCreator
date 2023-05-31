@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Button } from "./StaticHelpModules/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { setChangeLanguage } from "./states/reducers/changeLanguageReducer";
-import { setisShowedTutorial } from "./states/reducers/isShowedTutorialReducer";
+import { setChangeLanguage } from "./states/slices/changeLanguageSlice";
 import { Switch } from "antd";
+import { setisShowedTutorial } from "./states/slices/isShowedTutorialSlice";
 
 export function Tutorial({ text }) {
   const dispatch = useDispatch();
-  const changeLanguage = useSelector((state) => state.changeLanguage);
+  const changeLanguage = useSelector((state) => state.changeLanguage.changeLanguage);
   const [showTutorial, setShowTutorial] = useState(true);
   const [confirmRepeat, setConfirmReapeat] = useState(false);
 

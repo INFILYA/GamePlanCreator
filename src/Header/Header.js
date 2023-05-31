@@ -4,14 +4,14 @@ import { auth } from "../config/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
+import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
 
 export function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isRegistratedUser] = useAuthState(auth);
-  const rivalClub = useSelector((state) => state.rivalClub);
-  const myClub = useSelector((state) => state.myClub);
+  const rivalClub = useSelector((state) => state.rivalClub.rivalClub);
+  const myClub = useSelector((state) => state.myClub.myClub);
 
   function openAuthWindow() {
     navigate("/Auth");

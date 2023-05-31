@@ -21,10 +21,13 @@ export function Squads({ team }) {
   const sequanceOfZones = useSelector((state) => state.sequanceOfZones.sequanceOfZones);
   const zones = useSelector((state) => state.zones.zones);
   const [isRegistratedUser] = useAuthState(auth);
+  console.log(rivalClub);
+  console.log(rivalPlayers);
+  console.log(indexOfZones);
 
   const club = team === "my" ? myClub : rivalClub;
   const players = team === "my" ? myTeamPlayers : rivalPlayers;
-  const Zones = team === "my" ? [...sequanceOfZones] : [...indexOfZones];
+  const Zones = team === "my" ? sequanceOfZones : indexOfZones;
   const showButtonStartingSix =
     team !== "my" &&
     zones.every((zone) => zone === null) &&
@@ -67,9 +70,8 @@ export function Squads({ team }) {
     dispatch(pushToRivalBoard(player));
   }
 
-  function setPlayerInfo(playerInfo) {
-    dispatch(setInfoOfPlayer(playerInfo));
-    localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
+  function setPlayerInfo(player) {
+    dispatch(setInfoOfPlayer(player));
   }
   function showStartingSix() {
     const rivalTeam = rivalClub.startingSquad;

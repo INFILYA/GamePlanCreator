@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { compare } from "../Datas/api";
-import { upgradeAge } from "../states/reducers/listOfPlayersReducer";
+import { upgradeAge } from "../StaticHelpModules/Button";
 
 export default function ShapeForRatings({ amplua }) {
-  const Players = useSelector((state) => state.listOfPlayers);
-  const listOfTeams = useSelector((state) => state.listOfTeams);
+  const Players = useSelector((state) => state.listOfPlayers.listOfPlayers);
+  const listOfTeams = useSelector((state) => state.listOfTeams.listOfTeams);
   const listOfPlayers = Players.map((player) => upgradeAge(player));
   const [directionOfSort, setDirectionOfSort] = useState(false);
   const [teamsOrPlayers, setTeamsOrPlayers] = useState(

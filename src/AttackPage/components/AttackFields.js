@@ -5,23 +5,25 @@ import { ConeReaction } from "./ConeReaction";
 import { InputForCount } from "./InputForCount";
 import { DefenderZone6 } from "./DefenderZone6";
 import { useDispatch, useSelector } from "react-redux";
-import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
-import { setAllPlayers, upgradeAge } from "../../states/reducers/listOfPlayersReducer";
+import { upgradeAge } from "../../StaticHelpModules/Button";
 import { Explain } from "./Explain";
 import { CheckEquality } from "./CheckEquality";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { dataBase } from "../../config/firebase";
-import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
-import { setUserVersion } from "../../states/reducers/userVersionReducer";
+import { setUserVersion } from "../../states/slices/userVersionSlice";
+import { setAllPlayers } from "../../states/slices/listOfPlayersSlice";
+import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
+import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
 
 export function AttackFields() {
   const dispatch = useDispatch();
   const playersCollectionRefs = collection(dataBase, "players");
   const clubsCollectionRefs = collection(dataBase, "clubs");
-  const userVersion = useSelector((state) => state.userVersion);
-  const playerInfo = useSelector((state) => state.playerInfo);
-  const allPlayers = useSelector((state) => state.listOfPlayers);
-  const teams = useSelector((state) => state.listOfTeams);
+  const userVersion = useSelector((state) => state.userVersion.userVersion);
+  const playerInfos = useSelector((state) => state.playerInfo.playerInfo);
+  const allPlayers = useSelector((state) => state.listOfPlayers.listOfPlayers);
+  const allTeams = useSelector((state) => state.listOfTeams.listOfTeams);
+  const playerInfo = { ...playerInfos };
   const [showDataOfAttacks, setShowDataOfAttacks] = useState(false);
   const [showInputs, setShowInputs] = useState(false);
   const [showBalls, setShowBalls] = useState(false);
@@ -87,7 +89,7 @@ export function AttackFields() {
       [event.target.name]: +event.target.value.replace(/\D+/g, ""),
     });
   }
-  function calculateForData(obj) {
+  function calculateForDatas(obj) {
     if (obj === playerInfo) {
       diagrammValue.plusMinusOnAttack =
         diagrammValue.winPoints - (diagrammValue.attacksInBlock + diagrammValue.loosePoints);
@@ -114,26 +116,27 @@ export function AttackFields() {
       setConfirmReturn(!confirmReturn);
       setPreviousPlayerData({ ...playerInfo });
       setPreviousTeamData({
-        ...teams.find((team) => team.name === playerInfo.teamid),
+        ...allTeams.find((team) => team.name === playerInfo.teamid),
       });
-      calculateForData(playerInfo);
+      calculateForDatas(playerInfo);
       const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
       const attHistory = playerInfo[zoneOfAtt.zone];
       const result = AttacksByZone.map((att, index) => att + attHistory[index]);
       const nameOfZone = zoneOfAtt.zone;
       const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
-      const team = teams.find((team) => team.name === playerInfo.teamid);
+      const team = allTeams.find((team) => team.name === playerInfo.teamid);
       const upgradedPlayers = players.map((player) => upgradeAge(player));
       const teamAge = upgradedPlayers.reduce((a, b) => a + b.age, 0) / players.length;
       const teamHeight = upgradedPlayers.reduce((a, b) => a + b.height, 0) / players.length;
-      calculateForData(team);
-      team.age = +teamAge.toFixed(1);
-      team.height = +teamHeight.toFixed(1);
+      const newTeam = { ...team };
+      calculateForDatas(newTeam);
+      newTeam.age = +teamAge.toFixed(1);
+      newTeam.height = +teamHeight.toFixed(1);
       AttacksByZone = result;
       playerInfo[nameOfZone] = AttacksByZone;
       refreshVersionOFAdmin(1); //перезаписываю версию
       savePlayer(playerInfo); //сохраняю одного игрока
-      saveTeam(team); // сохраняю команду
+      saveTeam(newTeam); // сохраняю команду
       setSaveDataOfAttacks(!saveDataOfAttacks);
     }
     const totalAttacks = reduce(AttacksByZone, 0.0001);
@@ -174,7 +177,8 @@ export function AttackFields() {
     try {
       const docVersionRef = doc(dataBase, "versionChecker", "currentVersion");
       await setDoc(docVersionRef, { currentVersion: userVersion + count });
-      dispatch(setUserVersion(userVersion + count));
+      const adminVersion = userVersion + count;
+      dispatch(setUserVersion(adminVersion));
     } catch (error) {
       console.error(error);
     }
@@ -187,7 +191,8 @@ export function AttackFields() {
       const data = await getDocs(playersCollectionRefs);
       const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       dispatch(setAllPlayers(list));
-      dispatch(setInfoOfPlayer(list.find((players) => players.id === player.id)));
+      const playerInfo = list.find((players) => players.id === player.id);
+      dispatch(setInfoOfPlayer(playerInfo));
     } catch (error) {
       console.error(error);
     }

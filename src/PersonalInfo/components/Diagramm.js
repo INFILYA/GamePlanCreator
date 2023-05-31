@@ -2,7 +2,7 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { useSelector } from "react-redux";
 export default function Diagramm({ link }) {
-  const playerInfo = useSelector((state) => state.playerInfo);
+  const playerInfo = useSelector((state) => state.playerInfo.playerInfo);
   const colors = ["lightgreen", "yellow", "orange", "orangered"];
   const options = {
     chart: {

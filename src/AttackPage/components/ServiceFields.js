@@ -2,8 +2,7 @@ import { useState } from "react";
 import { BallForAttack } from "./BallForAttack";
 import { Explain } from "./Explain";
 import { reduce } from "../../Datas/api";
-import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
-import { setAllPlayers, upgradeAge } from "../../states/reducers/listOfPlayersReducer";
+import { upgradeAge } from "../../StaticHelpModules/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { DefenderZone6 } from "./DefenderZone6";
 import { ConeReaction } from "./ConeReaction";
@@ -11,17 +10,22 @@ import { InputForCount } from "./InputForCount";
 import { CheckEquality } from "./CheckEquality";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { dataBase } from "../../config/firebase";
-import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
-import { setUserVersion } from "../../states/reducers/userVersionReducer";
+import { setUserVersion } from "../../states/slices/userVersionSlice";
+import { setAllPlayers } from "../../states/slices/listOfPlayersSlice";
+import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
+import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
 
 export function ServiceFields() {
   const dispatch = useDispatch();
   const playersCollectionRefs = collection(dataBase, "players");
   const clubsCollectionRefs = collection(dataBase, "clubs");
-  const userVersion = useSelector((state) => state.userVersion);
-  const playerInfo = useSelector((state) => state.playerInfo);
-  const allPlayers = useSelector((state) => state.listOfPlayers);
-  const teams = useSelector((state) => state.listOfTeams);
+  const userVersion = useSelector((state) => state.userVersion.userVersion);
+  const playerInfos = useSelector((state) => state.playerInfo.playerInfo);
+  const Players = useSelector((state) => state.listOfPlayers.listOfPlayers);
+  const teams = useSelector((state) => state.listOfTeams.listOfTeams);
+  const allTeams = [...teams];
+  const playerInfo = { ...playerInfos };
+  const allPlayers = [...Players];
   const [showDataOfAttacks, setShowDataOfAttacks] = useState(false);
   const [showInputs, setShowInputs] = useState(false);
   const [showBalls, setShowBalls] = useState(false);
@@ -110,7 +114,7 @@ export function ServiceFields() {
       const res = ServiceByZone.map((att, index) => att + servHistory[index]);
       const nameOfZone = zoneOfServ.zone;
       const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
-      const team = teams.find((team) => team.name === playerInfo.teamid);
+      const team = allTeams.find((team) => team.name === playerInfo.teamid);
       const upgradedPlayers = players.map((player) => upgradeAge(player));
       const teamAge = upgradedPlayers.reduce((a, b) => a + b.age, 0) / players.length;
       const teamHeight = upgradedPlayers.reduce((a, b) => a + b.height, 0) / players.length;
@@ -146,7 +150,8 @@ export function ServiceFields() {
     try {
       const docVersionRef = doc(dataBase, "versionChecker", "currentVersion");
       await setDoc(docVersionRef, { currentVersion: userVersion + count });
-      dispatch(setUserVersion(userVersion + count));
+      const adminVersion = userVersion + count;
+      dispatch(setUserVersion(adminVersion));
     } catch (error) {
       console.error(error);
     }
@@ -158,7 +163,8 @@ export function ServiceFields() {
       const data = await getDocs(playersCollectionRefs);
       const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       dispatch(setAllPlayers(list));
-      dispatch(setInfoOfPlayer(list.find((players) => players.id === player.id)));
+      const playerInfo = list.find((players) => players.id === player.id);
+      dispatch(setInfoOfPlayer(playerInfo));
     } catch (error) {
       console.error(error);
     }

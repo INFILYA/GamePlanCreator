@@ -5,8 +5,6 @@ import Service from "./AttackPage/Service";
 import Page1 from "./Page1/Page1";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { setAllPlayers } from "./states/reducers/listOfPlayersReducer";
-import { setAllTeams } from "./states/reducers/listOfTeamsReducer";
 import { Auth } from "./Header/components/Auth";
 import "../src/css/newTutorial.css";
 import "../src/css/newHeader.css";
@@ -24,14 +22,16 @@ import { getDocs, collection } from "firebase/firestore";
 import { compare } from "./Datas/api";
 import { ENGTUTORIAL, UKRTUTORIAL } from "./StaticHelpModules/textForTutorial";
 import { Tutorial } from "./Tutorial";
-import { setUserVersion } from "./states/reducers/userVersionReducer";
-import { setisShowedTutorial } from "./states/reducers/isShowedTutorialReducer";
+import { setUserVersion } from "./states/slices/userVersionSlice";
+import { setisShowedTutorial } from "./states/slices/isShowedTutorialSlice";
 import { Header } from "./Header/Header";
+import { setAllPlayers } from "./states/slices/listOfPlayersSlice";
+import { setAllTeams } from "./states/slices/listOfTeamsSlice";
 
 function Myproject() {
   const dispatch = useDispatch();
-  const changeLanguage = useSelector((state) => state.changeLanguage);
-  const isShowedTutorial = useSelector((state) => state.isShowedTutorial);
+  const changeLanguage = useSelector((state) => state.changeLanguage.changeLanguage);
+  const isShowedTutorial = useSelector((state) => state.isShowedTutorial.isShowedTutorial);
   const userVersion = JSON.parse(localStorage.getItem("userVersion")) || null;
 
   useEffect(() => {

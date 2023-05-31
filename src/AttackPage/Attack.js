@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { AttackFields } from "./components/AttackFields";
 import { useDispatch, useSelector } from "react-redux";
-import { setInfoOfPlayer } from "../states/reducers/playerInfoReducer";
+import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
 
 function Attacks() {
   const dispatch = useDispatch();
   const [history, sethistory] = useState([0]);
-  const playerInfo = useSelector((state) => state.playerInfo);
+  const playerInfo = useSelector((state) => state.playerInfo.playerInfo);
 
   useEffect(() => {
-    dispatch(setInfoOfPlayer(JSON.parse(localStorage.getItem("playerInfo"))));
+    const playerInfo = JSON.parse(localStorage.getItem("playerInfo"));
+    dispatch(setInfoOfPlayer(playerInfo));
   }, [dispatch]);
 
   function reset() {

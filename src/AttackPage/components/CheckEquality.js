@@ -7,9 +7,7 @@ export function CheckEquality({ checkEquality, diagrammValue, zoneValue }) {
         <label>Data value</label>
         <input
           style={
-            checkEquality
-              ? { backgroundColor: `yellowgreen` }
-              : { backgroundColor: `orangered` }
+            checkEquality ? { backgroundColor: `yellowgreen` } : { backgroundColor: `orangered` }
           }
           type="text"
           value={reduce(Object.values(diagrammValue).slice(0, 4))}
@@ -31,9 +29,7 @@ export function CheckEquality({ checkEquality, diagrammValue, zoneValue }) {
         <label>Zone value</label>
         <input
           style={
-            checkEquality
-              ? { backgroundColor: `yellowgreen` }
-              : { backgroundColor: `orangered` }
+            checkEquality ? { backgroundColor: `yellowgreen` } : { backgroundColor: `orangered` }
           }
           type="text"
           value={reduce(Object.values(zoneValue))}

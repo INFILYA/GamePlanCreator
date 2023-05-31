@@ -7,59 +7,55 @@ import {
   clearMyTeamZones,
   rotateBackMyTeam,
   rotateForwardMyTeam,
-} from "../../states/reducers/myTeamZonesReducer";
-import { setMyTeamPlayers } from "../../states/reducers/myTeamPlayersReducer";
-import { setMyTeam, setResetMyTeam } from "../../states/reducers/myClubReducer";
+} from "../../states/slices/myTeamZonesSlice";
+import { setMyTeamPlayers } from "../../states/slices/myTeamPlayersSlice";
+import { resetMyTeamPlayers } from "../../states/slices/myTeamPlayersSlice";
+import { setMyTeam, resetMyTeam } from "../../states/slices/myClubSlice";
 import { correctNamesOfZones } from "../../Datas/api";
 import { Button } from "../../StaticHelpModules/Button";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { auth, dataBase } from "../../config/firebase";
-import { setAllTeams } from "../../states/reducers/listOfTeamsReducer";
-import { setRivalPlayers } from "../../states/reducers/rivalPlayersReducer";
-import { setResetRivalTeam } from "../../states/reducers/rivalClubReducer";
-import { clearRivalZones } from "../../states/reducers/zonesReducer";
-import { setBackRightRivalSelects } from "../../states/reducers/indexOfZonesReducer";
-import { setBackRightMyTeamSelects } from "../../states/reducers/sequanceOfZonesReducer";
-import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { resetRivalPlayers } from "../../states/slices/rivalPlayersSlice";
+import { resetRivalTeam } from "../../states/slices/rivalClubSlice";
+import { clearRivalZones } from "../../states/slices/zonesSlice";
+import { setBackRightRivalSelects } from "../../states/slices/indexOfZonesSlice";
+import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
+import { setBackRightMyTeamSelects } from "../../states/slices/sequanceOfZonesSlice";
+import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
 
 export function FirstPage() {
   const dispatch = useDispatch();
   const [isRegistratedUser] = useAuthState(auth);
-  const listOfTeams = useSelector((state) => state.listOfTeams);
-  const listOfPlayers = useSelector((state) => state.listOfPlayers);
-  const rivalClub = useSelector((state) => state.rivalClub);
-  const playerInfo = useSelector((state) => state.playerInfo);
-  const zones = useSelector((state) => state.zones);
-  const myTeamZones = useSelector((state) => state.myTeamZones);
-  const myClub = useSelector((state) => state.myClub);
+  const listOfTeams = useSelector((state) => state.listOfTeams.listOfTeams);
+  const listOfPlayers = useSelector((state) => state.listOfPlayers.listOfPlayers);
+  const rivalClub = useSelector((state) => state.rivalClub.rivalClub);
+  const playerInfo = useSelector((state) => state.playerInfo.playerInfo);
+  const zones = useSelector((state) => state.zones.zones);
+  const myTeamZones = useSelector((state) => state.myTeamZones.myTeamZones);
+  const myClub = useSelector((state) => state.myClub.myClub);
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const admin = isRegistratedUser?.uid === "7bSxPLITtrPknGnwKfzazxwjOd82";
 
   function resetTheBoardForRivalTeam() {
-    dispatch(setRivalPlayers([]));
-    dispatch(setResetRivalTeam([]));
+    dispatch(resetRivalPlayers([]));
+    dispatch(resetRivalTeam([]));
     dispatch(clearRivalZones(Array(6).fill(null)));
     dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setInfoOfPlayer(null));
   }
   function resetTheBoardForMyClub() {
-    dispatch(setMyTeamPlayers([]));
-    dispatch(setResetMyTeam([]));
+    dispatch(resetMyTeamPlayers([]));
+    dispatch(resetMyTeam([]));
     dispatch(clearMyTeamZones(Array(6).fill(null)));
     dispatch(setBackRightMyTeamSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setInfoOfPlayer(null));
   }
 
   function handleSetMyTeam(event) {
-    dispatch(setMyTeamPlayers(listOfPlayers, event.target.value));
-    dispatch(setMyTeam(listOfTeams, event.target.value));
-  }
-  function moveRotationForward() {
-    dispatch(rotateForwardMyTeam());
-  }
-  function moveRotationBack() {
-    dispatch(rotateBackMyTeam());
+    const value = event.target.value;
+    dispatch(setMyTeamPlayers({ listOfPlayers, value }));
+    dispatch(setMyTeam({ listOfTeams, value }));
   }
   function saveStartingSix() {
     saveTeam({
@@ -81,7 +77,7 @@ export function FirstPage() {
   return (
     <>
       <div style={{ display: "flex" }}>
-        <Squads />
+        <Squads team={"rival"} />
         <div className="rotation">
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             {rivalClub.length !== 0 ? (
@@ -166,7 +162,7 @@ export function FirstPage() {
           )}
           {myTeamZones.every((zone) => zone !== null) && isRegistratedUser && (
             <div className="plusMinus">
-              <button onClick={moveRotationForward}>-</button>
+              <button onClick={() => dispatch(rotateForwardMyTeam())}>-</button>
               {myTeamZones.map((player, index) =>
                 player && player.position === "Setter" ? (
                   <span key={player.name} style={{ marginLeft: 50, marginRight: 50, fontSize: 35 }}>
@@ -174,7 +170,7 @@ export function FirstPage() {
                   </span>
                 ) : null
               )}
-              <button onClick={moveRotationBack}>+</button>
+              <button onClick={() => dispatch(rotateBackMyTeam())}>+</button>
             </div>
           )}
         </div>

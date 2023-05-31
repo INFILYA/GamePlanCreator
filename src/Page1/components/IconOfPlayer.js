@@ -1,27 +1,28 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setInfoOfPlayer } from "../../states/reducers/playerInfoReducer";
-import { pushFromRivalBoard } from "../../states/reducers/rivalPlayersReducer";
-import { resetRivalZones } from "../../states/reducers/zonesReducer";
-import { resetIndexOfZones } from "../../states/reducers/indexOfZonesReducer";
-import { pushFromMyBoard } from "../../states/reducers/myTeamPlayersReducer";
-import { resetMyTeamZones } from "../../states/reducers/myTeamZonesReducer";
-import { resetSequanceOfZones } from "../../states/reducers/sequanceOfZonesReducer";
+import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
+import { pushFromRivalBoard } from "../../states/slices/rivalPlayersSlice";
+import { resetRivalZones } from "../../states/slices/zonesSlice";
+import { resetIndexOfZones } from "../../states/slices/indexOfZonesSlice";
+import { pushFromMyBoard } from "../../states/slices/myTeamPlayersSlice";
+import { resetMyTeamZones } from "../../states/slices/myTeamZonesSlice";
+import { resetSequanceOfZones } from "../../states/slices/sequanceOfZonesSlice";
 
 export function IconOfPlayer({ player, zones, type }) {
   const dispatch = useDispatch();
-  const listOfPlayers = useSelector((state) => state.listOfPlayers);
-  function setPlayerInfo(player) {
-    dispatch(setInfoOfPlayer(listOfPlayers.find((players) => players.id === player.id)));
+  const listOfPlayers = useSelector((state) => state.listOfPlayers.listOfPlayers);
+  function setPlayerInfo(info) {
+    const playerInfo = listOfPlayers.find((players) => players.id === info.id);
+    dispatch(setInfoOfPlayer(playerInfo));
   }
   function cancelRivalChoice(player) {
     dispatch(pushFromRivalBoard(player));
-    dispatch(resetRivalZones(player.name));
-    dispatch(resetIndexOfZones(zones, player));
+    dispatch(resetRivalZones(player));
+    dispatch(resetIndexOfZones({ zones, player }));
   }
   function cancelMyChoice(player) {
     dispatch(pushFromMyBoard(player));
-    dispatch(resetMyTeamZones(player.name));
-    dispatch(resetSequanceOfZones(zones, player));
+    dispatch(resetMyTeamZones(player));
+    dispatch(resetSequanceOfZones({ zones, player }));
   }
   return (
     <>

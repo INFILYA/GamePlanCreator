@@ -1,36 +1,56 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { listOfTeamsReducer } from "./reducers/listOfTeamsReducer";
-import { listOfPlayersReducer } from "./reducers/listOfPlayersReducer";
-import thunk from "redux-thunk";
-import { rivalPlayersReducer } from "./reducers/rivalPlayersReducer";
-import { rivalClubReducer } from "./reducers/rivalClubReducer";
-import { myTeamPlayersReducer } from "./reducers/myTeamPlayersReducer";
-import { myClubReducer } from "./reducers/myClubReducer";
-import { zonesReducer } from "./reducers/zonesReducer";
-import { indexOfZonesReducer } from "./reducers/indexOfZonesReducer";
-import { myTeamZonesReducer } from "./reducers/myTeamZonesReducer";
-import { sequanceOfZonesReducer } from "./reducers/sequanceOfZonesReducer";
-import { playerInfoReducer } from "./reducers/playerInfoReducer";
-import { changeLanguageReducer } from "./reducers/changeLanguageReducer";
-import { isShowedTutorialReducer } from "./reducers/isShowedTutorialReducer";
-import { userVersionReducer } from "./reducers/userVersionReducer";
+// import { createStore, combineReducers, applyMiddleware } from "redux";
+// import { composeWithDevTools } from "redux-devtools-extension";
+import listOfTeamsReducer from "./slices/listOfTeamsSlice";
+import listOfPlayersReducer from "./slices/listOfPlayersSlice";
+// import thunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
+import rivalPlayersReducer from "./slices/rivalPlayersSlice";
+import rivalClubReducer from "./slices/rivalClubSlice";
+import myTeamPlayersReducer from "./slices/myTeamPlayersSlice";
+import myClubReducer from "./slices/myClubSlice";
+import zonesReducer from "./slices/zonesSlice";
+import indexOfZonesReducer from "./slices/indexOfZonesSlice";
+import myTeamZonesReducer from "./slices/myTeamZonesSlice";
+import sequanceOfZonesReducer from "./slices/sequanceOfZonesSlice";
+import playerInfoReducer from "./slices/playerInfoSlice";
+import changeLanguageReducer from "./slices/changeLanguageSlice";
+import isShowedTutorialReducer from "./slices/isShowedTutorialSlice";
+import userVersionReducer from "./slices/userVersionSlice";
 
-const rootReducer = combineReducers({
-  listOfTeams: listOfTeamsReducer,
-  listOfPlayers: listOfPlayersReducer,
-  rivalPlayers: rivalPlayersReducer,
-  rivalClub: rivalClubReducer,
-  myTeamPlayers: myTeamPlayersReducer,
-  myClub: myClubReducer,
-  zones: zonesReducer,
-  indexOfZones: indexOfZonesReducer,
-  myTeamZones: myTeamZonesReducer,
-  sequanceOfZones: sequanceOfZonesReducer,
-  playerInfo: playerInfoReducer,
-  changeLanguage: changeLanguageReducer,
-  isShowedTutorial: isShowedTutorialReducer,
-  userVersion: userVersionReducer,
+export const store = configureStore({
+  reducer: {
+    listOfTeams: listOfTeamsReducer, //+
+    listOfPlayers: listOfPlayersReducer, //+
+    rivalPlayers: rivalPlayersReducer, //+
+    rivalClub: rivalClubReducer, // +
+    myTeamPlayers: myTeamPlayersReducer, //+
+    myClub: myClubReducer, //+
+    zones: zonesReducer, //+
+    indexOfZones: indexOfZonesReducer, //+
+    myTeamZones: myTeamZonesReducer, //+
+    sequanceOfZones: sequanceOfZonesReducer, //+
+    playerInfo: playerInfoReducer, //+
+    changeLanguage: changeLanguageReducer, //+
+    isShowedTutorial: isShowedTutorialReducer, //+
+    userVersion: userVersionReducer, //+
+  },
 });
 
-export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+// const rootReducer = combineReducers({
+//   listOfTeams: listOfTeamsReducer,
+//   listOfPlayers: listOfPlayersReducer,
+//   rivalPlayers: rivalPlayersReducer,
+//   rivalClub: rivalClubReducer,
+//   myTeamPlayers: myTeamPlayersReducer,
+//   myClub: myClubReducer,
+//   zones: zonesReducer,
+//   indexOfZones: indexOfZonesReducer,
+//   myTeamZones: myTeamZonesReducer,
+//   sequanceOfZones: sequanceOfZonesReducer,
+//   playerInfo: playerInfoReducer,
+//   changeLanguage: changeLanguageReducer,
+//   isShowedTutorial: isShowedTutorialReducer,
+//   userVersion: userVersionReducer,
+// });
+
+// export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

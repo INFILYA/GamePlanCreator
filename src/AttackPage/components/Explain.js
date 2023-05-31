@@ -15,7 +15,7 @@ export function Explain({
   showDataOfAttacks,
 }) {
   const [isRegistratedUser] = useAuthState(auth);
-  const admin = isRegistratedUser?.uid === "7bSxPLITtrPknGnwKfzazxwjOd82";
+  const admin = isRegistratedUser?.uid === "ld4Bdj6KepVG68kjNHHQRjacJI13";
   return (
     <>
       <div>
