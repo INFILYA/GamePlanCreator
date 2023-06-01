@@ -101,9 +101,7 @@ export function PersonalInformationOfPlayer({ link }) {
                   <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
                 </>
               )}
-              {page1 && (
-                <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>
-              )}
+              {page1 && <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>}
             </div>
           </div>
           <img src={playerInfo.photo} alt="" className="photoPlayer" />

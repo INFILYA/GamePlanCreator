@@ -10,8 +10,9 @@ import { resetSequanceOfZones } from "../../states/slices/sequanceOfZonesSlice";
 export function IconOfPlayer({ player, zones, type }) {
   const dispatch = useDispatch();
   const listOfPlayers = useSelector((state) => state.listOfPlayers.listOfPlayers);
-  function setPlayerInfo(info) {
-    const playerInfo = listOfPlayers.find((players) => players.id === info.id);
+  function setPlayerInfo(player) {
+    const playerInfo = listOfPlayers.find((players) => players === player);
+    localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
     dispatch(setInfoOfPlayer(playerInfo));
   }
   function cancelRivalChoice(player) {

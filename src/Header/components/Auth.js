@@ -3,6 +3,7 @@ import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  // sendSignInLinkToEmail,
 } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router";
@@ -33,6 +34,14 @@ export function Auth() {
   async function signInWithEmail(e) {
     e.preventDefault();
     try {
+      // await sendSignInLinkToEmail(auth, email, {
+      //   // url: "https://game-plan-creator.web.app/Auth",
+      //   url: "http://localhost:3000",
+      //   handleCodeInApp: true,
+      //   dynamicLinkDomain: "gameplancreator.page.link",
+      // });
+      // localStorage.setItem("userEmail", email);
+      // alert("We have sent you link on email");
       await createUserWithEmailAndPassword(auth, email, password);
       navigate("/");
     } catch (err) {
