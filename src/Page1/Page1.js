@@ -15,7 +15,7 @@ export default function Page1() {
     <>
       <FirstPage />
       {isRegistratedUser && (
-        <div className="showRatings">
+        <div className="showRatings" style={{ marginTop: -70 }}>
           <NavLink to={"/Ratings"}>Ratings</NavLink>
           <NavLink to={"/Distribution"}>Distribution</NavLink>
         </div>

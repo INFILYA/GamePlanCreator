@@ -39,9 +39,9 @@ export function Header() {
         />
         <h2>{isRegistratedUser?.displayName || isRegistratedUser?.email}</h2>
       </div>
-      {rivalClub.length !== 0 && (
+      {(rivalClub.length !== 0 || myClub.length !== 0) && (
         <div className="matchup">
-          <img src={rivalClub.logo} alt=""></img>
+          {rivalClub.length !== 0 && <img src={rivalClub.logo} alt=""></img>}
           vs
           {myClub.length !== 0 && <img src={myClub.logo} alt=""></img>}
         </div>

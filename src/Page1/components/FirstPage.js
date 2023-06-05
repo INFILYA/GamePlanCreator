@@ -35,7 +35,7 @@ export function FirstPage() {
   const myTeamZones = useSelector((state) => state.myTeamZones.myTeamZones);
   const myClub = useSelector((state) => state.myClub.myClub);
   const clubsCollectionRefs = collection(dataBase, "clubs");
-  const admin = isRegistratedUser?.uid === "7bSxPLITtrPknGnwKfzazxwjOd82";
+  const admin = isRegistratedUser?.uid === "ld4Bdj6KepVG68kjNHHQRjacJI13";
 
   function resetTheBoardForRivalTeam() {
     dispatch(resetRivalPlayers([]));
@@ -43,6 +43,7 @@ export function FirstPage() {
     dispatch(clearRivalZones(Array(6).fill(null)));
     dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
     dispatch(setInfoOfPlayer(null));
+    resetTheBoardForMyClub();
   }
   function resetTheBoardForMyClub() {
     dispatch(resetMyTeamPlayers([]));

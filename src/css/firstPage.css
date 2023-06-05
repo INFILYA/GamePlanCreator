@@ -12,11 +12,11 @@ body {
   font-size: 25px;
   width: 22%;
   min-width: 280px;
+  min-height: 775px;
   background-color: gainsboro;
   text-align: center;
   padding: 0px 10px 10px 10px;
   border-radius: 45px;
-  min-height: 700px;
   box-sizing: border-box;
 }
 .firstpage .teamLogo {
