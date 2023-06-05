@@ -1,40 +1,45 @@
 import { auth, facebookProvider, googleProvider } from "../../config/firebase";
 import {
   signInWithPopup,
-  // createUserWithEmailAndPassword,
-  // signInWithEmailAndPassword,
   sendSignInLinkToEmail,
   isSignInWithEmailLink,
   signInWithEmailLink,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 export function Auth() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { search } = location;
   const [isRegistratedUser] = useAuthState(auth);
   const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
-  // const [showSignInPanel, setShowSignInPanel] = useState(false);
 
   useEffect(() => {
-    if (isRegistratedUser) {
-      // navigate("/");
-    } else {
-      if (isSignInWithEmailLink(auth, window.location.href)) {
-        let email = localStorage.getItem("userEmail");
-        console.log(email);
-        if (!email) {
-          email = window.prompt("Please provide your email");
+    async function signInWithEmail() {
+      try {
+        if (isRegistratedUser) {
+          navigate("/");
+        } else {
+          if (isSignInWithEmailLink(auth, window.location.href)) {
+            await signInWithEmailLink(
+              auth,
+              localStorage.getItem("userEmail"),
+              window.location.href
+            );
+            localStorage.removeItem("userEmail");
+          }
         }
-        signInWithEmailLink(auth, localStorage.getItem("userEmail"), window.location.href);
-        localStorage.removeItem("userEmail");
+      } catch (err) {
+        console.log(err);
+        navigate("/Auth");
       }
     }
-  }, [isRegistratedUser, navigate]);
+    signInWithEmail();
+  }, [isRegistratedUser, navigate, search]);
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -45,7 +50,7 @@ export function Auth() {
         handleCodeInApp: true,
         dynamicLinkDomain: "gameplancreator.page.link",
       });
-      localStorage.setItem("userEmail", JSON.stringify(email));
+      localStorage.setItem("userEmail", email);
       alert("We have sent you link on email");
       setLoginLoading(false);
       setLoginError("");
@@ -53,19 +58,8 @@ export function Auth() {
       console.error(err);
       setLoginLoading(false);
       setLoginError(err.message);
-      alert("Sorry , account with this name already existed. Please , try again");
     }
   }
-  // async function logInWithEmail(e) {
-  //   e.preventDefault();
-  //   try {
-  //     await signInWithEmailAndPassword(auth, email, password);
-  //     navigate("/");
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert("Sorry , we cant find your account. Please , create a new one");
-  //   }
-  // }
   async function signInWithGoogle() {
     try {
       await signInWithPopup(auth, googleProvider);
@@ -95,27 +89,12 @@ export function Auth() {
             onChange={(e) => setEmail(e.target.value)}
             value={email || ""}
           />
-          <label>Password:</label>
-          {/* <input
-            type="password"
-            placeholder="Password..."
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          /> */}
           <button type="submit">{loginLoading ? "Logging you in" : "Log in"}</button>
           {loginError !== "" && <div>{loginError}</div>}
           <div style={{ display: "flex", justifyContent: "center" }}>
             <button type="button" className="google" onClick={signInWithGoogle}></button>
             <button type="button" className="facebook" onClick={signInWithFaceBook}></button>
           </div>
-          <div>Dont have an account?</div>
-          {/* <button
-            type="button"
-            className="createAccount"
-            onClick={() => setShowSignInPanel(!showSignInPanel)}
-          >
-            Create an account
-          </button> */}
         </div>
       </form>
     </>
