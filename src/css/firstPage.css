@@ -3,7 +3,14 @@ body {
 }
 #root {
   max-width: 1720px;
-  min-width: 1325px;
+  min-width: 1280px;
+  height: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+.firstpage {
+  max-width: 1720px;
+  min-width: 1280px;
   height: 900px;
   margin: 0 auto;
   width: 100%;
@@ -11,11 +18,10 @@ body {
 .firstpage .teamsquad {
   font-size: 25px;
   width: 22%;
-  min-width: 280px;
   min-height: 775px;
   background-color: gainsboro;
   text-align: center;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 20px 10px 20px;
   border-radius: 45px;
   box-sizing: border-box;
 }
@@ -117,15 +123,15 @@ body {
   display: flex;
   justify-content: center;
 }
-.firstpage .innerSquad .playerPhoto {
-  display: none;
-}
 .firstpage .numberPlusInput {
   display: flex;
   justify-content: center;
 }
+.firstpage .innerSquad .playerPhoto {
+  display: none;
+}
 .firstpage .playerNumber {
-  width: 46px;
+  min-width: 40px;
   height: 40px;
   border-radius: 0;
   position: relative;
@@ -143,9 +149,11 @@ body {
   background-color: transparent;
   border: none;
   font-size: inherit;
+  width: 30px;
 }
 .firstpage .input {
-  min-width: 185px;
+  min-width: 180px;
+  max-width: 220px;
   height: 40px;
   background-color: khaki;
   border: 2px solid black;
@@ -164,7 +172,7 @@ body {
   background-color: fuchsia;
 }
 .firstpage .rotation {
-  background: url(../photos/playarea.jpg) no-repeat center center;
+  background: url(../photos/playarea.jpg) center;
   background-size: cover;
   text-align: center;
   margin-top: 1%;
@@ -211,18 +219,20 @@ body {
 .firstpage .container {
   display: inline-block;
   vertical-align: top;
-  width: 250px;
+  width: 230px;
   height: 200px;
   font-size: 55px;
   font-weight: bold;
+  margin: 0px 10px;
 }
 .firstpage .smallBox {
   display: inline-block;
   vertical-align: top;
-  width: 250px;
+  width: 230px;
   height: 64px;
   font-size: 55px;
   font-weight: bold;
+  margin: 0px 10px;
 }
 .firstpage .p1-6 {
   display: inline-block;
@@ -292,8 +302,8 @@ select {
   transition: 0.3s;
 }
 .regularButton {
-  font-size: 22px;
-  margin: 10px;
+  font-size: 21px;
+  margin: 20px 10px 10px 10px;
   border: none;
   background-color: gold;
   padding: 5px;

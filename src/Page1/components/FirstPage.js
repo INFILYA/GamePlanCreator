@@ -34,6 +34,8 @@ export function FirstPage() {
   const zones = useSelector((state) => state.zones.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones.myTeamZones);
   const myClub = useSelector((state) => state.myClub.myClub);
+  const showRivalClub = rivalClub.length !== 0;
+  const showMyClub = myClub.length !== 0;
   const clubsCollectionRefs = collection(dataBase, "clubs");
   const admin = isRegistratedUser?.uid === "ld4Bdj6KepVG68kjNHHQRjacJI13";
 
@@ -77,11 +79,11 @@ export function FirstPage() {
   };
   return (
     <>
-      <div style={{ display: "flex" }}>
-        <Squads team={"rival"} />
+      <div style={showRivalClub ? { display: "flex" } : {}}>
+        {showRivalClub && <Squads team={"rival"} />}
         <div className="rotation">
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            {rivalClub.length !== 0 ? (
+            {showRivalClub ? (
               <button
                 onClick={resetTheBoardForRivalTeam}
                 className="reset"
@@ -92,7 +94,7 @@ export function FirstPage() {
             ) : (
               <div></div>
             )}
-            {myClub.length !== 0 && (
+            {showMyClub && (
               <button onClick={resetTheBoardForMyClub} className="reset" style={{ marginTop: -20 }}>
                 Reset
               </button>
@@ -175,22 +177,23 @@ export function FirstPage() {
             </div>
           )}
         </div>
-        {myClub?.id ? (
-          <Squads team={"my"} />
-        ) : (
-          <div className="teamsquad">
-            {rivalClub.length !== 0 && (
-              <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
-                <option value="Choose home team">Choose team</option>
-                {listOfTeams.map((team) => (
-                  <option key={team.id} value={team.name}>
-                    {team.name}
-                  </option>
-                ))}
-              </select>
-            )}
-          </div>
-        )}
+        {showRivalClub &&
+          (showMyClub ? (
+            <Squads team={"my"} />
+          ) : (
+            <div className="teamsquad">
+              {rivalClub.length !== 0 && (
+                <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
+                  <option value="Choose home team">Choose team</option>
+                  {listOfTeams.map((team) => (
+                    <option key={team.id} value={team.name}>
+                      {team.name}
+                    </option>
+                  ))}
+                </select>
+              )}
+            </div>
+          ))}
       </div>
     </>
   );

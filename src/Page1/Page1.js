@@ -8,13 +8,17 @@ import { NavLink } from "react-router-dom";
 import { FirstPage } from "./components/FirstPage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
+import { useSelector } from "react-redux";
 
 export default function Page1() {
   const [isRegistratedUser] = useAuthState(auth);
+  const rivalClub = useSelector((state) => state.rivalClub.rivalClub);
+  const showRivalClub = rivalClub.length !== 0;
+
   return (
     <>
       <FirstPage />
-      {isRegistratedUser && (
+      {showRivalClub && isRegistratedUser && (
         <div className="showRatings" style={{ marginTop: -70 }}>
           <NavLink to={"/Ratings"}>Ratings</NavLink>
           <NavLink to={"/Distribution"}>Distribution</NavLink>

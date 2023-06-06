@@ -93,7 +93,6 @@ export function Squads({ team }) {
               className="playerSurname"
               style={team === "my" ? { direction: "rtl" } : {}}
             >
-              <div className="numberPlusInput" onClick={() => setPlayerInfo(player)}>
                 <button
                   type="text"
                   disabled
@@ -115,6 +114,7 @@ export function Squads({ team }) {
                 <button
                   type="text"
                   className="input"
+                  onClick={() => setPlayerInfo(player)}
                   style={
                     team === "my"
                       ? {
@@ -129,8 +129,6 @@ export function Squads({ team }) {
                 >
                   {player.name}
                 </button>
-              </div>
-              <div>
                 {Zones && (
                   <select
                     className="moveToBoard"
@@ -152,7 +150,6 @@ export function Squads({ team }) {
                   </select>
                 )}
               </div>
-            </div>
           ))}
         {showButtonStartingSix && <Button onClick={showStartingSix} value={"Show Starting six"} />}
       </div>
