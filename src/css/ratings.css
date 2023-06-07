@@ -3,11 +3,8 @@
   background-color: gainsboro;
   margin-top: 10px;
   box-sizing: border-box;
-  max-width: 1320px;
-  width: 100%;
 }
 .ratingRow {
-  width: 14%;
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
@@ -30,6 +27,7 @@
   min-height: 100px;
   box-sizing: border-box;
   width: 100%;
+  padding: 0px 20px;
 }
 .ratingRow button:hover {
   box-shadow: 0 15px 20px lemonchiffon;

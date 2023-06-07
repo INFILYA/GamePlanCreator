@@ -81,7 +81,7 @@ export function FirstPage() {
     <>
       <div style={showRivalClub ? { display: "flex" } : {}}>
         {showRivalClub && <Squads team={"rival"} />}
-        <div className="rotation">
+        <div className="rotation" style={!showRivalClub ? { minWidth: 975 } : {}}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             {showRivalClub ? (
               <button
