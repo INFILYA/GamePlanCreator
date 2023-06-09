@@ -48,6 +48,7 @@
   left: 30%;
 }
 .grab .tutorial .hideBackground .confirmationForExit button {
+  padding: 5px 20px;
   margin: 0px 10px;
   border: 1px solid black;
 }
@@ -56,6 +57,7 @@
   top: 88%;
 }
 .grab .tutorial .exit button {
+  padding: 5px 20px;
   margin: 0px 10px;
   border: 1px solid black;
 }
@@ -85,7 +87,7 @@
 }
 
 .textForTutorial div {
-  font-size: 25px;
+  font-size: 22px;
   padding: 5px;
   line-height: 1.5;
 }
@@ -103,7 +105,7 @@
 .textForTutorial div .aboutFirstPage {
   max-width: 1000px;
   width: 100%;
-  height: 455px;
+  height: 465px;
   border-radius: 2px;
   border: 1px solid transparent;
   margin: 10px 0px;
@@ -123,7 +125,7 @@
 .textForTutorial div .aboutDistr {
   max-width: 1000px;
   width: 100%;
-  height: 400px;
+  height: 420px;
   border-radius: 2px;
   border: 1px solid transparent;
   margin: 10px 0px;
@@ -148,6 +150,16 @@
   border: 1px solid transparent;
   margin: 10px 0px;
   background: url("../photos/PersonalInfo.jpg") no-repeat center center;
+  background-size: cover;
+}
+.textForTutorial div .welcome {
+  max-width: 1000px;
+  width: 100%;
+  height: 300px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  margin: 10px 0px;
+  background: url("../photos/welcome.jpg") no-repeat center center;
   background-size: cover;
 }
 .textForTutorial div .awarness {

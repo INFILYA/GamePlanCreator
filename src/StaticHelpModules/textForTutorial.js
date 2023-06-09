@@ -11,7 +11,11 @@ const enterWord = (
   <div>
     <h1>Вітаю!</h1>
     Дякую, що вирішили скористатися послугами моєї програми. Наразі мій проект знаходиться в режимі
-    бета-тесту, тому контент буде оновлюватись періодично.
+    бета-тесту, тому контент буде оновлюватись періодично. На данний момент реальна база
+    статистичних даних відсутня, але буде заповнюватися з початком сезону 2023-2024 ПВЛУ. Для
+    демонтсрації додані вигадані дані для гравців команд фіналістів, їх можна подивитися
+    переключивши чекбокс "Show data" в розділі "Атака" чи "Подача".
+    <img alt="" className="welcome" />
   </div>
 );
 const aboutFirstPage = (
@@ -78,7 +82,11 @@ const enterWordEng = (
   <div>
     <h1>Welcome!</h1>
     Thank you for choosing to use my program. Currently, my project is in beta testing mode, so the
-    content will be periodically updated.
+    content will be periodically updated. At the moment, there is no actual statistical database
+    available. However, it will be populated starting from the 2023-2024 PVLU season. To demonstrate
+    the functionality, fictional data for the players of the finalist teams has been added. You can
+    view this data by toggling the "Show data" checkbox in the "Attack" or "Serving" section.
+    <img alt="" className="welcome" />
   </div>
 );
 const aboutFirstPageEng = (

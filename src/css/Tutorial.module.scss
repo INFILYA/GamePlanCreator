@@ -17,6 +17,7 @@
   background-size: cover;
 }
 @mixin forButtons {
+  padding: 5px 20px;
   margin: 0px 10px;
   border: 1px solid black;
 }
@@ -89,7 +90,7 @@
   }
 }
 .textForTutorial div {
-  font-size: 25px;
+  font-size: 22px;
   padding: 5px;
   line-height: 1.5;
   .lastWord {
@@ -97,19 +98,22 @@
     width: 300px;
   }
   .aboutFirstPage {
-    @include forText(455px, "../photos/FirstPage.jpg");
+    @include forText(465px, "../photos/FirstPage.jpg");
   }
   .aboutAttack {
     @include forText(450px, "../photos/Attack.jpg");
   }
   .aboutDistr {
-    @include forText(400px, "../photos/Distribution.jpg");
+    @include forText(420px, "../photos/Distribution.jpg");
   }
   .aboutRatings {
     @include forText(470px, "../photos/Ratings.jpg");
   }
   .aboutInfo {
     @include forText(450px, "../photos/PersonalInfo.jpg");
+  }
+  .welcome {
+    @include forText(300px, "../photos/welcome.jpg");
   }
   .awarness {
     @include forText(220px, "../photos/Registration.jpg");
