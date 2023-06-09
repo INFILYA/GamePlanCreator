@@ -105,8 +105,8 @@ body {
   background-color: orangered;
 }
 .firstpage .photoLogo {
-  max-width: 66px;
-  max-height: 66px;
+  width: 66px;
+  height: 66px;
   animation: spin 5s linear 0s infinite;
 }
 @keyframes spin {
@@ -149,7 +149,7 @@ body {
   background-color: transparent;
   border: none;
   font-size: inherit;
-  width: 30px;
+  min-width: 35px;
 }
 .firstpage .input {
   min-width: 180px;
