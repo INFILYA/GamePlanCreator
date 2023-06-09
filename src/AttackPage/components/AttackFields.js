@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { reduce } from "../../Datas/api";
 import { BallForAttack } from "./BallForAttack";
 import { ConeReaction } from "./ConeReaction";
@@ -35,6 +35,7 @@ export function AttackFields() {
   const [previousTeamData, setPreviousTeamData] = useState(null);
   const [tip4, setTip4] = useState(0);
   const [tip2, setTip2] = useState(0);
+
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "attackZone1", active: false },
     { zone: "attackZone2", active: false },
@@ -60,6 +61,10 @@ export function AttackFields() {
     plusMinusOnAttack: 0,
     percentOfAttack: 0,
   });
+  useEffect(() => {
+    const playerInfo = JSON.parse(localStorage.getItem("playerInfo"));
+    dispatch(setInfoOfPlayer(playerInfo));
+  }, [dispatch]);
   const classNamesForConesAndInputs = [
     ["blue5A", "yellow5A", "purple5A", "red5A"],
     ["blue5B", "yellow5B", "purple5B", "red5B"],
@@ -192,6 +197,7 @@ export function AttackFields() {
       const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       dispatch(setAllPlayers(list));
       const playerInfo = list.find((players) => players.id === player.id);
+      localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
       dispatch(setInfoOfPlayer(playerInfo));
     } catch (error) {
       console.error(error);

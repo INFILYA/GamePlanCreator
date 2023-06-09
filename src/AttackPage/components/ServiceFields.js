@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BallForAttack } from "./BallForAttack";
 import { Explain } from "./Explain";
 import { reduce } from "../../Datas/api";
@@ -34,6 +34,7 @@ export function ServiceFields() {
   const [previousTeamData, setPreviousTeamData] = useState(null);
   const [attackPercentageArray, setAttackPercentageArray] = useState([]);
   const [tip, setTip] = useState(0);
+
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "serviceZone1", active: false },
     { zone: "serviceZone6", active: false },
@@ -51,6 +52,12 @@ export function ServiceFields() {
     serviceFailed: 0,
     plusMinusOnService: 0,
   });
+
+  useEffect(() => {
+    const playerInfo = JSON.parse(localStorage.getItem("playerInfo"));
+    dispatch(setInfoOfPlayer(playerInfo));
+  }, [dispatch]);
+
   const classNamesForConesAndInputs = [
     ["Bluez5", "Yellowz5", "Purplez5", "Redz5"],
     ["Bluez6", "Yellowz6", "Purplez6", "Redz6"],
@@ -163,6 +170,7 @@ export function ServiceFields() {
       const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       dispatch(setAllPlayers(list));
       const playerInfo = list.find((players) => players.id === player.id);
+      localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
       dispatch(setInfoOfPlayer(playerInfo));
     } catch (error) {
       console.error(error);
