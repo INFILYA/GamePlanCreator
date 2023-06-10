@@ -13,6 +13,17 @@
   width: 525px;
   height: 700px;
   display: inline-block;
+  margin-top: 10px;
+}
+.playArea .typeOfAttack {
+  position: absolute;
+  margin: -10px -28px;
+  background-color: #0272be;
+  color: white;
+  font-weight: bold;
+  width: 316px;
+  text-align: center;
+  font-size: 25px;
 }
 .playArea .compareFields {
   margin-top: 40px;

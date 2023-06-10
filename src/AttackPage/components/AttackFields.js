@@ -33,9 +33,9 @@ export function AttackFields() {
   const [attackPercentageArray, setAttackPercentageArray] = useState([]);
   const [previousPlayerData, setPreviousPlayerData] = useState(null);
   const [previousTeamData, setPreviousTeamData] = useState(null);
+  const [fastBall, setFastBall] = useState("chooseTypeOfAttack");
   const [tip4, setTip4] = useState(0);
   const [tip2, setTip2] = useState(0);
-
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "attackZone1", active: false },
     { zone: "attackZone2", active: false },
@@ -65,6 +65,7 @@ export function AttackFields() {
     const playerInfo = JSON.parse(localStorage.getItem("playerInfo"));
     dispatch(setInfoOfPlayer(playerInfo));
   }, [dispatch]);
+  console.log(fastBall);
   const classNamesForConesAndInputs = [
     ["blue5A", "yellow5A", "purple5A", "red5A"],
     ["blue5B", "yellow5B", "purple5B", "red5B"],
@@ -77,6 +78,9 @@ export function AttackFields() {
   const classNamesForTip2 = ["tip2", "yellowtip2"];
   let AttacksByZone = Object.values(zoneValue);
   const keepCountDisabled = AttacksByZone.every((zone) => typeof zone === "string");
+  const chooseTypeOfAttack = (event) => {
+    setFastBall(event.target.value);
+  };
   const checkEquality =
     diagrammValue.winPoints +
       diagrammValue.leftInGame +
@@ -114,8 +118,8 @@ export function AttackFields() {
   }
   function onHandleCountClick(event) {
     event.preventDefault();
-    while (saveDataOfAttacks && !checkEquality) {
-      alert("DATA Value not equal to ZONE value");
+    while ((saveDataOfAttacks && !checkEquality) || fastBall === "chooseTypeOfAttack") {
+      alert("DATA Value not equal to ZONE value or type of Attack was not selected");
       return;
     }
     if (saveDataOfAttacks) {
@@ -165,6 +169,10 @@ export function AttackFields() {
 
   function showData(event) {
     event.preventDefault();
+    if (fastBall === "chooseTypeOfAttack") {
+      alert("Type of Attack was not selected");
+      return;
+    }
     const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
     const attHistory = playerInfo[zoneOfAtt.zone];
     const totalAttacks = reduce(attHistory, 0.0001);
@@ -215,8 +223,18 @@ export function AttackFields() {
       console.error(error);
     }
   };
+
   return (
     <form className="playArea" onSubmit={!showDataOfAttacks ? onHandleCountClick : showData}>
+      <select
+        className="typeOfAttack"
+        onChange={chooseTypeOfAttack}
+        disabled={!showInputs || keepCountDisabled}
+      >
+        <option value="chooseTypeOfAttack">Choose type of Attack</option>
+        <option value="highBall">Fast ball</option>
+        <option value="fastBall">High ball</option>
+      </select>
       <div className="zoneinput">
         <input
           type="submit"

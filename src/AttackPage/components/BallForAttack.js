@@ -28,11 +28,7 @@ export function BallForAttack({
   }
   return (
     <>
-      <button
-        type="button"
-        className={attack}
-        onClick={() => onClickSetCorrectBall(index)}
-      >
+      <button type="button" className={attack} onClick={() => onClickSetCorrectBall(index)}>
         {value}
       </button>
     </>
