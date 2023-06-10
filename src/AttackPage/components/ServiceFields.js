@@ -67,6 +67,7 @@ export function ServiceFields() {
   const arrayForRecievers = [1, 2, 3, 4, 5];
 
   let ServiceByZone = Object.values(zoneValue);
+  const keepCountDisabled = ServiceByZone.every((zone) => typeof zone === "string");
   const checkEquality =
     diagrammValue.servicePlus +
       diagrammValue.serviceMinus +
@@ -209,7 +210,7 @@ export function ServiceFields() {
         <select
           className="typeOfService"
           onChange={!showDataOfAttacks ? onHandleCountClick : showData}
-          disabled={!showInputs}
+          disabled={!showInputs || keepCountDisabled}
         >
           <option defaultValue="Type of service">Type of service</option>
           <option>Jump</option>

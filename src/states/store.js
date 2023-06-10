@@ -1,8 +1,8 @@
 // import { createStore, combineReducers, applyMiddleware } from "redux";
 // import { composeWithDevTools } from "redux-devtools-extension";
+// import thunk from "redux-thunk";
 import listOfTeamsReducer from "./slices/listOfTeamsSlice";
 import listOfPlayersReducer from "./slices/listOfPlayersSlice";
-// import thunk from "redux-thunk";
 import { configureStore } from "@reduxjs/toolkit";
 import rivalPlayersReducer from "./slices/rivalPlayersSlice";
 import rivalClubReducer from "./slices/rivalClubSlice";

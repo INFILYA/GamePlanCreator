@@ -76,6 +76,7 @@ export function AttackFields() {
   const classNamesForTip4 = ["tip4", "yellowtip4"];
   const classNamesForTip2 = ["tip2", "yellowtip2"];
   let AttacksByZone = Object.values(zoneValue);
+  const keepCountDisabled = AttacksByZone.every((zone) => typeof zone === "string");
   const checkEquality =
     diagrammValue.winPoints +
       diagrammValue.leftInGame +
@@ -156,7 +157,7 @@ export function AttackFields() {
   }
   function returnOldData() {
     refreshVersionOFAdmin(-1); //откатываю версию
-    savePlayer(previousPlayerData); //лткатываю данные одного игрока
+    savePlayer(previousPlayerData); //откатываю данные одного игрока
     saveTeam(previousTeamData); // откатываю данные команды
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
@@ -221,7 +222,7 @@ export function AttackFields() {
           type="submit"
           className="countbutton"
           value={showInputs ? "Count" : !showBalls ? "Choose Zone" : "Close"}
-          disabled={!showInputs}
+          disabled={!showInputs || keepCountDisabled}
         ></input>
         <input className="needtoclose"></input>
       </div>
