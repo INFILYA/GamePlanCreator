@@ -206,6 +206,26 @@
   margin: 0px 10px;
   display: block;
 }
+.servicePage .countButton {
+  position: absolute;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 50px 0px 0px -58px;
+  background-color: #0272be;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 3px 15px;
+  color: white;
+}
+.servicePage .countButton:hover {
+  box-shadow: 0 15px 20px #0272be;
+  transform: translateY(-7px);
+  transition: 0.3s;
+}
+.servicePage .countButton[disabled] {
+  display: none;
+}
 
 .Purplez1Service1 {
   border-bottom: 497px solid purple;

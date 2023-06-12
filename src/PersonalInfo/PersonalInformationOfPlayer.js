@@ -53,34 +53,12 @@ export function PersonalInformationOfPlayer({ link }) {
             {attack &&
               isRegistratedUser &&
               infosOfPlayers
-                .slice(2, 5)
-                .map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0].replace(/[a-z]/g, "")}
-                    value={`|${info[1].join("|")}|`}
-                    key={index + 2}
-                  />
-                ))}
-            {attack &&
-              isRegistratedUser &&
-              infosOfPlayers
                 .slice(15, 16)
                 .map((info, index) => (
                   <RowsForPersonalInfo
                     name={info[0].replace(/plusMinusOn/g, "+/- ")}
                     value={info[1]}
                     key={index + 15}
-                  />
-                ))}
-            {service &&
-              isRegistratedUser &&
-              infosOfPlayers
-                .slice(22, 25)
-                .map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0].replace(/[a-z]/g, "")}
-                    value={`|${info[1].join("|")}|`}
-                    key={index + 22}
                   />
                 ))}
             {service &&

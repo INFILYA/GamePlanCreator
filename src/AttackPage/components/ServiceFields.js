@@ -34,7 +34,7 @@ export function ServiceFields() {
   const [previousTeamData, setPreviousTeamData] = useState(null);
   const [attackPercentageArray, setAttackPercentageArray] = useState([]);
   const [tip, setTip] = useState(0);
-
+  const [serviceType, setserviceType] = useState("chooseZoneOfService");
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "serviceZone1", active: false },
     { zone: "serviceZone6", active: false },
@@ -67,7 +67,7 @@ export function ServiceFields() {
   const arrayForRecievers = [1, 2, 3, 4, 5];
 
   let ServiceByZone = Object.values(zoneValue);
-  const keepCountDisabled = ServiceByZone.every((zone) => typeof zone === "string");
+  const buttonCountDisabled = ServiceByZone.every((zone) => typeof zone === "string");
   const checkEquality =
     diagrammValue.servicePlus +
       diagrammValue.serviceMinus +
@@ -101,11 +101,14 @@ export function ServiceFields() {
     obj.plusMinusOnService += diagrammValue.plusMinusOnService;
     return obj;
   }
+  function chooseTypeOfService(event) {
+    setserviceType(event.target.value);
+  }
   function onHandleCountClick(event) {
     if (event.keyCode === 13) return false;
     event.preventDefault();
-    while (saveDataOfServices && !checkEquality) {
-      alert("DATA Value not equal to ZONE value");
+    while ((saveDataOfServices && !checkEquality) || serviceType === "chooseZoneOfService") {
+      alert("DATA Value not equal to ZONE value or type of Service was not selected");
       return;
     }
     if (saveDataOfServices) {
@@ -116,9 +119,9 @@ export function ServiceFields() {
       });
       calculateForData(playerInfo);
       const zoneOfServ = historyOfBalls.find((ball) => ball.active);
-      const servHistory = playerInfo[zoneOfServ.zone];
+      const servHistory = playerInfo[zoneOfServ.zone + serviceType];
       const res = ServiceByZone.map((att, index) => att + servHistory[index]);
-      const nameOfZone = zoneOfServ.zone;
+      const nameOfZone = zoneOfServ.zone + serviceType;
       const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
       const team = allTeams.find((team) => team.name === playerInfo.teamid);
       const upgradedPlayers = players.map((player) => upgradeAge(player));
@@ -190,8 +193,12 @@ export function ServiceFields() {
 
   function showData(event) {
     event.preventDefault();
+    if (serviceType === "chooseZoneOfService") {
+      alert("Type of Service was not selected");
+      return;
+    }
     const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
-    const attHistory = playerInfo[zoneOfAtt.zone];
+    const attHistory = playerInfo[zoneOfAtt.zone + serviceType];
     const totalAttacks = reduce(attHistory, 0.0001);
     const result = attHistory.map((attacks) => Math.round((attacks / totalAttacks) * 100));
     const upgradedZoneValue = Object.fromEntries(
@@ -203,19 +210,19 @@ export function ServiceFields() {
     setDisableSwitch(!disableSwitch);
     setShowDataOfAttacks(!showDataOfAttacks);
   }
-
   return (
     <>
-      <form className="playArea" onSubmit={(event) => event.preventDefault()}>
+      <form className="playArea" onSubmit={!showDataOfAttacks ? onHandleCountClick : showData}>
         <select
           className="typeOfService"
-          onChange={!showDataOfAttacks ? onHandleCountClick : showData}
-          disabled={!showInputs || keepCountDisabled}
+          onChange={chooseTypeOfService}
+          disabled={!showInputs || buttonCountDisabled}
         >
-          <option defaultValue="Type of service">Type of service</option>
-          <option>Jump</option>
-          <option>Float</option>
-          <option>Hybrid</option>
+          <option value="chooseTypeOfService">
+            {!showInputs || buttonCountDisabled ? "Choose zone of service" : "Choose type of service"}
+          </option>
+          <option value="Jump">Jump</option>
+          <option value="Float">Float</option>
         </select>
         <div>
           {historyOfBalls.map((ball, index) =>
@@ -245,6 +252,15 @@ export function ServiceFields() {
               />
             )
           )}
+          <div>
+            <button
+              type="submit"
+              className="countButton"
+              disabled={!showInputs || buttonCountDisabled}
+            >
+              Count
+            </button>
+          </div>
           <div>
             <input
               type="button"
