@@ -117,7 +117,11 @@ export function AttackFields() {
   }
   function onHandleCountClick(event) {
     event.preventDefault();
-    while ((saveDataOfAttacks && !checkEquality) || attackType === "chooseTypeOfAttack") {
+    while (
+      (saveDataOfAttacks && !checkEquality) ||
+      attackType === "chooseTypeOfAttack" ||
+      playerInfo.position !== "MBlocker"
+    ) {
       alert("DATA Value not equal to ZONE value or type of Attack was not selected");
       return;
     }
@@ -129,9 +133,13 @@ export function AttackFields() {
       });
       calculateForDatas(playerInfo);
       const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
-      const attHistory = playerInfo[zoneOfAtt.zone + attackType];
+      const attHistory =
+        playerInfo.position !== "MBlocker"
+          ? playerInfo[zoneOfAtt.zone + attackType]
+          : playerInfo[zoneOfAtt.zone];
       const result = AttacksByZone.map((att, index) => att + attHistory[index]);
-      const nameOfZone = zoneOfAtt.zone + attackType;
+      const nameOfZone =
+        playerInfo.position !== "MBlocker" ? zoneOfAtt.zone + attackType : zoneOfAtt.zone;
       const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
       const team = allTeams.find((team) => team.name === playerInfo.teamid);
       const upgradedPlayers = players.map((player) => upgradeAge(player));
@@ -168,12 +176,15 @@ export function AttackFields() {
 
   function showData(event) {
     event.preventDefault();
-    if (attackType === "chooseTypeOfAttack") {
+    if (attackType === "chooseTypeOfAttack" && playerInfo.position !== "MBlocker") {
       alert("Type of Attack was not selected");
       return;
     }
     const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
-    const attHistory = playerInfo[zoneOfAtt.zone + attackType];
+    const attHistory =
+      playerInfo.position !== "MBlocker"
+        ? playerInfo[zoneOfAtt.zone + attackType]
+        : playerInfo[zoneOfAtt.zone];
     const totalAttacks = reduce(attHistory, 0.0001);
     const result = attHistory.map((attacks) => Math.round((attacks / totalAttacks) * 100));
     const upgradedZoneValue = Object.fromEntries(
@@ -225,16 +236,18 @@ export function AttackFields() {
 
   return (
     <form className="playArea" onSubmit={!showDataOfAttacks ? onHandleCountClick : showData}>
-      <select
-        className="typeOfAttack"
-        onChange={chooseTypeOfAttack}
-        disabled={!showInputs || buttonCountDisabled}
-      >
-        {(buttonCountDisabled || !showInputs) && <option></option>}
-        <option value="chooseTypeOfAttack">Choose type of Attack</option>
-        <option value="FastBall">Fast ball</option>
-        <option value="HighBall">High ball</option>
-      </select>
+      {playerInfo.position !== "MBlocker" && (
+        <select
+          className="typeOfAttack"
+          onChange={chooseTypeOfAttack}
+          disabled={!showInputs || buttonCountDisabled}
+        >
+          {(buttonCountDisabled || !showInputs) && <option></option>}
+          <option value="chooseTypeOfAttack">Choose type of Attack</option>
+          <option value="FastBall">Fast ball</option>
+          <option value="HighBall">High ball</option>
+        </select>
+      )}
       <div className="zoneinput">
         <input
           type="submit"

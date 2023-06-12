@@ -17,16 +17,28 @@ export function PersonalInformationOfPlayer({ link }) {
   const attack = link === "Attack";
   const libero = playerInfo.position !== "Libero";
   const setter = playerInfo.position !== "Setter";
+  const reciever = playerInfo.position !== "Reciever";
+  const opposite = playerInfo.position !== "Opposite";
   const infosOfPlayers = Object.entries(playerInfo);
   infosOfPlayers.sort((a, b) => compare(a, b));
-  const infosOfAttackers = [
-    infosOfPlayers[1],
-    infosOfPlayers[17],
-    infosOfPlayers[18],
-    infosOfPlayers[6],
-    infosOfPlayers[7],
-    infosOfPlayers[12],
-  ];
+  const infosOfAttackers =
+    reciever && opposite
+      ? [
+          infosOfPlayers[1],
+          infosOfPlayers[17],
+          infosOfPlayers[18],
+          infosOfPlayers[6],
+          infosOfPlayers[7],
+          infosOfPlayers[12],
+        ]
+      : [
+          infosOfPlayers[1],
+          infosOfPlayers[20],
+          infosOfPlayers[21],
+          infosOfPlayers[9],
+          infosOfPlayers[10],
+          infosOfPlayers[15],
+        ];
   const infoOfLibero = [
     infosOfPlayers[0],
     infosOfPlayers[1],
@@ -50,7 +62,7 @@ export function PersonalInformationOfPlayer({ link }) {
               : infoOfLibero.map((info, index) => (
                   <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
                 ))}
-            {attack &&
+            {/* {attack &&
               isRegistratedUser &&
               infosOfPlayers
                 .slice(15, 16)
@@ -71,7 +83,7 @@ export function PersonalInformationOfPlayer({ link }) {
                     value={info[1]}
                     key={index + 16}
                   />
-                ))}
+                ))} */}
             <div className="row" style={{ justifyContent: "space-evenly" }}>
               {libero && (
                 <>
