@@ -17,6 +17,7 @@ export function PersonalInformationOfPlayer({ link }) {
   const attack = link === "Attack";
   const libero = playerInfo.position !== "Libero";
   const setter = playerInfo.position !== "Setter";
+  const mblocker = playerInfo.position !== "MBlocker";
   const reciever = playerInfo.position !== "Reciever";
   const opposite = playerInfo.position !== "Opposite";
   const infosOfPlayers = Object.entries(playerInfo);
@@ -62,8 +63,23 @@ export function PersonalInformationOfPlayer({ link }) {
               : infoOfLibero.map((info, index) => (
                   <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
                 ))}
-            {/* {attack &&
+            {attack &&
               isRegistratedUser &&
+              mblocker &&
+              setter &&
+              infosOfPlayers
+                .slice(18, 19)
+                .map((info, index) => (
+                  <RowsForPersonalInfo
+                    name={info[0].replace(/plusMinusOn/g, "+/- ")}
+                    value={info[1]}
+                    key={index + 18}
+                  />
+                ))}
+            {attack &&
+              isRegistratedUser &&
+              reciever &&
+              opposite &&
               infosOfPlayers
                 .slice(15, 16)
                 .map((info, index) => (
@@ -75,6 +91,21 @@ export function PersonalInformationOfPlayer({ link }) {
                 ))}
             {service &&
               isRegistratedUser &&
+              mblocker &&
+              setter &&
+              infosOfPlayers
+                .slice(19, 20)
+                .map((info, index) => (
+                  <RowsForPersonalInfo
+                    name={info[0].replace(/plusMinusOn/g, "+/- ")}
+                    value={info[1]}
+                    key={index + 19}
+                  />
+                ))}
+            {service &&
+              isRegistratedUser &&
+              reciever &&
+              opposite &&
               infosOfPlayers
                 .slice(16, 17)
                 .map((info, index) => (
@@ -83,7 +114,7 @@ export function PersonalInformationOfPlayer({ link }) {
                     value={info[1]}
                     key={index + 16}
                   />
-                ))} */}
+                ))}
             <div className="row" style={{ justifyContent: "space-evenly" }}>
               {libero && (
                 <>

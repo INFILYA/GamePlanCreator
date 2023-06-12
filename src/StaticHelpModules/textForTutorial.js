@@ -31,8 +31,7 @@ const attackAndService = (
   <div>
     Крім того, програма надасть вам можливість візуалізувати свої плани за допомогою зрозумілого
     графічного інтерфейсу. Відобразити візуально напрямок атак та подач в процентному співвідношенні
-    з кожної зони та по кожній позиції усіх гравців ПВЛУ. В майбутньому буде розділення по типам
-    атак ("висока","швидка")
+    з кожної зони та по кожній позиції усіх гравців ПВЛУ.
     <img alt="" className="aboutAttack" />
   </div>
 );
@@ -103,8 +102,7 @@ const attackAndServiceEng = (
   <div>
     Additionally, the program will provide you with the opportunity to visualize your plans through
     a user-friendly graphical interface. It will visually display the direction of attacks and
-    serves in a percentage ratio from each zone and for each position of all active PVLU players. In
-    the future, there may be a categorization of attacks based on types such as "high" and "fast"
+    serves in a percentage ratio from each zone and for each position of all active PVLU players.
     <img alt="" className="aboutAttack" />
   </div>
 );
