@@ -107,11 +107,15 @@ export function ServiceFields() {
   function onHandleCountClick(event) {
     if (event.keyCode === 13) return false;
     event.preventDefault();
-    while ((saveDataOfServices && !checkEquality) || serviceType === "chooseZoneOfService") {
-      alert("DATA Value not equal to ZONE value or type of Service was not selected");
+    while (serviceType === "chooseZoneOfService") {
+      alert("Type of Service was not selected");
       return;
     }
     if (saveDataOfServices) {
+      while (!checkEquality) {
+        alert("DATA Value not equal to ZONE value");
+        return;
+      }
       setConfirmReturn(!confirmReturn);
       setPreviousPlayerData({ ...playerInfo });
       setPreviousTeamData({
@@ -219,7 +223,9 @@ export function ServiceFields() {
           disabled={!showInputs || buttonCountDisabled}
         >
           <option value="chooseTypeOfService">
-            {!showInputs || buttonCountDisabled ? "Choose zone of service" : "Choose type of service"}
+            {!showInputs || buttonCountDisabled
+              ? "Choose zone of service"
+              : "Choose type of service"}
           </option>
           <option value="Jump">Jump</option>
           <option value="Float">Float</option>

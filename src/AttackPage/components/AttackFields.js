@@ -117,15 +117,15 @@ export function AttackFields() {
   }
   function onHandleCountClick(event) {
     event.preventDefault();
-    while (
-      (saveDataOfAttacks && !checkEquality) ||
-      attackType === "chooseTypeOfAttack" ||
-      playerInfo.position !== "MBlocker"
-    ) {
-      alert("DATA Value not equal to ZONE value or type of Attack was not selected");
+    while (attackType === "chooseTypeOfAttack" && playerInfo.position !== "MBlocker") {
+      alert("Type of Attack was not selected");
       return;
     }
     if (saveDataOfAttacks) {
+      while (!checkEquality) {
+        alert("DATA Value not equal to ZONE value");
+        return;
+      }
       setConfirmReturn(!confirmReturn);
       setPreviousPlayerData({ ...playerInfo });
       setPreviousTeamData({

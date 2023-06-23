@@ -23,6 +23,7 @@ import { setBackRightRivalSelects } from "../../states/slices/indexOfZonesSlice"
 import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
 import { setBackRightMyTeamSelects } from "../../states/slices/sequanceOfZonesSlice";
 import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
+import { setUserVersion } from "../../states/slices/userVersionSlice";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ export function FirstPage() {
   const playerInfo = useSelector((state) => state.playerInfo.playerInfo);
   const zones = useSelector((state) => state.zones.zones);
   const myTeamZones = useSelector((state) => state.myTeamZones.myTeamZones);
+  const userVersion = useSelector((state) => state.userVersion.userVersion);
   const myClub = useSelector((state) => state.myClub.myClub);
   const showRivalClub = rivalClub.length !== 0;
   const showMyClub = myClub.length !== 0;
@@ -60,11 +62,19 @@ export function FirstPage() {
     dispatch(setMyTeamPlayers({ listOfPlayers, value }));
     dispatch(setMyTeam({ listOfTeams, value }));
   }
-  function saveStartingSix() {
+  async function saveStartingSix() {
     saveTeam({
       ...rivalClub,
       startingSquad: zones.map((zone) => zone.id),
     });
+    try {
+      const docVersionRef = doc(dataBase, "versionChecker", "currentVersion");
+      await setDoc(docVersionRef, { currentVersion: userVersion + 1 });
+      const adminVersion = userVersion + 1;
+      dispatch(setUserVersion(adminVersion));
+    } catch (error) {
+      console.error(error);
+    }
   }
   const saveTeam = async (team) => {
     try {
