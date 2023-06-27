@@ -115,15 +115,17 @@ export function PersonalInformationOfPlayer({ link }) {
                     key={index + 16}
                   />
                 ))}
-            <div className="row" style={{ justifyContent: "space-evenly" }}>
-              {libero && (
-                <>
-                  {setter && <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>}
-                  <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
-                </>
-              )}
-              {page1 && <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>}
-            </div>
+            {isRegistratedUser && (
+              <div className="row" style={{ justifyContent: "space-evenly" }}>
+                {libero && (
+                  <>
+                    {setter && <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>}
+                    <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
+                  </>
+                )}
+                {page1 && <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>}
+              </div>
+            )}
           </div>
           <img src={playerInfo.photo} alt="" className="photoPlayer" />
           {(service || attack) && isRegistratedUser && (
