@@ -15,32 +15,48 @@ export function PersonalInformationOfPlayer({ link }) {
   const page1 = link === "page1";
   const service = link === "Service";
   const attack = link === "Attack";
-  const libero = playerInfo.position !== "Libero";
-  const setter = playerInfo.position !== "Setter";
-  const mblocker = playerInfo.position !== "MBlocker";
-  const reciever = playerInfo.position !== "Reciever";
-  const opposite = playerInfo.position !== "Opposite";
+  const libero = playerInfo.position === "Libero";
+  const setter = playerInfo.position === "Setter";
+  const mblocker = playerInfo.position === "MBlocker";
+  const reciever = playerInfo.position === "Reciever";
+  const opposite = playerInfo.position === "Opposite";
   const infosOfPlayers = Object.entries(playerInfo);
   infosOfPlayers.sort((a, b) => compare(a, b));
+  // По позиціям
+  const attackers = [
+    infosOfPlayers[1],
+    infosOfPlayers[9],
+    infosOfPlayers[10],
+    infosOfPlayers[15],
+    infosOfPlayers[20],
+    infosOfPlayers[21],
+  ];
   const infosOfAttackers =
-    reciever && opposite
-      ? [
-          infosOfPlayers[1],
-          infosOfPlayers[17],
-          infosOfPlayers[18],
-          infosOfPlayers[6],
-          infosOfPlayers[7],
-          infosOfPlayers[12],
-        ]
-      : [
-          infosOfPlayers[1],
-          infosOfPlayers[20],
-          infosOfPlayers[21],
-          infosOfPlayers[9],
-          infosOfPlayers[10],
-          infosOfPlayers[15],
-        ];
-  const infoOfLibero = [
+    (attack && [...attackers, infosOfPlayers[18]]) ||
+    (service && [...attackers, infosOfPlayers[19]]) ||
+    attackers;
+  const setters = [
+    infosOfPlayers[1],
+    infosOfPlayers[2],
+    infosOfPlayers[3],
+    infosOfPlayers[6],
+    infosOfPlayers[9],
+    infosOfPlayers[10],
+  ];
+  const infosOfSetters = (service && [...setters, infosOfPlayers[8]]) || setters;
+  const mBlockers = [
+    infosOfPlayers[1],
+    infosOfPlayers[6],
+    infosOfPlayers[7],
+    infosOfPlayers[12],
+    infosOfPlayers[17],
+    infosOfPlayers[18],
+  ];
+  const infosOfMBlockers =
+    (attack && [...mBlockers, infosOfPlayers[15]]) ||
+    (service && [...mBlockers, infosOfPlayers[16]]) ||
+    mBlockers;
+  const infoOfLiberos = [
     infosOfPlayers[0],
     infosOfPlayers[1],
     infosOfPlayers[2],
@@ -56,69 +72,38 @@ export function PersonalInformationOfPlayer({ link }) {
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="info">
-            {libero
-              ? infosOfAttackers.map((info, index) => (
-                  <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
-                ))
-              : infoOfLibero.map((info, index) => (
-                  <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
-                ))}
-            {attack &&
-              isRegistratedUser &&
-              mblocker &&
-              setter &&
-              infosOfPlayers
-                .slice(18, 19)
-                .map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0].replace(/plusMinusOn/g, "+/- ")}
-                    value={info[1]}
-                    key={index + 18}
-                  />
-                ))}
-            {attack &&
-              isRegistratedUser &&
-              reciever &&
-              opposite &&
-              infosOfPlayers
-                .slice(15, 16)
-                .map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0].replace(/plusMinusOn/g, "+/- ")}
-                    value={info[1]}
-                    key={index + 15}
-                  />
-                ))}
-            {service &&
-              isRegistratedUser &&
-              mblocker &&
-              setter &&
-              infosOfPlayers
-                .slice(19, 20)
-                .map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0].replace(/plusMinusOn/g, "+/- ")}
-                    value={info[1]}
-                    key={index + 19}
-                  />
-                ))}
-            {service &&
-              isRegistratedUser &&
-              reciever &&
-              opposite &&
-              infosOfPlayers
-                .slice(16, 17)
-                .map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0].replace(/plusMinusOn/g, "+/- ")}
-                    value={info[1]}
-                    key={index + 16}
-                  />
-                ))}
+            {libero &&
+              infoOfLiberos.map((info, index) => (
+                <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
+              ))}
+            {(reciever || opposite) &&
+              infosOfAttackers.map((info, index) => (
+                <RowsForPersonalInfo
+                  name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
+                  value={info[1]}
+                  key={index}
+                />
+              ))}
+            {setter &&
+              infosOfSetters.map((info, index) => (
+                <RowsForPersonalInfo
+                  name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
+                  value={info[1]}
+                  key={index}
+                />
+              ))}
+            {mblocker &&
+              infosOfMBlockers.map((info, index) => (
+                <RowsForPersonalInfo
+                  name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
+                  value={info[1]}
+                  key={index}
+                />
+              ))}
             <div className="row" style={{ justifyContent: "space-evenly" }}>
-              {libero && isRegistratedUser && (
+              {!libero && isRegistratedUser && (
                 <>
-                  {setter && <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>}
+                  {!setter && <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>}
                   <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
                 </>
               )}
