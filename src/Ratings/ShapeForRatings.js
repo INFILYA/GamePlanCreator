@@ -61,7 +61,7 @@ export default function ShapeForRatings({ amplua }) {
             <div>
               <button
                 onClick={() => countRankings(category.category)}
-                title={`Clicl to sort by ${category.text}`}
+                title={`Click to sort by ${category.text}`}
               >
                 {category.text}
               </button>
