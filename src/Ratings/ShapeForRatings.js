@@ -40,7 +40,15 @@ export default function ShapeForRatings({ amplua }) {
     setTeamsOrPlayers(newArr2);
     setDirectionOfSort(!directionOfSort);
   }
-
+  function changePodiumColors(index) {
+    return index === 0
+      ? { backgroundColor: "gold" }
+      : index === 1
+      ? { backgroundColor: "silver" }
+      : index === 2
+      ? { backgroundColor: "burlywood" }
+      : {};
+  }
   return (
     <>
       <div className="ratingTable">
@@ -60,13 +68,13 @@ export default function ShapeForRatings({ amplua }) {
             </div>
             {teamsOrPlayers.map((player, index) =>
               category.text !== "Name" ? (
-                <span key={index}>
+                <span key={index} style={changePodiumColors(index)}>
                   {category.category === "percentOfAttack" && amplua !== "Setter"
                     ? player[category.category] + "%"
                     : player[category.category]}
                 </span>
               ) : (
-                <span key={index} style={{ display: "flex", justifyContent: "start" }}>
+                <span key={index} style={changePodiumColors(index)} className="rowName">
                   {index + 1}. {player[category.category]}
                 </span>
               )
