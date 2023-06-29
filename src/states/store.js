@@ -1,6 +1,3 @@
-// import { createStore, combineReducers, applyMiddleware } from "redux";
-// import { composeWithDevTools } from "redux-devtools-extension";
-// import thunk from "redux-thunk";
 import listOfTeamsReducer from "./slices/listOfTeamsSlice";
 import listOfPlayersReducer from "./slices/listOfPlayersSlice";
 import { configureStore } from "@reduxjs/toolkit";
@@ -35,22 +32,3 @@ export const store = configureStore({
     userVersion: userVersionReducer, //+
   },
 });
-
-// const rootReducer = combineReducers({
-//   listOfTeams: listOfTeamsReducer,
-//   listOfPlayers: listOfPlayersReducer,
-//   rivalPlayers: rivalPlayersReducer,
-//   rivalClub: rivalClubReducer,
-//   myTeamPlayers: myTeamPlayersReducer,
-//   myClub: myClubReducer,
-//   zones: zonesReducer,
-//   indexOfZones: indexOfZonesReducer,
-//   myTeamZones: myTeamZonesReducer,
-//   sequanceOfZones: sequanceOfZonesReducer,
-//   playerInfo: playerInfoReducer,
-//   changeLanguage: changeLanguageReducer,
-//   isShowedTutorial: isShowedTutorialReducer,
-//   userVersion: userVersionReducer,
-// });
-
-// export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
