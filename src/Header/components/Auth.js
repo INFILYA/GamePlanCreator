@@ -2,45 +2,44 @@ import { auth, facebookProvider, googleProvider } from "../../config/firebase";
 import {
   signInWithPopup,
   sendSignInLinkToEmail,
-  // isSignInWithEmailLink,
-  // signInWithEmailLink,
+  isSignInWithEmailLink,
+  signInWithEmailLink,
 } from "firebase/auth";
-import { useState } from "react";
-import { useNavigate } from "react-router";
-// import { useAuthState } from "react-firebase-hooks/auth";
-// import { useLocation, useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router";
 
 export function Auth() {
   const navigate = useNavigate();
-  // const location = useLocation();
-  // const { search } = location;
-  // const [isRegistratedUser] = useAuthState(auth);
+  const location = useLocation();
+  const { search } = location;
+  const [isRegistratedUser] = useAuthState(auth);
   const [email, setEmail] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
 
-  // useEffect(() => {
-  //   async function signInWithEmail() {
-  //     try {
-  //       if (isRegistratedUser) {
-  //         navigate("/");
-  //       } else {
-  //         if (isSignInWithEmailLink(auth, window.location.href)) {
-  //           await signInWithEmailLink(
-  //             auth,
-  //             localStorage.getItem("userEmail"),
-  //             window.location.href
-  //           );
-  //           localStorage.removeItem("userEmail");
-  //         }
-  //       }
-  //     } catch (err) {
-  //       console.log(err);
-  //       navigate("/Auth");
-  //     }
-  //   }
-  //   signInWithEmail();
-  // }, [isRegistratedUser, navigate, search]);
+  useEffect(() => {
+    async function signInWithEmail() {
+      try {
+        if (isRegistratedUser) {
+          navigate("/");
+        } else {
+          if (isSignInWithEmailLink(auth, window.location.href)) {
+            await signInWithEmailLink(
+              auth,
+              localStorage.getItem("userEmail"),
+              window.location.href
+            );
+            localStorage.removeItem("userEmail");
+          }
+        }
+      } catch (err) {
+        console.log(err);
+        navigate("/Auth");
+      }
+    }
+    signInWithEmail();
+  }, [isRegistratedUser, navigate, search]);
 
   async function handleLogin(e) {
     e.preventDefault();
