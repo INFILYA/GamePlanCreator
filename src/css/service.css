@@ -217,6 +217,7 @@
   border-radius: 25px;
   padding: 3px 15px;
   color: white;
+  z-index: 2;
 }
 .servicePage .countButton:hover {
   box-shadow: 0 15px 20px #0272be;
@@ -227,133 +228,7 @@
   display: none;
 }
 
-.Purplez1Service1 {
-  border-bottom: 497px solid purple;
-  border-left: 22px solid transparent;
-  border-right: 55px solid transparent;
-  content: "";
-  margin-top: -0px;
-  margin-left: -37px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: -19deg;
-}
-.Purplez6Service1 {
-  border-bottom: 497px solid purple;
-  border-left: 30px solid transparent;
-  border-right: 57px solid transparent;
-  content: "";
-  margin-top: 12px;
-  margin-left: -89px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: -10deg;
-}
-.Purplez5Service1 {
-  border-bottom: 497px solid purple;
-  border-left: 26px solid transparent;
-  border-right: 49px solid transparent;
-  content: "";
-  margin-top: 16px;
-  margin-left: -127px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 0deg;
-}
-.Redz1Service1 {
-  border-bottom: 497px solid firebrick;
-  border-left: 22px solid transparent;
-  border-right: 55px solid transparent;
-  content: "";
-  margin-top: -0px;
-  margin-left: -37px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: -19deg;
-}
-.Redz6Service1 {
-  border-bottom: 497px solid firebrick;
-  border-left: 30px solid transparent;
-  border-right: 57px solid transparent;
-  content: "";
-  margin-top: 12px;
-  margin-left: -89px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: -10deg;
-}
-.Redz5Service1 {
-  border-bottom: 497px solid firebrick;
-  border-left: 26px solid transparent;
-  border-right: 49px solid transparent;
-  content: "";
-  margin-top: 16px;
-  margin-left: -127px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 0deg;
-}
-.Yellowz1Service1 {
-  border-bottom: 497px solid pink;
-  border-left: 22px solid transparent;
-  border-right: 55px solid transparent;
-  content: "";
-  margin-top: -0px;
-  margin-left: -37px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: -19deg;
-}
-.Yellowz6Service1 {
-  border-bottom: 497px solid pink;
-  border-left: 30px solid transparent;
-  border-right: 57px solid transparent;
-  content: "";
-  margin-top: 12px;
-  margin-left: -89px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: -10deg;
-}
-.Yellowz5Service1 {
-  border-bottom: 497px solid pink;
-  border-left: 26px solid transparent;
-  border-right: 49px solid transparent;
-  content: "";
-  margin-top: 16px;
-  margin-left: -127px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 0deg;
-}
-.Bluez1Service1 {
+.service1Z1 {
   border-bottom: 497px solid transparent;
   border-left: 22px solid transparent;
   border-right: 55px solid transparent;
@@ -367,7 +242,7 @@
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
   rotate: -19deg;
 }
-.Bluez6Service1 {
+.service1Z6 {
   border-bottom: 497px solid transparent;
   border-left: 30px solid transparent;
   border-right: 57px solid transparent;
@@ -381,7 +256,7 @@
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
   rotate: -10deg;
 }
-.Bluez5Service1 {
+.service1Z5 {
   border-bottom: 497px solid transparent;
   border-left: 26px solid transparent;
   border-right: 49px solid transparent;
@@ -396,133 +271,7 @@
   rotate: 0deg;
 }
 
-.Purplez5Service5 {
-  border-bottom: 497px solid purple;
-  border-left: 48px solid transparent;
-  border-right: 30px solid transparent;
-  content: "";
-  margin-top: 0px;
-  margin-left: -42px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 21deg;
-}
-.Purplez6Service5 {
-  border-bottom: 497px solid purple;
-  border-left: 56px solid transparent;
-  border-right: 28px solid transparent;
-  content: "";
-  margin-top: 11px;
-  margin-left: -7px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 10deg;
-}
-.Purplez1Service5 {
-  border-bottom: 497px solid purple;
-  border-left: 50px solid transparent;
-  border-right: 30px solid transparent;
-  content: "";
-  margin-top: 14px;
-  margin-left: 39px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 0deg;
-}
-.Redz5Service5 {
-  border-bottom: 497px solid firebrick;
-  border-left: 48px solid transparent;
-  border-right: 30px solid transparent;
-  content: "";
-  margin-top: 0px;
-  margin-left: -42px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 21deg;
-}
-.Redz6Service5 {
-  border-bottom: 497px solid firebrick;
-  border-left: 56px solid transparent;
-  border-right: 28px solid transparent;
-  content: "";
-  margin-top: 11px;
-  margin-left: -7px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 10deg;
-}
-.Redz1Service5 {
-  border-bottom: 497px solid firebrick;
-  border-left: 50px solid transparent;
-  border-right: 30px solid transparent;
-  content: "";
-  margin-top: 14px;
-  margin-left: 39px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 0deg;
-}
-.Yellowz5Service5 {
-  border-bottom: 497px solid pink;
-  border-left: 48px solid transparent;
-  border-right: 30px solid transparent;
-  content: "";
-  margin-top: 0px;
-  margin-left: -42px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 21deg;
-}
-.Yellowz6Service5 {
-  border-bottom: 497px solid pink;
-  border-left: 56px solid transparent;
-  border-right: 28px solid transparent;
-  content: "";
-  margin-top: 11px;
-  margin-left: -7px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 10deg;
-}
-.Yellowz1Service5 {
-  border-bottom: 497px solid pink;
-  border-left: 50px solid transparent;
-  border-right: 30px solid transparent;
-  content: "";
-  margin-top: 14px;
-  margin-left: 39px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 0deg;
-}
-.Bluez5Service5 {
+.service5Z5 {
   border-bottom: 497px solid transparent;
   border-left: 48px solid transparent;
   border-right: 30px solid transparent;
@@ -536,7 +285,7 @@
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
   rotate: 21deg;
 }
-.Bluez6Service5 {
+.service5Z6 {
   border-bottom: 497px solid transparent;
   border-left: 56px solid transparent;
   border-right: 28px solid transparent;
@@ -550,7 +299,7 @@
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
   rotate: 10deg;
 }
-.Bluez1Service5 {
+.service5Z1 {
   border-bottom: 497px solid transparent;
   border-left: 50px solid transparent;
   border-right: 30px solid transparent;
@@ -565,133 +314,7 @@
   rotate: 0deg;
 }
 
-.Purplez1Service6 {
-  border-bottom: 495px solid purple;
-  border-left: 22px solid transparent;
-  border-right: 55px solid transparent;
-  content: "";
-  margin-top: 15px;
-  margin-left: 11px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: -7deg;
-}
-.Purplez6Service6 {
-  border-bottom: 494px solid purple;
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  content: "";
-  margin-top: 19px;
-  margin-left: -44px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 0deg;
-}
-.Purplez5Service6 {
-  border-bottom: 495px solid purple;
-  border-left: 55px solid transparent;
-  border-right: 22px solid transparent;
-  content: "";
-  margin-top: 15px;
-  margin-left: -96px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 7deg;
-}
-.Redz1Service6 {
-  border-bottom: 495px solid firebrick;
-  border-left: 22px solid transparent;
-  border-right: 55px solid transparent;
-  content: "";
-  margin-top: 15px;
-  margin-left: 11px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: -7deg;
-}
-.Redz6Service6 {
-  border-bottom: 494px solid firebrick;
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  content: "";
-  margin-top: 19px;
-  margin-left: -44px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 0deg;
-}
-.Redz5Service6 {
-  border-bottom: 495px solid firebrick;
-  border-left: 55px solid transparent;
-  border-right: 22px solid transparent;
-  content: "";
-  margin-top: 15px;
-  margin-left: -96px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 7deg;
-}
-.Yellowz1Service6 {
-  border-bottom: 495px solid pink;
-  border-left: 22px solid transparent;
-  border-right: 55px solid transparent;
-  content: "";
-  margin-top: 15px;
-  margin-left: 11px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: -7deg;
-}
-.Yellowz6Service6 {
-  border-bottom: 494px solid pink;
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  content: "";
-  margin-top: 19px;
-  margin-left: -44px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 0deg;
-}
-.Yellowz5Service6 {
-  border-bottom: 495px solid pink;
-  border-left: 55px solid transparent;
-  border-right: 22px solid transparent;
-  content: "";
-  margin-top: 15px;
-  margin-left: -96px;
-  background-color: transparent;
-  border-top: #f8931f 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  rotate: 7deg;
-}
-.Bluez1Service6 {
+.service6Z1 {
   border-bottom: 495px solid transparent;
   border-left: 22px solid transparent;
   border-right: 55px solid transparent;
@@ -705,7 +328,7 @@
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
   rotate: -7deg;
 }
-.Bluez6Service6 {
+.service6Z6 {
   border-bottom: 494px solid transparent;
   border-left: 40px solid transparent;
   border-right: 40px solid transparent;
@@ -719,7 +342,7 @@
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
   rotate: 0deg;
 }
-.Bluez5Service6 {
+.service6Z5 {
   border-bottom: 495px solid transparent;
   border-left: 55px solid transparent;
   border-right: 22px solid transparent;

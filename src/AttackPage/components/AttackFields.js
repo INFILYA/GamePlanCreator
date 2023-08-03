@@ -65,14 +65,7 @@ export function AttackFields() {
     const playerInfo = JSON.parse(localStorage.getItem("playerInfo"));
     dispatch(setInfoOfPlayer(playerInfo));
   }, [dispatch]);
-  const classNamesForConesAndInputs = [
-    ["blue5A", "yellow5A", "purple5A", "red5A"],
-    ["blue5B", "yellow5B", "purple5B", "red5B"],
-    ["blue6A", "yellow6A", "purple6A", "red6A"],
-    ["blue6B", "yellow6B", "purple6B", "red6B"],
-    ["blue1A", "yellow1A", "purple1A", "red1A"],
-    ["blue1B", "yellow1B", "purple1B", "red1B"],
-  ];
+  const classNamesForConesAndInputs = ["5A", "5B", "6A", "6B", "1A", "1B"];
   const classNamesForTip4 = ["tip4", "yellowtip4"];
   const classNamesForTip2 = ["tip2", "yellowtip2"];
   let AttacksByZone = Object.values(zoneValue);
@@ -385,10 +378,7 @@ export function AttackFields() {
           <ConeReaction
             key={index}
             attackPercentageArray={attackPercentageArray[index]}
-            range0={el[0]}
-            range15={el[1]}
-            range25={el[2]}
-            range35={el[3]}
+            cone={el}
             historyOfBalls={historyOfBalls}
             type={"Attack"}
           />
@@ -402,7 +392,7 @@ export function AttackFields() {
             <DefenderZone6 />
           </div>
           {!showDataOfAttacks && (
-            <div style={{ display: "contents" }}>
+            <div>
               {classNamesForConesAndInputs.map((el, index) => (
                 <InputForCount
                   key={index}

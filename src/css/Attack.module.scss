@@ -121,523 +121,180 @@
       font-weight: 100;
     }
   }
-  .yellow5Azone2 {
-    border-bottom: 262px solid pink;
+  .zone25A {
+    border-bottom: 262px solid transparent;
     @include forCons(169px, -133px, 0px, 35px, 0deg);
   }
-  .red5Azone2 {
-    border-bottom: 262px solid firebrick;
-    @include forCons(169px, -133px, 0px, 35px, 0deg);
-  }
-  .purple5Azone2 {
-    border-bottom: 262px solid purple;
-    @include forCons(169px, -133px, 0px, 35px, 0deg);
-  }
-  .yellow5Bzone2 {
-    border-bottom: 271px solid pink;
+  .zone25B {
+    border-bottom: 271px solid transparent;
     @include forCons(158px, -112px, 5px, 35px, -8.7deg);
   }
-  .red5Bzone2 {
-    border-bottom: 271px solid firebrick;
-    @include forCons(158px, -112px, 5px, 35px, -8.7deg);
-  }
-  .purple5Bzone2 {
-    border-bottom: 271px solid purple;
-    @include forCons(158px, -112px, 5px, 35px, -8.7deg);
-  }
-  .yellow6Azone2 {
-    border-bottom: 271px solid pink;
+  .zone26A {
+    border-bottom: 271px solid transparent;
     @include forCons(152px, -90px, 5px, 35px, -19deg);
   }
-  .red6Azone2 {
-    border-bottom: 271px solid firebrick;
-    @include forCons(152px, -90px, 5px, 35px, -19deg);
-  }
-  .purple6Azone2 {
-    border-bottom: 271px solid purple;
-    @include forCons(152px, -90px, 5px, 35px, -19deg);
-  }
-  .yellow6Bzone2 {
-    border-bottom: 271px solid pink;
+  .zone26B {
+    border-bottom: 271px solid transparent;
     @include forCons(142px, -72px, 10px, 35px, -30.4deg);
   }
-  .red6Bzone2 {
-    border-bottom: 271px solid firebrick;
-    @include forCons(142px, -72px, 10px, 35px, -30.4deg);
-  }
-  .purple6Bzone2 {
-    border-bottom: 271px solid purple;
-    @include forCons(142px, -72px, 10px, 35px, -30.4deg);
-  }
-  .yellow1Azone2 {
-    border-bottom: 273px solid pink;
+  .zone21A {
+    border-bottom: 273px solid transparent;
     @include forCons(125px, -56px, 16px, 35px, -43.2deg);
   }
-  .red1Azone2 {
-    border-bottom: 273px solid firebrick;
-    @include forCons(125px, -56px, 16px, 35px, -43.2deg);
-  }
-  .purple1Azone2 {
-    border-bottom: 273px solid purple;
-    @include forCons(125px, -56px, 16px, 35px, -43.2deg);
-  }
-  .yellow1Bzone2 {
-    border-bottom: 274px solid pink;
+  .zone21B {
+    border-bottom: 274px solid transparent;
     @include forCons(102px, -32px, 7px, 35px, -53deg);
   }
-  .red1Bzone2 {
-    border-bottom: 274px solid firebrick;
-    @include forCons(102px, -32px, 7px, 35px, -53deg);
-  }
-  .purple1Bzone2 {
-    border-bottom: 274px solid purple;
-    @include forCons(102px, -32px, 7px, 35px, -53deg);
-  }
-  .yellow5Azone1 {
-    border-bottom: 342px solid pink;
+  .zone15A {
+    border-bottom: 342px solid transparent;
     @include forCons(89px, -133px, 0px, 35px, 0deg);
   }
-  .red5Azone1 {
-    border-bottom: 342px solid firebrick;
-    @include forCons(89px, -133px, 0px, 35px, 0deg);
-  }
-  .purple5Azone1 {
-    border-bottom: 342px solid purple;
-    @include forCons(89px, -133px, 0px, 35px, 0deg);
-  }
-  .yellow5Bzone1 {
-    border-bottom: 350px solid pink;
+  .zone15B {
+    border-bottom: 350px solid transparent;
     @include forCons(80px, -114px, 5px, 35px, -7.6deg);
   }
-  .red5Bzone1 {
-    border-bottom: 350px solid firebrick;
-    @include forCons(80px, -114px, 5px, 35px, -7.6deg);
-  }
-  .purple5Bzone1 {
-    border-bottom: 350px solid purple;
-    @include forCons(80px, -114px, 5px, 35px, -7.6deg);
-  }
-  .yellow6Azone1 {
-    border-bottom: 350px solid pink;
+  .zone16A {
+    border-bottom: 350px solid transparent;
     @include forCons(74px, -91px, 5px, 35px, -15.2deg);
   }
-  .red6Azone1 {
-    border-bottom: 350px solid firebrick;
-    @include forCons(74px, -91px, 5px, 35px, -15.2deg);
-  }
-  .purple6Azone1 {
-    border-bottom: 350px solid purple;
-    @include forCons(74px, -91px, 5px, 35px, -15.2deg);
-  }
-  .yellow6Bzone1 {
-    border-bottom: 350px solid pink;
+  .zone16B {
+    border-bottom: 350px solid transparent;
     @include forCons(66px, -71px, 10px, 35px, -23.6deg);
   }
-  .red6Bzone1 {
-    border-bottom: 350px solid firebrick;
-    @include forCons(66px, -71px, 10px, 35px, -23.6deg);
-  }
-  .purple6Bzone1 {
-    border-bottom: 350px solid purple;
-    @include forCons(66px, -71px, 10px, 35px, -23.6deg);
-  }
-  .yellow1Azone1 {
-    border-bottom: 353px solid pink;
+  .zone11A {
+    border-bottom: 353px solid transparent;
     @include forCons(54px, -53px, 16px, 35px, -33deg);
   }
-  .red1Azone1 {
-    border-bottom: 353px solid firebrick;
-    @include forCons(54px, -53px, 16px, 35px, -33deg);
-  }
-  .purple1Azone1 {
-    border-bottom: 353px solid purple;
-    @include forCons(54px, -53px, 16px, 35px, -33deg);
-  }
-  .yellow1Bzone1 {
-    border-bottom: 350px solid pink;
-    @include forCons(39px, -25px, 7px, 35px, -41deg);
-  }
-  .red1Bzone1 {
-    border-bottom: 350px solid firebrick;
-    @include forCons(39px, -25px, 7px, 35px, -41deg);
-  }
-  .purple1Bzone1 {
-    border-bottom: 350px solid purple;
+  .zone11B {
+    border-bottom: 350px solid transparent;
     @include forCons(39px, -25px, 7px, 35px, -41deg);
   }
   // 4 зона
-  .yellow5Azone4 {
-    border-bottom: 277px solid pink;
+  .zone45A {
+    border-bottom: 277px solid transparent;
     @include forCons(101px, -17px, 35px, 11px, 53deg);
   }
-  .red5Azone4 {
-    border-bottom: 277px solid firebrick;
-    @include forCons(101px, -17px, 35px, 11px, 53deg);
-  }
-  .purple5Azone4 {
-    border-bottom: 277px solid purple;
-    @include forCons(101px, -17px, 35px, 11px, 53deg);
-  }
-  .yellow5Bzone4 {
-    border-bottom: 273px solid pink;
+  .zone45B {
+    border-bottom: 273px solid transparent;
     @include forCons(125px, -2px, 35px, 16px, 42.2deg);
   }
-  .red5Bzone4 {
-    border-bottom: 273px solid firebrick;
-    @include forCons(125px, -2px, 35px, 16px, 42.2deg);
-  }
-  .purple5Bzone4 {
-    border-bottom: 273px solid purple;
-    @include forCons(125px, -2px, 35px, 16px, 42.2deg);
-  }
-  .yellow6Azone4 {
-    border-bottom: 271px solid pink;
+  .zone46A {
+    border-bottom: 271px solid transparent;
     @include forCons(143px, 21px, 35px, 10px, 30.4deg);
   }
-  .red6Azone4 {
-    border-bottom: 271px solid firebrick;
-    @include forCons(143px, 21px, 35px, 10px, 30.4deg);
-  }
-  .purple6Azone4 {
-    border-bottom: 271px solid purple;
-    @include forCons(143px, 21px, 35px, 10px, 30.4deg);
-  }
-  .yellow6Bzone4 {
-    border-bottom: 271px solid pink;
+  .zone46B {
+    border-bottom: 271px solid transparent;
     @include forCons(154px, 45px, 35px, 5px, 20deg);
   }
-  .red6Bzone4 {
-    border-bottom: 271px solid firebrick;
-    @include forCons(154px, 45px, 35px, 5px, 20deg);
-  }
-  .purple6Bzone4 {
-    border-bottom: 271px solid purple;
-    @include forCons(154px, 45px, 35px, 5px, 20deg);
-  }
-  .yellow1Azone4 {
-    border-bottom: 271px solid pink;
+  .zone41A {
+    border-bottom: 271px solid transparent;
     @include forCons(160px, 66px, 35px, 5px, 9.7deg);
   }
-  .red1Azone4 {
-    border-bottom: 271px solid firebrick;
-    @include forCons(160px, 66px, 35px, 5px, 9.7deg);
-  }
-  .purple1Azone4 {
-    border-bottom: 271px solid purple;
-    @include forCons(160px, 66px, 35px, 5px, 9.7deg);
-  }
-  .yellow1Bzone4 {
-    border-bottom: 271px solid pink;
-    @include forCons(162px, 90px, 35px, 0px, 0deg);
-  }
-  .red1Bzone4 {
-    border-bottom: 271px solid firebrick;
-    @include forCons(162px, 90px, 35px, 0px, 0deg);
-  }
-  .purple1Bzone4 {
-    border-bottom: 271px solid purple;
+  .zone41B {
+    border-bottom: 271px solid transparent;
     @include forCons(162px, 90px, 35px, 0px, 0deg);
   }
   // Пайп
-  .red5APipe {
+  .Pipe5A {
     @include forCons(69px, -83px, 22px, 12px, 17deg);
-    border-bottom: 354px solid firebrick;
+    border-bottom: 354px solid transparent;
   }
-  .purple5APipe {
-    @include forCons(69px, -83px, 22px, 12px, 17deg);
-    border-bottom: 354px solid purple;
-  }
-  .yellow5APipe {
-    @include forCons(69px, -83px, 22px, 12px, 17deg);
-    border-bottom: 354px solid pink;
-  }
-  .red5BPipe {
+  .Pipe5B {
     @include forCons(73px, -67px, 29px, 12px, 9.3deg);
-    border-bottom: 354px solid firebrick;
+    border-bottom: 354px solid transparent;
   }
-  .purple5BPipe {
-    @include forCons(73px, -67px, 29px, 12px, 9.3deg);
-    border-bottom: 354px solid purple;
-  }
-  .yellow5BPipe {
-    @include forCons(73px, -67px, 29px, 12px, 9.3deg);
-    border-bottom: 354px solid pink;
-  }
-  .red6APipe {
+  .Pipe6A {
     @include forCons(79px, -45px, 33px, 12px, 1deg);
-    border-bottom: 350px solid firebrick;
+    border-bottom: 350px solid transparent;
   }
-  .purple6APipe {
-    @include forCons(79px, -45px, 33px, 12px, 1deg);
-    border-bottom: 350px solid purple;
-  }
-  .yellow6APipe {
-    @include forCons(79px, -45px, 33px, 12px, 1deg);
-    border-bottom: 350px solid pink;
-  }
-  .red6BPipe {
+  .Pipe6B {
     @include forCons(78px, -8px, 12px, 33px, -3deg);
-    border-bottom: 350px solid firebrick;
+    border-bottom: 350px solid transparent;
   }
-  .purple6BPipe {
-    @include forCons(78px, -8px, 12px, 33px, -3deg);
-    border-bottom: 350px solid purple;
-  }
-  .yellow6BPipe {
-    @include forCons(78px, -8px, 12px, 33px, -3deg);
-    border-bottom: 350px solid pink;
-  }
-  .red1APipe {
+  .Pipe1A {
     @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
-    border-bottom: 350px solid firebrick;
+    border-bottom: 350px solid transparent;
   }
-  .purple1APipe {
-    @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
-    border-bottom: 350px solid purple;
-  }
-  .yellow1APipe {
-    @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
-    border-bottom: 350px solid pink;
-  }
-  .red1BPipe {
+  .Pipe1B {
     @include forCons(66px, 41px, 12px, 16px, -19deg);
-    border-bottom: 355px solid firebrick;
+    border-bottom: 355px solid transparent;
   }
-  .purple1BPipe {
-    @include forCons(66px, 41px, 12px, 16px, -19deg);
-    border-bottom: 355px solid purple;
-  }
-  .yellow1BPipe {
-    @include forCons(66px, 41px, 12px, 16px, -19deg);
-    border-bottom: 355px solid pink;
-  }
-  .red5AK1 {
-    border-bottom: 245px solid firebrick;
+  .K15A {
+    border-bottom: 245px solid transparent;
     @include forCons(158px, -107px, 27px, 12px, 13deg);
   }
-  .red5BK1 {
-    border-bottom: 243px solid firebrick;
+  .K15B {
+    border-bottom: 243px solid transparent;
     @include forCons(164px, -81px, 22px, 12px, 4deg);
   }
-  .red6AK1 {
-    border-bottom: 242px solid firebrick;
+  .K16A {
+    border-bottom: 242px solid transparent;
     @include forCons(164px, -68px, 37px, 7px, -9deg);
   }
-  .red6BK1 {
-    border-bottom: 235px solid firebrick;
+  .K16B {
+    border-bottom: 235px solid transparent;
     @include forCons(163px, -35px, 22px, 21px, -18deg);
   }
-  .red1AK1 {
-    border-bottom: 230px solid firebrick;
+  .K11A {
+    border-bottom: 230px solid transparent;
     @include forCons(155px, -6px, 12px, 29px, -27.3deg);
   }
-  .red1BK1 {
-    border-bottom: 234px solid firebrick;
-    @include forCons(142.5px, 13px, 7px, 22px, -36deg);
-  }
-  // /* От 25 до 35% */
-  .purple5AK1 {
-    border-bottom: 245px solid purple;
-    @include forCons(158px, -107px, 27px, 12px, 13deg);
-  }
-  .purple5BK1 {
-    border-bottom: 243px solid purple;
-    @include forCons(164px, -81px, 22px, 12px, 4deg);
-  }
-  .purple6AK1 {
-    border-bottom: 242px solid purple;
-    @include forCons(164px, -68px, 37px, 7px, -9deg);
-  }
-  .purple6BK1 {
-    border-bottom: 235px solid purple;
-    @include forCons(163px, -35px, 22px, 21px, -18deg);
-  }
-  .purple1AK1 {
-    border-bottom: 230px solid purple;
-    @include forCons(155px, -6px, 12px, 29px, -27.3deg);
-  }
-  .purple1BK1 {
-    border-bottom: 234px solid purple;
-    @include forCons(142.5px, 13px, 7px, 22px, -36deg);
-  }
-  .yellow5AK1 {
-    border-bottom: 245px solid pink;
-    @include forCons(158px, -107px, 27px, 12px, 13deg);
-  }
-  .yellow5BK1 {
-    border-bottom: 243px solid pink;
-    @include forCons(164px, -81px, 22px, 12px, 4deg);
-  }
-  .yellow6AK1 {
-    border-bottom: 242px solid pink;
-    @include forCons(164px, -68px, 37px, 7px, -9deg);
-  }
-  .yellow6BK1 {
-    border-bottom: 235px solid pink;
-    @include forCons(163px, -35px, 22px, 21px, -18deg);
-  }
-  .yellow1AK1 {
-    border-bottom: 230px solid pink;
-    @include forCons(155px, -6px, 12px, 29px, -27.3deg);
-  }
-  .yellow1BK1 {
-    border-bottom: 234px solid pink;
+  .K11B {
+    border-bottom: 234px solid transparent;
     @include forCons(142.5px, 13px, 7px, 22px, -36deg);
   }
   // /* KC */
   // /* Выше 35% */
-  .red5AKC {
-    border-bottom: 240px solid firebrick;
+  .KC5A {
+    border-bottom: 240px solid transparent;
     @include forCons(153px, -78px, 22px, 12px, 30deg);
   }
-  .red5BKC {
-    border-bottom: 245px solid firebrick;
+  .KC5B {
+    border-bottom: 245px solid transparent;
     @include forCons(157px, -62px, 29px, 12px, 18.3deg);
   }
-  .red6AKC {
-    border-bottom: 247px solid firebrick;
+  .KC6A {
+    border-bottom: 247px solid transparent;
     @include forCons(160px, -40px, 33px, 12px, 6deg);
   }
-  .red6BKC {
-    border-bottom: 249px solid firebrick;
+  .KC6B {
+    border-bottom: 249px solid transparent;
     @include forCons(160px, -4px, 12px, 33px, 0deg);
   }
-  .red1AKC {
-    border-bottom: 251px solid firebrick;
+  .KC1A {
+    border-bottom: 251px solid transparent;
     @include forCons(156px, 18px, 12px, 29px, -11.3deg);
   }
-  .red1BKC {
-    border-bottom: 250px solid firebrick;
-    @include forCons(152px, 42px, 12px, 22px, -22deg);
-  }
-  // /* От 25 до 35% */
-  .purple5AKC {
-    border-bottom: 240px solid purple;
-    @include forCons(153px, -78px, 22px, 12px, 30deg);
-  }
-  .purple5BKC {
-    border-bottom: 245px solid purple;
-    @include forCons(157px, -62px, 29px, 12px, 18.3deg);
-  }
-  .purple6AKC {
-    border-bottom: 247px solid purple;
-    @include forCons(160px, -40px, 33px, 12px, 6deg);
-  }
-  .purple6BKC {
-    border-bottom: 249px solid purple;
-    @include forCons(160px, -4px, 12px, 33px, 0deg);
-  }
-  .purple1AKC {
-    border-bottom: 251px solid purple;
-    @include forCons(156px, 18px, 12px, 29px, -11.3deg);
-  }
-  .purple1BKC {
-    border-bottom: 250px solid purple;
-    @include forCons(152px, 42px, 12px, 22px, -22deg);
-  }
-  // /* От 15 до 25% */
-  .yellow5AKC {
-    border-bottom: 240px solid pink;
-    @include forCons(153px, -78px, 22px, 12px, 30deg);
-  }
-  .yellow5BKC {
-    border-bottom: 245px solid pink;
-    @include forCons(157px, -62px, 29px, 12px, 18.3deg);
-  }
-  .yellow6AKC {
-    border-bottom: 247px solid pink;
-    @include forCons(160px, -40px, 33px, 12px, 6deg);
-  }
-  .yellow6BKC {
-    border-bottom: 249px solid pink;
-    @include forCons(160px, -4px, 12px, 33px, 0deg);
-  }
-  .yellow1AKC {
-    border-bottom: 251px solid pink;
-    @include forCons(156px, 18px, 12px, 29px, -11.3deg);
-  }
-  .yellow1BKC {
-    border-bottom: 250px solid pink;
+  .KC1B {
+    border-bottom: 250px solid transparent;
     @include forCons(152px, 42px, 12px, 22px, -22deg);
   }
   // /* K7 */
   // /* Выше 35% */
-  .red5AK7 {
-    border-bottom: 264px solid firebrick;
+  .K75A {
+    border-bottom: 264px solid transparent;
     @include forCons(120px, -41px, 25px, 12px, 42deg);
   }
-  .red5BK7 {
-    border-bottom: 264px solid firebrick;
+  .K75B {
+    border-bottom: 264px solid transparent;
     @include forCons(133px, -26px, 26px, 16px, 31.2deg);
   }
-  .red6AK7 {
-    border-bottom: 251px solid firebrick;
+  .K76A {
+    border-bottom: 251px solid transparent;
     @include forCons(153px, -12px, 35px, 10px, 17.4deg);
   }
-  .red6BK7 {
-    border-bottom: 253px solid firebrick;
+  .K76B {
+    border-bottom: 253px solid transparent;
     @include forCons(157px, 16px, 34px, 5px, 7deg);
   }
-  .red1AK7 {
-    border-bottom: 254px solid firebrick;
+  .K71A {
+    border-bottom: 254px solid transparent;
     @include forCons(159px, 56px, 0px, 35px, 3.7deg);
   }
-  .red1BK7 {
-    border-bottom: 254px solid firebrick;
+  .K71B {
+    border-bottom: 254px solid transparent;
     @include forCons(158px, 78px, 0px, 36px, -5deg);
   }
-
-  // /* От 25 до 35% */
-  .purple5AK7 {
-    border-bottom: 264px solid purple;
-    @include forCons(120px, -41px, 25px, 12px, 42deg);
-  }
-  .purple5BK7 {
-    border-bottom: 264px solid purple;
-    @include forCons(133px, -26px, 26px, 16px, 31.2deg);
-  }
-  .purple6AK7 {
-    border-bottom: 251px solid purple;
-    @include forCons(153px, -12px, 35px, 10px, 17.4deg);
-  }
-  .purple6BK7 {
-    border-bottom: 253px solid purple;
-    @include forCons(157px, 16px, 34px, 5px, 7deg);
-  }
-  .purple1AK7 {
-    border-bottom: 254px solid purple;
-    @include forCons(159px, 56px, 0px, 35px, 3.7deg);
-  }
-  .purple1BK7 {
-    border-bottom: 254px solid purple;
-    @include forCons(158px, 78px, 0px, 36px, -5deg);
-  }
-
-  .yellow5AK7 {
-    border-bottom: 264px solid pink;
-    @include forCons(120px, -41px, 25px, 12px, 42deg);
-  }
-  .yellow5BK7 {
-    border-bottom: 264px solid pink;
-    @include forCons(133px, -26px, 26px, 16px, 31.2deg);
-  }
-  .yellow6AK7 {
-    border-bottom: 251px solid pink;
-    @include forCons(153px, -12px, 35px, 10px, 17.4deg);
-  }
-  .yellow6BK7 {
-    border-bottom: 253px solid pink;
-    @include forCons(157px, 16px, 34px, 5px, 7deg);
-  }
-  .yellow1AK7 {
-    border-bottom: 254px solid pink;
-    @include forCons(159px, 56px, 0px, 35px, 3.7deg);
-  }
-  .yellow1BK7 {
-    border-bottom: 254px solid pink;
-    @include forCons(158px, 78px, 0px, 36px, -5deg);
-  }
-
   // ТУТ
 
   .balls {

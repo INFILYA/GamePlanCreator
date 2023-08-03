@@ -1,5 +1,4 @@
 import "../css/firstPage.css";
-import "../css/labels.css";
 import "../css/distribution.css";
 import "../css/newAttack.css";
 import "../css/service.css";

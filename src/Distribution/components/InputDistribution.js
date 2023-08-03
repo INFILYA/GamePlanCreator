@@ -5,14 +5,15 @@ export function InputDistribution({
   name,
   showButtonCount,
 }) {
+  const x = 255 - (distributionArr / 100) * 255 === 255 ? 220 : 255 - (distributionArr / 100) * 255;
   return (
     <>
       <input
-        className={
-          (distributionArr < 1 ? "yellowBlock" : "") ||
-          (distributionArr > 1 && distributionArr < 15 ? "reactBlue" : "") ||
-          (distributionArr > 40 ? "reactRed" : "")
-        }
+        style={{
+          backgroundColor: `rgb(220,${x},${x})`,
+          border: x === 220 && "none",
+          color: x === 220 && "transparent",
+        }}
         type="text"
         name={name}
         value={zoneValue}

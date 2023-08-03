@@ -10,6 +10,15 @@
   width: 400px;
   align-items: center;
 }
+.header .date {
+  color: black;
+  position: inherit;
+  font-weight: bold;
+  font-size: 25px;
+  border: none;
+  background-color: transparent;
+  margin: 0px 10px;
+}
 .header .home {
   background: url("../photos/home.jpg") no-repeat;
   background-size: cover;

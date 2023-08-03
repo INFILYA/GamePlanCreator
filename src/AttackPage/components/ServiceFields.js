@@ -58,11 +58,7 @@ export function ServiceFields() {
     dispatch(setInfoOfPlayer(playerInfo));
   }, [dispatch]);
 
-  const classNamesForConesAndInputs = [
-    ["Bluez5", "Yellowz5", "Purplez5", "Redz5"],
-    ["Bluez6", "Yellowz6", "Purplez6", "Redz6"],
-    ["Bluez1", "Yellowz1", "Purplez1", "Redz1"],
-  ];
+  const classNamesForConesAndInputs = ["Z5", "Z6", "Z1"];
   const classNamesForTip = ["tip", "yellowtip"];
   const arrayForRecievers = [1, 2, 3, 4, 5];
 
@@ -295,10 +291,7 @@ export function ServiceFields() {
             <ConeReaction
               key={index}
               attackPercentageArray={attackPercentageArray[index]}
-              range0={el[0]}
-              range15={el[1]}
-              range25={el[2]}
-              range35={el[3]}
+              cone={el}
               historyOfBalls={historyOfBalls}
             />
           ))}
