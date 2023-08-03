@@ -5,14 +5,22 @@ export function InputDistribution({
   name,
   showButtonCount,
 }) {
-  const x = 255 - (distributionArr / 100) * 255 === 255 ? 220 : 255 - (distributionArr / 100) * 255;
+  const x = distributionArr === 0 ? 0 : distributionArr * 2;
   return (
     <>
       <input
         style={{
-          backgroundColor: `rgb(220,${x},${x})`,
-          border: x === 220 && "none",
-          color: x === 220 && "transparent",
+          backgroundColor: `hsl(${
+            distributionArr <= 15
+              ? 200
+              : distributionArr > 15 && distributionArr < 30
+              ? 100
+              : distributionArr >= 30 && distributionArr < 45
+              ? 50
+              : 0
+          },${x}%,${distributionArr === 0 ? 86 : 50}%)`,
+          border: distributionArr === 0 && "none",
+          color: distributionArr === 0 && "transparent",
         }}
         type="text"
         name={name}
