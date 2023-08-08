@@ -56,7 +56,7 @@ body {
   align-items: center;
   box-sizing: border-box;
   border-radius: 20px;
-  padding: 10px 10px 0px 10px;
+  padding: 10px 15px 0px 15px;
   z-index: 5;
   border: 1px solid black;
   background-color: lightsteelblue;
@@ -64,6 +64,7 @@ body {
 }
 .firstpage .hideIcon img {
   height: 375px;
+  width: 250px;
   margin-left: 25px;
   align-self: end;
   padding: 0px 50px;

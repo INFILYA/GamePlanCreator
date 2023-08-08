@@ -4,6 +4,12 @@
   margin-top: 10px;
   box-sizing: border-box;
 }
+.showInfo {
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
 .ratingRow {
   display: inline-block;
   vertical-align: top;

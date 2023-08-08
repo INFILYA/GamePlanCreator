@@ -1,17 +1,20 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { compare } from "../Datas/api";
+import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
+import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
 import { upgradeAge } from "../StaticHelpModules/Button";
 
 export default function ShapeForRatings({ amplua }) {
+  const dispatch = useDispatch();
   const Players = useSelector((state) => state.listOfPlayers.listOfPlayers);
   const listOfTeams = useSelector((state) => state.listOfTeams.listOfTeams);
   const listOfPlayers = Players.map((player) => upgradeAge(player));
+  const playerInfo = useSelector((state) => state.playerInfo.playerInfo);
   const [directionOfSort, setDirectionOfSort] = useState(false);
   const [teamsOrPlayers, setTeamsOrPlayers] = useState(
     amplua === "teams" ? listOfTeams : listOfPlayers.filter((player) => player.position === amplua)
   );
-
   const categorysForAll = [
     { category: "name", text: "Name" },
     { category: "age", text: "Age" },
@@ -49,9 +52,19 @@ export default function ShapeForRatings({ amplua }) {
       ? { backgroundColor: "burlywood" }
       : {};
   }
+  function showInfoOfPlayer(name) {
+    const pickedPlayer = Players.find((player) => player.name === name && setInfoOfPlayer(player));
+    dispatch(setInfoOfPlayer(pickedPlayer));
+    localStorage.setItem("playerInfo", JSON.stringify(pickedPlayer));
+  }
   return (
     <>
       <div className="ratingTable">
+        {playerInfo && (
+          <div className="showInfo">
+            <PersonalInformationOfPlayer link={"page1"} />
+          </div>
+        )}
         {categorys.map((category, index) => (
           <div
             className="ratingRow"
@@ -74,7 +87,14 @@ export default function ShapeForRatings({ amplua }) {
                     : player[category.category]}
                 </span>
               ) : (
-                <span key={index} style={changePodiumColors(index)} className="rowName">
+                <span
+                  key={index}
+                  style={changePodiumColors(index)}
+                  className="rowName"
+                  onClick={
+                    teamsOrPlayers !== listOfTeams ? () => showInfoOfPlayer(player.name) : null
+                  }
+                >
                   {index + 1}. {player[category.category]}
                 </span>
               )
