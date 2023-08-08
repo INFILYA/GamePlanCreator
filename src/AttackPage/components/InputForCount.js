@@ -1,4 +1,4 @@
-export function InputForCount({ name, onChange, zoneValue, showInputs }) {
+export function InputForCount({ name, onChange, zoneValue, showInputs, attackPercentageArray }) {
   return (
     <>
       <input
@@ -9,7 +9,7 @@ export function InputForCount({ name, onChange, zoneValue, showInputs }) {
         value={zoneValue}
         disabled={!showInputs ? true : false}
         required
-        style={!showInputs ? { border: "1px solid transparent" } : null}
+        style={attackPercentageArray >= 40 ? { color: "white" } : null}
       ></input>
     </>
   );

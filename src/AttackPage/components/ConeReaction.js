@@ -1,10 +1,10 @@
 export function ConeReaction({ attackPercentageArray, cone, historyOfBalls, type }) {
   function button(zone) {
-    const x = attackPercentageArray === 0 ? "transparent" : attackPercentageArray * 2;
+    const x = attackPercentageArray === 0 ? "transparent" : 100 - attackPercentageArray * 1.5;
     return (
       <button
         type="button"
-        style={{ borderBottomColor: `hsl(0,${x}%,50%)` }}
+        style={{ borderBottomColor: `hsl(0,100%,${x}%)` }}
         className={zone + cone}
       ></button>
     );

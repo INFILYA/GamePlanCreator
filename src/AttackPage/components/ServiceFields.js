@@ -308,6 +308,7 @@ export function ServiceFields() {
                       onChange={handleZoneValue}
                       zoneValue={zoneValue[index + 1]}
                       showInputs={showInputs}
+                      attackPercentageArray={attackPercentageArray[index]}
                     />
                   ))}
                 </div>
