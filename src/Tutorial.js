@@ -8,6 +8,7 @@ import { setisShowedTutorial } from "./states/slices/isShowedTutorialSlice";
 export function Tutorial({ text }) {
   const dispatch = useDispatch();
   const changeLanguage = useSelector((state) => state.changeLanguage.changeLanguage);
+  const userVersion = useSelector((state) => state.userVersion.userVersion);
   const [showTutorial, setShowTutorial] = useState(true);
   const [confirmRepeat, setConfirmReapeat] = useState(false);
 
@@ -32,6 +33,7 @@ export function Tutorial({ text }) {
       {showTutorial && (
         <div className="grab">
           <div className="tutorial">
+            <div className="userVersion">data version: {userVersion}</div>
             <div className="changeLanguage">
               <button
                 onClick={() => dispatch(setChangeLanguage(true))}

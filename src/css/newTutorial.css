@@ -72,6 +72,12 @@
   margin-left: 10px;
   font-size: 15px;
 }
+.grab .tutorial .userVersion {
+  position: absolute;
+  bottom: 93%;
+  right: 88%;
+  font-size: 15px;
+}
 .grab .tutorial .changeLanguage {
   position: absolute;
   bottom: 93%;
