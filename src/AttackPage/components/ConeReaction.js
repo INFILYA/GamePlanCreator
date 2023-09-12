@@ -4,7 +4,7 @@ export function ConeReaction({ attackPercentageArray, cone, historyOfBalls, type
     return (
       <button
         type="button"
-        style={{ borderBottomColor: `hsl(0,100%,${x}%)` }}
+        style={{ backgroundColor: `hsl(0,100%,${x}%)` }}
         className={zone + cone}
       ></button>
     );

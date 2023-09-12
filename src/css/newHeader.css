@@ -2,63 +2,55 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
-  height: 80px;
+  height: 100px;
+  padding: 2vmax;
+  box-sizing: border-box;
 }
 .header .block {
   display: flex;
-  width: 400px;
   align-items: center;
-}
-.header .date {
-  color: black;
-  position: inherit;
-  font-weight: bold;
-  font-size: 25px;
-  border: none;
-  background-color: transparent;
-  margin: 0px 10px;
+  width: 30%;
 }
 .header .home {
-  background: url("../photos/home.jpg") no-repeat;
+  background: url("../photos/home.jpg") no-repeat 100%;
   background-size: cover;
-  text-align: center;
-  height: 60px;
-  width: 60px;
+  width: calc((var(--normal-text-size-value) - 1) * 1.2vw + 2.5rem);
+  aspect-ratio: 1/1;
   border: transparent;
 }
+.header img {
+  width: calc((var(--normal-text-size-value) - 1) * 1.2vw + 2.5rem);
+  margin: 0px 10px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
 .header .matchup {
-  font-size: 40px;
   font-weight: 600;
   display: flex;
   align-items: center;
-  height: 80px;
 }
 .header .matchup img {
-  width: 80px;
-  height: 80px;
-  margin: 0px 20px;
-  box-sizing: border-box;
+  width: calc((var(--normal-text-size-value) - 0.75) * 5vw + 1rem);
 }
 .header .logout {
   background-color: indianred;
   color: white;
-  padding: 10px;
   font-weight: bold;
   box-sizing: border-box;
   border: 4px solid silver;
+  font-size: calc((var(--normal-text-size-value) - 0.9) * 2vw + 0.5rem);
+  padding: 5px 10px;
 }
 .header .login {
   background-color: cornflowerblue;
-  padding: 10px;
   font-weight: bold;
   box-sizing: border-box;
   border: 4px solid silver;
+  font-size: calc((var(--normal-text-size-value) - 0.9) * 2vw + 0.5rem);
+  padding: 5px 10px;
 }
 .header button {
-  font-size: 20px;
-  margin: 5px;
-  padding: 5px;
   border-radius: 10px;
 }
 .header button:hover {
@@ -76,48 +68,35 @@
   border-radius: 15px;
   z-index: 25;
   padding: 10px;
+  margin-top: 20px;
 }
-.emailPanel .google {
-  background: url("../photos/google.jpg") no-repeat center center;
-  background-size: cover;
-  width: 45px;
-  height: 45px;
-  border: none;
-  margin: 10px 10px;
-  border-radius: 50%;
-}
-.emailPanel .google:hover {
-  transform: translateY(-10px);
-  transition: 0.7s;
-  background-color: transparent;
-}
-.emailPanel .facebook {
-  background: url("../photos/facebook.jpg") no-repeat center center;
-  background-size: cover;
-  width: 45px;
-  height: 45px;
-  border: none;
-  margin: 10px 10px;
-  border-radius: 50%;
-}
-.emailPanel .facebook:hover {
-  transform: translateY(-10px);
-  transition: 0.7s;
-  background-color: transparent;
-}
+.emailPanel .google,
+.emailPanel .facebook,
 .emailPanel .email {
-  background: url("../photos/email.jpg") no-repeat center center;
-  background-size: cover;
   width: 45px;
   height: 45px;
   border: none;
   margin: 10px 10px;
   border-radius: 50%;
 }
+.emailPanel .google:hover,
+.emailPanel .facebook:hover,
 .emailPanel .email:hover {
   transform: translateY(-10px);
   transition: 0.7s;
   background-color: transparent;
+}
+.emailPanel .google {
+  background: url("../photos/google.jpg") no-repeat center center;
+  background-size: cover;
+}
+.emailPanel .facebook {
+  background: url("../photos/facebook.jpg") no-repeat center center;
+  background-size: cover;
+}
+.emailPanel .email {
+  background: url("../photos/email.jpg") no-repeat center center;
+  background-size: cover;
 }
 .emailPanel .createAccount {
   font-size: 15px;
@@ -126,7 +105,9 @@
   border: none;
   background-color: transparent;
 }
-.emailPanel input {
+.emailPanel input,
+.emailPanel button,
+.emailPanel label {
   margin: 10px auto;
   font-size: 25px;
   border-radius: 10px;
@@ -139,32 +120,12 @@
   font-weight: bold;
 }
 .emailPanel button {
-  margin: 10px auto;
-  font-size: 25px;
-  border-radius: 10px;
-  padding: 5px;
-  text-align: center;
-  display: flex;
-  width: 300px;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
   background-color: cornflowerblue;
 }
 .emailPanel button:hover {
   background-color: indianred;
 }
 .emailPanel label {
-  margin: 10px auto;
-  font-size: 25px;
-  border-radius: 10px;
-  padding: 5px;
-  text-align: center;
-  display: flex;
-  width: 300px;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
   font-size: 30px;
 }
 

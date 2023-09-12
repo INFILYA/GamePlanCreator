@@ -18,13 +18,9 @@ export function Explain({
   const admin = isRegistratedUser?.uid === "ld4Bdj6KepVG68kjNHHQRjacJI13";
   return (
     <>
-      <div className="comments">
-        <label>Comments:</label>
-        <textarea type="text" className="textcomment"></textarea>
-      </div>
       {confirmReturn ? (
-        <div>
-          <label style={{ fontSize: 30 }}>Return Data?</label>
+        <div className="saveBox" style={!saveDataOfAttacks ? { backgroundColor: "orangered" } : {}}>
+          <label>Return?</label>
           <div>
             <button type="button" className="returnButton" onClick={() => returnOldData()}>
               Confirm
@@ -34,30 +30,38 @@ export function Explain({
       ) : (
         admin &&
         !showDataOfAttacks && (
-          <>
-            <label style={{ fontSize: 30 }}>Add Data</label>
-            <div className="saveBox">
-              <Switch
-                onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)}
-                disabled={disableSwitch}
-              />
-            </div>
-          </>
+          <div
+            className="saveBox"
+            style={saveDataOfAttacks ? { backgroundColor: "orangered" } : {}}
+          >
+            <label>Add Data</label>
+            <Switch
+              onChange={() => setSaveDataOfAttacks(!saveDataOfAttacks)}
+              disabled={disableSwitch}
+              className="switch-size"
+            />
+          </div>
         )
       )}
       {isRegistratedUser && !saveDataOfAttacks && (
-        <>
-          <label style={{ fontSize: 30 }}>Show Data</label>
-          <div className="saveBox">
-            <Switch
-              onChange={() => setShowDataOfAttacks(!showDataOfAttacks)}
-              disabled={disableSwitch}
-            />
-          </div>
-        </>
+        <div
+          className="saveBox"
+          style={
+            (showDataOfAttacks && !saveDataOfAttacks) || showDataOfAttacks
+              ? { backgroundColor: "orangered" }
+              : {}
+          }
+        >
+          <label>Show Data</label>
+          <Switch
+            onChange={() => setShowDataOfAttacks(!showDataOfAttacks)}
+            disabled={disableSwitch}
+            className="switch-size"
+          />
+        </div>
       )}
       {saveDataOfAttacks && (
-        <div style={{ marginTop: 10 }}>
+        <div className="input-wrapper">
           <input
             style={{ backgroundColor: "lightgreen" }}
             name={type === "Attack" ? "winPoints" : "aces"}

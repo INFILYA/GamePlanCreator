@@ -24,6 +24,7 @@ import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
 import { setBackRightMyTeamSelects } from "../../states/slices/sequanceOfZonesSlice";
 import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
 import { setUserVersion } from "../../states/slices/userVersionSlice";
+import { NavLink } from "react-router-dom";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -88,123 +89,151 @@ export function FirstPage() {
     }
   };
   return (
-    <>
-      <div style={showRivalClub ? { display: "flex" } : {}}>
-        {showRivalClub && <Squads team={"rival"} />}
-        <div className="rotation" style={!showRivalClub ? { minWidth: 975 } : {}}>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            {showRivalClub ? (
-              <button
-                onClick={resetTheBoardForRivalTeam}
-                className="reset"
-                style={{ marginTop: -20 }}
-              >
-                Reset
-              </button>
-            ) : (
-              <div></div>
-            )}
-            {showMyClub && (
-              <button onClick={resetTheBoardForMyClub} className="reset" style={{ marginTop: -20 }}>
-                Reset
-              </button>
-            )}
+    <article className="main-content-wrapper">
+      {showRivalClub && <Squads team={"rival"} />}
+      <section className="playground-section">
+        <div className="section-border">
+          <div className="section-background">
+            {!playerInfo && <img src="/photos/playarea.jpg" alt="" />}
           </div>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            {playerInfo && <PersonalInformationOfPlayer link={"page1"} />}
-          </div>
-          {rivalClub.length < 1 && myClub.length < 1 ? (
-            <ChooseOpponentTeam />
-          ) : (
-            <div>
-              <div style={{ marginBottom: 8 }}>
-                {zones.slice(0, 3).map((player, index) =>
-                  player ? (
-                    <div className="container" key={player.name}>
-                      <IconOfPlayer player={player} zones={zones} type={"rival"} />
-                    </div>
-                  ) : (
-                    <div className="container" key={"_" + index}>
-                      {correctNamesOfZones(index)}
-                    </div>
-                  )
-                )}
-              </div>
-              <div>
-                {myTeamZones.slice(0, 3).map((player, index) =>
-                  player ? (
-                    <div className="smallBox" key={player.name}>
-                      <IconOfPlayer player={player} zones={myTeamZones} type={"my"} />
-                    </div>
-                  ) : (
-                    <div className="smallBox" key={"x" + index}></div>
-                  )
-                )}
-              </div>
-              <div style={{ marginBottom: 9 }}>
-                {zones.slice(3, 6).map((player, index) =>
-                  player ? (
-                    <div className="container" key={player.name}>
-                      <IconOfPlayer player={player} zones={zones} type={"rival"} />
-                    </div>
-                  ) : (
-                    <div className="container" key={"_" + index}>
-                      {correctNamesOfZones(index + 3)}
-                    </div>
-                  )
-                )}
-              </div>
-              <div>
-                {myTeamZones.slice(3, 6).map((player, index) =>
-                  player ? (
-                    <div className="smallBox" key={player.name}>
-                      <IconOfPlayer player={player} zones={myTeamZones} type={"my"} />
-                    </div>
-                  ) : (
-                    <div className="smallBox" key={"x" + index}></div>
-                  )
-                )}
-              </div>
-            </div>
-          )}
-
-          {!zones.includes(null) && admin && (
-            <div style={{ marginTop: -30 }}>
-              <Button onClick={saveStartingSix} value={"Save starting six"} />
-            </div>
-          )}
-          {myTeamZones.every((zone) => zone !== null) && isRegistratedUser && (
-            <div className="plusMinus">
-              <button onClick={() => dispatch(rotateForwardMyTeam())}>-</button>
-              {myTeamZones.map((player, index) =>
-                player && player.position === "Setter" ? (
-                  <span key={player.name} style={{ marginLeft: 50, marginRight: 50, fontSize: 35 }}>
-                    {correctNamesOfZones(index)}
-                  </span>
-                ) : null
-              )}
-              <button onClick={() => dispatch(rotateBackMyTeam())}>+</button>
-            </div>
-          )}
         </div>
-        {showRivalClub &&
-          (showMyClub ? (
-            <Squads team={"my"} />
-          ) : (
-            <div className="teamsquad">
-              {rivalClub.length !== 0 && (
-                <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
-                  <option value="Choose home team">Choose team</option>
-                  {listOfTeams.map((team) => (
-                    <option key={team.id} value={team.name}>
-                      {team.name}
-                    </option>
-                  ))}
-                </select>
-              )}
+        <div className="section-content-wrapper">
+          <div className="section-content">
+            {!showRivalClub && <ChooseOpponentTeam />}
+            {playerInfo && <PersonalInformationOfPlayer link={"page1"} />}
+            {!playerInfo && showRivalClub && (
+              <div className="rotation-field-wrapper">
+                <div className="reset-button-wrapper" style={{ justifyContent: "space-between" }}>
+                  {showRivalClub ? (
+                    <button onClick={resetTheBoardForRivalTeam} className="reset">
+                      Reset
+                    </button>
+                  ) : (
+                    <div></div>
+                  )}
+                  {showMyClub && (
+                    <button onClick={resetTheBoardForMyClub} className="reset">
+                      Reset
+                    </button>
+                  )}
+                </div>
+                <div className="row-zones-wrapper">
+                  {zones.slice(0, 3).map((player, index) =>
+                    player ? (
+                      <IconOfPlayer
+                        player={player}
+                        zones={zones}
+                        type={"rival"}
+                        key={player.name}
+                      />
+                    ) : (
+                      <div className="player-field-wrapper zone-names-wrapper" key={"_" + index}>
+                        <div>{correctNamesOfZones(index)}</div>
+                      </div>
+                    )
+                  )}
+                </div>
+                <div className="row-zones-wrapper">
+                  {myTeamZones
+                    .slice(0, 3)
+                    .map((player, index) =>
+                      player ? (
+                        <IconOfPlayer
+                          player={player}
+                          zones={myTeamZones}
+                          type={"my"}
+                          key={player.name}
+                        />
+                      ) : (
+                        <div className="nameOfZone-field-wrapper" key={"x" + index}></div>
+                      )
+                    )}
+                </div>
+                <div className="row-zones-wrapper">
+                  {zones.slice(3, 6).map((player, index) =>
+                    player ? (
+                      <IconOfPlayer
+                        player={player}
+                        zones={zones}
+                        type={"rival"}
+                        key={player.name}
+                      />
+                    ) : (
+                      <div className="player-field-wrapper zone-names-wrapper" key={"_" + index}>
+                        <div>{correctNamesOfZones(index + 3)}</div>
+                      </div>
+                    )
+                  )}
+                </div>
+                <div className="row-zones-wrapper">
+                  {myTeamZones
+                    .slice(3, 6)
+                    .map((player, index) =>
+                      player ? (
+                        <IconOfPlayer
+                          player={player}
+                          zones={myTeamZones}
+                          type={"my"}
+                          key={player.name}
+                        />
+                      ) : (
+                        <div className="nameOfZone-field-wrapper" key={"x" + index}></div>
+                      )
+                    )}
+                </div>
+                {!zones.includes(null) && admin && (
+                  <div style={{ marginTop: 5 }}>
+                    <Button onClick={saveStartingSix} value={"Save starting six"} />
+                  </div>
+                )}
+                {myTeamZones.every((zone) => zone !== null) && isRegistratedUser && (
+                  <div className="plusMinus">
+                    <button onClick={() => dispatch(rotateForwardMyTeam())}>-</button>
+                    {myTeamZones.map((player, index) =>
+                      player && player.position === "Setter" ? (
+                        <span key={player.name}>{correctNamesOfZones(index)}</span>
+                      ) : null
+                    )}
+                    <button onClick={() => dispatch(rotateBackMyTeam())}>+</button>
+                  </div>
+                )}
+                {showRivalClub && isRegistratedUser && (
+                  <div className="showRatings">
+                    <NavLink to={"/Ratings"} onClick={() => dispatch(setInfoOfPlayer(null))}>
+                      Ratings
+                    </NavLink>
+                    <NavLink to={"/Distribution"}>Distribution</NavLink>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+      {showRivalClub &&
+        (showMyClub ? (
+          <Squads team={"my"} />
+        ) : (
+          <section className="teamsquad-section">
+            <div className="section-border">
+              <div className="section-background"></div>
             </div>
-          ))}
-      </div>
-    </>
+            <div className="section-content-wrapper">
+              <div className="section-content">
+                {rivalClub.length !== 0 && (
+                  <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
+                    <option value="Choose home team">Choose team</option>
+                    {listOfTeams.map((team) => (
+                      <option key={team.id} value={team.name}>
+                        {team.name}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </div>
+            </div>
+          </section>
+        ))}
+    </article>
   );
 }

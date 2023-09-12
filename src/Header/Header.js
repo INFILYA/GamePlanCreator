@@ -3,7 +3,7 @@ import { SetDate } from "../Page1/components/SetDate";
 import { auth } from "../config/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
 
 export function Header() {
@@ -16,10 +16,6 @@ export function Header() {
   function openAuthWindow() {
     navigate("/Auth");
   }
-  function goHome() {
-    dispatch(setInfoOfPlayer(null));
-    navigate("/");
-  }
   async function logout() {
     try {
       await signOut(auth);
@@ -29,14 +25,16 @@ export function Header() {
     }
   }
   return (
-    <div className="header">
+    <header className="header">
       <div className="block">
-        <button type="button" className="home" onClick={() => goHome()}></button>
-        <img
-          src={isRegistratedUser?.photoURL}
-          alt=""
-          style={{ margin: "0px 20px", height: 60, borderRadius: 50 }}
-        />
+        <NavLink to={"/"} style={{ backgroundColor: "transparent" }}>
+          <button
+            type="button"
+            className="home"
+            onClick={() => dispatch(setInfoOfPlayer(null))}
+          ></button>
+        </NavLink>
+        <img src={isRegistratedUser?.photoURL} alt="" />
         <h2>{isRegistratedUser?.displayName || isRegistratedUser?.email}</h2>
       </div>
       {(rivalClub.length !== 0 || myClub.length !== 0) && (
@@ -47,20 +45,20 @@ export function Header() {
         </div>
       )}
       {isRegistratedUser ? (
-        <div className="block">
+        <div className="block" style={{ justifyContent: "end" }}>
           <SetDate />
           <button className="logout" onClick={logout}>
-            Log out
+            <div>Log out</div>
           </button>
         </div>
       ) : (
-        <div className="block">
+        <div className="block" style={{ justifyContent: "end" }}>
           <SetDate />
           <button className="login" onClick={openAuthWindow}>
-            Log in
+            <div>Log in</div>
           </button>
         </div>
       )}
-    </div>
+    </header>
   );
 }

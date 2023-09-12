@@ -1,22 +1,23 @@
 // Миксины
 @mixin arrows {
   background-size: contain;
-  width: 40px;
-  height: 22px;
-  margin: 350px 10px 0px 10px;
-  background-color: transparent;
   border: none;
-  position: relative;
+  height: 100%;
+  aspect-ratio: 2/1;
+  padding: 0px 20px;
+  margin: 0 10px;
+  border: 3px solid transparent;
   z-index: 3;
 }
 @mixin defenders {
-  width: 40px;
-  height: 25px;
-  margin: 350px 10px 0px 10px;
+  height: 100%;
   position: relative;
   z-index: 3;
   border-radius: 0 0 25px 25px;
   box-sizing: border-box;
+  aspect-ratio: 2/1;
+  padding: 0px 20px;
+  margin: 0 10px;
   &:hover {
     background-color: yellow;
     border: 3px solid black;
@@ -24,525 +25,527 @@
   }
 }
 @mixin attackShape {
-  width: 60px;
-  height: 60px;
-  font-size: 35px;
+  font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  position: absolute;
   color: #000;
-  border: 3px solid black;
-  border-radius: 50px;
+  border: 2px solid black;
+  border-radius: 50%;
   background-color: cornflowerblue;
   font-weight: 700;
-}
-@mixin tips {
-  width: 80px;
-  height: 40px;
-  margin-top: 210px;
-  font-size: 25px;
-  border-radius: 45px;
+  padding: 5px;
   position: absolute;
-  margin-bottom: -105px;
-  z-index: 3;
+  box-sizing: border-box;
+  &:hover {
+    transition: 0.3s;
+    background-color: orangered;
+    opacity: 1;
+    scale: (1.15);
+  }
 }
-// @mixin tips2 {
-
-// }
-@mixin boxSize {
-  width: 30px;
-  border: 2px solid black;
+@mixin TopLeft($Top) {
+  left: 0;
+  top: $Top;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
 }
-@mixin forCons($marginTop, $marginLeft, $borderLeft, $borderRight, $rotate) {
-  margin-top: $marginTop;
-  margin-left: $marginLeft;
-  border-left: $borderLeft solid transparent;
-  border-right: $borderRight solid transparent;
-  rotate: $rotate;
+@mixin Z2($PathRight, $PathLeft) {
+  @include TopLeft(42%);
+  clip-path: polygon(0 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  aspect-ratio: 1 / 1;
+}
+@mixin Z1($PathRight, $PathLeft) {
+  @include TopLeft(26%);
+  clip-path: polygon(0 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  aspect-ratio: 1 / 1.33;
+}
+@mixin Z4($PathRight, $PathLeft) {
+  @include TopLeft(42%);
+  clip-path: polygon(100% 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  aspect-ratio: 1 / 1;
+}
+@mixin Pipe($PathRight, $PathLeft) {
+  @include TopLeft(26%);
+  clip-path: polygon(50% 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  aspect-ratio: 1 / 1.33;
+}
+@mixin K1($PathRight, $PathLeft) {
+  @include TopLeft(42%);
+  clip-path: polygon(35% 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  aspect-ratio: 1 / 1;
+}
+@mixin KC($PathRight, $PathLeft) {
+  @include TopLeft(42%);
+  clip-path: polygon(50% 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  aspect-ratio: 1 / 1;
+}
+@mixin K7($PathRight, $PathLeft) {
+  @include TopLeft(42%);
+  clip-path: polygon(65% 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  aspect-ratio: 1 / 1;
+}
+@mixin ServiceZone1($PathRight, $PathLeft) {
+  @include TopLeft(5%);
+  clip-path: polygon(15% 0, 33.3 * $PathLeft 100%, 33.3 * $PathRight 100%);
+  aspect-ratio: 1 / 1.75;
+}
+@mixin ServiceZone6($PathRight, $PathLeft) {
+  @include TopLeft(5%);
+  clip-path: polygon(50% 0, 33.3 * $PathLeft 100%, 33.3 * $PathRight 100%);
+  aspect-ratio: 1 / 1.75;
+}
+@mixin ServiceZone5($PathRight, $PathLeft) {
+  @include TopLeft(5%);
+  clip-path: polygon(85% 0, 33.3 * $PathLeft 100%, 33.3 * $PathRight 100%);
+  aspect-ratio: 1 / 1.75;
 }
 
 // Основной CSS
-.personalInfoForAttack {
-  display: flex;
-  justify-content: center;
-}
 .none {
   display: none;
 }
-.playArea {
-  background: url(../photos/area8.jpg) no-repeat;
-  text-align: center;
-  width: 525px;
-  height: 700px;
-  display: inline-block;
-  margin-top: 10px;
-  .typeOfAttack {
-    position: absolute;
-    margin: -5px -28px;
-    background-color: #0272be;
+.explain {
+  width: 100%;
+  display: flex;
+  position: relative;
+  background-color: #0272be;
+  justify-content: center;
+  align-items: center;
+  label {
+    font-size: 18px;
+    display: block;
+    font-weight: 600;
+  }
+  .saveBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
     color: white;
-    font-weight: bold;
-    width: 316px;
-    text-align: center;
-    font-size: 25px;
+    .returnButton {
+      background-color: yellowgreen;
+      font-size: 18px;
+      border: 2px solid black;
+      border-radius: 1vw;
+      font-weight: bold;
+      &:hover {
+        transition: 0.3s;
+        opacity: 1;
+        scale: (1.3);
+      }
+    }
+  }
+  .input-wrapper {
+    display: flex;
+    width: 100%;
+    input {
+      width: 100%;
+      border: 1px solid black;
+      font-weight: bold;
+      text-align: center;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.playArea {
+  width: 100%;
+  .select-wrapper {
+    width: 100%;
+    .typeOfAction {
+      background-color: orangered;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      font-size: 18px;
+      border: none;
+      box-sizing: border-box;
+      border-bottom: 2px solid white;
+      width: 100%;
+    }
+    select[disabled] {
+      opacity: 1;
+      background-color: #0272be;
+    }
   }
   .compareFields {
-    margin-top: 40px;
     display: flex;
     justify-content: center;
-    font-size: 25px;
-    input {
-      display: block;
-      width: 120px;
-      height: 30px;
-      font-size: 25px;
-      font-weight: bold;
+    position: absolute;
+    bottom: -70px;
+    z-index: 16;
+    font-size: 18px;
+    width: 100%;
+    padding: 10px 0;
+    .input-equality-wrapper,
+    .label-equality-wrapper {
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-      text-align: center;
+      align-items: center;
     }
-    .equal {
-      font-weight: bold;
-      font-size: 25px;
-      width: 100px;
-      box-sizing: border-box;
-      margin: 0px 10px;
-      display: block;
+    .input-equality-wrapper {
+      width: 40%;
+      label {
+        font-weight: 600;
+        font-size: 18px;
+      }
+      input {
+        display: block;
+        width: 80%;
+        font-weight: bold;
+        justify-content: center;
+        text-align: center;
+        font-size: 14px;
+        border: 1px solid black;
+        box-sizing: border-box;
+      }
+    }
+    .label-equality-wrapper {
+      width: 20%;
+      .equal {
+        font-weight: bold;
+        box-sizing: border-box;
+        display: block;
+      }
+    }
+  }
+  // ТУТ
+  .cones-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    button {
+      background-color: transparent;
+      border: none;
+    }
+  }
+  .defender-wrapper {
+    position: absolute;
+    width: 100%;
+    bottom: 8%;
+    display: flex;
+    justify-content: center;
+    .smallarrowleft {
+      background: url(../photos/arrowright.png) no-repeat center center;
+      @include arrows;
+    }
+    .smallarrowright {
+      background: url(../photos/arrowleft.png) no-repeat center center;
+      @include arrows;
+    }
+    .defenderOn {
+      background-color: yellow;
+      border: 3px solid black;
+      @include defenders;
+    }
+    .defenderOff {
+      background-color: transparent;
+      border: 3px solid transparent;
+      @include defenders;
+    }
+  }
+  .inputs-wrapper {
+    display: flex;
+    bottom: 0;
+    position: absolute;
+    .inputForCount {
+      border: 2px solid white;
+      background-color: transparent;
+      z-index: 5;
+      width: 100%;
+      aspect-ratio: 1/2.13;
+      text-align: center;
+      font-size: calc(2vmin + 0.75rem);
+      border-bottom: none;
+    }
+  }
+  .inputForCount[disabled] {
+    color: #000;
+    font-size: calc(0.5vmin + 0.75rem);
+    font-weight: bold;
+    border: none;
+    z-index: 2;
+    aspect-ratio: 1.5/1;
+  }
+  .tip-wrapper {
+    position: absolute;
+    width: 100%;
+    bottom: 35%;
+    z-index: 16;
+    .tip,
+    .yellowtip {
+      width: 25%;
+      border-radius: 1vmax;
+      border: none;
+      margin: 0px 1vmin;
+      font-size: calc(1.75vmin + 0.3rem);
+      padding: 5px 0;
+      font-weight: 600;
+    }
+    .tip {
+      background-color: transparent;
+      color: transparent;
+      &:hover {
+        background-color: yellow;
+        border: 2px solid black;
+        color: #000;
+      }
+    }
+    .yellowtip {
+      background-color: yellow;
+      border: 2px solid black;
+    }
+  }
+  .count-button-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    z-index: 15;
+    .countButton {
+      background-color: #0272be;
+      cursor: pointer;
+      border: 2px solid white;
+      border-radius: 25px;
+      padding: 1vmin 2vmin;
+      color: white;
+      z-index: 2;
+      font-size: calc(1vmax + 0.3rem);
+      font-weight: 600;
+      &:hover {
+        transition: 0.3s;
+        opacity: 1;
+        scale: (1.3);
+      }
+    }
+    .countButton[disabled] {
+      display: none;
     }
   }
   .showTheBall {
     color: black;
-    background-color: transparent;
+    background-color: transparent !important;
     display: "initial";
-    border: none;
+    border: 2px solid transparent !important;
     font-weight: 100;
-    &:hover {
-      border: none;
-      background-color: transparent;
-      font-weight: 100;
-    }
-  }
-  .zone25A {
-    border-bottom: 262px solid transparent;
-    @include forCons(169px, -133px, 0px, 35px, 0deg);
-  }
-  .zone25B {
-    border-bottom: 271px solid transparent;
-    @include forCons(158px, -112px, 5px, 35px, -8.7deg);
-  }
-  .zone26A {
-    border-bottom: 271px solid transparent;
-    @include forCons(152px, -90px, 5px, 35px, -19deg);
-  }
-  .zone26B {
-    border-bottom: 271px solid transparent;
-    @include forCons(142px, -72px, 10px, 35px, -30.4deg);
-  }
-  .zone21A {
-    border-bottom: 273px solid transparent;
-    @include forCons(125px, -56px, 16px, 35px, -43.2deg);
-  }
-  .zone21B {
-    border-bottom: 274px solid transparent;
-    @include forCons(102px, -32px, 7px, 35px, -53deg);
-  }
-  .zone15A {
-    border-bottom: 342px solid transparent;
-    @include forCons(89px, -133px, 0px, 35px, 0deg);
-  }
-  .zone15B {
-    border-bottom: 350px solid transparent;
-    @include forCons(80px, -114px, 5px, 35px, -7.6deg);
-  }
-  .zone16A {
-    border-bottom: 350px solid transparent;
-    @include forCons(74px, -91px, 5px, 35px, -15.2deg);
-  }
-  .zone16B {
-    border-bottom: 350px solid transparent;
-    @include forCons(66px, -71px, 10px, 35px, -23.6deg);
-  }
-  .zone11A {
-    border-bottom: 353px solid transparent;
-    @include forCons(54px, -53px, 16px, 35px, -33deg);
-  }
-  .zone11B {
-    border-bottom: 350px solid transparent;
-    @include forCons(39px, -25px, 7px, 35px, -41deg);
-  }
-  // 4 зона
-  .zone45A {
-    border-bottom: 277px solid transparent;
-    @include forCons(101px, -17px, 35px, 11px, 53deg);
-  }
-  .zone45B {
-    border-bottom: 273px solid transparent;
-    @include forCons(125px, -2px, 35px, 16px, 42.2deg);
-  }
-  .zone46A {
-    border-bottom: 271px solid transparent;
-    @include forCons(143px, 21px, 35px, 10px, 30.4deg);
-  }
-  .zone46B {
-    border-bottom: 271px solid transparent;
-    @include forCons(154px, 45px, 35px, 5px, 20deg);
-  }
-  .zone41A {
-    border-bottom: 271px solid transparent;
-    @include forCons(160px, 66px, 35px, 5px, 9.7deg);
-  }
-  .zone41B {
-    border-bottom: 271px solid transparent;
-    @include forCons(162px, 90px, 35px, 0px, 0deg);
-  }
-  // Пайп
-  .Pipe5A {
-    @include forCons(69px, -83px, 22px, 12px, 17deg);
-    border-bottom: 354px solid transparent;
-  }
-  .Pipe5B {
-    @include forCons(73px, -67px, 29px, 12px, 9.3deg);
-    border-bottom: 354px solid transparent;
-  }
-  .Pipe6A {
-    @include forCons(79px, -45px, 33px, 12px, 1deg);
-    border-bottom: 350px solid transparent;
-  }
-  .Pipe6B {
-    @include forCons(78px, -8px, 12px, 33px, -3deg);
-    border-bottom: 350px solid transparent;
-  }
-  .Pipe1A {
-    @include forCons(74.63px, 12px, 21px, 29px, -11.3deg);
-    border-bottom: 350px solid transparent;
-  }
-  .Pipe1B {
-    @include forCons(66px, 41px, 12px, 16px, -19deg);
-    border-bottom: 355px solid transparent;
-  }
-  .K15A {
-    border-bottom: 245px solid transparent;
-    @include forCons(158px, -107px, 27px, 12px, 13deg);
-  }
-  .K15B {
-    border-bottom: 243px solid transparent;
-    @include forCons(164px, -81px, 22px, 12px, 4deg);
-  }
-  .K16A {
-    border-bottom: 242px solid transparent;
-    @include forCons(164px, -68px, 37px, 7px, -9deg);
-  }
-  .K16B {
-    border-bottom: 235px solid transparent;
-    @include forCons(163px, -35px, 22px, 21px, -18deg);
-  }
-  .K11A {
-    border-bottom: 230px solid transparent;
-    @include forCons(155px, -6px, 12px, 29px, -27.3deg);
-  }
-  .K11B {
-    border-bottom: 234px solid transparent;
-    @include forCons(142.5px, 13px, 7px, 22px, -36deg);
-  }
-  // /* KC */
-  // /* Выше 35% */
-  .KC5A {
-    border-bottom: 240px solid transparent;
-    @include forCons(153px, -78px, 22px, 12px, 30deg);
-  }
-  .KC5B {
-    border-bottom: 245px solid transparent;
-    @include forCons(157px, -62px, 29px, 12px, 18.3deg);
-  }
-  .KC6A {
-    border-bottom: 247px solid transparent;
-    @include forCons(160px, -40px, 33px, 12px, 6deg);
-  }
-  .KC6B {
-    border-bottom: 249px solid transparent;
-    @include forCons(160px, -4px, 12px, 33px, 0deg);
-  }
-  .KC1A {
-    border-bottom: 251px solid transparent;
-    @include forCons(156px, 18px, 12px, 29px, -11.3deg);
-  }
-  .KC1B {
-    border-bottom: 250px solid transparent;
-    @include forCons(152px, 42px, 12px, 22px, -22deg);
-  }
-  // /* K7 */
-  // /* Выше 35% */
-  .K75A {
-    border-bottom: 264px solid transparent;
-    @include forCons(120px, -41px, 25px, 12px, 42deg);
-  }
-  .K75B {
-    border-bottom: 264px solid transparent;
-    @include forCons(133px, -26px, 26px, 16px, 31.2deg);
-  }
-  .K76A {
-    border-bottom: 251px solid transparent;
-    @include forCons(153px, -12px, 35px, 10px, 17.4deg);
-  }
-  .K76B {
-    border-bottom: 253px solid transparent;
-    @include forCons(157px, 16px, 34px, 5px, 7deg);
-  }
-  .K71A {
-    border-bottom: 254px solid transparent;
-    @include forCons(159px, 56px, 0px, 35px, 3.7deg);
-  }
-  .K71B {
-    border-bottom: 254px solid transparent;
-    @include forCons(158px, 78px, 0px, 36px, -5deg);
-  }
-  // ТУТ
-
-  .balls {
-    button {
-      background-color: transparent;
-      color: transparent;
-      border-top: transparent 1px solid;
-      position: absolute;
-      z-index: 1;
-      transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-    }
-  }
-  .smallarrowleft {
-    background: url(../photos/arrowright.png) no-repeat center center;
-    @include arrows;
-  }
-  .smallarrowright {
-    background: url(../photos/arrowleft.png) no-repeat center center;
-    @include arrows;
-  }
-  .defenderOn {
-    background-color: yellow;
-    border: 3px solid black;
-    @include defenders;
-  }
-  .defenderOff {
-    background-color: transparent;
-    border: 3px solid transparent;
-    @include defenders;
-  }
-  .inputForCount {
-    width: 39px;
-    height: 78px;
-    border: 1px solid black;
-    background-color: transparent;
-    margin: -25px 0px 0px 0px;
-    font-size: 25px;
-    text-align: center;
-    display: inline-flex;
-    z-index: 5;
-    position: relative;
-  }
-  .inputForCount[disabled] {
-    color: #000;
-    font-size: 16px;
-    font-weight: bold;
-    border: 1px solid transparent;
-    z-index: 2;
-  }
-  .yellowtip4 {
-    background-color: yellow;
-    border: 2px black solid;
-    margin-left: 20px;
-    @include tips;
-  }
-  .yellowtip2 {
-    background-color: yellow;
-    border: 2px black solid;
-    margin-left: -100px;
-    @include tips;
-  }
-  .tip4 {
-    @include tips;
-    margin-left: 20px;
-    background-color: transparent;
-    color: transparent;
-    border: none;
-    &:hover {
-      background: yellow;
-      background-color: yellow;
-      box-shadow: 0 15px 20px yellow;
-      color: black;
-      transform: translateY(-7px);
-      transition: 0.3s;
-      border: 2px black solid;
-    }
-  }
-  .tip2 {
-    @include tips;
-    margin-left: -100px;
-    background-color: transparent;
-    color: transparent;
-    border: none;
-    &:hover {
-      background: yellow;
-      background-color: yellow;
-      box-shadow: 0 15px 20px yellow;
-      color: black;
-      transform: translateY(-7px);
-      transition: 0.3s;
-      border: 2px black solid;
-    }
-  }
-  .countbutton {
-    font-size: 38px;
-    border: none;
-    background-color: #f8931f;
-    display: block;
-    cursor: pointer;
-    width: 262px;
-    text-align: center;
-    color: black;
-    font-weight: bold;
-    margin-top: 30px;
-  }
-  .needtoclose {
-    font-size: 45px;
-    width: 85px;
-    height: 55px;
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 15px;
-    color: red;
-    font-weight: bold;
-    z-index: 4;
-  }
-  .zoneinput {
-    display: inline-block;
-    .beforeCheckTheBall {
-      font-size: 38px;
-      border: none;
-      background-color: #f8931f;
-      display: block;
-      cursor: pointer;
-      width: 266px;
-      text-align: center;
-      color: black;
-      font-weight: bold;
-      margin-top: 30px;
-    }
   }
 }
-.explain {
-  font-size: 20px;
-  margin: -90px 0px 0px -75px;
-  position: absolute;
-  input {
-    display: block;
-    width: 150px;
-    padding: 5px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 15px;
-    border: 2px solid black;
-  }
-  .returnButton {
-    padding: 5px;
-    background-color: yellowgreen;
-    font-size: 20px;
-    border: 2px solid black;
-    border-radius: 15px;
-    font-weight: bold;
-  }
-  .comments {
-    text-align: start;
-    label {
-      font-size: 30px;
-      display: block;
+.playArea {
+  .zones-wrapper {
+    .attackZone2 {
+      left: -6%;
+      top: 45%;
+      @include attackShape;
     }
-    .textcomment {
-      display: block;
-      width: 150px;
-      height: 200px;
-      font-size: 17px;
-      border: 2px solid black;
-      resize: none;
-      overflow: auto;
+    .attackZone1 {
+      left: -6%;
+      top: 30%;
+      @include attackShape;
     }
-  }
-  .box {
-    width: 150px;
-    display: flex;
-    margin-top: 5px;
-    label {
-      width: 60px;
+    .attackZone4 {
+      right: -6%;
+      top: 45%;
+      @include attackShape;
     }
-    .orangeSquare {
-      @include boxSize;
-      background-color: #f8931f;
+    .attackPipe {
+      top: 30%;
+      left: 43%;
+      @include attackShape;
     }
-    .pinkSquare {
-      @include boxSize;
-      background-color: pink;
+    .attackK1 {
+      top: 45%;
+      right: 58%;
+      @include attackShape;
     }
-    .purpleSquare {
-      @include boxSize;
-      background-color: purple;
+    .attackKC {
+      top: 45%;
+      right: 43%;
+      @include attackShape;
     }
-    .square {
-      @include boxSize;
-      background-color: firebrick;
+    .attackK7 {
+      top: 45%;
+      right: 28%;
+      @include attackShape;
+    }
+    .serviceZone1 {
+      left: 8%;
+      top: 8%;
+      @include attackShape;
+    }
+    .serviceZone6 {
+      left: 43%;
+      top: 8%;
+      @include attackShape;
+    }
+    .serviceZone5 {
+      right: 8%;
+      top: 8%;
+      @include attackShape;
     }
   }
-  .saveBox {
-    width: 160px;
-    display: flex;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    input {
-      width: 30px;
-      height: 30px;
+  .cones-wrapper {
+    .zone25A {
+      @include Z2(1%, 0.1%);
+    }
+    .zone25B {
+      @include Z2(2%, 1%);
+    }
+    .zone26A {
+      @include Z2(3%, 2%);
+    }
+    .zone26B {
+      @include Z2(4%, 3%);
+    }
+    .zone21A {
+      @include Z2(5%, 4%);
+    }
+    .zone21B {
+      @include Z2(6%, 5%);
+    }
+    // 1 Зона
+    .zone15A {
+      @include Z1(1%, 0.1%);
+    }
+    .zone15B {
+      @include Z1(2%, 1%);
+    }
+    .zone16A {
+      @include Z1(3%, 2%);
+    }
+    .zone16B {
+      @include Z1(4%, 3%);
+    }
+    .zone11A {
+      @include Z1(5%, 4%);
+    }
+    .zone11B {
+      @include Z1(6%, 5%);
+    }
+    // // 4 зона
+    .zone45A {
+      @include Z4(1%, 0);
+    }
+    .zone45B {
+      @include Z4(2%, 1%);
+    }
+    .zone46A {
+      @include Z4(3%, 2%);
+    }
+    .zone46B {
+      @include Z4(4%, 3%);
+    }
+    .zone41A {
+      @include Z4(5%, 4%);
+    }
+    .zone41B {
+      @include Z4(5.9%, 5%);
+    }
+    // // Пайп
+    .Pipe5A {
+      @include Pipe(1%, 0);
+    }
+    .Pipe5B {
+      @include Pipe(2%, 1%);
+    }
+    .Pipe6A {
+      @include Pipe(3%, 2%);
+    }
+    .Pipe6B {
+      @include Pipe(4%, 3%);
+    }
+    .Pipe1A {
+      @include Pipe(5%, 4%);
+    }
+    .Pipe1B {
+      @include Pipe(6%, 5%);
+    }
+    // K1
+    .K15A {
+      @include K1(1%, 0);
+    }
+    .K15B {
+      @include K1(2%, 1%);
+    }
+    .K16A {
+      @include K1(3%, 2%);
+    }
+    .K16B {
+      @include K1(4%, 3%);
+    }
+    .K11A {
+      @include K1(5%, 4%);
+    }
+    .K11B {
+      @include K1(6%, 5%);
+    }
+    // KC
+    .KC5A {
+      @include KC(1%, 0);
+    }
+    .KC5B {
+      @include KC(2%, 1%);
+    }
+    .KC6A {
+      @include KC(3%, 2%);
+    }
+    .KC6B {
+      @include KC(4%, 3%);
+    }
+    .KC1A {
+      @include KC(5%, 4%);
+    }
+    .KC1B {
+      @include KC(6%, 5%);
+    }
+    // K7
+    .K75A {
+      @include K7(1%, 0);
+    }
+    .K75B {
+      @include K7(2%, 1%);
+    }
+    .K76A {
+      @include K7(3%, 2%);
+    }
+    .K76B {
+      @include K7(4%, 3%);
+    }
+    .K71A {
+      @include K7(5%, 4%);
+    }
+    .K71B {
+      @include K7(6%, 5%);
+    }
+    .service1Z5 {
+      @include ServiceZone1(1%, 0);
+    }
+    .service1Z6 {
+      @include ServiceZone1(2%, 1%);
+    }
+    .service1Z1 {
+      @include ServiceZone1(3%, 2%);
+    }
+    .service5Z5 {
+      @include ServiceZone5(1%, 0);
+    }
+    .service5Z6 {
+      @include ServiceZone5(2%, 1%);
+    }
+    .service5Z1 {
+      @include ServiceZone5(3%, 2%);
+    }
+    .service6Z5 {
+      @include ServiceZone6(1%, 0);
+    }
+    .service6Z6 {
+      @include ServiceZone6(2%, 1%);
+    }
+    .service6Z1 {
+      @include ServiceZone6(3%, 2%);
     }
   }
-}
-.atackFileds {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-}
-.labelAttack {
-  display: flex;
-  justify-content: center;
-  font-size: 50px;
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  border-radius: 45px;
-  width: 100%;
-}
-.attackZone2 {
-  margin: 130px 0px 0px -160px;
-  @include attackShape;
-}
-.attackZone1 {
-  margin: 50px 0px 0px -160px;
-  @include attackShape;
-}
-.attackZone4 {
-  margin: 130px 0px 0px 100px;
-  @include attackShape;
-}
-.attackPipe {
-  margin: 40px 0px 0px -32px;
-  @include attackShape;
-}
-.attackKC {
-  margin: 130px 0px 0px -15px;
-  @include attackShape;
-}
-.attackK1 {
-  margin: 130px 0px 0px -75px;
-  @include attackShape;
-}
-.attackK7 {
-  margin: 130px 0px 0px 45px;
-  @include attackShape;
 }

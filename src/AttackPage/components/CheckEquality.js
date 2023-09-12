@@ -3,7 +3,7 @@ import { reduce } from "../../Datas/api";
 export function CheckEquality({ checkEquality, diagrammValue, zoneValue }) {
   return (
     <div className="compareFields">
-      <div style={{ marginRight: 20 }}>
+      <div className="input-equality-wrapper">
         <label>Data value</label>
         <input
           style={
@@ -15,17 +15,17 @@ export function CheckEquality({ checkEquality, diagrammValue, zoneValue }) {
         ></input>
       </div>
       {!checkEquality ? (
-        <div>
-          <label className="equal">Should</label>
-          <label className="equal">be equal</label>
+        <div className="label-equality-wrapper">
+          <label className="equal">Not</label>
+          <label className="equal">equal</label>
         </div>
       ) : (
-        <div>
+        <div className="label-equality-wrapper">
           <label className="equal">All</label>
           <label className="equal">OK</label>
         </div>
       )}
-      <div style={{ marginLeft: 20 }}>
+      <div className="input-equality-wrapper">
         <label>Zone value</label>
         <input
           style={

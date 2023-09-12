@@ -173,7 +173,6 @@
   display: block;
   background-color: orangered;
   border: 1px solid black;
-  min-width: 37px;
 }
 .reset:hover {
   box-shadow: 0 15px 20px orangered;

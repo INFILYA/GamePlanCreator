@@ -8,20 +8,18 @@ export default function Diagramm({ link }) {
     chart: {
       type: "pie",
       backgroundColor: null,
-      width: 350,
-      height: 450,
     },
     title: {
       text:
         link === "Attack"
-          ? `<b style="font-size:30px">Attack</b>`
-          : `<b style="font-size:30px">Service</b>`,
+          ? `<b style="font-size:1.5vw">Attack</b>`
+          : `<b style="font-size:1.5vw">Service</b>`,
     },
 
     tooltip: {
-      headerFormat: '<span style="font-size:30px">{series.name}</span><br>',
+      headerFormat: '<span style="font-size:2vw">{series.name}</span><br>',
       pointFormat:
-        '<span style="font-size:20px">{point.name}</span>: <b style="font-size:20px">{point.y:.0f}%</b>',
+        '<span style="font-size:1vw">{point.name}</span>: <b style="font-size:1vw">{point.y:.0f}%</b>',
     },
     plotOptions: {
       pie: {
@@ -31,11 +29,11 @@ export default function Diagramm({ link }) {
         dataLabels: {
           enabled: true,
           format: `<b>{point.percentage:.0f}%</b>`,
-          distance: -50,
+          distance: -30,
           style: {
             color: "black",
             fontWeight: "bold",
-            fontSize: "20px",
+            fontSize: "calc((var(--normal-text-size-value) - 1) * 2vw + 0.5rem)",
           },
         },
         showInLegend: true,
@@ -45,7 +43,7 @@ export default function Diagramm({ link }) {
       itemStyle: {
         color: "black",
         fontWeight: "bold",
-        fontSize: "20px",
+        fontSize: "calc((var(--normal-text-size-value) - 1) * 2vw + 0.4rem)",
       },
     },
     series: [
@@ -55,9 +53,9 @@ export default function Diagramm({ link }) {
         allowPointSelect: true,
         data: [
           [link === "Attack" ? "Win" : "Aces", rightPercentageForDiagramm(0), true],
-          [link === "Attack" ? "In Game" : "Service +", rightPercentageForDiagramm(1), false],
-          [link === "Attack" ? "Block" : "Service -", rightPercentageForDiagramm(2), false],
-          [link === "Attack" ? "Loose" : "Service =", rightPercentageForDiagramm(3), false],
+          [link === "Attack" ? "In Game" : "+", rightPercentageForDiagramm(1), false],
+          [link === "Attack" ? "Block" : "-", rightPercentageForDiagramm(2), false],
+          [link === "Attack" ? "Loose" : "=", rightPercentageForDiagramm(3), false],
         ],
       },
     ],

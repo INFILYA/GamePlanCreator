@@ -19,14 +19,13 @@ export const myTeamZonesSlice = createSlice({
     clearMyTeamZones: (state, action) => {
       state.myTeamZones = action.payload;
     },
-    rotateForwardMyTeam: (state , action) => {
+    rotateForwardMyTeam: (state, action) => {
       const Zone = [...state.myTeamZones];
       const newRot = [Zone[3], Zone[0], Zone[1], Zone[4], Zone[5], Zone[2]];
       state.myTeamZones = newRot;
     },
-    rotateBackMyTeam: (state , action) => {
+    rotateBackMyTeam: (state, action) => {
       const zone = [...state.myTeamZones];
-      console.log(state.myTeamZones)
       const newRot2 = [zone[1], zone[2], zone[5], zone[0], zone[3], zone[4]];
       state.myTeamZones = newRot2;
     },

@@ -1,794 +1,942 @@
-.personalInfoForAttack {
-  display: flex;
-  justify-content: center;
-}
-
 .none {
   display: none;
 }
 
-.playArea {
-  background: url(../photos/area8.jpg) no-repeat;
-  text-align: center;
-  width: 525px;
-  height: 700px;
-  display: inline-block;
-  margin-top: 10px;
-}
-.playArea .typeOfAttack {
-  position: absolute;
-  margin: -5px -28px;
-  background-color: #0272be;
-  color: white;
-  font-weight: bold;
-  width: 316px;
-  text-align: center;
-  font-size: 25px;
-}
-.playArea .compareFields {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  font-size: 25px;
-}
-.playArea .compareFields input {
-  display: block;
-  width: 120px;
-  height: 30px;
-  font-size: 25px;
-  font-weight: bold;
-  justify-content: center;
-  text-align: center;
-}
-.playArea .compareFields .equal {
-  font-weight: bold;
-  font-size: 25px;
-  width: 100px;
-  box-sizing: border-box;
-  margin: 0px 10px;
-  display: block;
-}
-.playArea .showTheBall {
-  color: black;
-  background-color: transparent;
-  display: "initial";
-  border: none;
-  font-weight: 100;
-}
-.playArea .showTheBall:hover {
-  border: none;
-  background-color: transparent;
-  font-weight: 100;
-}
-.playArea .zone25A {
-  border-bottom: 262px solid transparent;
-  margin-top: 169px;
-  margin-left: -133px;
-  border-left: 0px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: 0deg;
-}
-.playArea .zone25B {
-  border-bottom: 271px solid transparent;
-  margin-top: 158px;
-  margin-left: -112px;
-  border-left: 5px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -8.7deg;
-}
-.playArea .zone26A {
-  border-bottom: 271px solid transparent;
-  margin-top: 152px;
-  margin-left: -90px;
-  border-left: 5px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -19deg;
-}
-.playArea .zone26B {
-  border-bottom: 271px solid transparent;
-  margin-top: 142px;
-  margin-left: -72px;
-  border-left: 10px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -30.4deg;
-}
-.playArea .zone21A {
-  border-bottom: 273px solid transparent;
-  margin-top: 125px;
-  margin-left: -56px;
-  border-left: 16px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -43.2deg;
-}
-.playArea .zone21B {
-  border-bottom: 274px solid transparent;
-  margin-top: 102px;
-  margin-left: -32px;
-  border-left: 7px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -53deg;
-}
-.playArea .zone15A {
-  border-bottom: 342px solid transparent;
-  margin-top: 89px;
-  margin-left: -133px;
-  border-left: 0px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: 0deg;
-}
-.playArea .zone15B {
-  border-bottom: 350px solid transparent;
-  margin-top: 80px;
-  margin-left: -114px;
-  border-left: 5px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -7.6deg;
-}
-.playArea .zone16A {
-  border-bottom: 350px solid transparent;
-  margin-top: 74px;
-  margin-left: -91px;
-  border-left: 5px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -15.2deg;
-}
-.playArea .zone16B {
-  border-bottom: 350px solid transparent;
-  margin-top: 66px;
-  margin-left: -71px;
-  border-left: 10px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -23.6deg;
-}
-.playArea .zone11A {
-  border-bottom: 353px solid transparent;
-  margin-top: 54px;
-  margin-left: -53px;
-  border-left: 16px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -33deg;
-}
-.playArea .zone11B {
-  border-bottom: 350px solid transparent;
-  margin-top: 39px;
-  margin-left: -25px;
-  border-left: 7px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: -41deg;
-}
-.playArea .zone45A {
-  border-bottom: 277px solid transparent;
-  margin-top: 101px;
-  margin-left: -17px;
-  border-left: 35px solid transparent;
-  border-right: 11px solid transparent;
-  rotate: 53deg;
-}
-.playArea .zone45B {
-  border-bottom: 273px solid transparent;
-  margin-top: 125px;
-  margin-left: -2px;
-  border-left: 35px solid transparent;
-  border-right: 16px solid transparent;
-  rotate: 42.2deg;
-}
-.playArea .zone46A {
-  border-bottom: 271px solid transparent;
-  margin-top: 143px;
-  margin-left: 21px;
-  border-left: 35px solid transparent;
-  border-right: 10px solid transparent;
-  rotate: 30.4deg;
-}
-.playArea .zone46B {
-  border-bottom: 271px solid transparent;
-  margin-top: 154px;
-  margin-left: 45px;
-  border-left: 35px solid transparent;
-  border-right: 5px solid transparent;
-  rotate: 20deg;
-}
-.playArea .zone41A {
-  border-bottom: 271px solid transparent;
-  margin-top: 160px;
-  margin-left: 66px;
-  border-left: 35px solid transparent;
-  border-right: 5px solid transparent;
-  rotate: 9.7deg;
-}
-.playArea .zone41B {
-  border-bottom: 271px solid transparent;
-  margin-top: 162px;
-  margin-left: 90px;
-  border-left: 35px solid transparent;
-  border-right: 0px solid transparent;
-  rotate: 0deg;
-}
-.playArea .Pipe5A {
-  margin-top: 69px;
-  margin-left: -83px;
-  border-left: 22px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 17deg;
-  border-bottom: 354px solid transparent;
-}
-.playArea .Pipe5B {
-  margin-top: 73px;
-  margin-left: -67px;
-  border-left: 29px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 9.3deg;
-  border-bottom: 354px solid transparent;
-}
-.playArea .Pipe6A {
-  margin-top: 79px;
-  margin-left: -45px;
-  border-left: 33px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 1deg;
-  border-bottom: 350px solid transparent;
-}
-.playArea .Pipe6B {
-  margin-top: 78px;
-  margin-left: -8px;
-  border-left: 12px solid transparent;
-  border-right: 33px solid transparent;
-  rotate: -3deg;
-  border-bottom: 350px solid transparent;
-}
-.playArea .Pipe1A {
-  margin-top: 74.63px;
-  margin-left: 12px;
-  border-left: 21px solid transparent;
-  border-right: 29px solid transparent;
-  rotate: -11.3deg;
-  border-bottom: 350px solid transparent;
-}
-.playArea .Pipe1B {
-  margin-top: 66px;
-  margin-left: 41px;
-  border-left: 12px solid transparent;
-  border-right: 16px solid transparent;
-  rotate: -19deg;
-  border-bottom: 355px solid transparent;
-}
-.playArea .K15A {
-  border-bottom: 245px solid transparent;
-  margin-top: 158px;
-  margin-left: -107px;
-  border-left: 27px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 13deg;
-}
-.playArea .K15B {
-  border-bottom: 243px solid transparent;
-  margin-top: 164px;
-  margin-left: -81px;
-  border-left: 22px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 4deg;
-}
-.playArea .K16A {
-  border-bottom: 242px solid transparent;
-  margin-top: 164px;
-  margin-left: -68px;
-  border-left: 37px solid transparent;
-  border-right: 7px solid transparent;
-  rotate: -9deg;
-}
-.playArea .K16B {
-  border-bottom: 235px solid transparent;
-  margin-top: 163px;
-  margin-left: -35px;
-  border-left: 22px solid transparent;
-  border-right: 21px solid transparent;
-  rotate: -18deg;
-}
-.playArea .K11A {
-  border-bottom: 230px solid transparent;
-  margin-top: 155px;
-  margin-left: -6px;
-  border-left: 12px solid transparent;
-  border-right: 29px solid transparent;
-  rotate: -27.3deg;
-}
-.playArea .K11B {
-  border-bottom: 234px solid transparent;
-  margin-top: 142.5px;
-  margin-left: 13px;
-  border-left: 7px solid transparent;
-  border-right: 22px solid transparent;
-  rotate: -36deg;
-}
-.playArea .KC5A {
-  border-bottom: 240px solid transparent;
-  margin-top: 153px;
-  margin-left: -78px;
-  border-left: 22px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 30deg;
-}
-.playArea .KC5B {
-  border-bottom: 245px solid transparent;
-  margin-top: 157px;
-  margin-left: -62px;
-  border-left: 29px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 18.3deg;
-}
-.playArea .KC6A {
-  border-bottom: 247px solid transparent;
-  margin-top: 160px;
-  margin-left: -40px;
-  border-left: 33px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 6deg;
-}
-.playArea .KC6B {
-  border-bottom: 249px solid transparent;
-  margin-top: 160px;
-  margin-left: -4px;
-  border-left: 12px solid transparent;
-  border-right: 33px solid transparent;
-  rotate: 0deg;
-}
-.playArea .KC1A {
-  border-bottom: 251px solid transparent;
-  margin-top: 156px;
-  margin-left: 18px;
-  border-left: 12px solid transparent;
-  border-right: 29px solid transparent;
-  rotate: -11.3deg;
-}
-.playArea .KC1B {
-  border-bottom: 250px solid transparent;
-  margin-top: 152px;
-  margin-left: 42px;
-  border-left: 12px solid transparent;
-  border-right: 22px solid transparent;
-  rotate: -22deg;
-}
-.playArea .K75A {
-  border-bottom: 264px solid transparent;
-  margin-top: 120px;
-  margin-left: -41px;
-  border-left: 25px solid transparent;
-  border-right: 12px solid transparent;
-  rotate: 42deg;
-}
-.playArea .K75B {
-  border-bottom: 264px solid transparent;
-  margin-top: 133px;
-  margin-left: -26px;
-  border-left: 26px solid transparent;
-  border-right: 16px solid transparent;
-  rotate: 31.2deg;
-}
-.playArea .K76A {
-  border-bottom: 251px solid transparent;
-  margin-top: 153px;
-  margin-left: -12px;
-  border-left: 35px solid transparent;
-  border-right: 10px solid transparent;
-  rotate: 17.4deg;
-}
-.playArea .K76B {
-  border-bottom: 253px solid transparent;
-  margin-top: 157px;
-  margin-left: 16px;
-  border-left: 34px solid transparent;
-  border-right: 5px solid transparent;
-  rotate: 7deg;
-}
-.playArea .K71A {
-  border-bottom: 254px solid transparent;
-  margin-top: 159px;
-  margin-left: 56px;
-  border-left: 0px solid transparent;
-  border-right: 35px solid transparent;
-  rotate: 3.7deg;
-}
-.playArea .K71B {
-  border-bottom: 254px solid transparent;
-  margin-top: 158px;
-  margin-left: 78px;
-  border-left: 0px solid transparent;
-  border-right: 36px solid transparent;
-  rotate: -5deg;
-}
-.playArea .balls button {
-  background-color: transparent;
-  color: transparent;
-  border-top: transparent 1px solid;
-  position: absolute;
-  z-index: 1;
-  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-}
-.playArea .smallarrowleft {
-  background: url(../photos/arrowright.png) no-repeat center center;
-  background-size: contain;
-  width: 40px;
-  height: 22px;
-  margin: 350px 10px 0px 10px;
-  background-color: transparent;
-  border: none;
-  position: relative;
-  z-index: 3;
-}
-.playArea .smallarrowright {
-  background: url(../photos/arrowleft.png) no-repeat center center;
-  background-size: contain;
-  width: 40px;
-  height: 22px;
-  margin: 350px 10px 0px 10px;
-  background-color: transparent;
-  border: none;
-  position: relative;
-  z-index: 3;
-}
-.playArea .defenderOn {
-  background-color: yellow;
-  border: 3px solid black;
-  width: 40px;
-  height: 25px;
-  margin: 350px 10px 0px 10px;
-  position: relative;
-  z-index: 3;
-  border-radius: 0 0 25px 25px;
-  box-sizing: border-box;
-}
-.playArea .defenderOn:hover {
-  background-color: yellow;
-  border: 3px solid black;
-  cursor: pointer;
-}
-.playArea .defenderOff {
-  background-color: transparent;
-  border: 3px solid transparent;
-  width: 40px;
-  height: 25px;
-  margin: 350px 10px 0px 10px;
-  position: relative;
-  z-index: 3;
-  border-radius: 0 0 25px 25px;
-  box-sizing: border-box;
-}
-.playArea .defenderOff:hover {
-  background-color: yellow;
-  border: 3px solid black;
-  cursor: pointer;
-}
-.playArea .inputForCount {
-  width: 39px;
-  height: 78px;
-  border: 1px solid black;
-  background-color: transparent;
-  margin: -25px 0px 0px 0px;
-  font-size: 25px;
-  text-align: center;
-  display: inline-flex;
-  z-index: 5;
-  position: relative;
-}
-.playArea .inputForCount[disabled] {
-  color: #000;
-  font-size: 16px;
-  font-weight: bold;
-  border: 1px solid transparent;
-  z-index: 2;
-}
-.playArea .yellowtip4 {
-  background-color: yellow;
-  border: 2px black solid;
-  margin-left: 20px;
-  width: 80px;
-  height: 40px;
-  margin-top: 210px;
-  font-size: 25px;
-  border-radius: 45px;
-  position: absolute;
-  margin-bottom: -105px;
-  z-index: 3;
-}
-.playArea .yellowtip2 {
-  background-color: yellow;
-  border: 2px black solid;
-  margin-left: -100px;
-  width: 80px;
-  height: 40px;
-  margin-top: 210px;
-  font-size: 25px;
-  border-radius: 45px;
-  position: absolute;
-  margin-bottom: -105px;
-  z-index: 3;
-}
-.playArea .tip4 {
-  width: 80px;
-  height: 40px;
-  margin-top: 210px;
-  font-size: 25px;
-  border-radius: 45px;
-  position: absolute;
-  margin-bottom: -105px;
-  z-index: 3;
-  margin-left: 20px;
-  background-color: transparent;
-  color: transparent;
-  border: none;
-}
-.playArea .tip4:hover {
-  background: yellow;
-  background-color: yellow;
-  box-shadow: 0 15px 20px yellow;
-  color: black;
-  transform: translateY(-7px);
-  transition: 0.3s;
-  border: 2px black solid;
-}
-.playArea .tip2 {
-  width: 80px;
-  height: 40px;
-  margin-top: 210px;
-  font-size: 25px;
-  border-radius: 45px;
-  position: absolute;
-  margin-bottom: -105px;
-  z-index: 3;
-  margin-left: -100px;
-  background-color: transparent;
-  color: transparent;
-  border: none;
-}
-.playArea .tip2:hover {
-  background: yellow;
-  background-color: yellow;
-  box-shadow: 0 15px 20px yellow;
-  color: black;
-  transform: translateY(-7px);
-  transition: 0.3s;
-  border: 2px black solid;
-}
-.playArea .countbutton {
-  font-size: 38px;
-  border: none;
-  background-color: #f8931f;
-  display: block;
-  cursor: pointer;
-  width: 262px;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  margin-top: 30px;
-}
-.playArea .needtoclose {
-  font-size: 45px;
-  width: 85px;
-  height: 55px;
-  text-align: center;
-  border: 2px solid black;
-  border-radius: 15px;
-  color: red;
-  font-weight: bold;
-  z-index: 4;
-}
-.playArea .zoneinput {
-  display: inline-block;
-}
-.playArea .zoneinput .beforeCheckTheBall {
-  font-size: 38px;
-  border: none;
-  background-color: #f8931f;
-  display: block;
-  cursor: pointer;
-  width: 266px;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  margin-top: 30px;
-}
-
 .explain {
-  font-size: 20px;
-  margin: -90px 0px 0px -75px;
-  position: absolute;
-}
-.explain input {
-  display: block;
-  width: 150px;
-  padding: 5px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 15px;
-  border: 2px solid black;
-}
-.explain .returnButton {
-  padding: 5px;
-  background-color: yellowgreen;
-  font-size: 20px;
-  border: 2px solid black;
-  border-radius: 15px;
-  font-weight: bold;
-}
-.explain .comments {
-  text-align: start;
-}
-.explain .comments label {
-  font-size: 30px;
-  display: block;
-}
-.explain .comments .textcomment {
-  display: block;
-  width: 150px;
-  height: 200px;
-  font-size: 17px;
-  border: 2px solid black;
-  resize: none;
-  overflow: auto;
-}
-.explain .box {
-  width: 150px;
+  width: 100%;
   display: flex;
-  margin-top: 5px;
+  position: relative;
+  background-color: #0272be;
+  justify-content: center;
+  align-items: center;
 }
-.explain .box label {
-  width: 60px;
-}
-.explain .box .orangeSquare {
-  width: 30px;
-  border: 2px solid black;
-  background-color: #f8931f;
-}
-.explain .box .pinkSquare {
-  width: 30px;
-  border: 2px solid black;
-  background-color: pink;
-}
-.explain .box .purpleSquare {
-  width: 30px;
-  border: 2px solid black;
-  background-color: purple;
-}
-.explain .box .square {
-  width: 30px;
-  border: 2px solid black;
-  background-color: firebrick;
+.explain label {
+  font-size: 18px;
+  display: block;
+  font-weight: 600;
 }
 .explain .saveBox {
-  width: 160px;
-  display: flex;
-  margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  width: 100%;
+  color: white;
 }
-.explain .saveBox input {
-  width: 30px;
-  height: 30px;
+.explain .saveBox .returnButton {
+  background-color: yellowgreen;
+  font-size: 18px;
+  border: 2px solid black;
+  border-radius: 1vw;
+  font-weight: bold;
 }
-
-.atackFileds {
+.explain .saveBox .returnButton:hover {
+  transition: 0.3s;
+  opacity: 1;
+  scale: 1.3;
+}
+.explain .input-wrapper {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  width: 100%;
+}
+.explain .input-wrapper input {
+  width: 100%;
+  border: 1px solid black;
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
   box-sizing: border-box;
 }
 
-.labelAttack {
-  display: flex;
-  justify-content: center;
-  font-size: 50px;
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  border-radius: 45px;
+.playArea {
   width: 100%;
 }
-
-.attackZone2 {
-  margin: 130px 0px 0px -160px;
-  width: 60px;
-  height: 60px;
-  font-size: 35px;
-  z-index: 12;
-  cursor: pointer;
+.playArea .select-wrapper {
+  width: 100%;
+}
+.playArea .select-wrapper .typeOfAction {
+  background-color: orangered;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+  border: none;
+  box-sizing: border-box;
+  border-bottom: 2px solid white;
+  width: 100%;
+}
+.playArea .select-wrapper select[disabled] {
+  opacity: 1;
+  background-color: #0272be;
+}
+.playArea .compareFields {
+  display: flex;
+  justify-content: center;
   position: absolute;
-  color: #000;
+  bottom: -70px;
+  z-index: 16;
+  font-size: 18px;
+  width: 100%;
+  padding: 10px 0;
+}
+.playArea .compareFields .input-equality-wrapper,
+.playArea .compareFields .label-equality-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.playArea .compareFields .input-equality-wrapper {
+  width: 40%;
+}
+.playArea .compareFields .input-equality-wrapper label {
+  font-weight: 600;
+  font-size: 18px;
+}
+.playArea .compareFields .input-equality-wrapper input {
+  display: block;
+  width: 80%;
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+.playArea .compareFields .label-equality-wrapper {
+  width: 20%;
+}
+.playArea .compareFields .label-equality-wrapper .equal {
+  font-weight: bold;
+  box-sizing: border-box;
+  display: block;
+}
+.playArea .cones-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.playArea .cones-wrapper button {
+  background-color: transparent;
+  border: none;
+}
+.playArea .defender-wrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 8%;
+  display: flex;
+  justify-content: center;
+}
+.playArea .defender-wrapper .smallarrowleft {
+  background: url(../photos/arrowright.png) no-repeat center center;
+  background-size: contain;
+  border: none;
+  height: 100%;
+  aspect-ratio: 2/1;
+  padding: 0px 20px;
+  margin: 0 10px;
+  border: 3px solid transparent;
+  z-index: 3;
+}
+.playArea .defender-wrapper .smallarrowright {
+  background: url(../photos/arrowleft.png) no-repeat center center;
+  background-size: contain;
+  border: none;
+  height: 100%;
+  aspect-ratio: 2/1;
+  padding: 0px 20px;
+  margin: 0 10px;
+  border: 3px solid transparent;
+  z-index: 3;
+}
+.playArea .defender-wrapper .defenderOn {
+  background-color: yellow;
   border: 3px solid black;
-  border-radius: 50px;
-  background-color: cornflowerblue;
-  font-weight: 700;
+  height: 100%;
+  position: relative;
+  z-index: 3;
+  border-radius: 0 0 25px 25px;
+  box-sizing: border-box;
+  aspect-ratio: 2/1;
+  padding: 0px 20px;
+  margin: 0 10px;
+}
+.playArea .defender-wrapper .defenderOn:hover {
+  background-color: yellow;
+  border: 3px solid black;
+  cursor: pointer;
+}
+.playArea .defender-wrapper .defenderOff {
+  background-color: transparent;
+  border: 3px solid transparent;
+  height: 100%;
+  position: relative;
+  z-index: 3;
+  border-radius: 0 0 25px 25px;
+  box-sizing: border-box;
+  aspect-ratio: 2/1;
+  padding: 0px 20px;
+  margin: 0 10px;
+}
+.playArea .defender-wrapper .defenderOff:hover {
+  background-color: yellow;
+  border: 3px solid black;
+  cursor: pointer;
+}
+.playArea .inputs-wrapper {
+  display: flex;
+  bottom: 0;
+  position: absolute;
+}
+.playArea .inputs-wrapper .inputForCount {
+  border: 2px solid white;
+  background-color: transparent;
+  z-index: 5;
+  width: 100%;
+  aspect-ratio: 1/2.13;
+  text-align: center;
+  font-size: calc(2vmin + 0.75rem);
+  border-bottom: none;
+}
+.playArea .inputForCount[disabled] {
+  color: #000;
+  font-size: calc(0.5vmin + 0.75rem);
+  font-weight: bold;
+  border: none;
+  z-index: 2;
+  aspect-ratio: 1.5/1;
+}
+.playArea .tip-wrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 35%;
+  z-index: 16;
+}
+.playArea .tip-wrapper .tip,
+.playArea .tip-wrapper .yellowtip {
+  width: 25%;
+  border-radius: 1vmax;
+  border: none;
+  margin: 0px 1vmin;
+  font-size: calc(1.75vmin + 0.3rem);
+  padding: 5px 0;
+  font-weight: 600;
+}
+.playArea .tip-wrapper .tip {
+  background-color: transparent;
+  color: transparent;
+}
+.playArea .tip-wrapper .tip:hover {
+  background-color: yellow;
+  border: 2px solid black;
+  color: #000;
+}
+.playArea .tip-wrapper .yellowtip {
+  background-color: yellow;
+  border: 2px solid black;
+}
+.playArea .count-button-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 20%;
+  z-index: 15;
+}
+.playArea .count-button-wrapper .countButton {
+  background-color: #0272be;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 1vmin 2vmin;
+  color: white;
+  z-index: 2;
+  font-size: calc(1vmax + 0.3rem);
+  font-weight: 600;
+}
+.playArea .count-button-wrapper .countButton:hover {
+  transition: 0.3s;
+  opacity: 1;
+  scale: 1.3;
+}
+.playArea .count-button-wrapper .countButton[disabled] {
+  display: none;
+}
+.playArea .showTheBall {
+  color: black;
+  background-color: transparent !important;
+  display: "initial";
+  border: 2px solid transparent !important;
+  font-weight: 100;
 }
 
-.attackZone1 {
-  margin: 50px 0px 0px -160px;
-  width: 60px;
-  height: 60px;
-  font-size: 35px;
+.playArea .zones-wrapper .attackZone2 {
+  left: -6%;
+  top: 45%;
+  font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  position: absolute;
   color: #000;
-  border: 3px solid black;
-  border-radius: 50px;
+  border: 2px solid black;
+  border-radius: 50%;
   background-color: cornflowerblue;
   font-weight: 700;
+  padding: 5px;
+  position: absolute;
+  box-sizing: border-box;
 }
-
-.attackZone4 {
-  margin: 130px 0px 0px 100px;
-  width: 60px;
-  height: 60px;
-  font-size: 35px;
-  z-index: 12;
-  cursor: pointer;
-  position: absolute;
-  color: #000;
-  border: 3px solid black;
-  border-radius: 50px;
-  background-color: cornflowerblue;
-  font-weight: 700;
+.playArea .zones-wrapper .attackZone2:hover {
+  transition: 0.3s;
+  background-color: orangered;
+  opacity: 1;
+  scale: 1.15;
 }
-
-.attackPipe {
-  margin: 40px 0px 0px -32px;
-  width: 60px;
-  height: 60px;
-  font-size: 35px;
+.playArea .zones-wrapper .attackZone1 {
+  left: -6%;
+  top: 30%;
+  font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  position: absolute;
   color: #000;
-  border: 3px solid black;
-  border-radius: 50px;
+  border: 2px solid black;
+  border-radius: 50%;
   background-color: cornflowerblue;
   font-weight: 700;
+  padding: 5px;
+  position: absolute;
+  box-sizing: border-box;
 }
-
-.attackKC {
-  margin: 130px 0px 0px -15px;
-  width: 60px;
-  height: 60px;
-  font-size: 35px;
-  z-index: 12;
-  cursor: pointer;
-  position: absolute;
-  color: #000;
-  border: 3px solid black;
-  border-radius: 50px;
-  background-color: cornflowerblue;
-  font-weight: 700;
+.playArea .zones-wrapper .attackZone1:hover {
+  transition: 0.3s;
+  background-color: orangered;
+  opacity: 1;
+  scale: 1.15;
 }
-
-.attackK1 {
-  margin: 130px 0px 0px -75px;
-  width: 60px;
-  height: 60px;
-  font-size: 35px;
+.playArea .zones-wrapper .attackZone4 {
+  right: -6%;
+  top: 45%;
+  font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  position: absolute;
   color: #000;
-  border: 3px solid black;
-  border-radius: 50px;
+  border: 2px solid black;
+  border-radius: 50%;
   background-color: cornflowerblue;
   font-weight: 700;
+  padding: 5px;
+  position: absolute;
+  box-sizing: border-box;
 }
-
-.attackK7 {
-  margin: 130px 0px 0px 45px;
-  width: 60px;
-  height: 60px;
-  font-size: 35px;
+.playArea .zones-wrapper .attackZone4:hover {
+  transition: 0.3s;
+  background-color: orangered;
+  opacity: 1;
+  scale: 1.15;
+}
+.playArea .zones-wrapper .attackPipe {
+  top: 30%;
+  left: 43%;
+  font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  position: absolute;
   color: #000;
-  border: 3px solid black;
-  border-radius: 50px;
+  border: 2px solid black;
+  border-radius: 50%;
   background-color: cornflowerblue;
   font-weight: 700;
+  padding: 5px;
+  position: absolute;
+  box-sizing: border-box;
+}
+.playArea .zones-wrapper .attackPipe:hover {
+  transition: 0.3s;
+  background-color: orangered;
+  opacity: 1;
+  scale: 1.15;
+}
+.playArea .zones-wrapper .attackK1 {
+  top: 45%;
+  right: 58%;
+  font-size: 25px;
+  z-index: 12;
+  cursor: pointer;
+  color: #000;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: cornflowerblue;
+  font-weight: 700;
+  padding: 5px;
+  position: absolute;
+  box-sizing: border-box;
+}
+.playArea .zones-wrapper .attackK1:hover {
+  transition: 0.3s;
+  background-color: orangered;
+  opacity: 1;
+  scale: 1.15;
+}
+.playArea .zones-wrapper .attackKC {
+  top: 45%;
+  right: 43%;
+  font-size: 25px;
+  z-index: 12;
+  cursor: pointer;
+  color: #000;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: cornflowerblue;
+  font-weight: 700;
+  padding: 5px;
+  position: absolute;
+  box-sizing: border-box;
+}
+.playArea .zones-wrapper .attackKC:hover {
+  transition: 0.3s;
+  background-color: orangered;
+  opacity: 1;
+  scale: 1.15;
+}
+.playArea .zones-wrapper .attackK7 {
+  top: 45%;
+  right: 28%;
+  font-size: 25px;
+  z-index: 12;
+  cursor: pointer;
+  color: #000;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: cornflowerblue;
+  font-weight: 700;
+  padding: 5px;
+  position: absolute;
+  box-sizing: border-box;
+}
+.playArea .zones-wrapper .attackK7:hover {
+  transition: 0.3s;
+  background-color: orangered;
+  opacity: 1;
+  scale: 1.15;
+}
+.playArea .zones-wrapper .serviceZone1 {
+  left: 8%;
+  top: 8%;
+  font-size: 25px;
+  z-index: 12;
+  cursor: pointer;
+  color: #000;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: cornflowerblue;
+  font-weight: 700;
+  padding: 5px;
+  position: absolute;
+  box-sizing: border-box;
+}
+.playArea .zones-wrapper .serviceZone1:hover {
+  transition: 0.3s;
+  background-color: orangered;
+  opacity: 1;
+  scale: 1.15;
+}
+.playArea .zones-wrapper .serviceZone6 {
+  left: 43%;
+  top: 8%;
+  font-size: 25px;
+  z-index: 12;
+  cursor: pointer;
+  color: #000;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: cornflowerblue;
+  font-weight: 700;
+  padding: 5px;
+  position: absolute;
+  box-sizing: border-box;
+}
+.playArea .zones-wrapper .serviceZone6:hover {
+  transition: 0.3s;
+  background-color: orangered;
+  opacity: 1;
+  scale: 1.15;
+}
+.playArea .zones-wrapper .serviceZone5 {
+  right: 8%;
+  top: 8%;
+  font-size: 25px;
+  z-index: 12;
+  cursor: pointer;
+  color: #000;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: cornflowerblue;
+  font-weight: 700;
+  padding: 5px;
+  position: absolute;
+  box-sizing: border-box;
+}
+.playArea .zones-wrapper .serviceZone5:hover {
+  transition: 0.3s;
+  background-color: orangered;
+  opacity: 1;
+  scale: 1.15;
+}
+.playArea .cones-wrapper .zone25A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 1.666% 100%, 16.66% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone25B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 16.66% 100%, 33.32% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone26A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 33.32% 100%, 49.98% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone26B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 49.98% 100%, 66.64% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone21A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 66.64% 100%, 83.3% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone21B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 83.3% 100%, 99.96% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone15A {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 1.666% 100%, 16.66% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .zone15B {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 16.66% 100%, 33.32% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .zone16A {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 33.32% 100%, 49.98% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .zone16B {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 49.98% 100%, 66.64% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .zone11A {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 66.64% 100%, 83.3% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .zone11B {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(0 0, 83.3% 100%, 99.96% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .zone45A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(100% 0, 0 100%, 16.66% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone45B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(100% 0, 16.66% 100%, 33.32% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone46A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(100% 0, 33.32% 100%, 49.98% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone46B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(100% 0, 49.98% 100%, 66.64% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone41A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(100% 0, 66.64% 100%, 83.3% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .zone41B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(100% 0, 83.3% 100%, 98.294% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .Pipe5A {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 0 100%, 16.66% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .Pipe5B {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 16.66% 100%, 33.32% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .Pipe6A {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 33.32% 100%, 49.98% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .Pipe6B {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 49.98% 100%, 66.64% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .Pipe1A {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 66.64% 100%, 83.3% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .Pipe1B {
+  left: 0;
+  top: 26%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 83.3% 100%, 99.96% 100%);
+  aspect-ratio: 1/1.33;
+}
+.playArea .cones-wrapper .K15A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(35% 0, 0 100%, 16.66% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K15B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(35% 0, 16.66% 100%, 33.32% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K16A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(35% 0, 33.32% 100%, 49.98% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K16B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(35% 0, 49.98% 100%, 66.64% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K11A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(35% 0, 66.64% 100%, 83.3% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K11B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(35% 0, 83.3% 100%, 99.96% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .KC5A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 0 100%, 16.66% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .KC5B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 16.66% 100%, 33.32% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .KC6A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 33.32% 100%, 49.98% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .KC6B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 49.98% 100%, 66.64% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .KC1A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 66.64% 100%, 83.3% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .KC1B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 83.3% 100%, 99.96% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K75A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(65% 0, 0 100%, 16.66% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K75B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(65% 0, 16.66% 100%, 33.32% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K76A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(65% 0, 33.32% 100%, 49.98% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K76B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(65% 0, 49.98% 100%, 66.64% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K71A {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(65% 0, 66.64% 100%, 83.3% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .K71B {
+  left: 0;
+  top: 42%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(65% 0, 83.3% 100%, 99.96% 100%);
+  aspect-ratio: 1/1;
+}
+.playArea .cones-wrapper .service1Z5 {
+  left: 0;
+  top: 5%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(15% 0, 0 100%, 33.3% 100%);
+  aspect-ratio: 1/1.75;
+}
+.playArea .cones-wrapper .service1Z6 {
+  left: 0;
+  top: 5%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(15% 0, 33.3% 100%, 66.6% 100%);
+  aspect-ratio: 1/1.75;
+}
+.playArea .cones-wrapper .service1Z1 {
+  left: 0;
+  top: 5%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(15% 0, 66.6% 100%, 99.9% 100%);
+  aspect-ratio: 1/1.75;
+}
+.playArea .cones-wrapper .service5Z5 {
+  left: 0;
+  top: 5%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(85% 0, 0 100%, 33.3% 100%);
+  aspect-ratio: 1/1.75;
+}
+.playArea .cones-wrapper .service5Z6 {
+  left: 0;
+  top: 5%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(85% 0, 33.3% 100%, 66.6% 100%);
+  aspect-ratio: 1/1.75;
+}
+.playArea .cones-wrapper .service5Z1 {
+  left: 0;
+  top: 5%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(85% 0, 66.6% 100%, 99.9% 100%);
+  aspect-ratio: 1/1.75;
+}
+.playArea .cones-wrapper .service6Z5 {
+  left: 0;
+  top: 5%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 0 100%, 33.3% 100%);
+  aspect-ratio: 1/1.75;
+}
+.playArea .cones-wrapper .service6Z6 {
+  left: 0;
+  top: 5%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 33.3% 100%, 66.6% 100%);
+  aspect-ratio: 1/1.75;
+}
+.playArea .cones-wrapper .service6Z1 {
+  left: 0;
+  top: 5%;
+  position: absolute;
+  width: 100%;
+  transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  clip-path: polygon(50% 0, 66.6% 100%, 99.9% 100%);
+  aspect-ratio: 1/1.75;
 }
 
 /*# sourceMappingURL=newAttack.css.map */

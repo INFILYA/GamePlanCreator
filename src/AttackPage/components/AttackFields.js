@@ -34,8 +34,7 @@ export function AttackFields() {
   const [previousPlayerData, setPreviousPlayerData] = useState(null);
   const [previousTeamData, setPreviousTeamData] = useState(null);
   const [attackType, setattackType] = useState("chooseTypeOfAttack");
-  const [tip4, setTip4] = useState(0);
-  const [tip2, setTip2] = useState(0);
+  const [tip, setTip] = useState({ zone2: 0, zone3: 0, zone4: 0 });
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "attackZone1", active: false },
     { zone: "attackZone2", active: false },
@@ -66,8 +65,8 @@ export function AttackFields() {
     dispatch(setInfoOfPlayer(playerInfo));
   }, [dispatch]);
   const classNamesForConesAndInputs = ["5A", "5B", "6A", "6B", "1A", "1B"];
-  const classNamesForTip4 = ["tip4", "yellowtip4"];
-  const classNamesForTip2 = ["tip2", "yellowtip2"];
+  const classNamesForTip = ["tip", "yellowtip"];
+  console.log(tip);
   let AttacksByZone = Object.values(zoneValue);
   const buttonCountDisabled = AttacksByZone.every((zone) => typeof zone === "string");
   const chooseTypeOfAttack = (event) => {
@@ -228,192 +227,201 @@ export function AttackFields() {
   };
 
   return (
-    <form className="playArea" onSubmit={!showDataOfAttacks ? onHandleCountClick : showData}>
-      {playerInfo.position !== "MBlocker" && (
-        <select
-          className="typeOfAttack"
-          onChange={chooseTypeOfAttack}
-          disabled={!showInputs || buttonCountDisabled}
-        >
-          {(buttonCountDisabled || !showInputs) && <option></option>}
-          <option value="chooseTypeOfAttack">Choose type of Attack</option>
-          <option value="FastBall">Fast ball</option>
-          <option value="HighBall">High ball</option>
-        </select>
-      )}
-      <div className="zoneinput">
-        <input
-          type="submit"
-          className="countbutton"
-          value={showInputs ? "Count" : !showBalls ? "Choose Zone" : "Close"}
-          disabled={!showInputs || buttonCountDisabled}
-        ></input>
-        <input className="needtoclose"></input>
+    <>
+      <div className="section-border">
+        <div className="section-background">
+          <img src="/photos/area8.jpg" alt="" className="playground-area-background" />
+        </div>
       </div>
-      <div className="explain">
-        <Explain
-          confirmReturn={confirmReturn}
-          disableSwitch={disableSwitch}
-          saveDataOfAttacks={saveDataOfAttacks}
-          setSaveDataOfAttacks={setSaveDataOfAttacks}
-          diagrammValue={diagrammValue}
-          handleDiagrammValue={handleDiagrammValue}
-          returnOldData={returnOldData}
-          showDataOfAttacks={showDataOfAttacks}
-          setShowDataOfAttacks={setShowDataOfAttacks}
-          type={"Attack"}
-        />
-      </div>
-      <div>
-        <input
-          type="button"
-          className={classNamesForTip4[tip2]}
-          value="Tip"
-          onClick={() => setTip2((tip2 + 1) % 2)}
-        ></input>
-      </div>
-      <div>
-        <input
-          type="button"
-          className={classNamesForTip2[tip4]}
-          value="Tip"
-          onClick={() => setTip4((tip4 + 1) % 2)}
-        ></input>
-      </div>
-      <div>
-        {playerInfo.position === "Opposite"
-          ? historyOfBalls
-              .slice(0, 3)
-              .map((ball, index) =>
-                ball.active === false ? (
-                  <BallForAttack
-                    key={index}
-                    value={ball.zone.replace(/[a-z]/g, "")}
-                    attack={!showBalls ? ball.zone : "none"}
-                    index={index}
-                    historyOfBalls={historyOfBalls}
-                    setHistoryOfBalls={setHistoryOfBalls}
-                    setShowInputs={setShowInputs}
-                    setShowBalls={setShowBalls}
-                    showInputs={showInputs}
-                  />
-                ) : (
-                  <BallForAttack
-                    key={index}
-                    value="🏐"
-                    attack={ball.zone + " showTheBall"}
-                    index={index}
-                    historyOfBalls={historyOfBalls}
-                    setHistoryOfBalls={setHistoryOfBalls}
-                    setShowInputs={setShowInputs}
-                    setShowBalls={setShowBalls}
-                    showInputs={showInputs}
-                  />
-                )
-              )
-          : playerInfo.position === "Reciever"
-          ? historyOfBalls
-              .slice(1, 4)
-              .map((ball, index) =>
-                ball.active === false ? (
-                  <BallForAttack
-                    key={index + 1}
-                    value={ball.zone.replace(/[a-z]/g, "")}
-                    attack={!showBalls ? ball.zone : "none"}
-                    index={index + 1}
-                    historyOfBalls={historyOfBalls}
-                    setHistoryOfBalls={setHistoryOfBalls}
-                    setShowInputs={setShowInputs}
-                    setShowBalls={setShowBalls}
-                    showInputs={showInputs}
-                  />
-                ) : (
-                  <BallForAttack
-                    key={index + 1}
-                    value="🏐"
-                    attack={ball.zone + " showTheBall"}
-                    index={index + 1}
-                    historyOfBalls={historyOfBalls}
-                    setHistoryOfBalls={setHistoryOfBalls}
-                    setShowInputs={setShowInputs}
-                    setShowBalls={setShowBalls}
-                    showInputs={showInputs}
-                  />
-                )
-              )
-          : playerInfo.position === "MBlocker"
-          ? historyOfBalls
-              .slice(4, 7)
-              .map((ball, index) =>
-                ball.active === false ? (
-                  <BallForAttack
-                    key={index + 4}
-                    value={ball.zone.replace(/[a-z]/g, "")}
-                    attack={!showBalls ? ball.zone : "none"}
-                    index={index + 4}
-                    historyOfBalls={historyOfBalls}
-                    setHistoryOfBalls={setHistoryOfBalls}
-                    setShowInputs={setShowInputs}
-                    setShowBalls={setShowBalls}
-                    showInputs={showInputs}
-                  />
-                ) : (
-                  <BallForAttack
-                    key={index + 4}
-                    value="🏐"
-                    attack={ball.zone + " showTheBall"}
-                    index={index + 4}
-                    historyOfBalls={historyOfBalls}
-                    setHistoryOfBalls={setHistoryOfBalls}
-                    setShowInputs={setShowInputs}
-                    setShowBalls={setShowBalls}
-                    showInputs={showInputs}
-                  />
-                )
-              )
-          : null}
-      </div>
-      <div className="balls">
-        {classNamesForConesAndInputs.map((el, index) => (
-          <ConeReaction
-            key={index}
-            attackPercentageArray={attackPercentageArray[index]}
-            cone={el}
-            historyOfBalls={historyOfBalls}
-            type={"Attack"}
-          />
-        ))}
-      </div>
-      {showBalls && (
-        <>
-          <div>
-            <DefenderZone6 />
-            <DefenderZone6 />
-            <DefenderZone6 />
-          </div>
-          {!showDataOfAttacks && (
-            <div>
-              {classNamesForConesAndInputs.map((el, index) => (
-                <InputForCount
+      <div className="section-content-wrapper">
+        <div className="section-content">
+          <form className="playArea" onSubmit={!showDataOfAttacks ? onHandleCountClick : showData}>
+            <div className="explain">
+              <Explain
+                confirmReturn={confirmReturn}
+                disableSwitch={disableSwitch}
+                saveDataOfAttacks={saveDataOfAttacks}
+                setSaveDataOfAttacks={setSaveDataOfAttacks}
+                diagrammValue={diagrammValue}
+                handleDiagrammValue={handleDiagrammValue}
+                returnOldData={returnOldData}
+                showDataOfAttacks={showDataOfAttacks}
+                setShowDataOfAttacks={setShowDataOfAttacks}
+                type={"Attack"}
+              />
+            </div>
+            <div className="select-wrapper">
+              <select
+                className="typeOfAction"
+                onChange={chooseTypeOfAttack}
+                disabled={!showInputs || buttonCountDisabled}
+              >
+                <option value="chooseTypeOfAttack">
+                  {!showInputs || buttonCountDisabled
+                    ? `Choose zone of attack`
+                    : `Choose type of attack`}
+                </option>
+                <option value="FastBall">Fast ball</option>
+                {playerInfo.position !== "MBlocker" && <option value="HighBall">High ball</option>}
+              </select>
+            </div>
+            <div className="count-button-wrapper">
+              <button
+                type="submit"
+                className="countButton"
+                disabled={!showInputs || buttonCountDisabled}
+              >
+                Count
+              </button>
+            </div>
+            <div className="tip-wrapper">
+              {Object.entries(tip).map((zone, index) => (
+                <input
+                  type="button"
+                  className={classNamesForTip[zone[1]]}
+                  value="Tip"
+                  onClick={() => setTip({ ...tip, [zone[0]]: (zone[1] + 1) % 2 })}
                   key={index}
-                  name={index + 1}
-                  onChange={handleZoneValue}
-                  zoneValue={zoneValue[index + 1]}
-                  showInputs={showInputs}
+                ></input>
+              ))}
+            </div>
+            <div className="zones-wrapper">
+              {playerInfo.position === "Opposite"
+                ? historyOfBalls
+                    .slice(0, 3)
+                    .map((ball, index) =>
+                      ball.active === false ? (
+                        <BallForAttack
+                          key={index}
+                          value={ball.zone.replace(/[a-z]/g, "")}
+                          attack={!showBalls ? ball.zone : "none"}
+                          index={index}
+                          historyOfBalls={historyOfBalls}
+                          setHistoryOfBalls={setHistoryOfBalls}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                          showInputs={showInputs}
+                        />
+                      ) : (
+                        <BallForAttack
+                          key={index}
+                          value="🏐"
+                          attack={ball.zone + " showTheBall"}
+                          index={index}
+                          historyOfBalls={historyOfBalls}
+                          setHistoryOfBalls={setHistoryOfBalls}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                          showInputs={showInputs}
+                        />
+                      )
+                    )
+                : playerInfo.position === "Reciever"
+                ? historyOfBalls
+                    .slice(1, 4)
+                    .map((ball, index) =>
+                      ball.active === false ? (
+                        <BallForAttack
+                          key={index + 1}
+                          value={ball.zone.replace(/[a-z]/g, "")}
+                          attack={!showBalls ? ball.zone : "none"}
+                          index={index + 1}
+                          historyOfBalls={historyOfBalls}
+                          setHistoryOfBalls={setHistoryOfBalls}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                          showInputs={showInputs}
+                        />
+                      ) : (
+                        <BallForAttack
+                          key={index + 1}
+                          value="🏐"
+                          attack={ball.zone + " showTheBall"}
+                          index={index + 1}
+                          historyOfBalls={historyOfBalls}
+                          setHistoryOfBalls={setHistoryOfBalls}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                          showInputs={showInputs}
+                        />
+                      )
+                    )
+                : playerInfo.position === "MBlocker"
+                ? historyOfBalls
+                    .slice(4, 7)
+                    .map((ball, index) =>
+                      ball.active === false ? (
+                        <BallForAttack
+                          key={index + 4}
+                          value={ball.zone.replace(/[a-z]/g, "")}
+                          attack={!showBalls ? ball.zone : "none"}
+                          index={index + 4}
+                          historyOfBalls={historyOfBalls}
+                          setHistoryOfBalls={setHistoryOfBalls}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                          showInputs={showInputs}
+                        />
+                      ) : (
+                        <BallForAttack
+                          key={index + 4}
+                          value="🏐"
+                          attack={ball.zone + " showTheBall"}
+                          index={index + 4}
+                          historyOfBalls={historyOfBalls}
+                          setHistoryOfBalls={setHistoryOfBalls}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                          showInputs={showInputs}
+                        />
+                      )
+                    )
+                : null}
+            </div>
+            <div className="cones-wrapper">
+              {classNamesForConesAndInputs.map((el, index) => (
+                <ConeReaction
+                  key={index}
                   attackPercentageArray={attackPercentageArray[index]}
+                  cone={el}
+                  historyOfBalls={historyOfBalls}
+                  type={"Attack"}
                 />
               ))}
             </div>
-          )}
-          {saveDataOfAttacks && (
-            <CheckEquality
-              zoneValue={zoneValue}
-              diagrammValue={diagrammValue}
-              checkEquality={checkEquality}
-            />
-          )}
-        </>
-      )}
-    </form>
+            {showBalls && (
+              <>
+                <div className="defender-wrapper">
+                  <DefenderZone6 />
+                  <DefenderZone6 />
+                  <DefenderZone6 />
+                </div>
+                {!showDataOfAttacks && (
+                  <div className="inputs-wrapper">
+                    {classNamesForConesAndInputs.map((el, index) => (
+                      <InputForCount
+                        key={index}
+                        name={index + 1}
+                        onChange={handleZoneValue}
+                        zoneValue={zoneValue[index + 1]}
+                        showInputs={showInputs}
+                        attackPercentageArray={attackPercentageArray[index]}
+                      />
+                    ))}
+                  </div>
+                )}
+                {saveDataOfAttacks && (
+                  <CheckEquality
+                    zoneValue={zoneValue}
+                    diagrammValue={diagrammValue}
+                    checkEquality={checkEquality}
+                  />
+                )}
+              </>
+            )}
+          </form>
+        </div>
+      </div>
+    </>
   );
 }

@@ -79,80 +79,99 @@ export function Squads({ team }) {
   }
 
   return (
-    <>
-      <div className="teamsquad">
-        <div className="teamLogo" key={club.id} style={team === "my" ? { direction: "rtl" } : {}}>
-          <input className="teamlabel" readOnly value={club.name} />
-          <img className="photoLogo" src={club.logo} alt="" />
-        </div>
-        {players
-          .sort((a, b) => compare(a.number, b.number))
-          .map((player) => (
-            <div
-              key={player.name}
-              className="playerSurname"
-              style={team === "my" ? { direction: "rtl" } : {}}
-            >
-              <button
-                type="text"
-                disabled
-                className="playerNumber"
-                style={
-                  team === "my"
-                    ? {
-                        backgroundColor: "fuchsia",
-                        borderTopRightRadius: 20,
-                        borderBottomRightRadius: 20,
-                        borderTopLeftRadius: 0,
-                        borderBottomLeftRadius: 0,
-                      }
-                    : {}
-                }
-              >
-                {player.number}
-              </button>
-              <button
-                type="text"
-                className="input"
-                onClick={() => setPlayerInfo(player)}
-                style={
-                  team === "my"
-                    ? {
-                        backgroundColor: "darkgray",
-                        borderTopLeftRadius: 20,
-                        borderBottomLeftRadius: 20,
-                        borderTopRightRadius: 0,
-                        borderBottomRightRadius: 0,
-                      }
-                    : {}
-                }
-              >
-                {player.name}
-              </button>
-              {Zones && (
-                <select
-                  className="moveToBoard"
-                  type="text"
-                  onChange={team === "my" ? myTeamActions : rivalTeamActions}
-                >
-                  {team === "my" ? (
-                    <option defaultValue="◀">◀</option>
-                  ) : (
-                    <option defaultValue="▶">▶</option>
-                  )}
-                  {Zones.sort((a, b) =>
-                    compare(correctNamesOfZones(a), correctNamesOfZones(b))
-                  ).map((zone, index) => (
-                    <option key={index} value={[player.id, zone]}>
-                      {correctNamesOfZones(zone)}
-                    </option>
-                  ))}
-                </select>
-              )}
-            </div>
-          ))}
-        {showButtonStartingSix && <Button onClick={showStartingSix} value={"Show Starting six"} />}
+    <section className="teamsquad-section">
+      <div className="section-border">
+        <div className="section-background"></div>
       </div>
-    </>
+      <div className="section-content-wrapper">
+        <div className="section-content">
+          <div className="team-title-wrapper" style={team === "my" ? { direction: "rtl" } : {}}>
+            <div className="team-label-wrapper">
+              <input className="team-label" readOnly value={club.name} />
+            </div>
+            <div className="team-logo-wrapper">
+              <img className="team-logo" src={club.logo} alt="" />
+            </div>
+          </div>
+          <div className="squad-wrapper">
+            {players
+              .sort((a, b) => compare(a.number, b.number))
+              .map((player) => (
+                <div
+                  key={player.name}
+                  className="player-field-wrapper"
+                  style={team === "my" ? { direction: "rtl" } : {}}
+                >
+                  <div className="playerNumber-wrapper">
+                    <button
+                      type="text"
+                      disabled
+                      className="playerNumber"
+                      style={
+                        team === "my"
+                          ? {
+                              backgroundColor: "fuchsia",
+                              borderTopRightRadius: 20,
+                              borderBottomRightRadius: 20,
+                              borderTopLeftRadius: 0,
+                              borderBottomLeftRadius: 0,
+                            }
+                          : {}
+                      }
+                    >
+                      {player.number > 9 ? player.number : `0${player.number}`}
+                    </button>
+                  </div>
+                  <div className="player-surname-wrapper">
+                    <button
+                      type="text"
+                      className="player-surname"
+                      onClick={() => setPlayerInfo(player)}
+                      style={
+                        team === "my"
+                          ? {
+                              backgroundColor: "darkgray",
+                              borderTopLeftRadius: 20,
+                              borderBottomLeftRadius: 20,
+                              borderTopRightRadius: 0,
+                              borderBottomRightRadius: 0,
+                            }
+                          : {}
+                      }
+                    >
+                      {player.name}
+                    </button>
+                  </div>
+                  <div className="moveToBoard-wrapper">
+                    {Zones && (
+                      <select
+                        className="moveToBoard"
+                        type="text"
+                        onChange={team === "my" ? myTeamActions : rivalTeamActions}
+                      >
+                        {team === "my" ? (
+                          <option defaultValue="◀">◀</option>
+                        ) : (
+                          <option defaultValue="▶">▶</option>
+                        )}
+                        {Zones.sort((a, b) =>
+                          compare(correctNamesOfZones(a), correctNamesOfZones(b))
+                        ).map((zone, index) => (
+                          <option key={index} value={[player.id, zone]}>
+                            {correctNamesOfZones(zone)}
+                          </option>
+                        ))}
+                      </select>
+                    )}
+                  </div>
+                </div>
+              ))}
+            {showButtonStartingSix && (
+              <Button onClick={showStartingSix} value={"Show Starting six"} />
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

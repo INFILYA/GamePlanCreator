@@ -15,18 +15,17 @@ export function ChooseOpponentTeam() {
     dispatch(setBackRightRivalSelects([5, 2, 1, 0, 3, 4]));
   }
   return (
-    <>
-      <div className="opponentTeamList">
-        {listOfTeams.map((team) => (
+    <nav className="opponentTeamList">
+      {listOfTeams.map((team) => (
+        <div className="nav-image-wrapper" key={team.id}>
           <img
             alt=""
             onClick={() => handleSetOpponentTeam(team)}
             className="Logo"
-            key={team.id}
             src={team.logo}
           ></img>
-        ))}
-      </div>
-    </>
+        </div>
+      ))}
+    </nav>
   );
 }

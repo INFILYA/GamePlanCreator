@@ -25,23 +25,36 @@ export function IconOfPlayer({ player, zones, type }) {
     dispatch(resetMyTeamZones(player));
     dispatch(resetSequanceOfZones({ zones, player }));
   }
+  const rival = type === "rival";
+  const my = type === "my";
   return (
-    <>
-      {zones && type === "rival" && <img src={player.photo} alt=""></img>}
-      <div className="numberPlusInput">
-        <button
-          type="text"
-          className="playerNumber"
-          onClick={
-            type === "rival" ? () => cancelRivalChoice(player) : () => cancelMyChoice(player)
-          }
-        >
-          {player.number}
-        </button>
-        <button type="text" className="input" onClick={() => setPlayerInfo(player)}>
-          {player.name}
-        </button>
+    <div className="player-field-wrapper">
+      {rival && (
+        <div className="player-image-wrapper">
+          <img src={player?.photo} alt=""></img>
+        </div>
+      )}
+      <div className="player-wrapper">
+        <div className="playerNumber-wrapper">
+          <button
+            type="text"
+            style={my ? { backgroundColor: "#f0f" } : {}}
+            onClick={rival ? () => cancelRivalChoice(player) : () => cancelMyChoice(player)}
+          >
+            {player.number > 9 ? player.number : `0${player.number}`}
+          </button>
+        </div>
+        <div className="player-surname-wrapper">
+          <button
+            type="text"
+            className="player-surname"
+            style={my ? { backgroundColor: "#a9a9a9" } : {}}
+            onClick={() => setPlayerInfo(player)}
+          >
+            {player.name}
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
