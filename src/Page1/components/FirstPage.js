@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { PersonalInformationOfPlayer } from "../../PersonalInfo/PersonalInformationOfPlayer";
-import { ChooseOpponentTeam } from "./ChooseOpponentTeam";
-import { IconOfPlayer } from "./IconOfPlayer";
-import { Squads } from "./Squads";
+import { ChooseOpponentTeam } from "./inner components/ChooseOpponentTeam";
+import { IconOfPlayer } from "./inner components/IconOfPlayer";
+import { Squads } from "./inner components/Squads";
 import {
   clearMyTeamZones,
   rotateBackMyTeam,
@@ -25,6 +25,7 @@ import { setBackRightMyTeamSelects } from "../../states/slices/sequanceOfZonesSl
 import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
 import { setUserVersion } from "../../states/slices/userVersionSlice";
 import { NavLink } from "react-router-dom";
+import SectionWrapper from "./SectionWrapper";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -91,14 +92,11 @@ export function FirstPage() {
   return (
     <article className="main-content-wrapper">
       {showRivalClub && <Squads team={"rival"} />}
-      <section className="playground-section">
-        <div className="section-border">
-          <div className="section-background">
-            {!playerInfo && <img src="/photos/playarea.jpg" alt="" />}
-          </div>
-        </div>
-        <div className="section-content-wrapper">
-          <div className="section-content">
+      <SectionWrapper
+        className={"playground-section"}
+        backGround={!playerInfo && <img src="/photos/playarea.jpg" alt="" />}
+        content={
+          <>
             {!showRivalClub && <ChooseOpponentTeam />}
             {playerInfo && <PersonalInformationOfPlayer link={"page1"} />}
             {!playerInfo && showRivalClub && (
@@ -207,32 +205,28 @@ export function FirstPage() {
                 )}
               </div>
             )}
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
       {showRivalClub &&
         (showMyClub ? (
           <Squads team={"my"} />
         ) : (
-          <section className="teamsquad-section">
-            <div className="section-border">
-              <div className="section-background"></div>
-            </div>
-            <div className="section-content-wrapper">
-              <div className="section-content">
-                {rivalClub.length !== 0 && (
-                  <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
-                    <option value="Choose home team">Choose team</option>
-                    {listOfTeams.map((team) => (
-                      <option key={team.id} value={team.name}>
-                        {team.name}
-                      </option>
-                    ))}
-                  </select>
-                )}
-              </div>
-            </div>
-          </section>
+          <SectionWrapper
+            className={"teamsquad-section"}
+            content={
+              rivalClub.length !== 0 && (
+                <select className="chooseHomeTeam" onChange={handleSetMyTeam}>
+                  <option value="Choose home team">Choose team</option>
+                  {listOfTeams.map((team) => (
+                    <option key={team.id} value={team.name}>
+                      {team.name}
+                    </option>
+                  ))}
+                </select>
+              )
+            }
+          />
         ))}
     </article>
   );

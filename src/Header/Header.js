@@ -1,5 +1,5 @@
 import { useAuthState } from "react-firebase-hooks/auth";
-import { SetDate } from "../Page1/components/SetDate";
+import { SetDate } from "../Page1/components/inner components/SetDate";
 import { auth } from "../config/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
@@ -21,7 +21,6 @@ export function Header() {
       await signOut(auth);
     } catch (err) {
       console.error(err);
-    } finally {
     }
   }
   return (

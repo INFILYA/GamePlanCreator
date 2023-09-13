@@ -95,6 +95,15 @@ main .main-content-wrapper .playArea-sections-wrapper .playArea-section {
   width: 100%;
   max-width: 340px;
 }
+main .main-content-wrapper .distribution-section {
+  position: relative;
+  margin: 25px;
+  aspect-ratio: 1/1.2;
+  border: 10px solid #0272be;
+  min-width: 340px;
+  width: 100%;
+  max-width: 340px;
+}
 main .main-content-wrapper .section-border {
   position: absolute;
   top: calc(-1 * var(--previous-section-divider-offset, 0px));
@@ -123,6 +132,33 @@ main .main-content-wrapper .section-content-wrapper .section-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .playerNumber-wrapper .playerNumber {
+  background-color: fuchsia;
+  border-radius: 0px 20px 20px 0px;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .playerNumber-wrapper button {
+  position: relative;
+  color: black;
+  font-weight: bold;
+  background-color: #ff8001;
+  text-align: center;
+  border-radius: 20px 0px 0px 20px;
+  border: 2px solid black;
+  height: 100%;
+  font-size: 1vw;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .player-surname-wrapper {
+  width: 100%;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .player-surname-wrapper button {
+  width: 100%;
+  height: 100%;
+  background-color: khaki;
+  border: 2px solid black;
+  border-radius: 0px 20px 20px 0px;
+  font-weight: 600;
+  font-size: 1vw;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .chooseHomeTeam {
   padding: 10px;
@@ -168,28 +204,9 @@ main .main-content-wrapper .section-content-wrapper .section-content .squad-wrap
   width: 100%;
   min-height: 2vw;
 }
-main .main-content-wrapper .section-content-wrapper .section-content .squad-wrapper .player-field-wrapper .playerNumber-wrapper button {
-  position: relative;
-  color: black;
-  font-weight: bold;
-  background-color: #ff8001;
-  text-align: center;
+main .main-content-wrapper .section-content-wrapper .section-content .squad-wrapper .player-field-wrapper .player-surname {
+  background-color: darkgray;
   border-radius: 20px 0px 0px 20px;
-  border: 2px solid black;
-  height: 100%;
-  font-size: 1vw;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .squad-wrapper .player-field-wrapper .player-surname-wrapper {
-  width: 100%;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .squad-wrapper .player-field-wrapper .player-surname-wrapper button {
-  width: 100%;
-  height: 100%;
-  background-color: khaki;
-  border: 2px solid black;
-  border-radius: 0px 20px 20px 0px;
-  font-weight: 600;
-  font-size: 1vw;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .squad-wrapper .player-field-wrapper .moveToBoard-wrapper {
   display: flex;
@@ -396,29 +413,6 @@ main .main-content-wrapper .section-content-wrapper .section-content .rotation-f
   display: flex;
   justify-content: center;
   height: 2vw;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper .player-wrapper .playerNumber-wrapper button {
-  position: relative;
-  color: black;
-  font-weight: bold;
-  background-color: #ff8001;
-  text-align: center;
-  border-radius: 20px 0px 0px 20px;
-  border: 2px solid black;
-  height: 100%;
-  font-size: 1vw;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper .player-wrapper .player-surname-wrapper {
-  width: 75%;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper .player-wrapper .player-surname-wrapper button {
-  width: 100%;
-  height: 100%;
-  background-color: khaki;
-  border: 2px solid black;
-  border-radius: 0px 20px 20px 0px;
-  font-weight: 600;
-  font-size: 1vw;
 }
 
 /*# sourceMappingURL=newMain.css.map */

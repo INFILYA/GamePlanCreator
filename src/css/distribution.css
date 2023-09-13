@@ -162,7 +162,7 @@
 .belowcort .overNet {
   height: 20px;
 }
-.reset {
+/* .reset {
   border-radius: 5px;
   font-size: 25px;
   padding: 5px;
@@ -177,7 +177,7 @@
 .reset:hover {
   box-shadow: 0 15px 20px orangered;
   transform: translateY(-7px);
-}
+} */
 .belowcort .addResetButtons {
   display: block;
 }

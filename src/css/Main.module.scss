@@ -2,6 +2,26 @@
   border-top-left-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
   border-top-right-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
 }
+@mixin player-number-btn {
+  position: relative;
+  color: black;
+  font-weight: bold;
+  background-color: #ff8001;
+  text-align: center;
+  border-radius: 20px 0px 0px 20px;
+  border: 2px solid black;
+  height: 100%;
+  font-size: 1vw;
+}
+@mixin player-surname-btn {
+  width: 100%;
+  height: 100%;
+  background-color: khaki;
+  border: 2px solid black;
+  border-radius: 0px 20px 20px 0px;
+  font-weight: 600;
+  font-size: 1vw;
+}
 body {
   text-align: center;
   margin: 0 auto;
@@ -62,6 +82,7 @@ main {
   .main-content-wrapper {
     display: flex;
     justify-content: center;
+    // Персональні стилі секцій
     .teamsquad-section {
       width: 20vw;
       background-color: gainsboro;
@@ -91,6 +112,16 @@ main {
         max-width: 340px;
       }
     }
+    .distribution-section {
+      position: relative;
+      margin: 25px;
+      aspect-ratio: 1/1.2;
+      border: 10px solid #0272be;
+      min-width: 340px;
+      width: 100%;
+      max-width: 340px;
+    }
+    // Кінець
     .section-border {
       position: absolute;
       top: calc(-1 * var(--previous-section-divider-offset, 0px));
@@ -120,6 +151,22 @@ main {
         display: flex;
         flex-direction: column;
         align-items: center;
+        // Іконки гравців
+        .playerNumber-wrapper {
+          .playerNumber {
+            background-color: fuchsia;
+            border-radius: 0px 20px 20px 0px;
+          }
+          button {
+            @include player-number-btn;
+          }
+        }
+        .player-surname-wrapper {
+          width: 100%;
+          button {
+            @include player-surname-btn;
+          }
+        }
         // ПОЛЕ СКЛАДУ КОМАНД
         .chooseHomeTeam {
           padding: 10px;
@@ -163,30 +210,9 @@ main {
             margin: 3px 0;
             width: 100%;
             min-height: 2vw;
-            .playerNumber-wrapper {
-              button {
-                position: relative;
-                color: black;
-                font-weight: bold;
-                background-color: #ff8001;
-                text-align: center;
-                border-radius: 20px 0px 0px 20px;
-                border: 2px solid black;
-                height: 100%;
-                font-size: 1vw;
-              }
-            }
-            .player-surname-wrapper {
-              width: 100%;
-              button {
-                width: 100%;
-                height: 100%;
-                background-color: khaki;
-                border: 2px solid black;
-                border-radius: 0px 20px 20px 0px;
-                font-weight: 600;
-                font-size: 1vw;
-              }
+            .player-surname {
+              background-color: darkgray;
+              border-radius: 20px 0px 0px 20px;
             }
             .moveToBoard-wrapper {
               display: flex;
@@ -398,31 +424,6 @@ main {
                 display: flex;
                 justify-content: center;
                 height: 2vw;
-                .playerNumber-wrapper {
-                  button {
-                    position: relative;
-                    color: black;
-                    font-weight: bold;
-                    background-color: #ff8001;
-                    text-align: center;
-                    border-radius: 20px 0px 0px 20px;
-                    border: 2px solid black;
-                    height: 100%;
-                    font-size: 1vw;
-                  }
-                }
-                .player-surname-wrapper {
-                  width: 75%;
-                  button {
-                    width: 100%;
-                    height: 100%;
-                    background-color: khaki;
-                    border: 2px solid black;
-                    border-radius: 0px 20px 20px 0px;
-                    font-weight: 600;
-                    font-size: 1vw;
-                  }
-                }
               }
             }
           }

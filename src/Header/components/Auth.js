@@ -8,6 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router";
+import SectionWrapper from "../../Page1/components/SectionWrapper";
 
 export function Auth() {
   const navigate = useNavigate();
@@ -78,25 +79,27 @@ export function Auth() {
     }
   }
   return (
-    <>
-      <form className="emailPanel" onSubmit={handleLogin}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="text"
-            placeholder="Email..."
-            required
-            onChange={(e) => setEmail(e.target.value)}
-            value={email || ""}
-          />
-          <button type="submit">{loginLoading ? "Logging you in" : "Log in"}</button>
-          {loginError !== "" && <div>{loginError}</div>}
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <button type="button" className="google" onClick={signInWithGoogle}></button>
-            <button type="button" className="facebook" onClick={signInWithFaceBook}></button>
+    <SectionWrapper
+      content={
+        <form className="emailPanel" onSubmit={handleLogin}>
+          <div>
+            <label>Email:</label>
+            <input
+              type="text"
+              placeholder="Email..."
+              required
+              onChange={(e) => setEmail(e.target.value)}
+              value={email || ""}
+            />
+            <button type="submit">{loginLoading ? "Logging you in" : "Log in"}</button>
+            {loginError !== "" && <div>{loginError}</div>}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <button type="button" className="google" onClick={signInWithGoogle}></button>
+              <button type="button" className="facebook" onClick={signInWithFaceBook}></button>
+            </div>
           </div>
-        </div>
-      </form>
-    </>
+        </form>
+      }
+    />
   );
 }

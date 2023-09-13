@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { BlockHelp } from "./BlockHelp";
-import { InputDistribution } from "./InputDistribution";
+import { BlockHelp } from "./inner-components/BlockHelp";
+import { InputDistribution } from "./inner-components/InputDistribution";
 import { reduce } from "../../Datas/api";
+import SectionWrapper from "../../Page1/components/SectionWrapper";
 
 export function DistrField() {
   const [distributionArr, setDistributionArr] = useState([]);
@@ -56,78 +57,85 @@ export function DistrField() {
     setShowButtonCount(!showButtonCount);
   }
   return (
-    <>
-      <div className="distribution">
-        <form className="distrfield" onSubmit={onHandleCountClick}>
-          <select
-            className="types"
-            defaultValue="Choose type"
-            onChange={handleSelectOption}
-            disabled={!showButtonSelect}
-          >
-            <option disabled={true}>Choose type</option>
-            {typesOfSituations.map((type) =>
-              showButtonSelect ? (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ) : (
-                <option key={type}>{type}</option>
-              )
-            )}
-          </select>
-          <div className="overNet">
-            {inputDistributionArr.map((input) => (
-              <BlockHelp key={input} />
-            ))}
-          </div>
-          <hr className="net"></hr>
-          {zoneValue && (
-            <div>
-              <div className="firstline">
-                {inputDistributionArr.slice(0, 3).map((input) => (
-                  <InputDistribution
-                    key={input}
-                    distributionArr={distributionArr[input - 1]}
-                    zoneValue={zoneValue[input]}
-                    handleZoneValue={handleZoneValue}
-                    name={input}
-                    showButtonCount={showButtonCount}
-                  />
-                ))}
-              </div>
-              <hr></hr>
-              <div className="secondline">
-                <span>Zone 5</span>
-                {inputDistributionArr.slice(3, 5).map((input) => (
-                  <InputDistribution
-                    key={input}
-                    distributionArr={distributionArr[input - 1]}
-                    zoneValue={zoneValue[input]}
-                    handleZoneValue={handleZoneValue}
-                    name={input}
-                    showButtonCount={showButtonCount}
-                  />
-                ))}
-              </div>
+    <SectionWrapper
+      className={"distribution-section"}
+      backGround={
+        <img src="/photos/distribution-field.jpg" alt="" className="playground-area-background" />
+      }
+      content={
+        <div className="distribution-wrapper">
+          <form className="distrfield-wrapper" onSubmit={onHandleCountClick}>
+            <div className="select-wrapper">
+              <select
+                className="typeOfCall"
+                defaultValue="Choose type"
+                onChange={handleSelectOption}
+                disabled={!showButtonSelect}
+              >
+                <option disabled={true}>Choose type</option>
+                {typesOfSituations.map((type) =>
+                  showButtonSelect ? (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
+                  ) : (
+                    <option key={type}>{type}</option>
+                  )
+                )}
+              </select>
             </div>
-          )}
-          {showButtonCount && (
-            <button className="count" type="submit" disabled={!showButtonCount}>
-              Count
-            </button>
-          )}
-        </form>
-        {!showButtonCount && (
-          <div className="notice">
-            {!zoneValue ? (
-              <input defaultValue="Please choose type of the call" readOnly></input>
-            ) : (
-              <input placeholder="Leave your notice"></input>
+            <div className="overNet">
+              {inputDistributionArr.map((input) => (
+                <BlockHelp key={input} />
+              ))}
+            </div>
+            {zoneValue && (
+              <div>
+                <div className="firstline">
+                  {inputDistributionArr.slice(0, 3).map((input) => (
+                    <InputDistribution
+                      key={input}
+                      distributionArr={distributionArr[input - 1]}
+                      zoneValue={zoneValue[input]}
+                      handleZoneValue={handleZoneValue}
+                      name={input}
+                      showButtonCount={showButtonCount}
+                    />
+                  ))}
+                </div>
+                <hr></hr>
+                <div className="secondline">
+                  <span>Zone 5</span>
+                  {inputDistributionArr.slice(3, 5).map((input) => (
+                    <InputDistribution
+                      key={input}
+                      distributionArr={distributionArr[input - 1]}
+                      zoneValue={zoneValue[input]}
+                      handleZoneValue={handleZoneValue}
+                      name={input}
+                      showButtonCount={showButtonCount}
+                    />
+                  ))}
+                </div>
+              </div>
             )}
-          </div>
-        )}
-      </div>
-    </>
+            {showButtonCount && (
+              <button className="count" type="submit" disabled={!showButtonCount}>
+                Count
+              </button>
+            )}
+          </form>
+          {/* {!showButtonCount && (
+            <div className="notice">
+              {!zoneValue ? (
+                <input defaultValue="Please choose type of the call" readOnly></input>
+              ) : (
+                <input placeholder="Leave your notice"></input>
+              )}
+            </div>
+          )} */}
+        </div>
+      }
+    />
   );
 }

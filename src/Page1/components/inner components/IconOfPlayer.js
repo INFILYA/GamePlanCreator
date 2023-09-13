@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
-import { pushFromRivalBoard } from "../../states/slices/rivalPlayersSlice";
-import { resetRivalZones } from "../../states/slices/zonesSlice";
-import { resetIndexOfZones } from "../../states/slices/indexOfZonesSlice";
-import { pushFromMyBoard } from "../../states/slices/myTeamPlayersSlice";
-import { resetMyTeamZones } from "../../states/slices/myTeamZonesSlice";
-import { resetSequanceOfZones } from "../../states/slices/sequanceOfZonesSlice";
+import { setInfoOfPlayer } from "../../../states/slices/playerInfoSlice";
+import { pushFromRivalBoard } from "../../../states/slices/rivalPlayersSlice";
+import { resetRivalZones } from "../../../states/slices/zonesSlice";
+import { resetIndexOfZones } from "../../../states/slices/indexOfZonesSlice";
+import { pushFromMyBoard } from "../../../states/slices/myTeamPlayersSlice";
+import { resetMyTeamZones } from "../../../states/slices/myTeamZonesSlice";
+import { resetSequanceOfZones } from "../../../states/slices/sequanceOfZonesSlice";
 
 export function IconOfPlayer({ player, zones, type }) {
   const dispatch = useDispatch();
@@ -25,11 +25,10 @@ export function IconOfPlayer({ player, zones, type }) {
     dispatch(resetMyTeamZones(player));
     dispatch(resetSequanceOfZones({ zones, player }));
   }
-  const rival = type === "rival";
   const my = type === "my";
   return (
     <div className="player-field-wrapper">
-      {rival && (
+      {!my && (
         <div className="player-image-wrapper">
           <img src={player?.photo} alt=""></img>
         </div>
@@ -39,12 +38,12 @@ export function IconOfPlayer({ player, zones, type }) {
           <button
             type="text"
             style={my ? { backgroundColor: "#f0f" } : {}}
-            onClick={rival ? () => cancelRivalChoice(player) : () => cancelMyChoice(player)}
+            onClick={!my ? () => cancelRivalChoice(player) : () => cancelMyChoice(player)}
           >
             {player.number > 9 ? player.number : `0${player.number}`}
           </button>
         </div>
-        <div className="player-surname-wrapper">
+        <div className="player-surname-wrapper" style={{ width: "75%" }}>
           <button
             type="text"
             className="player-surname"

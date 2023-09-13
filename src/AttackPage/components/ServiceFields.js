@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
-import { BallForAttack } from "./BallForAttack";
-import { Explain } from "./Explain";
+import { BallForAttack } from "./inner components/BallForAttack";
+import { Explain } from "./inner components/Explain";
 import { reduce } from "../../Datas/api";
 import { upgradeAge } from "../../StaticHelpModules/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { DefenderZone6 } from "./DefenderZone6";
-import { ConeReaction } from "./ConeReaction";
-import { InputForCount } from "./InputForCount";
-import { CheckEquality } from "./CheckEquality";
+import { DefenderZone6 } from "./inner components/DefenderZone6";
+import { ConeReaction } from "./inner components/ConeReaction";
+import { InputForCount } from "./inner components/InputForCount";
+import { CheckEquality } from "./inner components/CheckEquality";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { dataBase } from "../../config/firebase";
 import { setUserVersion } from "../../states/slices/userVersionSlice";
 import { setAllPlayers } from "../../states/slices/listOfPlayersSlice";
 import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
 import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
+import Tip from "./inner components/Tip";
+import SectionWrapper from "../../Page1/components/SectionWrapper";
 
 export function ServiceFields() {
   const dispatch = useDispatch();
@@ -33,7 +35,6 @@ export function ServiceFields() {
   const [previousPlayerData, setPreviousPlayerData] = useState(null);
   const [previousTeamData, setPreviousTeamData] = useState(null);
   const [attackPercentageArray, setAttackPercentageArray] = useState([]);
-  const [tip, setTip] = useState({ zone2: 0, zone3: 0, zone4: 0 });
   const [serviceType, setserviceType] = useState("chooseZoneOfService");
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "serviceZone1", active: false },
@@ -59,7 +60,6 @@ export function ServiceFields() {
   }, [dispatch]);
 
   const classNamesForConesAndInputs = ["Z5", "Z6", "Z1"];
-  const classNamesForTip = ["tip", "yellowtip"];
   const arrayForRecievers = [1, 2, 3, 4, 5];
 
   let ServiceByZone = Object.values(zoneValue);
@@ -211,136 +211,125 @@ export function ServiceFields() {
     setShowDataOfAttacks(!showDataOfAttacks);
   }
   return (
-    <>
-      <div className="section-border">
-        <div className="section-background">
-          <img src="/photos/area8.jpg" alt="" className="playground-area-background" />
-        </div>
-      </div>
-      <div className="section-content-wrapper">
-        <div className="section-content">
-          <form className="playArea" onSubmit={!showDataOfAttacks ? onHandleCountClick : showData}>
-            <div className="explain">
-              <Explain
-                confirmReturn={confirmReturn}
-                disableSwitch={disableSwitch}
-                saveDataOfAttacks={saveDataOfServices}
-                setSaveDataOfAttacks={setSaveDataOfServices}
-                diagrammValue={diagrammValue}
-                handleDiagrammValue={handleDiagrammValue}
-                returnOldData={returnOldData}
-                showDataOfAttacks={showDataOfAttacks}
-                setShowDataOfAttacks={setShowDataOfAttacks}
-                type={"Service"}
-              />
-            </div>
-            <div className="select-wrapper">
-              <select
-                className="typeOfAction"
-                onChange={chooseTypeOfService}
-                disabled={!showInputs || buttonCountDisabled}
-              >
-                <option value="chooseTypeOfService">
-                  {!showInputs || buttonCountDisabled
-                    ? "Choose zone of service"
-                    : "Choose type of service"}
-                </option>
-                <option value="Jump">Jump</option>
-                <option value="Float">Float</option>
-              </select>
-            </div>
-            <div className="count-button-wrapper">
-              <button
-                type="submit"
-                className="countButton"
-                disabled={!showInputs || buttonCountDisabled}
-              >
-                Count
-              </button>
-            </div>
-            <div className="tip-wrapper">
-              {Object.entries(tip).map((zone, index) => (
-                <input
-                  type="button"
-                  className={classNamesForTip[zone[1]]}
-                  value="Short"
-                  onClick={() => setTip({ ...tip, [zone[0]]: (zone[1] + 1) % 2 })}
+    <SectionWrapper
+      className={"playArea-section"}
+      backGround={<img src="/photos/area8.jpg" alt="" className="playground-area-background" />}
+      content={
+        <form className="playArea" onSubmit={!showDataOfAttacks ? onHandleCountClick : showData}>
+          <div className="explain">
+            <Explain
+              confirmReturn={confirmReturn}
+              disableSwitch={disableSwitch}
+              saveDataOfAttacks={saveDataOfServices}
+              setSaveDataOfAttacks={setSaveDataOfServices}
+              diagrammValue={diagrammValue}
+              handleDiagrammValue={handleDiagrammValue}
+              returnOldData={returnOldData}
+              showDataOfAttacks={showDataOfAttacks}
+              setShowDataOfAttacks={setShowDataOfAttacks}
+              type={"Service"}
+            />
+          </div>
+          <div className="select-wrapper">
+            <select
+              className="typeOfAction"
+              onChange={chooseTypeOfService}
+              disabled={!showInputs || buttonCountDisabled}
+            >
+              <option value="chooseTypeOfService">
+                {!showInputs || buttonCountDisabled
+                  ? "Choose zone of service"
+                  : "Choose type of service"}
+              </option>
+              <option value="Jump">Jump</option>
+              <option value="Float">Float</option>
+            </select>
+          </div>
+          <div className="count-button-wrapper">
+            <button
+              type="submit"
+              className="countButton"
+              disabled={!showInputs || buttonCountDisabled}
+            >
+              Count
+            </button>
+          </div>
+          <div className="zones-wrapper">
+            {historyOfBalls.map((ball, index) =>
+              !ball.active ? (
+                <BallForAttack
                   key={index}
-                ></input>
-              ))}
-            </div>
-            <div className="zones-wrapper">
-              {historyOfBalls.map((ball, index) =>
-                !ball.active ? (
-                  <BallForAttack
-                    key={index}
-                    value={ball.zone.replace(/[a-z]/g, "")}
-                    attack={!showBalls ? ball.zone : "none"}
-                    index={index}
-                    historyOfBalls={historyOfBalls}
-                    setHistoryOfBalls={setHistoryOfBalls}
-                    setShowInputs={setShowInputs}
-                    setShowBalls={setShowBalls}
-                    showInputs={showInputs}
-                  />
-                ) : (
-                  <BallForAttack
-                    key={index}
-                    value="🏐"
-                    attack={ball.zone + " showTheBall"}
-                    index={index}
-                    historyOfBalls={historyOfBalls}
-                    setHistoryOfBalls={setHistoryOfBalls}
-                    setShowInputs={setShowInputs}
-                    setShowBalls={setShowBalls}
-                    showInputs={showInputs}
-                  />
-                )
-              )}
-            </div>
-            <div className="cones-wrapper">
-              {classNamesForConesAndInputs.map((el, index) => (
-                <ConeReaction
-                  key={index}
-                  attackPercentageArray={attackPercentageArray[index]}
-                  cone={el}
+                  value={ball.zone.replace(/[a-z]/g, "")}
+                  attack={!showBalls ? ball.zone : "none"}
+                  index={index}
                   historyOfBalls={historyOfBalls}
+                  setHistoryOfBalls={setHistoryOfBalls}
+                  setShowInputs={setShowInputs}
+                  setShowBalls={setShowBalls}
+                  showInputs={showInputs}
                 />
-              ))}
-            </div>
-            {showBalls && (
-              <>
-                <div className="defender-wrapper">
-                  {arrayForRecievers.map((reciever) => (
-                    <DefenderZone6 key={reciever} />
+              ) : (
+                <BallForAttack
+                  key={index}
+                  value="🏐"
+                  attack={ball.zone + " showTheBall"}
+                  index={index}
+                  historyOfBalls={historyOfBalls}
+                  setHistoryOfBalls={setHistoryOfBalls}
+                  setShowInputs={setShowInputs}
+                  setShowBalls={setShowBalls}
+                  showInputs={showInputs}
+                />
+              )
+            )}
+          </div>
+          <div className="cones-wrapper">
+            {classNamesForConesAndInputs.map((el, index) => (
+              <ConeReaction
+                key={index}
+                attackPercentageArray={attackPercentageArray[index]}
+                cone={el}
+                historyOfBalls={historyOfBalls}
+              />
+            ))}
+          </div>
+          {showBalls && (
+            <>
+              <div className="tip-wrapper">
+                <Tip value={"Short"} />
+                <Tip value={"Short"} />
+                <Tip value={"Short"} />
+              </div>
+              <div className="defender-wrapper">
+                {arrayForRecievers.map((reciever) => (
+                  <DefenderZone6 key={reciever} />
+                ))}
+              </div>
+              {!showDataOfAttacks && (
+                <div className="inputs-wrapper">
+                  {classNamesForConesAndInputs.map((el, index) => (
+                    <InputForCount
+                      key={index}
+                      name={index + 1}
+                      onChange={handleZoneValue}
+                      zoneValue={zoneValue[index + 1]}
+                      showInputs={showInputs}
+                      attackPercentageArray={attackPercentageArray[index]}
+                    />
                   ))}
                 </div>
-                {!showDataOfAttacks && (
-                  <div className="inputs-wrapper">
-                    {classNamesForConesAndInputs.map((el, index) => (
-                      <InputForCount
-                        key={index}
-                        name={index + 1}
-                        onChange={handleZoneValue}
-                        zoneValue={zoneValue[index + 1]}
-                        showInputs={showInputs}
-                        attackPercentageArray={attackPercentageArray[index]}
-                      />
-                    ))}
-                  </div>
-                )}
-                {saveDataOfServices && (
-                  <CheckEquality
-                    zoneValue={zoneValue}
-                    diagrammValue={diagrammValue}
-                    checkEquality={checkEquality}
-                  />
-                )}
-              </>
-            )}
-          </form>
-        </div>
-      </div>
-    </>
+              )}
+              {saveDataOfServices && (
+                <CheckEquality
+                  zoneValue={zoneValue}
+                  diagrammValue={diagrammValue}
+                  checkEquality={checkEquality}
+                />
+              )}
+            </>
+          )}
+        </form>
+      }
+    />
   );
 }

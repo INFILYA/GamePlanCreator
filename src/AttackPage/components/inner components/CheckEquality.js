@@ -1,4 +1,4 @@
-import { reduce } from "../../Datas/api";
+import { reduce } from "../../../Datas/api";
 
 export function CheckEquality({ checkEquality, diagrammValue, zoneValue }) {
   return (

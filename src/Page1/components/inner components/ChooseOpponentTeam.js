@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setRivalPlayers } from "../../states/slices/rivalPlayersSlice";
-import { setRivalTeam } from "../../states/slices/rivalClubSlice";
-import { clearRivalZones } from "../../states/slices/zonesSlice";
-import { setBackRightRivalSelects } from "../../states/slices/indexOfZonesSlice";
+import { setRivalPlayers } from "../../../states/slices/rivalPlayersSlice";
+import { setRivalTeam } from "../../../states/slices/rivalClubSlice";
+import { clearRivalZones } from "../../../states/slices/zonesSlice";
+import { setBackRightRivalSelects } from "../../../states/slices/indexOfZonesSlice";
 
 export function ChooseOpponentTeam() {
   const dispatch = useDispatch();

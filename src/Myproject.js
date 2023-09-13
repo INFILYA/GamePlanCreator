@@ -9,6 +9,7 @@ import { Auth } from "./Header/components/Auth";
 import "../src/css/newTutorial.css";
 import "../src/css/newHeader.css";
 import "../src/css/newMain.css";
+import "../src/css/newDistribution.css";
 import {
   LiberosRating,
   MiddleBlockersRating,
@@ -96,21 +97,21 @@ function Myproject() {
       )}
       <Header />
       <main>
-          <Routes>
-            <Route path="/" element={<Page1 />} />
-            <Route path="/Auth" element={<Auth />} />
-            <Route path="/Ratings" element={<Ratings />}>
-              <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />
-              <Route path="/Ratings/OppositesRating" element={<OppositesRating />} />
-              <Route path="/Ratings/MiddleBlockersRating" element={<MiddleBlockersRating />} />
-              <Route path="/Ratings/SettersRating" element={<SettersRating />} />
-              <Route path="/Ratings/LiberosRating" element={<LiberosRating />} />
-              <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
-            </Route>
-            <Route path="/Distribution" element={<Distribution />} />
-            <Route path="/attack" element={<Attacks />} />
-            <Route path="/service" element={<Service />} />
-          </Routes>
+        <Routes>
+          <Route path="/" element={<Page1 />} />
+          <Route path="/Auth" element={<Auth />} />
+          <Route path="/Ratings" element={<Ratings />}>
+            <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />
+            <Route path="/Ratings/OppositesRating" element={<OppositesRating />} />
+            <Route path="/Ratings/MiddleBlockersRating" element={<MiddleBlockersRating />} />
+            <Route path="/Ratings/SettersRating" element={<SettersRating />} />
+            <Route path="/Ratings/LiberosRating" element={<LiberosRating />} />
+            <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
+          </Route>
+          <Route path="/Distribution" element={<Distribution />} />
+          <Route path="/attack" element={<Attacks />} />
+          <Route path="/service" element={<Service />} />
+        </Routes>
       </main>
     </>
   );

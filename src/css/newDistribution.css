@@ -1,0 +1,23 @@
+.distribution-wrapper {
+  width: 100%;
+}
+.distribution-wrapper .distrfield-wrapper .select-wrapper {
+  width: 100%;
+}
+.distribution-wrapper .distrfield-wrapper .select-wrapper .typeOfCall {
+  background-color: orangered;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+  border: none;
+  box-sizing: border-box;
+  border-bottom: 2px solid white;
+  width: 100%;
+}
+.distribution-wrapper .distrfield-wrapper .select-wrapper select[disabled] {
+  opacity: 1;
+  background-color: #0272be;
+}
+
+/*# sourceMappingURL=newDistribution.css.map */

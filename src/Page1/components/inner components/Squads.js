@@ -1,15 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "../../StaticHelpModules/Button";
-import { compare, correctNamesOfZones } from "../../Datas/api";
+import { Button } from "../../../StaticHelpModules/Button";
+import { compare, correctNamesOfZones } from "../../../Datas/api";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../config/firebase";
-import { setMyTeamZones } from "../../states/slices/myTeamZonesSlice";
-import { setSequanceOfZones } from "../../states/slices/sequanceOfZonesSlice";
-import { pushToMyBoard } from "../../states/slices/myTeamPlayersSlice";
-import { setRivalStartingSix, setRivalZones } from "../../states/slices/zonesSlice";
-import { setBackRightRivalSelects, setIndexOfZones } from "../../states/slices/indexOfZonesSlice";
-import { pushToRivalBoard, setBenchPlayers } from "../../states/slices/rivalPlayersSlice";
-import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
+import { auth } from "../../../config/firebase";
+import { setMyTeamZones } from "../../../states/slices/myTeamZonesSlice";
+import { setSequanceOfZones } from "../../../states/slices/sequanceOfZonesSlice";
+import { pushToMyBoard } from "../../../states/slices/myTeamPlayersSlice";
+import { setRivalStartingSix, setRivalZones } from "../../../states/slices/zonesSlice";
+import {
+  setBackRightRivalSelects,
+  setIndexOfZones,
+} from "../../../states/slices/indexOfZonesSlice";
+import { pushToRivalBoard, setBenchPlayers } from "../../../states/slices/rivalPlayersSlice";
+import { setInfoOfPlayer } from "../../../states/slices/playerInfoSlice";
+import SectionWrapper from "../SectionWrapper";
 
 export function Squads({ team }) {
   const dispatch = useDispatch();
@@ -21,10 +25,10 @@ export function Squads({ team }) {
   const sequanceOfZones = useSelector((state) => state.sequanceOfZones.sequanceOfZones);
   const zones = useSelector((state) => state.zones.zones);
   const [isRegistratedUser] = useAuthState(auth);
-
-  const club = team === "my" ? myClub : rivalClub;
-  const players = team === "my" ? [...myTeamPlayers] : [...rivalPlayers];
-  const Zones = team === "my" ? [...sequanceOfZones] : [...indexOfZones];
+  const myTeam = team === "my";
+  const club = myTeam ? myClub : rivalClub;
+  const players = myTeam ? [...myTeamPlayers] : [...rivalPlayers];
+  const Zones = myTeam ? [...sequanceOfZones] : [...indexOfZones];
   const showButtonStartingSix =
     team !== "my" &&
     zones.every((zone) => zone === null) &&
@@ -79,13 +83,11 @@ export function Squads({ team }) {
   }
 
   return (
-    <section className="teamsquad-section">
-      <div className="section-border">
-        <div className="section-background"></div>
-      </div>
-      <div className="section-content-wrapper">
-        <div className="section-content">
-          <div className="team-title-wrapper" style={team === "my" ? { direction: "rtl" } : {}}>
+    <SectionWrapper
+      className={"teamsquad-section"}
+      content={
+        <>
+          <div className="team-title-wrapper" style={myTeam ? { direction: "rtl" } : {}}>
             <div className="team-label-wrapper">
               <input className="team-label" readOnly value={club.name} />
             </div>
@@ -100,44 +102,18 @@ export function Squads({ team }) {
                 <div
                   key={player.name}
                   className="player-field-wrapper"
-                  style={team === "my" ? { direction: "rtl" } : {}}
+                  style={myTeam ? { direction: "rtl" } : {}}
                 >
                   <div className="playerNumber-wrapper">
-                    <button
-                      type="text"
-                      disabled
-                      className="playerNumber"
-                      style={
-                        team === "my"
-                          ? {
-                              backgroundColor: "fuchsia",
-                              borderTopRightRadius: 20,
-                              borderBottomRightRadius: 20,
-                              borderTopLeftRadius: 0,
-                              borderBottomLeftRadius: 0,
-                            }
-                          : {}
-                      }
-                    >
+                    <button type="text" disabled className={myTeam ? "playerNumber" : {}}>
                       {player.number > 9 ? player.number : `0${player.number}`}
                     </button>
                   </div>
                   <div className="player-surname-wrapper">
                     <button
                       type="text"
-                      className="player-surname"
+                      className={myTeam ? "player-surname" : {}}
                       onClick={() => setPlayerInfo(player)}
-                      style={
-                        team === "my"
-                          ? {
-                              backgroundColor: "darkgray",
-                              borderTopLeftRadius: 20,
-                              borderBottomLeftRadius: 20,
-                              borderTopRightRadius: 0,
-                              borderBottomRightRadius: 0,
-                            }
-                          : {}
-                      }
                     >
                       {player.name}
                     </button>
@@ -147,9 +123,9 @@ export function Squads({ team }) {
                       <select
                         className="moveToBoard"
                         type="text"
-                        onChange={team === "my" ? myTeamActions : rivalTeamActions}
+                        onChange={myTeam ? myTeamActions : rivalTeamActions}
                       >
-                        {team === "my" ? (
+                        {myTeam ? (
                           <option defaultValue="◀">◀</option>
                         ) : (
                           <option defaultValue="▶">▶</option>
@@ -170,8 +146,8 @@ export function Squads({ team }) {
               <Button onClick={showStartingSix} value={"Show Starting six"} />
             )}
           </div>
-        </div>
-      </div>
-    </section>
+        </>
+      }
+    />
   );
 }
