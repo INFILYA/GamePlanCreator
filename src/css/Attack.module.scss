@@ -49,56 +49,66 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
 }
-@mixin Z2($PathRight, $PathLeft) {
+@mixin Service {
+  aspect-ratio: 1 / 1.75;
+  padding-top: 75%;
+  font-size: 18px;
+}
+@mixin Z2($Green1, $Green2, $Orange1, $Orange2) {
   @include TopLeft(42%);
-  clip-path: polygon(0 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  clip-path: polygon(0 0, $Green1 $Green2, $Orange1 $Orange2);
   aspect-ratio: 1 / 1;
 }
-@mixin Z1($PathRight, $PathLeft) {
+@mixin Z1($Green1, $Green2, $Orange1, $Orange2) {
   @include TopLeft(26%);
-  clip-path: polygon(0 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  clip-path: polygon(0 0, $Green1 $Green2, $Orange1 $Orange2);
   aspect-ratio: 1 / 1.33;
+  padding-top: 62%;
 }
-@mixin Z4($PathRight, $PathLeft) {
+@mixin Z4($Green1, $Green2, $Orange1, $Orange2) {
   @include TopLeft(42%);
-  clip-path: polygon(100% 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  clip-path: polygon(100% 0, $Green1 $Green2, $Orange1 $Orange2);
   aspect-ratio: 1 / 1;
 }
-@mixin Pipe($PathRight, $PathLeft) {
+@mixin Pipe($Green1, $Green2, $Orange1, $Orange2, $Blue1: $Orange1, $Blue2: $Orange2) {
   @include TopLeft(26%);
-  clip-path: polygon(50% 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  clip-path: polygon(50% 0, $Green1 $Green2, $Orange1 $Orange2, $Blue1 $Blue2);
   aspect-ratio: 1 / 1.33;
+  padding-top: 62%;
 }
-@mixin K1($PathRight, $PathLeft) {
+@mixin K1($Green1, $Green2, $Orange1, $Orange2) {
   @include TopLeft(42%);
-  clip-path: polygon(35% 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  clip-path: polygon(35% 0, $Green1 $Green2, $Orange1 $Orange2);
   aspect-ratio: 1 / 1;
 }
-@mixin KC($PathRight, $PathLeft) {
+@mixin KC($Green1, $Green2, $Orange1, $Orange2, $Blue1: $Orange1, $Blue2: $Orange2) {
   @include TopLeft(42%);
-  clip-path: polygon(50% 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  clip-path: polygon(50% 0, $Green1 $Green2, $Orange1 $Orange2, $Blue1 $Blue2);
   aspect-ratio: 1 / 1;
 }
-@mixin K7($PathRight, $PathLeft) {
+@mixin K7($Green1, $Green2, $Orange1, $Orange2) {
   @include TopLeft(42%);
-  clip-path: polygon(65% 0, 16.66 * $PathLeft 100%, 16.66 * $PathRight 100%);
+  clip-path: polygon(65% 0, $Green1 $Green2, $Orange1 $Orange2);
   aspect-ratio: 1 / 1;
 }
 @mixin ServiceZone1($PathRight, $PathLeft) {
   @include TopLeft(5%);
   clip-path: polygon(15% 0, 33.3 * $PathLeft 100%, 33.3 * $PathRight 100%);
-  aspect-ratio: 1 / 1.75;
+  @include Service;
 }
 @mixin ServiceZone6($PathRight, $PathLeft) {
   @include TopLeft(5%);
   clip-path: polygon(50% 0, 33.3 * $PathLeft 100%, 33.3 * $PathRight 100%);
-  aspect-ratio: 1 / 1.75;
+  @include Service;
 }
 @mixin ServiceZone5($PathRight, $PathLeft) {
   @include TopLeft(5%);
   clip-path: polygon(85% 0, 33.3 * $PathLeft 100%, 33.3 * $PathRight 100%);
-  aspect-ratio: 1 / 1.75;
+  @include Service;
 }
 
 // Основной CSS
@@ -390,163 +400,263 @@
   }
   .cones-wrapper {
     .zone25A {
-      @include Z2(1%, 0.1%);
+      @include Z2(1%, 100%, 25%, 100%);
+      text-align: left;
+      padding-left: 3%;
     }
     .zone25B {
-      @include Z2(2%, 1%);
+      @include Z2(25%, 100%, 50%, 100%);
+      padding-left: 19%;
+      text-align: left;
     }
     .zone26A {
-      @include Z2(3%, 2%);
+      @include Z2(50%, 100%, 75%, 100%);
+      padding-left: 36%;
+      text-align: left;
     }
     .zone26B {
-      @include Z2(4%, 3%);
+      @include Z2(75%, 100%, 99%, 100%);
+      padding-right: 38%;
+      text-align: right;
     }
     .zone21A {
-      @include Z2(5%, 4%);
+      @include Z2(99%, 100%, 99%, 75%);
+      padding-right: 20%;
+      text-align: right;
     }
     .zone21B {
-      @include Z2(6%, 5%);
+      @include Z2(99%, 75%, 99%, 50%);
+      padding-right: 1%;
+      text-align: right;
     }
     // 1 Зона
     .zone15A {
-      @include Z1(1%, 0.1%);
+      @include Z1(1%, 100%, 20%, 100%);
+      text-align: left;
+      padding-left: 3%;
     }
     .zone15B {
-      @include Z1(2%, 1%);
+      @include Z1(20%, 100%, 40%, 100%);
+      text-align: left;
+      padding-left: 17%;
     }
     .zone16A {
-      @include Z1(3%, 2%);
+      @include Z1(40%, 100%, 60%, 100%);
+      text-align: left;
+      padding-left: 32%;
     }
     .zone16B {
-      @include Z1(4%, 3%);
+      @include Z1(60%, 100%, 80%, 100%);
+      text-align: right;
+      padding-right: 43%;
     }
     .zone11A {
-      @include Z1(5%, 4%);
+      @include Z1(80%, 100%, 99%, 100%);
+      text-align: right;
+      padding-right: 29%;
     }
     .zone11B {
-      @include Z1(6%, 5%);
+      @include Z1(99%, 100%, 99%, 80%);
+      text-align: right;
+      padding-right: 13%;
     }
     // // 4 зона
     .zone45A {
-      @include Z4(1%, 0);
+      @include Z4(1%, 50%, 1%, 75%);
+      text-align: left;
+      padding-left: 2%;
     }
     .zone45B {
-      @include Z4(2%, 1%);
+      @include Z4(1%, 75%, 1%, 100%);
+      padding-left: 20%;
+      text-align: left;
     }
     .zone46A {
-      @include Z4(3%, 2%);
+      @include Z4(1%, 100%, 25%, 100%);
+      padding-left: 39%;
+      text-align: left;
     }
     .zone46B {
-      @include Z4(4%, 3%);
+      @include Z4(25%, 100%, 50%, 100%);
+      padding-right: 35%;
+      text-align: right;
     }
     .zone41A {
-      @include Z4(5%, 4%);
+      @include Z4(50%, 100%, 75%, 100%);
+      padding-right: 19%;
+      text-align: right;
     }
     .zone41B {
-      @include Z4(5.9%, 5%);
+      @include Z4(75%, 100%, 99%, 100%);
+      padding-right: 2%;
+      text-align: right;
     }
     // // Пайп
     .Pipe5A {
-      @include Pipe(1%, 0);
+      @include Pipe(1%, 80%, 1%, 100%, 10%, 100%);
+      text-align: left;
+      padding-left: 8%;
     }
     .Pipe5B {
-      @include Pipe(2%, 1%);
+      @include Pipe(10%, 100%, 30%, 100%);
+      text-align: left;
+      padding-left: 23%;
     }
     .Pipe6A {
-      @include Pipe(3%, 2%);
+      @include Pipe(30%, 100%, 50%, 100%);
+      text-align: left;
+      padding-left: 39%;
     }
     .Pipe6B {
-      @include Pipe(4%, 3%);
+      @include Pipe(50%, 100%, 70%, 100%);
+      text-align: right;
+      padding-right: 37%;
     }
     .Pipe1A {
-      @include Pipe(5%, 4%);
+      @include Pipe(70%, 100%, 90%, 100%);
+      text-align: right;
+      padding-right: 23%;
     }
     .Pipe1B {
-      @include Pipe(6%, 5%);
+      @include Pipe(90%, 100%, 99%, 100%, 99%, 80%);
+      text-align: right;
+      padding-right: 8%;
     }
     // K1
     .K15A {
-      @include K1(1%, 0);
+      @include K1(1%, 50%, 1%, 100%);
+      text-align: left;
+      padding-left: 2%;
     }
     .K15B {
-      @include K1(2%, 1%);
+      @include K1(1%, 100%, 25%, 100%);
+      text-align: left;
+      padding-left: 15%;
     }
     .K16A {
-      @include K1(3%, 2%);
+      @include K1(25%, 100%, 50%, 100%);
+      text-align: left;
+      padding-left: 31%;
     }
     .K16B {
-      @include K1(4%, 3%);
+      @include K1(50%, 100%, 75%, 100%);
+      text-align: right;
+      padding-right: 43%;
     }
     .K11A {
-      @include K1(5%, 4%);
+      @include K1(75%, 100%, 99%, 100%);
+      text-align: right;
+      padding-right: 26%;
     }
     .K11B {
-      @include K1(6%, 5%);
+      @include K1(99%, 100%, 99%, 60%);
+      text-align: right;
+      padding-right: 8%;
     }
     // KC
     .KC5A {
-      @include KC(1%, 0);
+      @include KC(1%, 80%, 1%, 100%, 10%, 100%);
+      text-align: left;
+      padding-left: 12.5%;
     }
     .KC5B {
-      @include KC(2%, 1%);
+      @include KC(10%, 100%, 30%, 100%);
+      text-align: left;
+      padding-left: 25.5%;
     }
     .KC6A {
-      @include KC(3%, 2%);
+      @include KC(30%, 100%, 50%, 100%);
+      text-align: left;
+      padding-left: 38%;
     }
     .KC6B {
-      @include KC(4%, 3%);
+      @include KC(50%, 100%, 70%, 100%);
+      text-align: right;
+      padding-right: 39%;
     }
     .KC1A {
-      @include KC(5%, 4%);
+      @include KC(70%, 100%, 90%, 100%);
+      text-align: right;
+      padding-right: 25%;
     }
     .KC1B {
-      @include KC(6%, 5%);
+      @include KC(90%, 100%, 99%, 100%, 99%, 80%);
+      text-align: right;
+      padding-right: 13%;
     }
     // K7
     .K75A {
-      @include K7(1%, 0);
+      @include K7(1%, 60%, 1%, 100%);
+      text-align: left;
+      padding-left: 8%;
     }
     .K75B {
-      @include K7(2%, 1%);
+      @include K7(1%, 100%, 25%, 100%);
+      text-align: left;
+      padding-left: 26%;
     }
     .K76A {
-      @include K7(3%, 2%);
+      @include K7(25%, 100%, 50%, 100%);
+      text-align: left;
+      padding-left: 42.5%;
     }
     .K76B {
-      @include K7(4%, 3%);
+      @include K7(50%, 100%, 75%, 100%);
+      text-align: right;
+      padding-right: 31%;
     }
     .K71A {
-      @include K7(5%, 4%);
+      @include K7(75%, 100%, 99%, 100%);
+      text-align: right;
+      padding-right: 15%;
     }
     .K71B {
-      @include K7(6%, 5%);
+      @include K7(99%, 100%, 99%, 50%);
+      text-align: right;
+      padding-right: 1%;
     }
     .service1Z5 {
       @include ServiceZone1(1%, 0);
+      text-align: left;
+      padding-left: 11%;
     }
     .service1Z6 {
       @include ServiceZone1(2%, 1%);
+      text-align: left;
+      padding-left: 35%;
     }
     .service1Z1 {
       @include ServiceZone1(3%, 2%);
+      text-align: right;
+      padding-right: 30%;
     }
     .service5Z5 {
       @include ServiceZone5(1%, 0);
+      text-align: left;
+      padding-left: 30%;
     }
     .service5Z6 {
       @include ServiceZone5(2%, 1%);
+      text-align: right;
+      padding-right: 34%;
     }
     .service5Z1 {
       @include ServiceZone5(3%, 2%);
+      text-align: right;
+      padding-right: 11%;
     }
     .service6Z5 {
       @include ServiceZone6(1%, 0);
+      text-align: left;
+      padding-left: 21%;
     }
     .service6Z6 {
       @include ServiceZone6(2%, 1%);
     }
     .service6Z1 {
       @include ServiceZone6(3%, 2%);
+      text-align: right;
+      padding-right: 21%;
     }
   }
 }

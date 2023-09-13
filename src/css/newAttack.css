@@ -485,8 +485,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 1.666% 100%, 16.66% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 1% 100%, 25% 100%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 3%;
 }
 .playArea .cones-wrapper .zone25B {
   left: 0;
@@ -494,8 +499,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 16.66% 100%, 33.32% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 25% 100%, 50% 100%);
   aspect-ratio: 1/1;
+  padding-left: 19%;
+  text-align: left;
 }
 .playArea .cones-wrapper .zone26A {
   left: 0;
@@ -503,8 +513,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 33.32% 100%, 49.98% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 50% 100%, 75% 100%);
   aspect-ratio: 1/1;
+  padding-left: 36%;
+  text-align: left;
 }
 .playArea .cones-wrapper .zone26B {
   left: 0;
@@ -512,8 +527,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 49.98% 100%, 66.64% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 75% 100%, 99% 100%);
   aspect-ratio: 1/1;
+  padding-right: 38%;
+  text-align: right;
 }
 .playArea .cones-wrapper .zone21A {
   left: 0;
@@ -521,8 +541,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 66.64% 100%, 83.3% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 99% 100%, 99% 75%);
   aspect-ratio: 1/1;
+  padding-right: 20%;
+  text-align: right;
 }
 .playArea .cones-wrapper .zone21B {
   left: 0;
@@ -530,8 +555,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 83.3% 100%, 99.96% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 99% 75%, 99% 50%);
   aspect-ratio: 1/1;
+  padding-right: 1%;
+  text-align: right;
 }
 .playArea .cones-wrapper .zone15A {
   left: 0;
@@ -539,8 +569,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 1.666% 100%, 16.66% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 1% 100%, 20% 100%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: left;
+  padding-left: 3%;
 }
 .playArea .cones-wrapper .zone15B {
   left: 0;
@@ -548,8 +584,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 16.66% 100%, 33.32% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 20% 100%, 40% 100%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: left;
+  padding-left: 17%;
 }
 .playArea .cones-wrapper .zone16A {
   left: 0;
@@ -557,8 +599,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 33.32% 100%, 49.98% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 40% 100%, 60% 100%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: left;
+  padding-left: 32%;
 }
 .playArea .cones-wrapper .zone16B {
   left: 0;
@@ -566,8 +614,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 49.98% 100%, 66.64% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 60% 100%, 80% 100%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: right;
+  padding-right: 43%;
 }
 .playArea .cones-wrapper .zone11A {
   left: 0;
@@ -575,8 +629,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 66.64% 100%, 83.3% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 80% 100%, 99% 100%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: right;
+  padding-right: 29%;
 }
 .playArea .cones-wrapper .zone11B {
   left: 0;
@@ -584,8 +644,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(0 0, 83.3% 100%, 99.96% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(0 0, 99% 100%, 99% 80%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: right;
+  padding-right: 13%;
 }
 .playArea .cones-wrapper .zone45A {
   left: 0;
@@ -593,8 +659,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(100% 0, 0 100%, 16.66% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(100% 0, 1% 50%, 1% 75%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 2%;
 }
 .playArea .cones-wrapper .zone45B {
   left: 0;
@@ -602,8 +673,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(100% 0, 16.66% 100%, 33.32% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(100% 0, 1% 75%, 1% 100%);
   aspect-ratio: 1/1;
+  padding-left: 20%;
+  text-align: left;
 }
 .playArea .cones-wrapper .zone46A {
   left: 0;
@@ -611,8 +687,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(100% 0, 33.32% 100%, 49.98% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(100% 0, 1% 100%, 25% 100%);
   aspect-ratio: 1/1;
+  padding-left: 39%;
+  text-align: left;
 }
 .playArea .cones-wrapper .zone46B {
   left: 0;
@@ -620,8 +701,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(100% 0, 49.98% 100%, 66.64% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(100% 0, 25% 100%, 50% 100%);
   aspect-ratio: 1/1;
+  padding-right: 35%;
+  text-align: right;
 }
 .playArea .cones-wrapper .zone41A {
   left: 0;
@@ -629,8 +715,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(100% 0, 66.64% 100%, 83.3% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(100% 0, 50% 100%, 75% 100%);
   aspect-ratio: 1/1;
+  padding-right: 19%;
+  text-align: right;
 }
 .playArea .cones-wrapper .zone41B {
   left: 0;
@@ -638,8 +729,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(100% 0, 83.3% 100%, 98.294% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(100% 0, 75% 100%, 99% 100%);
   aspect-ratio: 1/1;
+  padding-right: 2%;
+  text-align: right;
 }
 .playArea .cones-wrapper .Pipe5A {
   left: 0;
@@ -647,8 +743,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 0 100%, 16.66% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 1% 80%, 1% 100%, 10% 100%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: left;
+  padding-left: 8%;
 }
 .playArea .cones-wrapper .Pipe5B {
   left: 0;
@@ -656,8 +758,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 16.66% 100%, 33.32% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 10% 100%, 30% 100%, 30% 100%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: left;
+  padding-left: 23%;
 }
 .playArea .cones-wrapper .Pipe6A {
   left: 0;
@@ -665,8 +773,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 33.32% 100%, 49.98% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 30% 100%, 50% 100%, 50% 100%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: left;
+  padding-left: 39%;
 }
 .playArea .cones-wrapper .Pipe6B {
   left: 0;
@@ -674,8 +788,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 49.98% 100%, 66.64% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 50% 100%, 70% 100%, 70% 100%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: right;
+  padding-right: 37%;
 }
 .playArea .cones-wrapper .Pipe1A {
   left: 0;
@@ -683,8 +803,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 66.64% 100%, 83.3% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 70% 100%, 90% 100%, 90% 100%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: right;
+  padding-right: 23%;
 }
 .playArea .cones-wrapper .Pipe1B {
   left: 0;
@@ -692,8 +818,14 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 83.3% 100%, 99.96% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 90% 100%, 99% 100%, 99% 80%);
   aspect-ratio: 1/1.33;
+  padding-top: 62%;
+  text-align: right;
+  padding-right: 8%;
 }
 .playArea .cones-wrapper .K15A {
   left: 0;
@@ -701,8 +833,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(35% 0, 0 100%, 16.66% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(35% 0, 1% 50%, 1% 100%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 2%;
 }
 .playArea .cones-wrapper .K15B {
   left: 0;
@@ -710,8 +847,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(35% 0, 16.66% 100%, 33.32% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(35% 0, 1% 100%, 25% 100%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 15%;
 }
 .playArea .cones-wrapper .K16A {
   left: 0;
@@ -719,8 +861,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(35% 0, 33.32% 100%, 49.98% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(35% 0, 25% 100%, 50% 100%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 31%;
 }
 .playArea .cones-wrapper .K16B {
   left: 0;
@@ -728,8 +875,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(35% 0, 49.98% 100%, 66.64% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(35% 0, 50% 100%, 75% 100%);
   aspect-ratio: 1/1;
+  text-align: right;
+  padding-right: 43%;
 }
 .playArea .cones-wrapper .K11A {
   left: 0;
@@ -737,8 +889,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(35% 0, 66.64% 100%, 83.3% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(35% 0, 75% 100%, 99% 100%);
   aspect-ratio: 1/1;
+  text-align: right;
+  padding-right: 26%;
 }
 .playArea .cones-wrapper .K11B {
   left: 0;
@@ -746,8 +903,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(35% 0, 83.3% 100%, 99.96% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(35% 0, 99% 100%, 99% 60%);
   aspect-ratio: 1/1;
+  text-align: right;
+  padding-right: 8%;
 }
 .playArea .cones-wrapper .KC5A {
   left: 0;
@@ -755,8 +917,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 0 100%, 16.66% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 1% 80%, 1% 100%, 10% 100%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 12.5%;
 }
 .playArea .cones-wrapper .KC5B {
   left: 0;
@@ -764,8 +931,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 16.66% 100%, 33.32% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 10% 100%, 30% 100%, 30% 100%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 25.5%;
 }
 .playArea .cones-wrapper .KC6A {
   left: 0;
@@ -773,8 +945,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 33.32% 100%, 49.98% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 30% 100%, 50% 100%, 50% 100%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 38%;
 }
 .playArea .cones-wrapper .KC6B {
   left: 0;
@@ -782,8 +959,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 49.98% 100%, 66.64% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 50% 100%, 70% 100%, 70% 100%);
   aspect-ratio: 1/1;
+  text-align: right;
+  padding-right: 39%;
 }
 .playArea .cones-wrapper .KC1A {
   left: 0;
@@ -791,8 +973,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 66.64% 100%, 83.3% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 70% 100%, 90% 100%, 90% 100%);
   aspect-ratio: 1/1;
+  text-align: right;
+  padding-right: 25%;
 }
 .playArea .cones-wrapper .KC1B {
   left: 0;
@@ -800,8 +987,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(50% 0, 83.3% 100%, 99.96% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(50% 0, 90% 100%, 99% 100%, 99% 80%);
   aspect-ratio: 1/1;
+  text-align: right;
+  padding-right: 13%;
 }
 .playArea .cones-wrapper .K75A {
   left: 0;
@@ -809,8 +1001,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(65% 0, 0 100%, 16.66% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(65% 0, 1% 60%, 1% 100%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 8%;
 }
 .playArea .cones-wrapper .K75B {
   left: 0;
@@ -818,8 +1015,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(65% 0, 16.66% 100%, 33.32% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(65% 0, 1% 100%, 25% 100%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 26%;
 }
 .playArea .cones-wrapper .K76A {
   left: 0;
@@ -827,8 +1029,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(65% 0, 33.32% 100%, 49.98% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(65% 0, 25% 100%, 50% 100%);
   aspect-ratio: 1/1;
+  text-align: left;
+  padding-left: 42.5%;
 }
 .playArea .cones-wrapper .K76B {
   left: 0;
@@ -836,8 +1043,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(65% 0, 49.98% 100%, 66.64% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(65% 0, 50% 100%, 75% 100%);
   aspect-ratio: 1/1;
+  text-align: right;
+  padding-right: 31%;
 }
 .playArea .cones-wrapper .K71A {
   left: 0;
@@ -845,8 +1057,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(65% 0, 66.64% 100%, 83.3% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(65% 0, 75% 100%, 99% 100%);
   aspect-ratio: 1/1;
+  text-align: right;
+  padding-right: 15%;
 }
 .playArea .cones-wrapper .K71B {
   left: 0;
@@ -854,8 +1071,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
-  clip-path: polygon(65% 0, 83.3% 100%, 99.96% 100%);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
+  clip-path: polygon(65% 0, 99% 100%, 99% 50%);
   aspect-ratio: 1/1;
+  text-align: right;
+  padding-right: 1%;
 }
 .playArea .cones-wrapper .service1Z5 {
   left: 0;
@@ -863,8 +1085,15 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
   clip-path: polygon(15% 0, 0 100%, 33.3% 100%);
   aspect-ratio: 1/1.75;
+  padding-top: 75%;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 11%;
 }
 .playArea .cones-wrapper .service1Z6 {
   left: 0;
@@ -872,8 +1101,15 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
   clip-path: polygon(15% 0, 33.3% 100%, 66.6% 100%);
   aspect-ratio: 1/1.75;
+  padding-top: 75%;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 35%;
 }
 .playArea .cones-wrapper .service1Z1 {
   left: 0;
@@ -881,8 +1117,15 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
   clip-path: polygon(15% 0, 66.6% 100%, 99.9% 100%);
   aspect-ratio: 1/1.75;
+  padding-top: 75%;
+  font-size: 18px;
+  text-align: right;
+  padding-right: 30%;
 }
 .playArea .cones-wrapper .service5Z5 {
   left: 0;
@@ -890,8 +1133,15 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
   clip-path: polygon(85% 0, 0 100%, 33.3% 100%);
   aspect-ratio: 1/1.75;
+  padding-top: 75%;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 30%;
 }
 .playArea .cones-wrapper .service5Z6 {
   left: 0;
@@ -899,8 +1149,15 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
   clip-path: polygon(85% 0, 33.3% 100%, 66.6% 100%);
   aspect-ratio: 1/1.75;
+  padding-top: 75%;
+  font-size: 18px;
+  text-align: right;
+  padding-right: 34%;
 }
 .playArea .cones-wrapper .service5Z1 {
   left: 0;
@@ -908,8 +1165,15 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
   clip-path: polygon(85% 0, 66.6% 100%, 99.9% 100%);
   aspect-ratio: 1/1.75;
+  padding-top: 75%;
+  font-size: 18px;
+  text-align: right;
+  padding-right: 11%;
 }
 .playArea .cones-wrapper .service6Z5 {
   left: 0;
@@ -917,8 +1181,15 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
   clip-path: polygon(50% 0, 0 100%, 33.3% 100%);
   aspect-ratio: 1/1.75;
+  padding-top: 75%;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 21%;
 }
 .playArea .cones-wrapper .service6Z6 {
   left: 0;
@@ -926,8 +1197,13 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
   clip-path: polygon(50% 0, 33.3% 100%, 66.6% 100%);
   aspect-ratio: 1/1.75;
+  padding-top: 75%;
+  font-size: 18px;
 }
 .playArea .cones-wrapper .service6Z1 {
   left: 0;
@@ -935,8 +1211,15 @@
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30%;
   clip-path: polygon(50% 0, 66.6% 100%, 99.9% 100%);
   aspect-ratio: 1/1.75;
+  padding-top: 75%;
+  font-size: 18px;
+  text-align: right;
+  padding-right: 21%;
 }
 
 /*# sourceMappingURL=newAttack.css.map */

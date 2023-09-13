@@ -32,7 +32,6 @@ export function AttackFields() {
   const [saveDataOfAttacks, setSaveDataOfAttacks] = useState(false);
   const [disableSwitch, setDisableSwitch] = useState(false);
   const [confirmReturn, setConfirmReturn] = useState(false);
-  const [attackPercentageArray, setAttackPercentageArray] = useState([]);
   const [previousPlayerData, setPreviousPlayerData] = useState(null);
   const [previousTeamData, setPreviousTeamData] = useState(null);
   const [attackType, setattackType] = useState("chooseTypeOfAttack");
@@ -67,7 +66,6 @@ export function AttackFields() {
   }, [dispatch]);
   const classNamesForConesAndInputs = ["5A", "5B", "6A", "6B", "1A", "1B"];
   let AttacksByZone = Object.values(zoneValue);
-  const buttonCountDisabled = AttacksByZone.every((zone) => typeof zone === "string");
   const chooseTypeOfAttack = (event) => {
     setattackType(event.target.value);
   };
@@ -150,10 +148,9 @@ export function AttackFields() {
     const totalAttacks = reduce(AttacksByZone, 0.0001);
     const result = AttacksByZone.map((attacks) => Math.round((attacks / totalAttacks) * 100));
     const upgradedZoneValue = Object.fromEntries(
-      Object.entries(result).map(([key, value]) => [+key + 1, value + "%"])
+      Object.entries(result).map(([key, value]) => [+key + 1, value])
     );
     setZoneValue(upgradedZoneValue);
-    setAttackPercentageArray(result);
     setShowInputs(!showInputs);
     setDisableSwitch(!disableSwitch);
   }
@@ -179,10 +176,9 @@ export function AttackFields() {
     const totalAttacks = reduce(attHistory, 0.0001);
     const result = attHistory.map((attacks) => Math.round((attacks / totalAttacks) * 100));
     const upgradedZoneValue = Object.fromEntries(
-      Object.entries(result).map(([key, value]) => [+key + 1, value + "%"])
+      Object.entries(result).map(([key, value]) => [+key + 1, value])
     );
     setZoneValue(upgradedZoneValue);
-    setAttackPercentageArray(result);
     setShowInputs(!showInputs);
     setDisableSwitch(!disableSwitch);
     setShowDataOfAttacks(!showDataOfAttacks);
@@ -224,7 +220,6 @@ export function AttackFields() {
       console.error(error);
     }
   };
-
   return (
     <SectionWrapper
       className={"playArea-section"}
@@ -249,23 +244,17 @@ export function AttackFields() {
             <select
               className="typeOfAction"
               onChange={chooseTypeOfAttack}
-              disabled={!showInputs || buttonCountDisabled}
+              disabled={!showInputs || disableSwitch}
             >
               <option value="chooseTypeOfAttack">
-                {!showInputs || buttonCountDisabled
-                  ? `Choose zone of attack`
-                  : `Choose type of attack`}
+                {!showInputs ? `Choose zone of attack` : `Choose type of attack`}
               </option>
               <option value="FastBall">Fast ball</option>
               {playerInfo.position !== "MBlocker" && <option value="HighBall">High ball</option>}
             </select>
           </div>
           <div className="count-button-wrapper">
-            <button
-              type="submit"
-              className="countButton"
-              disabled={!showInputs || buttonCountDisabled}
-            >
+            <button type="submit" className="countButton" disabled={!showInputs || disableSwitch}>
               Count
             </button>
           </div>
@@ -362,17 +351,19 @@ export function AttackFields() {
                   )
               : null}
           </div>
-          <div className="cones-wrapper">
-            {classNamesForConesAndInputs.map((el, index) => (
-              <ConeReaction
-                key={index}
-                attackPercentageArray={attackPercentageArray[index]}
-                cone={el}
-                historyOfBalls={historyOfBalls}
-                type={"Attack"}
-              />
-            ))}
-          </div>
+          {disableSwitch && !showDataOfAttacks && (
+            <div className="cones-wrapper">
+              {classNamesForConesAndInputs.map((el, index) => (
+                <ConeReaction
+                  key={index}
+                  zoneValue={zoneValue[index + 1]}
+                  cone={el}
+                  historyOfBalls={historyOfBalls}
+                  type={"Attack"}
+                />
+              ))}
+            </div>
+          )}
           {showBalls && (
             <>
               <div className="tip-wrapper">
@@ -385,16 +376,14 @@ export function AttackFields() {
                 <DefenderZone6 />
                 <DefenderZone6 />
               </div>
-              {!showDataOfAttacks && (
+              {!disableSwitch && !showDataOfAttacks && (
                 <div className="inputs-wrapper">
                   {classNamesForConesAndInputs.map((el, index) => (
                     <InputForCount
-                      key={index}
+                      key={el}
                       name={index + 1}
                       onChange={handleZoneValue}
                       zoneValue={zoneValue[index + 1]}
-                      showInputs={showInputs}
-                      attackPercentageArray={attackPercentageArray[index]}
                     />
                   ))}
                 </div>

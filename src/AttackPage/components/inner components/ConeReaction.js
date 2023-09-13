@@ -1,12 +1,18 @@
-export function ConeReaction({ attackPercentageArray, cone, historyOfBalls, type }) {
+export function ConeReaction({ zoneValue, cone, historyOfBalls, type }) {
   function button(zone) {
-    const x = attackPercentageArray === 0 ? "transparent" : 100 - attackPercentageArray * 1.5;
+    const x = zoneValue === 0 ? "transparent" : 100 - zoneValue * 1.5;
     return (
       <button
         type="button"
-        style={{ backgroundColor: `hsl(0,100%,${x}%)` }}
+        style={
+          zoneValue > 40
+            ? { backgroundColor: `hsl(0,100%,${x}%)`, color: "white" }
+            : { backgroundColor: `hsl(0,100%,${x}%)` }
+        }
         className={zone + cone}
-      ></button>
+      >
+        {zoneValue}%
+      </button>
     );
   }
   return (

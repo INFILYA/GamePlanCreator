@@ -34,7 +34,6 @@ export function ServiceFields() {
   const [confirmReturn, setConfirmReturn] = useState(false);
   const [previousPlayerData, setPreviousPlayerData] = useState(null);
   const [previousTeamData, setPreviousTeamData] = useState(null);
-  const [attackPercentageArray, setAttackPercentageArray] = useState([]);
   const [serviceType, setserviceType] = useState("chooseZoneOfService");
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "serviceZone1", active: false },
@@ -63,7 +62,6 @@ export function ServiceFields() {
   const arrayForRecievers = [1, 2, 3, 4, 5];
 
   let ServiceByZone = Object.values(zoneValue);
-  const buttonCountDisabled = ServiceByZone.every((zone) => typeof zone === "string");
   const checkEquality =
     diagrammValue.servicePlus +
       diagrammValue.serviceMinus +
@@ -141,10 +139,9 @@ export function ServiceFields() {
     const totalServices = reduce(ServiceByZone, 0.0001);
     const result = ServiceByZone.map((obj) => Math.round((obj / totalServices) * 100));
     const upgradedZoneValue = Object.fromEntries(
-      Object.entries(result).map(([key, value]) => [+key + 1, value + "%"])
+      Object.entries(result).map(([key, value]) => [+key + 1, value])
     );
     setZoneValue(upgradedZoneValue);
-    setAttackPercentageArray(result);
     setShowInputs(!showInputs);
     setDisableSwitch(!disableSwitch);
   }
@@ -202,14 +199,14 @@ export function ServiceFields() {
     const totalAttacks = reduce(attHistory, 0.0001);
     const result = attHistory.map((attacks) => Math.round((attacks / totalAttacks) * 100));
     const upgradedZoneValue = Object.fromEntries(
-      Object.entries(result).map(([key, value]) => [+key + 1, value + "%"])
+      Object.entries(result).map(([key, value]) => [+key + 1, value])
     );
     setZoneValue(upgradedZoneValue);
-    setAttackPercentageArray(result);
     setShowInputs(!showInputs);
     setDisableSwitch(!disableSwitch);
     setShowDataOfAttacks(!showDataOfAttacks);
   }
+  console.log(zoneValue[3])
   return (
     <SectionWrapper
       className={"playArea-section"}
@@ -234,23 +231,17 @@ export function ServiceFields() {
             <select
               className="typeOfAction"
               onChange={chooseTypeOfService}
-              disabled={!showInputs || buttonCountDisabled}
+              disabled={!showInputs || disableSwitch}
             >
               <option value="chooseTypeOfService">
-                {!showInputs || buttonCountDisabled
-                  ? "Choose zone of service"
-                  : "Choose type of service"}
+                {!showInputs ? "Choose zone of service" : "Choose type of service"}
               </option>
               <option value="Jump">Jump</option>
               <option value="Float">Float</option>
             </select>
           </div>
           <div className="count-button-wrapper">
-            <button
-              type="submit"
-              className="countButton"
-              disabled={!showInputs || buttonCountDisabled}
-            >
+            <button type="submit" className="countButton" disabled={!showInputs || disableSwitch}>
               Count
             </button>
           </div>
@@ -283,16 +274,18 @@ export function ServiceFields() {
               )
             )}
           </div>
-          <div className="cones-wrapper">
-            {classNamesForConesAndInputs.map((el, index) => (
-              <ConeReaction
-                key={index}
-                attackPercentageArray={attackPercentageArray[index]}
-                cone={el}
-                historyOfBalls={historyOfBalls}
-              />
-            ))}
-          </div>
+          {disableSwitch && !showDataOfAttacks && (
+            <div className="cones-wrapper">
+              {classNamesForConesAndInputs.map((el, index) => (
+                <ConeReaction
+                  key={index}
+                  zoneValue={zoneValue[index + 1]}
+                  cone={el}
+                  historyOfBalls={historyOfBalls}
+                />
+              ))}
+            </div>
+          )}
           {showBalls && (
             <>
               <div className="tip-wrapper">
@@ -305,16 +298,14 @@ export function ServiceFields() {
                   <DefenderZone6 key={reciever} />
                 ))}
               </div>
-              {!showDataOfAttacks && (
+              {!disableSwitch && !showDataOfAttacks && (
                 <div className="inputs-wrapper">
                   {classNamesForConesAndInputs.map((el, index) => (
                     <InputForCount
-                      key={index}
+                      key={el}
                       name={index + 1}
                       onChange={handleZoneValue}
                       zoneValue={zoneValue[index + 1]}
-                      showInputs={showInputs}
-                      attackPercentageArray={attackPercentageArray[index]}
                     />
                   ))}
                 </div>
