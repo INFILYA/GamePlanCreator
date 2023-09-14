@@ -27,7 +27,8 @@
   position: relative;
   display: flex;
   justify-content: space-around;
-  padding-top: 15px;
+  padding-top: 19px;
+  border-bottom: 5px solid white;
 }
 .distribution-wrapper .distrfield-wrapper .block-wrapper .smallarrowleft {
   background: url(../photos/arrowright.png) no-repeat center center;
@@ -84,7 +85,6 @@
 .distribution-wrapper .distrfield-wrapper .playarea-wrapper {
   position: relative;
   width: 100%;
-  padding: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -93,26 +93,25 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 22px 0;
   box-sizing: border-box;
 }
 .distribution-wrapper .distrfield-wrapper .playarea-wrapper .line-wrapper .input-wrapper {
-  width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 2px solid white;
+  border-top: none;
+  border-bottom: 5px solid white;
 }
+.distribution-wrapper .distrfield-wrapper .playarea-wrapper .line-wrapper .input-wrapper input,
 .distribution-wrapper .distrfield-wrapper .playarea-wrapper .line-wrapper .input-wrapper span {
-  font-size: 20px;
-  font-weight: 600;
-}
-.distribution-wrapper .distrfield-wrapper .playarea-wrapper .line-wrapper .input-wrapper input {
   width: 100%;
   text-align: center;
-  aspect-ratio: 1/1;
-  font-size: 18px;
-  border: 2px solid black;
-  border-radius: 5px;
+  aspect-ratio: 1/0.97;
+  font-size: 24px;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
 }
 .distribution-wrapper .distrfield-wrapper .playarea-wrapper .line-wrapper .count {
   background-color: #0272be;
@@ -124,6 +123,7 @@
   z-index: 2;
   font-size: 18px;
   font-weight: 600;
+  margin-top: 20px;
 }
 .distribution-wrapper .distrfield-wrapper .playarea-wrapper .line-wrapper .count:hover {
   transition: 0.3s;
