@@ -1,10 +1,4 @@
-export function InputDistribution({
-  distributionArr,
-  zoneValue,
-  handleZoneValue,
-  name,
-  readOnly,
-}) {
+export function InputDistribution({ distributionArr, zoneValue, handleZoneValue, name, readOnly }) {
   const x = distributionArr === 0 ? 0 : distributionArr * 2;
   return (
     <div className="input-wrapper">
@@ -22,7 +16,7 @@ export function InputDistribution({
                     : 0
                 },${x}%,50%)`
               : "transparent",
-          border: distributionArr === 0 && "none",
+          border: distributionArr === 0 ? "none" : "2px solid black",
           color: distributionArr === 0 && "transparent",
         }}
         type="text"

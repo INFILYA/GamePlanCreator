@@ -259,7 +259,7 @@ main {
             background-color: orangered;
             border: 1px solid black;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.3rem);
+            font-size: calc(1vmax + 0.1rem);
             border-radius: 5px;
             padding: 0.3vw 1vw;
             margin: 0 1vw;
@@ -396,6 +396,9 @@ main {
         //ПОЛЕ РОТАЦІЇ КОМАНД
         .rotation-field-wrapper {
           width: 100%;
+          .reset-button-wrapper {
+            margin: -10px 0;
+          }
           .row-zones-wrapper {
             display: flex;
             .zone-names-wrapper {

@@ -105,7 +105,7 @@ export function DistrField() {
                 </div>
                 <div className="line-wrapper">
                   <div className="input-wrapper">
-                    <input value={"Zone 5"} readOnly />
+                    <input value={"Zone 5"} readOnly style={{ fontSize: 20 }} />
                   </div>
                   {inputDistributionArr.slice(3, 5).map((input) => (
                     <InputDistribution
