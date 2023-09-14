@@ -1,3 +1,27 @@
+@mixin arrows {
+  background-size: contain;
+  border: none;
+  height: 100%;
+  aspect-ratio: 2/1;
+  padding: 0px 20px;
+  // margin: 0 10px;
+  border: 3px solid transparent;
+  z-index: 3;
+}
+@mixin defenders {
+  height: 100%;
+  position: relative;
+  z-index: 3;
+  border-radius: 25px 25px 0 0;
+  box-sizing: border-box;
+  aspect-ratio: 2/1;
+  padding: 0px 20px;
+  &:hover {
+    background-color: yellow;
+    border: 3px solid black;
+    cursor: pointer;
+  }
+}
 .distribution-wrapper {
   width: 100%;
   .distrfield-wrapper {
@@ -13,10 +37,87 @@
         box-sizing: border-box;
         border-bottom: 2px solid white;
         width: 100%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
       }
       select[disabled] {
         opacity: 1;
         background-color: #0272be;
+      }
+    }
+    .block-wrapper {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      padding-top: 15px;
+      .smallarrowleft {
+        background: url(../photos/arrowright.png) no-repeat center center;
+        @include arrows;
+      }
+      .smallarrowright {
+        background: url(../photos/arrowleft.png) no-repeat center center;
+        @include arrows;
+      }
+      .blockOn {
+        background-color: yellow;
+        border: 3px solid black;
+        @include defenders;
+      }
+      .blockOff {
+        background-color: transparent;
+        border: 3px solid transparent;
+        @include defenders;
+      }
+    }
+    .playarea-wrapper {
+      position: relative;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      .line-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 22px 0;
+        box-sizing: border-box;
+        .input-wrapper {
+          width: 20%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          span {
+            font-size: 20px;
+            font-weight: 600;
+          }
+          input {
+            width: 100%;
+            text-align: center;
+            aspect-ratio: 1/1;
+            font-size: 18px;
+            border: 2px solid black;
+            border-radius: 5px;
+          }
+        }
+        .count {
+          background-color: #0272be;
+          cursor: pointer;
+          border: 2px solid white;
+          border-radius: 25px;
+          padding: 1vmin 2vmin;
+          color: white;
+          z-index: 2;
+          font-size: 18px;
+          font-weight: 600;
+          &:hover {
+            transition: 0.3s;
+            opacity: 1;
+            scale: (1.3);
+          }
+        }
       }
     }
   }

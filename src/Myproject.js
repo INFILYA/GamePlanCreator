@@ -6,10 +6,6 @@ import Page1 from "./Page1/Page1";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Auth } from "./Header/components/Auth";
-import "../src/css/newTutorial.css";
-import "../src/css/newHeader.css";
-import "../src/css/newMain.css";
-import "../src/css/newDistribution.css";
 import {
   LiberosRating,
   MiddleBlockersRating,

@@ -63,6 +63,9 @@
   box-sizing: border-box;
   border-bottom: 2px solid white;
   width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .playArea .select-wrapper select[disabled] {
   opacity: 1;

@@ -39,10 +39,9 @@ export function DistrField() {
       [event.target.name]: +event.target.value.replace(/\D+/g, ""),
     });
   }
-  function handleSelectOption(event) {
+  function handleSelectOption() {
     setZoneValue({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 });
-    setShowButtonCount(!showButtonCount);
-    setShowButtonSelect(!showButtonSelect);
+    setShowButtonCount(true);
   }
   function onHandleCountClick(event) {
     event.preventDefault();
@@ -55,6 +54,7 @@ export function DistrField() {
     setZoneValue(countedResult);
     setDistributionArr(res);
     setShowButtonCount(!showButtonCount);
+    setShowButtonSelect(!showButtonSelect);
   }
   return (
     <SectionWrapper
@@ -68,11 +68,11 @@ export function DistrField() {
             <div className="select-wrapper">
               <select
                 className="typeOfCall"
-                defaultValue="Choose type"
+                defaultValue="Choose type of call"
                 onChange={handleSelectOption}
                 disabled={!showButtonSelect}
               >
-                <option disabled={true}>Choose type</option>
+                <option disabled={true}>Choose type of call</option>
                 {typesOfSituations.map((type) =>
                   showButtonSelect ? (
                     <option key={type} value={type}>
@@ -84,14 +84,14 @@ export function DistrField() {
                 )}
               </select>
             </div>
-            <div className="overNet">
+            <div className="block-wrapper">
               {inputDistributionArr.map((input) => (
                 <BlockHelp key={input} />
               ))}
             </div>
             {zoneValue && (
-              <div>
-                <div className="firstline">
+              <div className="playarea-wrapper">
+                <div className="line-wrapper">
                   {inputDistributionArr.slice(0, 3).map((input) => (
                     <InputDistribution
                       key={input}
@@ -99,13 +99,14 @@ export function DistrField() {
                       zoneValue={zoneValue[input]}
                       handleZoneValue={handleZoneValue}
                       name={input}
-                      showButtonCount={showButtonCount}
+                      readOnly={!showButtonSelect}
                     />
                   ))}
                 </div>
-                <hr></hr>
-                <div className="secondline">
-                  <span>Zone 5</span>
+                <div className="line-wrapper">
+                  <div className="input-wrapper">
+                    <span>Zone 5</span>
+                  </div>
                   {inputDistributionArr.slice(3, 5).map((input) => (
                     <InputDistribution
                       key={input}
@@ -113,27 +114,20 @@ export function DistrField() {
                       zoneValue={zoneValue[input]}
                       handleZoneValue={handleZoneValue}
                       name={input}
-                      showButtonCount={showButtonCount}
+                      readOnly={!showButtonSelect}
                     />
                   ))}
                 </div>
+                <div className="line-wrapper" style={{ justifyContent: "center" }}>
+                  {showButtonCount && (
+                    <button className="count" type="submit" disabled={!showButtonCount}>
+                      Count
+                    </button>
+                  )}
+                </div>
               </div>
             )}
-            {showButtonCount && (
-              <button className="count" type="submit" disabled={!showButtonCount}>
-                Count
-              </button>
-            )}
           </form>
-          {/* {!showButtonCount && (
-            <div className="notice">
-              {!zoneValue ? (
-                <input defaultValue="Please choose type of the call" readOnly></input>
-              ) : (
-                <input placeholder="Leave your notice"></input>
-              )}
-            </div>
-          )} */}
         </div>
       }
     />
