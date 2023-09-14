@@ -54,7 +54,7 @@
   padding-top: 30%;
 }
 @mixin Service {
-  aspect-ratio: 1 / 1.75;
+  aspect-ratio: 1 / 1.74;
   padding-top: 75%;
   font-size: 18px;
 }
@@ -66,7 +66,7 @@
 @mixin Z1($Green1, $Green2, $Orange1, $Orange2) {
   @include TopLeft(26%);
   clip-path: polygon(0 0, $Green1 $Green2, $Orange1 $Orange2);
-  aspect-ratio: 1 / 1.33;
+  aspect-ratio: 1 / 1.32;
   padding-top: 62%;
 }
 @mixin Z4($Green1, $Green2, $Orange1, $Orange2) {
@@ -77,7 +77,7 @@
 @mixin Pipe($Green1, $Green2, $Orange1, $Orange2, $Blue1: $Orange1, $Blue2: $Orange2) {
   @include TopLeft(26%);
   clip-path: polygon(50% 0, $Green1 $Green2, $Orange1 $Orange2, $Blue1 $Blue2);
-  aspect-ratio: 1 / 1.33;
+  aspect-ratio: 1 / 1.32;
   padding-top: 62%;
 }
 @mixin K1($Green1, $Green2, $Orange1, $Orange2) {
@@ -134,9 +134,10 @@
     justify-content: space-around;
     width: 100%;
     color: white;
+    min-height: 24px;
     .returnButton {
       background-color: yellowgreen;
-      font-size: 18px;
+      font-size: 15px;
       border: 2px solid black;
       border-radius: 1vw;
       font-weight: bold;
@@ -619,7 +620,7 @@
       padding-right: 1%;
     }
     .service1Z5 {
-      @include ServiceZone1(1%, 0);
+      @include ServiceZone1(1%, 0.033%);
       text-align: left;
       padding-left: 11%;
     }
@@ -629,12 +630,12 @@
       padding-left: 35%;
     }
     .service1Z1 {
-      @include ServiceZone1(3%, 2%);
+      @include ServiceZone1(2.967%, 2%);
       text-align: right;
       padding-right: 30%;
     }
     .service5Z5 {
-      @include ServiceZone5(1%, 0);
+      @include ServiceZone5(1%, 0.033%);
       text-align: left;
       padding-left: 30%;
     }
@@ -644,12 +645,12 @@
       padding-right: 34%;
     }
     .service5Z1 {
-      @include ServiceZone5(3%, 2%);
+      @include ServiceZone5(2.967%, 2%);
       text-align: right;
       padding-right: 11%;
     }
     .service6Z5 {
-      @include ServiceZone6(1%, 0);
+      @include ServiceZone6(1%, 0.03%);
       text-align: left;
       padding-left: 21%;
     }
@@ -657,7 +658,7 @@
       @include ServiceZone6(2%, 1%);
     }
     .service6Z1 {
-      @include ServiceZone6(3%, 2%);
+      @include ServiceZone6(2.967%, 2%);
       text-align: right;
       padding-right: 21%;
     }
