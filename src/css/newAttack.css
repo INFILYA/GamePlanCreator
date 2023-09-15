@@ -9,6 +9,9 @@
   background-color: #0272be;
   justify-content: center;
   align-items: center;
+  border: 4px solid white;
+  border-bottom: none;
+  box-sizing: border-box;
 }
 .explain label {
   font-size: 18px;
@@ -41,7 +44,7 @@
 }
 .explain .input-wrapper input {
   width: 100%;
-  border: 1px solid black;
+  border: 2px solid black;
   font-weight: bold;
   text-align: center;
   font-size: 15px;
@@ -62,7 +65,7 @@
   font-size: 18px;
   border: none;
   box-sizing: border-box;
-  border-bottom: 2px solid white;
+  border: 4px solid white;
   width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -80,7 +83,7 @@
   z-index: 16;
   font-size: 18px;
   width: 100%;
-  padding: 10px 0;
+  padding-bottom: 15px;
 }
 .playArea .compareFields .input-equality-wrapper,
 .playArea .compareFields .label-equality-wrapper {
@@ -198,7 +201,7 @@
   background-color: transparent;
   z-index: 5;
   width: 100%;
-  aspect-ratio: 1/2.13;
+  aspect-ratio: 1/2.04;
   text-align: center;
   font-size: calc(2vmin + 0.75rem);
   border-bottom: none;
@@ -279,10 +282,10 @@
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -291,6 +294,8 @@
 .playArea .zones-wrapper .attackZone2:hover {
   transition: 0.3s;
   background-color: orangered;
+  border: 3px solid white;
+  color: white;
   opacity: 1;
   scale: 1.15;
 }
@@ -300,10 +305,10 @@
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -312,6 +317,8 @@
 .playArea .zones-wrapper .attackZone1:hover {
   transition: 0.3s;
   background-color: orangered;
+  border: 3px solid white;
+  color: white;
   opacity: 1;
   scale: 1.15;
 }
@@ -321,10 +328,10 @@
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -333,6 +340,8 @@
 .playArea .zones-wrapper .attackZone4:hover {
   transition: 0.3s;
   background-color: orangered;
+  border: 3px solid white;
+  color: white;
   opacity: 1;
   scale: 1.15;
 }
@@ -342,10 +351,10 @@
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -354,6 +363,8 @@
 .playArea .zones-wrapper .attackPipe:hover {
   transition: 0.3s;
   background-color: orangered;
+  border: 3px solid white;
+  color: white;
   opacity: 1;
   scale: 1.15;
 }
@@ -363,10 +374,10 @@
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -375,6 +386,8 @@
 .playArea .zones-wrapper .attackK1:hover {
   transition: 0.3s;
   background-color: orangered;
+  border: 3px solid white;
+  color: white;
   opacity: 1;
   scale: 1.15;
 }
@@ -384,10 +397,10 @@
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -396,6 +409,8 @@
 .playArea .zones-wrapper .attackKC:hover {
   transition: 0.3s;
   background-color: orangered;
+  border: 3px solid white;
+  color: white;
   opacity: 1;
   scale: 1.15;
 }
@@ -405,10 +420,10 @@
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -417,19 +432,21 @@
 .playArea .zones-wrapper .attackK7:hover {
   transition: 0.3s;
   background-color: orangered;
+  border: 3px solid white;
+  color: white;
   opacity: 1;
   scale: 1.15;
 }
 .playArea .zones-wrapper .serviceZone1 {
   left: 8%;
-  top: 8%;
+  top: 9.3%;
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -438,19 +455,21 @@
 .playArea .zones-wrapper .serviceZone1:hover {
   transition: 0.3s;
   background-color: orangered;
+  border: 3px solid white;
+  color: white;
   opacity: 1;
   scale: 1.15;
 }
 .playArea .zones-wrapper .serviceZone6 {
   left: 43%;
-  top: 8%;
+  top: 9.3%;
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -459,19 +478,21 @@
 .playArea .zones-wrapper .serviceZone6:hover {
   transition: 0.3s;
   background-color: orangered;
+  border: 3px solid white;
+  color: white;
   opacity: 1;
   scale: 1.15;
 }
 .playArea .zones-wrapper .serviceZone5 {
   right: 8%;
-  top: 8%;
+  top: 9.3%;
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -480,12 +501,14 @@
 .playArea .zones-wrapper .serviceZone5:hover {
   transition: 0.3s;
   background-color: orangered;
+  border: 3px solid white;
+  color: white;
   opacity: 1;
   scale: 1.15;
 }
 .playArea .cones-wrapper .zone25A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -499,7 +522,7 @@
 }
 .playArea .cones-wrapper .zone25B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -513,7 +536,7 @@
 }
 .playArea .cones-wrapper .zone26A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -527,7 +550,7 @@
 }
 .playArea .cones-wrapper .zone26B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -541,7 +564,7 @@
 }
 .playArea .cones-wrapper .zone21A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -555,7 +578,7 @@
 }
 .playArea .cones-wrapper .zone21B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -569,7 +592,7 @@
 }
 .playArea .cones-wrapper .zone15A {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -584,7 +607,7 @@
 }
 .playArea .cones-wrapper .zone15B {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -599,7 +622,7 @@
 }
 .playArea .cones-wrapper .zone16A {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -614,7 +637,7 @@
 }
 .playArea .cones-wrapper .zone16B {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -629,7 +652,7 @@
 }
 .playArea .cones-wrapper .zone11A {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -644,7 +667,7 @@
 }
 .playArea .cones-wrapper .zone11B {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -659,7 +682,7 @@
 }
 .playArea .cones-wrapper .zone45A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -673,7 +696,7 @@
 }
 .playArea .cones-wrapper .zone45B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -687,7 +710,7 @@
 }
 .playArea .cones-wrapper .zone46A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -701,7 +724,7 @@
 }
 .playArea .cones-wrapper .zone46B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -715,7 +738,7 @@
 }
 .playArea .cones-wrapper .zone41A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -729,7 +752,7 @@
 }
 .playArea .cones-wrapper .zone41B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -743,7 +766,7 @@
 }
 .playArea .cones-wrapper .Pipe5A {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -758,7 +781,7 @@
 }
 .playArea .cones-wrapper .Pipe5B {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -773,7 +796,7 @@
 }
 .playArea .cones-wrapper .Pipe6A {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -788,7 +811,7 @@
 }
 .playArea .cones-wrapper .Pipe6B {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -803,7 +826,7 @@
 }
 .playArea .cones-wrapper .Pipe1A {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -818,7 +841,7 @@
 }
 .playArea .cones-wrapper .Pipe1B {
   left: 0;
-  top: 26%;
+  top: 24.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -833,7 +856,7 @@
 }
 .playArea .cones-wrapper .K15A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -847,7 +870,7 @@
 }
 .playArea .cones-wrapper .K15B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -861,7 +884,7 @@
 }
 .playArea .cones-wrapper .K16A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -875,7 +898,7 @@
 }
 .playArea .cones-wrapper .K16B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -889,7 +912,7 @@
 }
 .playArea .cones-wrapper .K11A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -903,7 +926,7 @@
 }
 .playArea .cones-wrapper .K11B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -917,7 +940,7 @@
 }
 .playArea .cones-wrapper .KC5A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -931,7 +954,7 @@
 }
 .playArea .cones-wrapper .KC5B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -945,7 +968,7 @@
 }
 .playArea .cones-wrapper .KC6A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -959,7 +982,7 @@
 }
 .playArea .cones-wrapper .KC6B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -973,7 +996,7 @@
 }
 .playArea .cones-wrapper .KC1A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -987,7 +1010,7 @@
 }
 .playArea .cones-wrapper .KC1B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1001,7 +1024,7 @@
 }
 .playArea .cones-wrapper .K75A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1015,7 +1038,7 @@
 }
 .playArea .cones-wrapper .K75B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1029,7 +1052,7 @@
 }
 .playArea .cones-wrapper .K76A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1043,7 +1066,7 @@
 }
 .playArea .cones-wrapper .K76B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1057,7 +1080,7 @@
 }
 .playArea .cones-wrapper .K71A {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1071,7 +1094,7 @@
 }
 .playArea .cones-wrapper .K71B {
   left: 0;
-  top: 42%;
+  top: 40.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1085,7 +1108,7 @@
 }
 .playArea .cones-wrapper .service1Z5 {
   left: 0;
-  top: 5%;
+  top: 3.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1101,7 +1124,7 @@
 }
 .playArea .cones-wrapper .service1Z6 {
   left: 0;
-  top: 5%;
+  top: 3.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1117,7 +1140,7 @@
 }
 .playArea .cones-wrapper .service1Z1 {
   left: 0;
-  top: 5%;
+  top: 3.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1133,7 +1156,7 @@
 }
 .playArea .cones-wrapper .service5Z5 {
   left: 0;
-  top: 5%;
+  top: 3.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1149,7 +1172,7 @@
 }
 .playArea .cones-wrapper .service5Z6 {
   left: 0;
-  top: 5%;
+  top: 3.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1165,7 +1188,7 @@
 }
 .playArea .cones-wrapper .service5Z1 {
   left: 0;
-  top: 5%;
+  top: 3.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1181,7 +1204,7 @@
 }
 .playArea .cones-wrapper .service6Z5 {
   left: 0;
-  top: 5%;
+  top: 3.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1197,7 +1220,7 @@
 }
 .playArea .cones-wrapper .service6Z6 {
   left: 0;
-  top: 5%;
+  top: 3.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);
@@ -1211,7 +1234,7 @@
 }
 .playArea .cones-wrapper .service6Z1 {
   left: 0;
-  top: 5%;
+  top: 3.5%;
   position: absolute;
   width: 100%;
   transition: all 1.35s cubic-bezier(0.48, 0.07, 0.12, 0.99);

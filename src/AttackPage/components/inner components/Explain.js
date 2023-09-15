@@ -16,6 +16,7 @@ export function Explain({
 }) {
   const [isRegistratedUser] = useAuthState(auth);
   const admin = isRegistratedUser?.uid === "ld4Bdj6KepVG68kjNHHQRjacJI13";
+  const attack = type === "Attack";
   return (
     <>
       {confirmReturn ? (
@@ -64,34 +65,30 @@ export function Explain({
         <div className="input-wrapper">
           <input
             style={{ backgroundColor: "lightgreen" }}
-            name={type === "Attack" ? "winPoints" : "aces"}
+            name={attack ? "winPoints" : "aces"}
             onChange={handleDiagrammValue}
-            value={type === "Attack" ? diagrammValue.winPoints : diagrammValue.aces}
-            placeholder={type === "Attack" ? "Win" : "Aces"}
+            value={attack ? diagrammValue.winPoints : diagrammValue.aces}
             required
           ></input>
           <input
             style={{ backgroundColor: "yellow" }}
-            name={type === "Attack" ? "leftInGame" : "servicePlus"}
+            name={attack ? "leftInGame" : "servicePlus"}
             onChange={handleDiagrammValue}
-            value={type === "Attack" ? diagrammValue.leftInGame : diagrammValue.servicePlus}
-            placeholder={type === "Attack" ? "Left" : "servicePlus"}
+            value={attack ? diagrammValue.leftInGame : diagrammValue.servicePlus}
             required
           ></input>
           <input
             style={{ backgroundColor: "orange" }}
-            name={type === "Attack" ? "attacksInBlock" : "serviceMinus"}
+            name={attack ? "attacksInBlock" : "serviceMinus"}
             onChange={handleDiagrammValue}
-            value={type === "Attack" ? diagrammValue.attacksInBlock : diagrammValue.serviceMinus}
-            placeholder={type === "Attack" ? "block" : "serviceMinus"}
+            value={attack ? diagrammValue.attacksInBlock : diagrammValue.serviceMinus}
             required
           ></input>
           <input
             style={{ backgroundColor: "orangered" }}
-            name={type === "Attack" ? "loosePoints" : "serviceFailed"}
+            name={attack ? "loosePoints" : "serviceFailed"}
             onChange={handleDiagrammValue}
-            value={type === "Attack" ? diagrammValue.loosePoints : diagrammValue.serviceFailed}
-            placeholder={type === "Attack" ? "Loose" : "serviceFailed"}
+            value={attack ? diagrammValue.loosePoints : diagrammValue.serviceFailed}
             required
           ></input>
         </div>

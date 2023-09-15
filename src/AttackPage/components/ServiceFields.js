@@ -206,11 +206,16 @@ export function ServiceFields() {
     setDisableSwitch(!disableSwitch);
     setShowDataOfAttacks(!showDataOfAttacks);
   }
-  console.log(zoneValue[3])
+  console.log(zoneValue[3]);
   return (
     <SectionWrapper
       className={"playArea-section"}
-      backGround={<img src="/photos/area8.jpg" alt="" className="playground-area-background" />}
+      backGround={
+        <div className="playground-area-background">
+          <div className="threeMRivalCort"></div>
+          <div className="threeMMyCort"></div>
+        </div>
+      }
       content={
         <form className="playArea" onSubmit={!showDataOfAttacks ? onHandleCountClick : showData}>
           <div className="explain">

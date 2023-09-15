@@ -34,7 +34,7 @@
         font-size: 18px;
         border: none;
         box-sizing: border-box;
-        border-bottom: 2px solid white;
+        border: 4px solid white;
         width: 100%;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -51,7 +51,7 @@
       position: relative;
       display: flex;
       justify-content: space-around;
-      padding-top: 15px;
+      padding-top: 5px;
       .smallarrowleft {
         background: url(../photos/arrowright.png) no-repeat center center;
         @include arrows;
@@ -77,17 +77,17 @@
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      margin-top: 10px;
+      margin-top: 8px;
       .line-wrapper {
         display: flex;
         justify-content: space-between;
         width: 100%;
         box-sizing: border-box;
+        padding: 0 4px;
         .input-wrapper {
           display: flex;
           justify-content: center;
           align-items: center;
-          padding: 15px;
           input,
           span {
             width: 100%;

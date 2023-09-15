@@ -26,7 +26,7 @@ export default function WrapperForDistribution({ children }) {
                   -
                 </button>
               )}
-              {history.length <= 6 && (
+              {history.length <= 8 && (
                 <button className="reset" onClick={addField}>
                   {history.length === 1 ? `Push to start` : `+`}
                 </button>

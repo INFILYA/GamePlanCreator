@@ -60,7 +60,9 @@ export function DistrField() {
     <SectionWrapper
       className={"distribution-section"}
       backGround={
-        <img src="/photos/distribution-field.jpg" alt="" className="playground-area-background" />
+        <div className="playground-area-background">
+          <div className="distribution-cort"></div>
+        </div>
       }
       content={
         <div className="distribution-wrapper">
@@ -103,9 +105,9 @@ export function DistrField() {
                     />
                   ))}
                 </div>
-                <div className="line-wrapper">
+                <div className="line-wrapper" style={{ marginTop: 4 }}>
                   <div className="input-wrapper">
-                    <input value={"Zone 5"} readOnly style={{ fontSize: 20 }} />
+                    <input value={"Zone 5"} readOnly />
                   </div>
                   {inputDistributionArr.slice(3, 5).map((input) => (
                     <InputDistribution

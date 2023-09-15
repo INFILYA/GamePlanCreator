@@ -28,10 +28,10 @@
   font-size: 25px;
   z-index: 12;
   cursor: pointer;
-  color: #000;
-  border: 2px solid black;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  background-color: cornflowerblue;
+  background-color: orangered;
   font-weight: 700;
   padding: 5px;
   position: absolute;
@@ -39,6 +39,8 @@
   &:hover {
     transition: 0.3s;
     background-color: orangered;
+    border: 3px solid white;
+    color: white;
     opacity: 1;
     scale: (1.15);
   }
@@ -59,54 +61,54 @@
   font-size: 18px;
 }
 @mixin Z2($Green1, $Green2, $Orange1, $Orange2) {
-  @include TopLeft(42%);
+  @include TopLeft(40.5%);
   clip-path: polygon(0 0, $Green1 $Green2, $Orange1 $Orange2);
   aspect-ratio: 1 / 1;
 }
 @mixin Z1($Green1, $Green2, $Orange1, $Orange2) {
-  @include TopLeft(26%);
+  @include TopLeft(24.5%);
   clip-path: polygon(0 0, $Green1 $Green2, $Orange1 $Orange2);
   aspect-ratio: 1 / 1.32;
   padding-top: 62%;
 }
 @mixin Z4($Green1, $Green2, $Orange1, $Orange2) {
-  @include TopLeft(42%);
+  @include TopLeft(40.5%);
   clip-path: polygon(100% 0, $Green1 $Green2, $Orange1 $Orange2);
   aspect-ratio: 1 / 1;
 }
 @mixin Pipe($Green1, $Green2, $Orange1, $Orange2, $Blue1: $Orange1, $Blue2: $Orange2) {
-  @include TopLeft(26%);
+  @include TopLeft(24.5%);
   clip-path: polygon(50% 0, $Green1 $Green2, $Orange1 $Orange2, $Blue1 $Blue2);
   aspect-ratio: 1 / 1.32;
   padding-top: 62%;
 }
 @mixin K1($Green1, $Green2, $Orange1, $Orange2) {
-  @include TopLeft(42%);
+  @include TopLeft(40.5%);
   clip-path: polygon(35% 0, $Green1 $Green2, $Orange1 $Orange2);
   aspect-ratio: 1 / 1;
 }
 @mixin KC($Green1, $Green2, $Orange1, $Orange2, $Blue1: $Orange1, $Blue2: $Orange2) {
-  @include TopLeft(42%);
+  @include TopLeft(40.5%);
   clip-path: polygon(50% 0, $Green1 $Green2, $Orange1 $Orange2, $Blue1 $Blue2);
   aspect-ratio: 1 / 1;
 }
 @mixin K7($Green1, $Green2, $Orange1, $Orange2) {
-  @include TopLeft(42%);
+  @include TopLeft(40.5%);
   clip-path: polygon(65% 0, $Green1 $Green2, $Orange1 $Orange2);
   aspect-ratio: 1 / 1;
 }
 @mixin ServiceZone1($PathRight, $PathLeft) {
-  @include TopLeft(5%);
+  @include TopLeft(3.5%);
   clip-path: polygon(15% 0, 33.3 * $PathLeft 100%, 33.3 * $PathRight 100%);
   @include Service;
 }
 @mixin ServiceZone6($PathRight, $PathLeft) {
-  @include TopLeft(5%);
+  @include TopLeft(3.5%);
   clip-path: polygon(50% 0, 33.3 * $PathLeft 100%, 33.3 * $PathRight 100%);
   @include Service;
 }
 @mixin ServiceZone5($PathRight, $PathLeft) {
-  @include TopLeft(5%);
+  @include TopLeft(3.5%);
   clip-path: polygon(85% 0, 33.3 * $PathLeft 100%, 33.3 * $PathRight 100%);
   @include Service;
 }
@@ -123,6 +125,9 @@
   background-color: #0272be;
   justify-content: center;
   align-items: center;
+  border: 4px solid white;
+  border-bottom: none;
+  box-sizing: border-box;
   label {
     font-size: 18px;
     display: block;
@@ -153,7 +158,7 @@
     width: 100%;
     input {
       width: 100%;
-      border: 1px solid black;
+      border: 2px solid black;
       font-weight: bold;
       text-align: center;
       font-size: 15px;
@@ -174,7 +179,7 @@
       font-size: 18px;
       border: none;
       box-sizing: border-box;
-      border-bottom: 2px solid white;
+      border: 4px solid white;
       width: 100%;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -193,7 +198,7 @@
     z-index: 16;
     font-size: 18px;
     width: 100%;
-    padding: 10px 0;
+    padding-bottom: 15px;
     .input-equality-wrapper,
     .label-equality-wrapper {
       display: flex;
@@ -273,7 +278,7 @@
       background-color: transparent;
       z-index: 5;
       width: 100%;
-      aspect-ratio: 1/2.13;
+      aspect-ratio: 1/2.04;
       text-align: center;
       font-size: calc(2vmin + 0.75rem);
       border-bottom: none;
@@ -388,17 +393,17 @@
     }
     .serviceZone1 {
       left: 8%;
-      top: 8%;
+      top: 9.3%;
       @include attackShape;
     }
     .serviceZone6 {
       left: 43%;
-      top: 8%;
+      top: 9.3%;
       @include attackShape;
     }
     .serviceZone5 {
       right: 8%;
-      top: 8%;
+      top: 9.3%;
       @include attackShape;
     }
   }

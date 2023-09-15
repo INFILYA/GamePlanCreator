@@ -7,9 +7,6 @@ body {
 
 :root {
   --normal-text-size-value: 1.25;
-  --regular-article-padding-top-value: 11.35;
-  --large-article-padding-top-value: 0.75;
-  --previous-section-divider-offset: 0px;
 }
 
 h2 {
@@ -28,8 +25,8 @@ option {
 }
 
 .active {
-  background-color: orangered;
-  color: white !important;
+  background-color: rgb(255, 69, 0);
+  color: rgb(255, 255, 255) !important;
 }
 
 .regularButton {
@@ -40,12 +37,12 @@ option {
   padding: 3px 10px;
   border-radius: 50px;
   font-weight: bold;
-  border: 2px solid black;
+  border: 2px solid rgb(0, 0, 0);
   box-sizing: border-box;
 }
 .regularButton:hover {
   transition: 0.3s;
-  background-color: orangered;
+  background-color: rgb(255, 69, 0);
   opacity: 1;
   scale: 1.15;
 }
@@ -54,13 +51,13 @@ main {
   padding: 0 2vmax;
 }
 main a {
-  background-color: cornflowerblue;
+  background-color: rgb(100, 149, 237);
 }
 main a:hover {
   scale: 1.1;
 }
 main button {
-  background-color: cornflowerblue;
+  background-color: rgb(100, 149, 237);
 }
 main .main-content-wrapper {
   display: flex;
@@ -106,7 +103,7 @@ main .main-content-wrapper .distribution-section {
 }
 main .main-content-wrapper .section-border {
   position: absolute;
-  top: calc(-1 * var(--previous-section-divider-offset, 0px));
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
@@ -126,7 +123,33 @@ main .main-content-wrapper .section-border .section-background img {
   transform: rotateX(30deg);
 }
 main .main-content-wrapper .section-border .section-background .playground-area-background {
-  transform: rotateX(0deg);
+  width: 100%;
+  height: 100%;
+  border: 4px solid rgb(255, 255, 255);
+  box-sizing: border-box;
+  background-color: darkgrey;
+}
+main .main-content-wrapper .section-border .section-background .playground-area-background .threeMRivalCort {
+  position: relative;
+  top: 33.32%;
+  height: 16.66%;
+  border-top: 4px solid rgb(255, 255, 255);
+  background-color: rgb(190, 190, 190);
+}
+main .main-content-wrapper .section-border .section-background .playground-area-background .threeMMyCort {
+  position: relative;
+  top: 33.32%;
+  height: 16.66%;
+  border-top: 4px solid rgb(255, 255, 255);
+  background-color: rgb(190, 190, 190);
+  border-bottom: 4px solid rgb(255, 255, 255);
+}
+main .main-content-wrapper .section-border .section-background .playground-area-background .distribution-cort {
+  position: relative;
+  top: 15%;
+  border-bottom: 4px solid white;
+  border-top: 4px solid white;
+  height: 27.3%;
 }
 main .main-content-wrapper .section-content-wrapper .section-content {
   display: flex;
@@ -139,12 +162,12 @@ main .main-content-wrapper .section-content-wrapper .section-content .playerNumb
 }
 main .main-content-wrapper .section-content-wrapper .section-content .playerNumber-wrapper button {
   position: relative;
-  color: black;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   background-color: #ff8001;
   text-align: center;
   border-radius: 20px 0px 0px 20px;
-  border: 2px solid black;
+  border: 2px solid rgb(0, 0, 0);
   height: 100%;
   font-size: 1vw;
 }
@@ -155,7 +178,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .player-sur
   width: 100%;
   height: 100%;
   background-color: khaki;
-  border: 2px solid black;
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 0px 20px 20px 0px;
   font-weight: 600;
   font-size: 1vw;
@@ -247,8 +270,8 @@ main .main-content-wrapper .section-content-wrapper .section-content .reset-butt
   justify-content: center;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .reset-button-wrapper .reset {
-  background-color: orangered;
-  border: 1px solid black;
+  background-color: rgb(255, 69, 0);
+  border: 1px solid rgb(0, 0, 0);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   font-size: calc(1vmax + 0.1rem);
   border-radius: 5px;
@@ -257,7 +280,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .reset-butt
   font-weight: 600;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .reset-button-wrapper .reset:hover {
-  box-shadow: 0 15px 20px orangered;
+  box-shadow: 0 15px 20px rgb(255, 69, 0);
   scale: 1.15;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper {
@@ -267,28 +290,28 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
   flex-direction: column;
   background-color: lightsteelblue;
   width: clamp(340px, 100%, 51vmax);
-  border: 2px solid black;
+  border: 2px solid rgb(0, 0, 0);
   box-sizing: border-box;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-surname-wrapper {
   border-top-left-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
   border-top-right-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
-  background-color: orangered;
-  color: white;
+  background-color: rgb(255, 69, 0);
+  color: rgb(255, 255, 255);
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .show-details {
   border: none;
   font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
   font-weight: 600;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 2px solid rgb(0, 0, 0);
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .show-details:hover {
   filter: grayscale(50);
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper {
   display: flex;
-  border-top: 2px solid black;
+  border-top: 2px solid rgb(0, 0, 0);
   justify-content: center;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content {
@@ -315,11 +338,11 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
   margin: 0 1vw 0 0;
   border-radius: 5px;
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   padding: 5px 1vw;
   font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .photo-player-wrapper {
   display: flex;
@@ -364,19 +387,19 @@ main .main-content-wrapper .section-content-wrapper .section-content .showRating
   margin-top: 10px;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .showRatings a {
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 5px;
-  background-color: cornflowerblue;
+  background-color: rgb(100, 149, 237);
   text-decoration: none;
   font-weight: bold;
-  color: black;
+  color: rgb(0, 0, 0);
   width: 7vw;
   margin: 0px 10px;
   padding: 3px 5px;
   font-size: calc((var(--normal-text-size-value) - 1) * 5vw);
 }
 main .main-content-wrapper .section-content-wrapper .section-content .showRatings a:hover {
-  box-shadow: 0 15px 20px cornflowerblue;
+  box-shadow: 0 15px 20px rgb(100, 149, 237);
   transform: translateY(-7px);
   transition: 0.3s;
 }
