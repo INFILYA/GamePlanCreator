@@ -123,28 +123,27 @@ export function PersonalInformationOfPlayer({ link }) {
             </div>
           </div>
         </div>
-        <button
-          className="show-details"
-          onClick={() => setShowDetails(!showDetails)}
-          style={showDetails ? { backgroundColor: "orangered", color: "white" } : {}}
-        >
-          {details}
-        </button>
-        {showDetails && page1 && isRegistratedUser && !libero && (
+        {isRegistratedUser && !libero && (
+          <button
+            className="show-details"
+            onClick={() => setShowDetails(!showDetails)}
+            style={showDetails ? { backgroundColor: "orangered", color: "white" } : {}}
+          >
+            {details}
+          </button>
+        )}
+        {showDetails && (
           <div className="player-diagramm-wrapper">
-            <div className="row">
-              <Diagramm link={"Service"} />
-            </div>
-            {!setter && (
+            {(page1 || service) && (
+              <div className="row">
+                <Diagramm link={"Service"} />
+              </div>
+            )}
+            {!setter && (page1 || attack) && (
               <div className="row">
                 <Diagramm link={"Attack"} />
               </div>
             )}
-          </div>
-        )}
-        {showDetails && (service || attack) && isRegistratedUser && (
-          <div className="player-diagramm-wrapper">
-            <Diagramm link={link} />
           </div>
         )}
       </div>
