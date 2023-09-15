@@ -431,7 +431,8 @@ main .main-content-wrapper .section-content-wrapper .section-content .rotation-f
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper .player-wrapper {
   display: flex;
   justify-content: center;
-  height: 2vw;
+  min-height: 2vw;
+  width: 100%;
 }
 
 /*# sourceMappingURL=newMain.css.map */

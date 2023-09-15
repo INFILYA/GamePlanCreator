@@ -447,7 +447,8 @@ main {
               .player-wrapper {
                 display: flex;
                 justify-content: center;
-                height: 2vw;
+                min-height: 2vw;
+                width: 100%;
               }
             }
           }
