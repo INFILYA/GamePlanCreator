@@ -61,7 +61,7 @@ export function DistrField() {
       className={"distribution-section"}
       backGround={
         <div className="playground-area-background">
-          <div className="distribution-cort"></div>
+          {/* <div className="distribution-cort"></div> */}
         </div>
       }
       content={
@@ -105,7 +105,7 @@ export function DistrField() {
                     />
                   ))}
                 </div>
-                <div className="line-wrapper" style={{ marginTop: 4 }}>
+                <div className="line-wrapper">
                   <div className="input-wrapper">
                     <input value={"Zone 5"} readOnly />
                   </div>
@@ -120,7 +120,7 @@ export function DistrField() {
                     />
                   ))}
                 </div>
-                <div className="line-wrapper" style={{ justifyContent: "center" }}>
+                <div className="count-wrapper">
                   {showButtonCount && (
                     <button className="count" type="submit" disabled={!showButtonCount}>
                       Count

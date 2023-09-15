@@ -16,7 +16,6 @@ export function InputDistribution({ distributionArr, zoneValue, handleZoneValue,
                     : 0
                 },${x}%,50%)`
               : "transparent",
-          // border: distributionArr === 0 ? "none" : "2px solid black",
           color: distributionArr === 0 && "transparent",
         }}
         type="text"

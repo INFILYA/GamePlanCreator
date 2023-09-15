@@ -144,13 +144,6 @@ main .main-content-wrapper .section-border .section-background .playground-area-
   background-color: rgb(190, 190, 190);
   border-bottom: 4px solid rgb(255, 255, 255);
 }
-main .main-content-wrapper .section-border .section-background .playground-area-background .distribution-cort {
-  position: relative;
-  top: 15%;
-  border-bottom: 4px solid white;
-  border-top: 4px solid white;
-  height: 27.3%;
-}
 main .main-content-wrapper .section-content-wrapper .section-content {
   display: flex;
   flex-direction: column;
