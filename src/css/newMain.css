@@ -9,6 +9,11 @@ body {
   --normal-text-size-value: 1.25;
 }
 
+h1 {
+  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 1.5rem);
+  margin: 5px 0;
+}
+
 h2 {
   font-size: calc((var(--normal-text-size-value) - 1) * 2vw + 0.75rem);
   margin: 5px 0;
@@ -282,7 +287,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
   display: flex;
   flex-direction: column;
   background-color: lightsteelblue;
-  width: clamp(340px, 100%, 51vmax);
+  width: clamp(340px, 100%, 45vmax);
   border: 2px solid rgb(0, 0, 0);
   box-sizing: border-box;
 }
@@ -358,19 +363,20 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-diagramm-wrapper .row {
   width: 50%;
 }
-main .main-content-wrapper .section-content-wrapper .section-content nav {
+main .main-content-wrapper .section-content-wrapper .section-content .opponentTeamList {
   margin-top: 2vw;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  grid-row-gap: 3vw;
+  grid-row-gap: 1.5vw;
   padding: 0;
   width: 75%;
+  padding: 2vw;
 }
-main .main-content-wrapper .section-content-wrapper .section-content nav .nav-image-wrapper img {
+main .main-content-wrapper .section-content-wrapper .section-content .opponentTeamList .nav-image-wrapper img {
   width: 8vw;
   aspect-ratio: 1/1;
 }
-main .main-content-wrapper .section-content-wrapper .section-content nav .nav-image-wrapper img:hover {
+main .main-content-wrapper .section-content-wrapper .section-content .opponentTeamList .nav-image-wrapper img:hover {
   transform: translateY(-7px);
   transition: 0.3s;
 }

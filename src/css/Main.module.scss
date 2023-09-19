@@ -44,6 +44,10 @@ body {
 :root {
   --normal-text-size-value: 1.25;
 }
+h1 {
+  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 1.5rem);
+  margin: 5px 0;
+}
 h2 {
   font-size: calc((var(--normal-text-size-value) - 1) * 2vw + 0.75rem);
   margin: 5px 0;
@@ -297,7 +301,7 @@ main {
           display: flex;
           flex-direction: column;
           background-color: lightsteelblue;
-          width: clamp(340px, 100%, 51vmax);
+          width: clamp(340px, 100%, 45vmax);
           border: 2px solid $Black;
           box-sizing: border-box;
           .player-surname-wrapper {
@@ -373,13 +377,14 @@ main {
           }
         }
         // МЕНЮ ВИБОРУ КОМАНДИ СУПЕРНИКА
-        nav {
+        .opponentTeamList {
           margin-top: 2vw;
           display: grid;
           grid-template-columns: repeat(3, auto);
-          grid-row-gap: 3vw;
+          grid-row-gap: 1.5vw;
           padding: 0;
           width: 75%;
+          padding: 2vw;
           .nav-image-wrapper {
             img {
               width: 8vw;

@@ -44,7 +44,8 @@
 }
 .explain .input-wrapper input {
   width: 100%;
-  border: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
   font-weight: bold;
   text-align: center;
   font-size: 15px;

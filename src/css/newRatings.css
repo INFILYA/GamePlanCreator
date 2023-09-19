@@ -1,0 +1,87 @@
+.ratings-section {
+  width: 100%;
+}
+.ratings-section .showRatings-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.ratings-section .showRatings-wrapper nav {
+  width: 100%;
+  margin: 1vw 0;
+}
+.ratings-section .showRatings-wrapper nav a {
+  margin: 0 1vw 0 0;
+  border-radius: 5px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  padding: 5px 1vw;
+  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
+}
+.ratings-section .showRatings-wrapper nav a:hover {
+  background-color: orangered;
+}
+.ratings-section .rating-table-wrapper {
+  width: 100%;
+}
+.ratings-section .rating-table-wrapper .showInfo-wrapper {
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+}
+.ratings-section .rating-table-wrapper .rows-wrapper {
+  width: 100%;
+  display: flex;
+}
+.ratings-section .rating-table-wrapper .rows-wrapper .rating-row {
+  width: 14.2857142857%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+.ratings-section .rating-table-wrapper .rows-wrapper .rating-row .rating-button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ratings-section .rating-table-wrapper .rows-wrapper .rating-row .rating-button-wrapper button {
+  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
+  font-weight: bold;
+  background-color: aliceblue;
+  border-left: 1px solid black;
+  min-height: 100px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.ratings-section .rating-table-wrapper .rows-wrapper .rating-row .rating-button-wrapper button:hover {
+  box-shadow: 0 15px 20px lemonchiffon;
+  transform: translateY(-10px);
+  transition: 0.7s;
+  background-color: lemonchiffon;
+}
+.ratings-section .rating-table-wrapper .rows-wrapper .rating-row .players-row-wrapper .span-wrapper,
+.ratings-section .rating-table-wrapper .rows-wrapper .rating-row .players-row-wrapper .name-span-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+  width: 100%;
+  height: 4vh;
+}
+.ratings-section .rating-table-wrapper .rows-wrapper .rating-row .players-row-wrapper .span-wrapper span,
+.ratings-section .rating-table-wrapper .rows-wrapper .rating-row .players-row-wrapper .name-span-wrapper span {
+  font-weight: 600;
+  font-size: calc((var(--normal-text-size-value) - 1) * 2.5vw + 0.4rem);
+}
+.ratings-section .rating-table-wrapper .rows-wrapper .rating-row .players-row-wrapper .name-span-wrapper {
+  justify-content: start;
+}
+.ratings-section .rating-table-wrapper .rows-wrapper .rating-row .players-row-wrapper .name-span-wrapper span {
+  padding: 0 5px;
+}
+
+/*# sourceMappingURL=newRatings.css.map */

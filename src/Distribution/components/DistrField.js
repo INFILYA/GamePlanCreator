@@ -59,11 +59,7 @@ export function DistrField() {
   return (
     <SectionWrapper
       className={"distribution-section"}
-      backGround={
-        <div className="playground-area-background">
-          {/* <div className="distribution-cort"></div> */}
-        </div>
-      }
+      backGround={<div className="playground-area-background"></div>}
       content={
         <div className="distribution-wrapper">
           <form className="distrfield-wrapper" onSubmit={onHandleCountClick}>

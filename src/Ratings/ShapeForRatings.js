@@ -19,10 +19,10 @@ export default function ShapeForRatings({ amplua }) {
     { category: "name", text: "Name" },
     { category: "age", text: "Age" },
     { category: "height", text: "Height" },
-    { category: "winPoints", text: " Points in Attack" },
-    { category: "plusMinusOnAttack", text: "+/- on Attack" },
-    { category: "plusMinusOnService", text: "+/- on Service" },
-    { category: "percentOfAttack", text: "% on Attack" },
+    { category: "winPoints", text: " Points by Attack" },
+    { category: "plusMinusOnAttack", text: "+/-  Attack" },
+    { category: "plusMinusOnService", text: "+/-  Service" },
+    { category: "percentOfAttack", text: "%  Attack" },
   ];
   const categorysForOthers = [
     { category: "name", text: "Name" },
@@ -30,7 +30,7 @@ export default function ShapeForRatings({ amplua }) {
     { category: "height", text: "Height" },
     { category: "aces", text: "Aces" },
     { category: "serviceFailed", text: "Service Failed" },
-    { category: "plusMinusOnService", text: "+/- on Service" },
+    { category: "plusMinusOnService", text: "+/-  Service" },
     { category: "height", text: "Height" },
   ];
   const categorys = amplua === "Setter" ? categorysForOthers : categorysForAll;
@@ -53,25 +53,21 @@ export default function ShapeForRatings({ amplua }) {
       : {};
   }
   function showInfoOfPlayer(name) {
-    const pickedPlayer = Players.find((player) => player.name === name && setInfoOfPlayer(player));
+    const pickedPlayer = Players.find((player) => player.name === name);
     dispatch(setInfoOfPlayer(pickedPlayer));
     localStorage.setItem("playerInfo", JSON.stringify(pickedPlayer));
   }
   return (
     <>
-      <div className="ratingTable">
-        {playerInfo && (
-          <div className="showInfo">
-            <PersonalInformationOfPlayer link={"page1"} />
-          </div>
-        )}
+      {playerInfo && (
+        <div className="showInfo-wrapper">
+          <PersonalInformationOfPlayer link={"page1"} />
+        </div>
+      )}
+      <div className="rows-wrapper">
         {categorys.map((category, index) => (
-          <div
-            className="ratingRow"
-            key={index}
-            style={category.text === "Name" ? { width: "220px" } : {}}
-          >
-            <div>
+          <div className="rating-row" key={index}>
+            <div className="rating-button-wrapper">
               <button
                 onClick={() => countRankings(category.category)}
                 title={`Click to sort by ${category.text}`}
@@ -79,26 +75,29 @@ export default function ShapeForRatings({ amplua }) {
                 {category.text}
               </button>
             </div>
-            {teamsOrPlayers.map((player, index) =>
-              category.text !== "Name" ? (
-                <span key={index} style={changePodiumColors(index)}>
-                  {category.category === "percentOfAttack" && amplua !== "Setter"
-                    ? player[category.category] + "%"
-                    : player[category.category]}
-                </span>
-              ) : (
-                <span
-                  key={index}
-                  style={changePodiumColors(index)}
-                  className="rowName"
-                  onClick={
-                    teamsOrPlayers !== listOfTeams ? () => showInfoOfPlayer(player.name) : null
-                  }
-                >
-                  {index + 1}. {player[category.category]}
-                </span>
-              )
-            )}
+            <div className="players-row-wrapper">
+              {teamsOrPlayers.map((player, index) =>
+                category.text !== "Name" ? (
+                  <div className="span-wrapper" style={changePodiumColors(index)} key={index}>
+                    <span>
+                      {category.category === "percentOfAttack" && amplua !== "Setter"
+                        ? player[category.category] + "%"
+                        : player[category.category]}
+                    </span>
+                  </div>
+                ) : (
+                  <div className="name-span-wrapper" style={changePodiumColors(index)} key={index}>
+                    <span
+                      onClick={
+                        teamsOrPlayers !== listOfTeams ? () => showInfoOfPlayer(player.name) : null
+                      }
+                    >
+                      {index + 1}. {player[category.category]}
+                    </span>
+                  </div>
+                )
+              )}
+            </div>
           </div>
         ))}
       </div>

@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import ShapeForRatings from "./ShapeForRatings";
+import SectionWrapper from "../Page1/components/SectionWrapper";
 
 export function MiddleBlockersRating() {
   return <ShapeForRatings amplua={"MBlocker"} />;
@@ -22,18 +23,27 @@ export function TeamsRating() {
 
 export function Ratings() {
   return (
-    <>
-      <h1>Ratings</h1>
-      <div className="showRatings">
-        <NavLink to={"/Ratings/RecieversRating"}>Recievers</NavLink>
-        <NavLink to={"/Ratings/OppositesRating"}>Opposites</NavLink>
-        <NavLink to={"/Ratings/MiddleBlockersRating"}>MiddleBlockers</NavLink>
-        <NavLink to={"/Ratings/SettersRating"}>Setters</NavLink>
-        <NavLink to={"/Ratings/TeamsRating"}>Teams</NavLink>
-      </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Outlet />
-      </div>
-    </>
+    <article className="main-content-wrapper">
+      <SectionWrapper
+        className={"ratings-section"}
+        content={
+          <>
+            <h1>Ratings</h1>
+            <div className="showRatings-wrapper">
+              <nav>
+                <NavLink to={"/Ratings/RecieversRating"}>Recievers</NavLink>
+                <NavLink to={"/Ratings/OppositesRating"}>Opposites</NavLink>
+                <NavLink to={"/Ratings/MiddleBlockersRating"}>MiddleBlockers</NavLink>
+                <NavLink to={"/Ratings/SettersRating"}>Setters</NavLink>
+                <NavLink to={"/Ratings/TeamsRating"}>Teams</NavLink>
+              </nav>
+            </div>
+            <div className="rating-table-wrapper">
+              <Outlet />
+            </div>
+          </>
+        }
+      />
+    </article>
   );
 }
