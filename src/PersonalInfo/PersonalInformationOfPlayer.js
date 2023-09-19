@@ -68,85 +68,83 @@ export function PersonalInformationOfPlayer({ link }) {
     infosOfPlayers[8],
   ];
   return (
-    <>
-      <div className="hidden-player-information-wrapper">
-        <div className="player-surname-wrapper">
-          <h2>
-            {playerInfo.name} №{playerInfo.number}
-          </h2>
-        </div>
-        <div className="player-full-info-wrapper">
-          <div className="player-info-content">
-            <div className="player-info-data-wrapper">
-              {libero &&
-                infoOfLiberos.map((info, index) => (
-                  <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
-                ))}
-              {(reciever || opposite) &&
-                infosOfAttackers.map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
-                    value={info[1]}
-                    key={index}
-                  />
-                ))}
-              {setter &&
-                infosOfSetters.map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
-                    value={info[1]}
-                    key={index}
-                  />
-                ))}
-              {mblocker &&
-                infosOfMBlockers.map((info, index) => (
-                  <RowsForPersonalInfo
-                    name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
-                    value={info[1]}
-                    key={index}
-                  />
-                ))}
-              <nav>
-                {!libero && isRegistratedUser && (
-                  <>
-                    {!setter && <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>}
-                    <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
-                  </>
-                )}
-                {page1 && <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>}
-              </nav>
-            </div>
-            <div className="photo-player-wrapper">
-              <div className="photo-player-container">
-                <img src={playerInfo.photo} alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-        {isRegistratedUser && !libero && (
-          <button
-            className="show-details"
-            onClick={() => setShowDetails(!showDetails)}
-            style={showDetails ? { backgroundColor: "orangered", color: "white" } : {}}
-          >
-            {details}
-          </button>
-        )}
-        {showDetails && (
-          <div className="player-diagramm-wrapper">
-            {(page1 || service) && (
-              <div className="row">
-                <Diagramm link={"Service"} />
-              </div>
-            )}
-            {!setter && (page1 || attack) && (
-              <div className="row">
-                <Diagramm link={"Attack"} />
-              </div>
-            )}
-          </div>
-        )}
+    <div className="hidden-player-information-wrapper">
+      <div className="player-surname-wrapper">
+        <h2>
+          {playerInfo.name} №{playerInfo.number}
+        </h2>
       </div>
-    </>
+      <div className="player-full-info-wrapper">
+        <div className="player-info-content">
+          <div className="player-info-data-wrapper">
+            {libero &&
+              infoOfLiberos.map((info, index) => (
+                <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
+              ))}
+            {(reciever || opposite) &&
+              infosOfAttackers.map((info, index) => (
+                <RowsForPersonalInfo
+                  name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
+                  value={info[1]}
+                  key={index}
+                />
+              ))}
+            {setter &&
+              infosOfSetters.map((info, index) => (
+                <RowsForPersonalInfo
+                  name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
+                  value={info[1]}
+                  key={index}
+                />
+              ))}
+            {mblocker &&
+              infosOfMBlockers.map((info, index) => (
+                <RowsForPersonalInfo
+                  name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
+                  value={info[1]}
+                  key={index}
+                />
+              ))}
+            <nav>
+              {!libero && isRegistratedUser && (
+                <>
+                  {!setter && <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>}
+                  <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
+                </>
+              )}
+              {page1 && <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>}
+            </nav>
+          </div>
+          <div className="photo-player-wrapper">
+            <div className="photo-player-container">
+              <img src={playerInfo.photo} alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      {isRegistratedUser && !libero && (
+        <button
+          className="show-details"
+          onClick={() => setShowDetails(!showDetails)}
+          style={showDetails ? { backgroundColor: "orangered", color: "white" } : {}}
+        >
+          {details}
+        </button>
+      )}
+      {showDetails && (
+        <div className="player-diagramm-wrapper">
+          {(page1 || service) && (
+            <div className="row">
+              <Diagramm link={"Service"} />
+            </div>
+          )}
+          {!setter && (page1 || attack) && (
+            <div className="row">
+              <Diagramm link={"Attack"} />
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }

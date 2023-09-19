@@ -23,13 +23,15 @@
   }
   .rating-table-wrapper {
     width: 100%;
+    min-width: 340px;
     .showInfo-wrapper {
-      top: 56%;
+      top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
       position: fixed;
       display: flex;
       justify-content: center;
+      width: 100%;
     }
     .rows-wrapper {
       width: 100%;
