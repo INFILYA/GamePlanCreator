@@ -61,19 +61,27 @@ export function Tutorial({ text }) {
                   />
                 </div>
                 <div className="item-wrapper switch">
+                  <label htmlFor="">Закрити і ніколи не показувати</label>
                   <Switch
                     onChange={setConfirmNotShowAgainTutorial}
                     checked={confirmRepeat}
                   ></Switch>
-                  <label htmlFor="">Закрити і ніколи не показувати</label>
                 </div>
                 {confirmRepeat && (
                   <div className="hideBackground">
                     <div className="confirmationForExit">
                       <div className="confirmation-wrapper">
                         <h2>Ви впевнені?</h2>
-                        <Button onClick={hideTutorial} value={"Так"} />
-                        <Button onClick={leftTutorial} value={"Ні"} />
+                        <Button
+                          onClick={hideTutorial}
+                          value={"Так"}
+                          style={{ padding: "5px 10px", fontSize: 15 }}
+                        />
+                        <Button
+                          onClick={leftTutorial}
+                          value={"Ні"}
+                          style={{ padding: "5px 10px", fontSize: 15 }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -91,19 +99,27 @@ export function Tutorial({ text }) {
                   />
                 </div>
                 <div className="item-wrapper switch">
+                  <label htmlFor="">Close and never show it again</label>
                   <Switch
                     onChange={setConfirmNotShowAgainTutorial}
                     checked={confirmRepeat}
                   ></Switch>
-                  <label htmlFor="">Close and never show it again</label>
                 </div>
                 {confirmRepeat && (
                   <div className="hideBackground">
                     <div className="confirmationForExit">
                       <div className="confirmation-wrapper">
                         <h2>Are you sure?</h2>
-                        <Button onClick={hideTutorial} value={"Yes"} />
-                        <Button onClick={leftTutorial} value={"No"} />
+                        <Button
+                          onClick={hideTutorial}
+                          value={"Yes"}
+                          style={{ padding: "5px 10px", fontSize: 15 }}
+                        />
+                        <Button
+                          onClick={leftTutorial}
+                          value={"No"}
+                          style={{ padding: "5px 10px", fontSize: 15 }}
+                        />
                       </div>
                     </div>
                   </div>

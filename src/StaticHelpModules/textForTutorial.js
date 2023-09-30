@@ -22,10 +22,9 @@ const enterWord = (
 const aboutFirstPage = (
   <>
     <div className="inner-text-wrapper">
-      За допомогою цієї програми ви зможете швидко та легко складати плани на поєдинки. Незалежно
-      від вашого досвіду та рівня гри, програма допоможе вам організувати стратегію для вашої
-      команди. Ви зможете обрати склад з існуючих колективів ПВЛУ, обрати стартовий розташунок
-      гравців на майданчику та підкрутити його під свої потреби.
+      За її допомогою ви зможете швидко та легко складати плани на поєдинки. Також вона допоможе вам
+      організувати стратегію для вашої команди. Ви зможете обрати склад з існуючих колективів ПВЛУ,
+      обрати стартовий розташунок гравців на майданчику та підкрутити його під свої потреби.
     </div>
     <div className="inner-image-wrapper">
       <img alt="" className="aboutFirstPage" />
@@ -49,8 +48,7 @@ const distribution = (
     <div className="inner-text-wrapper">
       Також ви зможете відобразити "загрузку" зон пасуючого гравця, щоб максимально ефективно обрати
       стратегію своєї команди для гри на блоці та в захисті. А в майбутньому (наразі я працюю над
-      цим), побачити, як буде поводити кожний зв'язуючий ПВЛУ в тій або іншій ситуації (процентне
-      співвідношення передач в кожну зону при різних замовленнях).
+      цим), побачити, як буде поводити кожний зв'язуючий ПВЛУ в тій або іншій ситуації.
     </div>
     <div className="inner-image-wrapper">
       <img alt="" className="aboutDistr" />
@@ -94,10 +92,10 @@ const awarness = (
 const lastWord = (
   <>
     <div className="inner-text-wrapper">
-      Моя програма є простою та інтуїтивно зрозумілою у використанні, щоб ви могли сконцентруватися
-      на головному - розробці ефективної стратегії для вашого колективу. Я завжди відкритий до
-      отримання вашого фідбеку та пропозицій щодо поліпшення функціоналу. Бажаю вам успіхів та
-      вдалого складання планів для вашої команди! З найкращими побажаннями, Пилип Гармаш.
+      Моя програма є простою та зрозумілою для розробки ефективної стратегії вашого колективу. Я
+      завжди відкритий до отримання вашого фідбеку та пропозицій щодо поліпшення функціоналу. Бажаю
+      вам успіхів та вдалого складання планів для вашої команди! З найкращими побажаннями, Пилип
+      Гармаш.
     </div>
 
     <div className="inner-image-wrapper">
@@ -121,10 +119,10 @@ const enterWordEng = (
 const aboutFirstPageEng = (
   <>
     <div className="inner-text-wrapper">
-      With this program, you will be able to quickly and easily create plans for volleyball matches.
-      Regardless of your experience and skill level, the program will help you organize a strategy
-      for your team. You will be able to select lineups from existing PVLU teams, choose the
-      starting positions of players on the court, and adjust it to fit your needs.
+      With her help, you will be able to quickly and easily create plans for volleyball matches.
+      Also program going to help you organize a strategy for your team. You will be able to select
+      lineups from existing PVLU teams, choose the starting positions of players on the court, and
+      adjust it to fit your needs.
     </div>
     <div className="inner-image-wrapper">
       <img alt="" className="aboutFirstPage" />
@@ -150,8 +148,7 @@ const distributionEng = (
       You will also be able to visualize the "loading" of passing zones for the setter, in order to
       effectively choose your team's strategy for blocking and defense. And in the future
       (currently, I am working on it), you will be able to see how each PVLU setter performs in
-      different situations, such as the percentage distribution of their sets to each zone for
-      different calls.
+      different situations.
     </div>
     <div className="inner-image-wrapper">
       <img alt="" className="aboutDistr" />
