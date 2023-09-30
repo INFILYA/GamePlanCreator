@@ -84,15 +84,15 @@ function Myproject() {
   const TUTORIAL = !changeLanguage ? UKRTUTORIAL : ENGTUTORIAL;
   return (
     <>
-      {!isShowedTutorial && (
-        <div className="textForTutorial">
-          {TUTORIAL.map((card, index) => (
-            <Tutorial text={card} key={index} />
-          ))}
-        </div>
-      )}
       <Header />
       <main>
+        {!isShowedTutorial && (
+          <div className="textForTutorial">
+            {TUTORIAL.map((card, index) => (
+              <Tutorial text={card} key={index} />
+            ))}
+          </div>
+        )}
         <Routes>
           <Route path="/" element={<Page1 />} />
           <Route path="/Auth" element={<Auth />} />

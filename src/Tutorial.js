@@ -33,28 +33,34 @@ export function Tutorial({ text }) {
       {showTutorial && (
         <div className="grab">
           <div className="tutorial">
-            <div className="userVersion">data version: {userVersion}</div>
-            <div className="changeLanguage">
-              <button
-                onClick={() => dispatch(setChangeLanguage(true))}
-                style={changeLanguage ? { backgroundColor: "gold" } : null}
-              >
-                Eng
-              </button>
-              <button
-                onClick={() => dispatch(setChangeLanguage(false))}
-                style={!changeLanguage ? { backgroundColor: "gold" } : null}
-              >
-                Ukr
-              </button>
+            <div className="version-language-wrapper">
+              <div className="userVersion">data version: {userVersion}</div>
+              <div className="changeLanguage">
+                <button
+                  onClick={() => dispatch(setChangeLanguage(true))}
+                  style={changeLanguage ? { backgroundColor: "gold" } : null}
+                >
+                  Eng
+                </button>
+                <button
+                  onClick={() => dispatch(setChangeLanguage(false))}
+                  style={!changeLanguage ? { backgroundColor: "gold" } : null}
+                >
+                  Ukr
+                </button>
+              </div>
             </div>
             {!changeLanguage ? (
               <>
-                {text}
-                <div className="exit">
-                  <Button onClick={nextPage} value={"Далі"} />
+                <div className="text-wrapper">{text}</div>
+                <div className="item-wrapper">
+                  <Button
+                    onClick={nextPage}
+                    value={"Далі"}
+                    style={{ padding: "5px 10px", fontSize: 15 }}
+                  />
                 </div>
-                <div className="switch">
+                <div className="item-wrapper switch">
                   <Switch
                     onChange={setConfirmNotShowAgainTutorial}
                     checked={confirmRepeat}
@@ -64,20 +70,27 @@ export function Tutorial({ text }) {
                 {confirmRepeat && (
                   <div className="hideBackground">
                     <div className="confirmationForExit">
-                      <h2>Ви впевнені?</h2>
-                      <Button onClick={hideTutorial} value={"Так"} />
-                      <Button onClick={leftTutorial} value={"Ні"} />
+                      <div className="confirmation-wrapper">
+                        <h2>Ви впевнені?</h2>
+                        <Button onClick={hideTutorial} value={"Так"} />
+                        <Button onClick={leftTutorial} value={"Ні"} />
+                      </div>
                     </div>
                   </div>
                 )}
               </>
             ) : (
               <>
-                <div>{text}</div>
-                <div className="exit">
-                  <Button onClick={nextPage} value={"Next"} className="exit" />
+                <div className="text-wrapper">{text}</div>
+                <div className="item-wrapper">
+                  <Button
+                    onClick={nextPage}
+                    value={"Next"}
+                    className="exit"
+                    style={{ padding: "5px 10px", fontSize: 15 }}
+                  />
                 </div>
-                <div className="switch">
+                <div className="item-wrapper switch">
                   <Switch
                     onChange={setConfirmNotShowAgainTutorial}
                     checked={confirmRepeat}
@@ -87,9 +100,11 @@ export function Tutorial({ text }) {
                 {confirmRepeat && (
                   <div className="hideBackground">
                     <div className="confirmationForExit">
-                      <h2>Are you sure?</h2>
-                      <Button onClick={hideTutorial} value={"Yes"} />
-                      <Button onClick={leftTutorial} value={"No"} />
+                      <div className="confirmation-wrapper">
+                        <h2>Are you sure?</h2>
+                        <Button onClick={hideTutorial} value={"Yes"} />
+                        <Button onClick={leftTutorial} value={"No"} />
+                      </div>
                     </div>
                   </div>
                 )}

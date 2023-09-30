@@ -1,128 +1,150 @@
-@mixin tutorGrab {
+.grab {
+  position: fixed;
+  border: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.1);
   width: 100%;
   height: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 22;
-}
-@mixin forText($height, $link) {
-  max-width: 1000px;
-  width: 100%;
-  height: $height;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  margin: 10px 0px;
-  background: url($link) no-repeat center center;
-  background-size: cover;
-}
-@mixin forButtons {
-  padding: 5px 20px;
-  margin: 0px 10px;
-  border: 1px solid black;
-}
-.grab {
-  position: fixed;
-  border: 2px solid black;
-  background-color: rgba(0, 0, 0, 0.1);
-  @include tutorGrab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .tutorial {
-    position: absolute;
-    max-width: 1030px;
-    max-height: 800px;
+    width: 80vw;
+    height: 80vh;
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
     border-radius: 15px;
     box-sizing: border-box;
-    @include tutorGrab;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 2vw;
+    .version-language-wrapper {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      height: 5%;
+      .userVersion {
+        font-size: 15px;
+      }
+      .changeLanguage {
+        button {
+          padding: 5px;
+          margin: 3px;
+          font-size: 15px;
+          font-weight: bold;
+          border: 1px solid black;
+          border-radius: 5px;
+        }
+      }
+    }
+    .text-wrapper {
+      width: 100%;
+      height: 85%;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      .inner-text-wrapper {
+        padding-top: 25px;
+        min-height: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .inner-image-wrapper {
+        height: 100%;
+        padding-bottom: 2%;
+        display: flex;
+        justify-content: center;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
     .hideBackground {
       background-color: rgba(0, 0, 0, 0.8);
       position: absolute;
       z-index: 24;
-      @include tutorGrab;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 22;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       .confirmationForExit {
-        position: absolute;
-        width: 400px;
-        height: 200px;
+        width: 50vw;
+        height: 10vh;
         border: 2px solid black;
         background-color: gainsboro;
         border-radius: 15px;
-        top: 35%;
-        left: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .confirmation-wrapper {
+        }
         button {
-          @include forButtons;
         }
       }
     }
-    .exit {
-      position: absolute;
-      top: 88%;
-      button {
-        @include forButtons;
-      }
-    }
     .switch {
+      justify-content: end !important;
+    }
+    .item-wrapper {
       display: flex;
-      position: absolute;
+      justify-content: center;
+      width: 100%;
+      height: 5%;
       align-items: center;
-      top: 89.5%;
-      left: 73%;
+      .tutorial-button {
+        font-size: calc((var(0.25) * 3vw + 0.2rem)) !important;
+      }
       label {
         margin-left: 10px;
-        font-size: 15px;
-      }
-    }
-    .userVersion {
-      position: absolute;
-      bottom: 94%;
-      right: 88%;
-      font-size: 15px;
-    }
-    .changeLanguage {
-      position: absolute;
-      bottom: 93%;
-      left: 88%;
-      button {
-        padding: 5px;
-        margin: 3px;
-        font-size: 15px;
-        font-weight: bold;
-        border: 1px solid black;
-        border-radius: 5px;
+        font-size: calc((0.25) * 1vw + 0.5rem);
       }
     }
   }
 }
+@mixin forText($link) {
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  background: url($link) no-repeat center center;
+  background-size: contain;
+}
 .textForTutorial div {
-  font-size: 22px;
-  padding: 5px;
+  font-size: calc((0.25) * 3.5vw + 0.66rem);
   line-height: 1.5;
   .lastWord {
-    @include forText(400px, "../../public/photos/Harmash.jpg");
-    width: 300px;
+    @include forText("../../public/photos/Harmash.jpg");
   }
   .aboutFirstPage {
-    @include forText(480px, "../photos/FirstPage.jpg");
+    @include forText("../photos/FirstPage.jpg");
   }
   .aboutAttack {
-    @include forText(450px, "../photos/Attack.jpg");
+    @include forText("../photos/Attack.jpg");
   }
   .aboutDistr {
-    @include forText(420px, "../photos/Distribution.jpg");
+    @include forText("../photos/Distribution.jpg");
   }
   .aboutRatings {
-    @include forText(470px, "../photos/Ratings.jpg");
+    @include forText("../photos/Ratings.jpg");
   }
   .aboutInfo {
-    @include forText(450px, "../photos/PersonalInfo.jpg");
+    @include forText("../photos/PersonalInfo.jpg");
   }
   .welcome {
-    @include forText(300px, "../photos/welcome.jpg");
+    @include forText("../photos/welcome.jpg");
   }
   .awarness {
-    @include forText(220px, "../photos/Registration.jpg");
-    background-size: 50%;
+    @include forText("../photos/Registration.jpg");
   }
 }

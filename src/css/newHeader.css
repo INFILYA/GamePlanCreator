@@ -32,6 +32,7 @@
 }
 .header .matchup img {
   width: calc((var(--normal-text-size-value) - 0.75) * 5vw + 1rem);
+  border-radius: 0;
 }
 .header .logout {
   background-color: indianred;

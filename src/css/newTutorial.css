@@ -8,23 +8,63 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .grab .tutorial {
-  position: absolute;
-  max-width: 1030px;
-  max-height: 800px;
+  width: 80vw;
+  height: 80vh;
   background-color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
   border-radius: 15px;
   box-sizing: border-box;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 2vw;
+}
+.grab .tutorial .version-language-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 5%;
+}
+.grab .tutorial .version-language-wrapper .userVersion {
+  font-size: 15px;
+}
+.grab .tutorial .version-language-wrapper .changeLanguage button {
+  padding: 5px;
+  margin: 3px;
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.grab .tutorial .text-wrapper {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.grab .tutorial .text-wrapper .inner-text-wrapper {
+  padding-top: 25px;
+  min-height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.grab .tutorial .text-wrapper .inner-image-wrapper {
+  height: 100%;
+  padding-bottom: 2%;
+  display: flex;
+  justify-content: center;
+}
+.grab .tutorial .text-wrapper .inner-image-wrapper img {
   width: 100%;
   height: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 22;
 }
 .grab .tutorial .hideBackground {
   background-color: rgba(0, 0, 0, 0.8);
@@ -36,148 +76,97 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .grab .tutorial .hideBackground .confirmationForExit {
-  position: absolute;
-  width: 400px;
-  height: 200px;
+  width: 50vw;
+  height: 10vh;
   border: 2px solid black;
   background-color: gainsboro;
   border-radius: 15px;
-  top: 35%;
-  left: 30%;
-}
-.grab .tutorial .hideBackground .confirmationForExit button {
-  padding: 5px 20px;
-  margin: 0px 10px;
-  border: 1px solid black;
-}
-.grab .tutorial .exit {
-  position: absolute;
-  top: 88%;
-}
-.grab .tutorial .exit button {
-  padding: 5px 20px;
-  margin: 0px 10px;
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .grab .tutorial .switch {
+  justify-content: end !important;
+}
+.grab .tutorial .item-wrapper {
   display: flex;
-  position: absolute;
+  justify-content: center;
+  width: 100%;
+  height: 5%;
   align-items: center;
-  top: 89.5%;
-  left: 73%;
 }
-.grab .tutorial .switch label {
+.grab .tutorial .item-wrapper .tutorial-button {
+  font-size: calc(var(0.25) * 3vw + 0.2rem) !important;
+}
+.grab .tutorial .item-wrapper label {
   margin-left: 10px;
-  font-size: 15px;
-}
-.grab .tutorial .userVersion {
-  position: absolute;
-  bottom: 94%;
-  right: 88%;
-  font-size: 15px;
-}
-.grab .tutorial .changeLanguage {
-  position: absolute;
-  bottom: 93%;
-  left: 88%;
-}
-.grab .tutorial .changeLanguage button {
-  padding: 5px;
-  margin: 3px;
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid black;
-  border-radius: 5px;
+  font-size: calc(0.25vw + 0.5rem);
 }
 
 .textForTutorial div {
-  font-size: 22px;
-  padding: 5px;
+  font-size: calc(0.875vw + 0.66rem);
   line-height: 1.5;
 }
 .textForTutorial div .lastWord {
-  max-width: 1000px;
   width: 100%;
-  height: 400px;
   border-radius: 2px;
   border: 1px solid transparent;
-  margin: 10px 0px;
   background: url("../../public/photos/Harmash.jpg") no-repeat center center;
-  background-size: cover;
-  width: 300px;
+  background-size: contain;
 }
 .textForTutorial div .aboutFirstPage {
-  max-width: 1000px;
   width: 100%;
-  height: 480px;
   border-radius: 2px;
   border: 1px solid transparent;
-  margin: 10px 0px;
   background: url("../photos/FirstPage.jpg") no-repeat center center;
-  background-size: cover;
+  background-size: contain;
 }
 .textForTutorial div .aboutAttack {
-  max-width: 1000px;
   width: 100%;
-  height: 450px;
   border-radius: 2px;
   border: 1px solid transparent;
-  margin: 10px 0px;
   background: url("../photos/Attack.jpg") no-repeat center center;
-  background-size: cover;
+  background-size: contain;
 }
 .textForTutorial div .aboutDistr {
-  max-width: 1000px;
   width: 100%;
-  height: 420px;
   border-radius: 2px;
   border: 1px solid transparent;
-  margin: 10px 0px;
   background: url("../photos/Distribution.jpg") no-repeat center center;
-  background-size: cover;
+  background-size: contain;
 }
 .textForTutorial div .aboutRatings {
-  max-width: 1000px;
   width: 100%;
-  height: 470px;
   border-radius: 2px;
   border: 1px solid transparent;
-  margin: 10px 0px;
   background: url("../photos/Ratings.jpg") no-repeat center center;
-  background-size: cover;
+  background-size: contain;
 }
 .textForTutorial div .aboutInfo {
-  max-width: 1000px;
   width: 100%;
-  height: 450px;
   border-radius: 2px;
   border: 1px solid transparent;
-  margin: 10px 0px;
   background: url("../photos/PersonalInfo.jpg") no-repeat center center;
-  background-size: cover;
+  background-size: contain;
 }
 .textForTutorial div .welcome {
-  max-width: 1000px;
   width: 100%;
-  height: 300px;
   border-radius: 2px;
   border: 1px solid transparent;
-  margin: 10px 0px;
   background: url("../photos/welcome.jpg") no-repeat center center;
-  background-size: cover;
+  background-size: contain;
 }
 .textForTutorial div .awarness {
-  max-width: 1000px;
   width: 100%;
-  height: 220px;
   border-radius: 2px;
   border: 1px solid transparent;
-  margin: 10px 0px;
   background: url("../photos/Registration.jpg") no-repeat center center;
-  background-size: cover;
-  background-size: 50%;
+  background-size: contain;
 }
 
 /*# sourceMappingURL=newTutorial.css.map */
