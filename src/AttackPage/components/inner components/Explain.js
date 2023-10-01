@@ -25,10 +25,10 @@ export function Explain({
           <label>Return?</label>
           <div>
             <button type="button" className="returnButton" onClick={() => returnOldData()}>
-              YES
+              Y
             </button>
             <button type="button" className="returnButton" onClick={() => setConfirmReturn(false)}>
-              NO
+              N
             </button>
           </div>
         </div>
