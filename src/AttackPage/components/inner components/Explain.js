@@ -22,13 +22,12 @@ export function Explain({
     <>
       {confirmReturn ? (
         <div className="saveBox" style={!saveDataOfAttacks ? { backgroundColor: "orangered" } : {}}>
-          <label>Return?</label>
           <div>
             <button type="button" className="returnButton" onClick={() => returnOldData()}>
-              Y
+              Return
             </button>
             <button type="button" className="returnButton" onClick={() => setConfirmReturn(false)}>
-              N
+              Close
             </button>
           </div>
         </div>
