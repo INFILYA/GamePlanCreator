@@ -73,7 +73,6 @@ export function Squads({ team }) {
 
   function setPlayerInfo(playerInfo) {
     dispatch(setInfoOfPlayer(playerInfo));
-    localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
   }
   function showStartingSix() {
     const rivalTeam = rivalClub.startingSquad;

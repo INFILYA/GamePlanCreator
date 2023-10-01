@@ -8,6 +8,7 @@ export const playerInfoSlice = createSlice({
   reducers: {
     setInfoOfPlayer: (state, action) => {
       state.playerInfo = action.payload;
+      localStorage.setItem("playerInfo", JSON.stringify(action.payload));
     },
   },
 });

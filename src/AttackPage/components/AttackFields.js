@@ -45,12 +45,12 @@ export function AttackFields() {
     { zone: "attackK7", active: false },
   ]);
   const [zoneValue, setZoneValue] = useState({
+    0: 0,
     1: 0,
     2: 0,
     3: 0,
     4: 0,
     5: 0,
-    6: 0,
   });
   const [diagrammValue, setDiagrammValue] = useState({
     winPoints: 0,
@@ -60,51 +60,51 @@ export function AttackFields() {
     plusMinusOnAttack: 0,
     percentOfAttack: 0,
   });
+  const classNamesForConesAndInputs = ["5A", "5B", "6A", "6B", "1A", "1B"];
+  let AttacksByZone = Object.values(zoneValue);
+  let DiagrammValue = Object.values(diagrammValue).slice(0, 4);
+  const checkEquality = reduce(DiagrammValue) === reduce(AttacksByZone);
+
   useEffect(() => {
     const playerInfo = JSON.parse(localStorage.getItem("playerInfo"));
     dispatch(setInfoOfPlayer(playerInfo));
   }, [dispatch]);
-  const classNamesForConesAndInputs = ["5A", "5B", "6A", "6B", "1A", "1B"];
-  let AttacksByZone = Object.values(zoneValue);
+
   const chooseTypeOfAttack = (event) => {
     setattackType(event.target.value);
   };
-  const checkEquality =
-    diagrammValue.winPoints +
-      diagrammValue.leftInGame +
-      diagrammValue.attacksInBlock +
-      diagrammValue.loosePoints ===
-    reduce(AttacksByZone);
-  function handleDiagrammValue(event) {
+  const handleDiagrammValue = (event) => {
     setDiagrammValue({
       ...diagrammValue,
       [event.target.name]: +event.target.value.replace(/\D+/g, ""),
     });
-  }
-  function handleZoneValue(event) {
+  };
+  const handleZoneValue = (event) => {
     setZoneValue({
       ...zoneValue,
       [event.target.name]: +event.target.value.replace(/\D+/g, ""),
     });
-  }
-  function calculateForDatas(obj) {
+  };
+  const calculateForDatas = (obj) => {
     if (obj === playerInfo) {
       diagrammValue.plusMinusOnAttack =
         diagrammValue.winPoints - (diagrammValue.attacksInBlock + diagrammValue.loosePoints);
     }
-    obj.winPoints += diagrammValue.winPoints;
-    obj.leftInGame += diagrammValue.leftInGame;
-    obj.attacksInBlock += diagrammValue.attacksInBlock;
-    obj.loosePoints += diagrammValue.loosePoints;
-    obj.plusMinusOnAttack += diagrammValue.plusMinusOnAttack;
+    for (let key in diagrammValue) {
+      if (key === "percentOfAttack") {
+        continue;
+      }
+      obj[key] += diagrammValue[key];
+    }
     obj.percentOfAttack = Math.round(
       (obj.winPoints /
         (obj.winPoints + obj.attacksInBlock + obj.loosePoints + obj.leftInGame + 0.0001)) *
         100
     );
     return obj;
-  }
-  function onHandleCountClick(event) {
+  };
+
+  const onHandleCountClick = (event) => {
     event.preventDefault();
     while (attackType === "chooseTypeOfAttack" && playerInfo.position !== "MBlocker") {
       alert("Type of Attack was not selected");
@@ -147,22 +147,19 @@ export function AttackFields() {
     }
     const totalAttacks = reduce(AttacksByZone, 0.0001);
     const result = AttacksByZone.map((attacks) => Math.round((attacks / totalAttacks) * 100));
-    const upgradedZoneValue = Object.fromEntries(
-      Object.entries(result).map(([key, value]) => [+key + 1, value])
-    );
-    setZoneValue(upgradedZoneValue);
+    setZoneValue(result);
     setShowInputs(!showInputs);
     setDisableSwitch(!disableSwitch);
-  }
-  function returnOldData() {
+  };
+  const returnOldData = () => {
     refreshVersionOFAdmin(-1); //откатываю версию
     savePlayer(previousPlayerData); //откатываю данные одного игрока
     saveTeam(previousTeamData); // откатываю данные команды
     setConfirmReturn(!confirmReturn);
     alert("Last Data Returned");
-  }
+  };
 
-  function showData(event) {
+  const showData = (event) => {
     event.preventDefault();
     if (attackType === "chooseTypeOfAttack" && playerInfo.position !== "MBlocker") {
       alert("Type of Attack was not selected");
@@ -175,19 +172,16 @@ export function AttackFields() {
         : playerInfo[zoneOfAtt.zone];
     const totalAttacks = reduce(attHistory, 0.0001);
     const result = attHistory.map((attacks) => Math.round((attacks / totalAttacks) * 100));
-    const upgradedZoneValue = Object.fromEntries(
-      Object.entries(result).map(([key, value]) => [+key + 1, value])
-    );
-    setZoneValue(upgradedZoneValue);
+    setZoneValue(result);
     setShowInputs(!showInputs);
     setDisableSwitch(!disableSwitch);
     setShowDataOfAttacks(!showDataOfAttacks);
-  }
+  };
 
   const refreshVersionOFAdmin = async (count) => {
     try {
-      const docVersionRef = doc(dataBase, "versionChecker", "currentVersion");
-      await setDoc(docVersionRef, { currentVersion: userVersion + count });
+      const version = doc(dataBase, "versionChecker", "currentVersion");
+      await setDoc(version, { currentVersion: userVersion + count });
       const adminVersion = userVersion + count;
       dispatch(setUserVersion(adminVersion));
     } catch (error) {
@@ -197,22 +191,20 @@ export function AttackFields() {
 
   const savePlayer = async (player) => {
     try {
-      const docPlayerRef = doc(dataBase, "players", player.id);
-      await setDoc(docPlayerRef, player);
+      const Player = doc(dataBase, "players", player.id);
+      await setDoc(Player, player);
       const data = await getDocs(playersCollectionRefs);
-      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      dispatch(setAllPlayers(list));
-      const playerInfo = list.find((players) => players.id === player.id);
-      localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
-      dispatch(setInfoOfPlayer(playerInfo));
+      const playersList = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      dispatch(setAllPlayers(playersList));
+      dispatch(setInfoOfPlayer(player));
     } catch (error) {
       console.error(error);
     }
   };
   const saveTeam = async (team) => {
     try {
-      const docTeamRef = doc(dataBase, "clubs", team.id);
-      await setDoc(docTeamRef, team);
+      const Team = doc(dataBase, "clubs", team.id);
+      await setDoc(Team, team);
       const data = await getDocs(clubsCollectionRefs);
       const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       dispatch(setAllTeams(list));
@@ -234,6 +226,7 @@ export function AttackFields() {
           <div className="explain">
             <Explain
               confirmReturn={confirmReturn}
+              setConfirmReturn={setConfirmReturn}
               disableSwitch={disableSwitch}
               saveDataOfAttacks={saveDataOfAttacks}
               setSaveDataOfAttacks={setSaveDataOfAttacks}
@@ -361,7 +354,7 @@ export function AttackFields() {
               {classNamesForConesAndInputs.map((el, index) => (
                 <ConeReaction
                   key={index}
-                  zoneValue={zoneValue[index + 1]}
+                  zoneValue={zoneValue[index]}
                   cone={el}
                   historyOfBalls={historyOfBalls}
                   type={"Attack"}
@@ -386,9 +379,9 @@ export function AttackFields() {
                   {classNamesForConesAndInputs.map((el, index) => (
                     <InputForCount
                       key={el}
-                      name={index + 1}
+                      name={index}
                       onChange={handleZoneValue}
-                      zoneValue={zoneValue[index + 1]}
+                      zoneValue={zoneValue[index]}
                     />
                   ))}
                 </div>

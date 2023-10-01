@@ -4,6 +4,7 @@ import { auth } from "../../../config/firebase";
 
 export function Explain({
   confirmReturn,
+  setConfirmReturn,
   disableSwitch,
   saveDataOfAttacks,
   setSaveDataOfAttacks,
@@ -24,7 +25,10 @@ export function Explain({
           <label>Return?</label>
           <div>
             <button type="button" className="returnButton" onClick={() => returnOldData()}>
-              Confirm
+              YES
+            </button>
+            <button type="button" className="returnButton" onClick={() => setConfirmReturn(false)}>
+              NO
             </button>
           </div>
         </div>

@@ -171,7 +171,6 @@ export function ServiceFields() {
       const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       dispatch(setAllPlayers(list));
       const playerInfo = list.find((players) => players.id === player.id);
-      localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
       dispatch(setInfoOfPlayer(playerInfo));
     } catch (error) {
       console.error(error);
@@ -221,6 +220,7 @@ export function ServiceFields() {
           <div className="explain">
             <Explain
               confirmReturn={confirmReturn}
+              setConfirmReturn={setConfirmReturn}
               disableSwitch={disableSwitch}
               saveDataOfAttacks={saveDataOfServices}
               setSaveDataOfAttacks={setSaveDataOfServices}

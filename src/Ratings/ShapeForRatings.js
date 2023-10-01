@@ -55,7 +55,6 @@ export default function ShapeForRatings({ amplua }) {
   function showInfoOfPlayer(name) {
     const pickedPlayer = Players.find((player) => player.name === name);
     dispatch(setInfoOfPlayer(pickedPlayer));
-    localStorage.setItem("playerInfo", JSON.stringify(pickedPlayer));
   }
   return (
     <>

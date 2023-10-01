@@ -11,8 +11,7 @@ export function IconOfPlayer({ player, zones, type }) {
   const dispatch = useDispatch();
   const listOfPlayers = useSelector((state) => state.listOfPlayers.listOfPlayers);
   function setPlayerInfo(player) {
-    const playerInfo = listOfPlayers.find((players) => players === player);
-    localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
+    const playerInfo = listOfPlayers.find((players) => players.id === player.id);
     dispatch(setInfoOfPlayer(playerInfo));
   }
   function cancelRivalChoice(player) {
