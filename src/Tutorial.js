@@ -16,18 +16,6 @@ export function Tutorial({ text }) {
     dispatch(setisShowedTutorial(JSON.parse(localStorage.getItem("isShowedTutorial"))));
   }, [dispatch]);
 
-  function nextPage() {
-    setShowTutorial(false);
-  }
-  function hideTutorial() {
-    dispatch(setisShowedTutorial(true));
-  }
-  function leftTutorial() {
-    setConfirmReapeat(!confirmRepeat);
-  }
-  function setConfirmNotShowAgainTutorial() {
-    setConfirmReapeat(!confirmRepeat);
-  }
   return (
     <>
       {showTutorial && (
@@ -55,7 +43,7 @@ export function Tutorial({ text }) {
                 <div className="text-wrapper">{text}</div>
                 <div className="item-wrapper">
                   <Button
-                    onClick={nextPage}
+                    onClick={() => setShowTutorial(false)}
                     value={"Далі"}
                     style={{ padding: "5px 10px", fontSize: 15 }}
                   />
@@ -63,7 +51,7 @@ export function Tutorial({ text }) {
                 <div className="item-wrapper switch">
                   <label htmlFor="">Закрити і ніколи не показувати</label>
                   <Switch
-                    onChange={setConfirmNotShowAgainTutorial}
+                    onChange={() => setConfirmReapeat(!confirmRepeat)}
                     checked={confirmRepeat}
                   ></Switch>
                 </div>
@@ -73,12 +61,12 @@ export function Tutorial({ text }) {
                       <div className="confirmation-wrapper">
                         <h2>Ви впевнені?</h2>
                         <Button
-                          onClick={hideTutorial}
+                          onClick={() => dispatch(setisShowedTutorial(true))}
                           value={"Так"}
                           style={{ padding: "5px 10px", fontSize: 15 }}
                         />
                         <Button
-                          onClick={leftTutorial}
+                          onClick={() => setConfirmReapeat(!confirmRepeat)}
                           value={"Ні"}
                           style={{ padding: "5px 10px", fontSize: 15 }}
                         />
@@ -92,7 +80,7 @@ export function Tutorial({ text }) {
                 <div className="text-wrapper">{text}</div>
                 <div className="item-wrapper">
                   <Button
-                    onClick={nextPage}
+                    onClick={() => setShowTutorial(false)}
                     value={"Next"}
                     className="exit"
                     style={{ padding: "5px 10px", fontSize: 15 }}
@@ -101,7 +89,7 @@ export function Tutorial({ text }) {
                 <div className="item-wrapper switch">
                   <label htmlFor="">Close and never show it again</label>
                   <Switch
-                    onChange={setConfirmNotShowAgainTutorial}
+                    onChange={() => setConfirmReapeat(!confirmRepeat)}
                     checked={confirmRepeat}
                   ></Switch>
                 </div>
@@ -111,12 +99,12 @@ export function Tutorial({ text }) {
                       <div className="confirmation-wrapper">
                         <h2>Are you sure?</h2>
                         <Button
-                          onClick={hideTutorial}
+                          onClick={() => dispatch(setisShowedTutorial(true))}
                           value={"Yes"}
                           style={{ padding: "5px 10px", fontSize: 15 }}
                         />
                         <Button
-                          onClick={leftTutorial}
+                          onClick={() => setConfirmReapeat(!confirmRepeat)}
                           value={"No"}
                           style={{ padding: "5px 10px", fontSize: 15 }}
                         />

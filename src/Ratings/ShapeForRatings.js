@@ -44,13 +44,12 @@ export default function ShapeForRatings({ amplua }) {
     setDirectionOfSort(!directionOfSort);
   }
   function changePodiumColors(index) {
-    return index === 0
-      ? { backgroundColor: "gold" }
-      : index === 1
-      ? { backgroundColor: "silver" }
-      : index === 2
-      ? { backgroundColor: "burlywood" }
-      : {};
+    const backgrounds = [
+      { backgroundColor: "gold" },
+      { backgroundColor: "silver" },
+      { backgroundColor: "burlywood" },
+    ];
+    return backgrounds[index];
   }
   function showInfoOfPlayer(name) {
     const pickedPlayer = Players.find((player) => player.name === name);

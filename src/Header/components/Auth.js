@@ -89,7 +89,7 @@ export function Auth() {
               placeholder="Email..."
               required
               onChange={(e) => setEmail(e.target.value)}
-              value={email || ""}
+              value={email}
             />
             <button type="submit">{loginLoading ? "Logging you in" : "Log in"}</button>
             {loginError !== "" && <div>{loginError}</div>}

@@ -34,7 +34,7 @@ export function AttackFields() {
   const [confirmReturn, setConfirmReturn] = useState(false);
   const [previousPlayerData, setPreviousPlayerData] = useState(null);
   const [previousTeamData, setPreviousTeamData] = useState(null);
-  const [attackType, setattackType] = useState("chooseTypeOfAttack");
+  const [attackType, setattackType] = useState("choose");
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "attackZone1", active: false },
     { zone: "attackZone2", active: false },
@@ -106,7 +106,7 @@ export function AttackFields() {
 
   const onHandleCountClick = (event) => {
     event.preventDefault();
-    while (attackType === "chooseTypeOfAttack" && playerInfo.position !== "MBlocker") {
+    while (attackType === "choose") {
       alert("Type of Attack was not selected");
       return;
     }
@@ -122,13 +122,9 @@ export function AttackFields() {
       });
       calculateForDatas(playerInfo);
       const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
-      const attHistory =
-        playerInfo.position !== "MBlocker"
-          ? playerInfo[zoneOfAtt.zone + attackType]
-          : playerInfo[zoneOfAtt.zone];
+      const attHistory = playerInfo[zoneOfAtt.zone + attackType];
       const result = AttacksByZone.map((att, index) => att + attHistory[index]);
-      const nameOfZone =
-        playerInfo.position !== "MBlocker" ? zoneOfAtt.zone + attackType : zoneOfAtt.zone;
+      const nameOfZone = zoneOfAtt.zone + attackType;
       const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
       const team = allTeams.find((team) => team.name === playerInfo.teamid);
       const upgradedPlayers = players.map((player) => upgradeAge(player));
@@ -161,15 +157,12 @@ export function AttackFields() {
 
   const showData = (event) => {
     event.preventDefault();
-    if (attackType === "chooseTypeOfAttack" && playerInfo.position !== "MBlocker") {
+    if (attackType === "choose") {
       alert("Type of Attack was not selected");
       return;
     }
     const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
-    const attHistory =
-      playerInfo.position !== "MBlocker"
-        ? playerInfo[zoneOfAtt.zone + attackType]
-        : playerInfo[zoneOfAtt.zone];
+    const attHistory = playerInfo[zoneOfAtt.zone + attackType];
     const totalAttacks = reduce(attHistory, 0.0001);
     const result = attHistory.map((attacks) => Math.round((attacks / totalAttacks) * 100));
     setZoneValue(result);
@@ -244,9 +237,7 @@ export function AttackFields() {
               onChange={chooseTypeOfAttack}
               disabled={!showInputs || disableSwitch}
             >
-              <option value="chooseTypeOfAttack">
-                {!showInputs ? `Choose zone of attack` : `Choose type of attack`}
-              </option>
+              <option value="choose">{!showInputs ? `Choose zone` : `Choose type`}</option>
               <option value="FastBall">Fast ball</option>
               {playerInfo.position !== "MBlocker" && <option value="HighBall">High ball</option>}
             </select>

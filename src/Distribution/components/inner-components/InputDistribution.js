@@ -1,23 +1,27 @@
-export function InputDistribution({ distributionArr, zoneValue, handleZoneValue, name, readOnly }) {
-  const x = distributionArr === 0 ? 0 : distributionArr * 2;
+export function InputDistribution({ zoneValue, handleZoneValue, name, readOnly }) {
+  const x = zoneValue === 0 ? 0 : zoneValue * 2;
   return (
     <div className="input-wrapper">
       <input
-        style={{
-          backgroundColor:
-            distributionArr !== 0
-              ? `hsl(${
-                  distributionArr <= 15
-                    ? 200
-                    : distributionArr > 15 && distributionArr < 30
-                    ? 100
-                    : distributionArr >= 30 && distributionArr < 45
-                    ? 50
-                    : 0
-                },${x}%,50%)`
-              : "transparent",
-          color: distributionArr === 0 && "transparent",
-        }}
+        style={
+          readOnly
+            ? {
+                backgroundColor:
+                  zoneValue !== 0
+                    ? `hsl(${
+                        zoneValue <= 15
+                          ? 200
+                          : zoneValue > 15 && zoneValue < 30
+                          ? 100
+                          : zoneValue >= 30 && zoneValue < 45
+                          ? 50
+                          : 0
+                      },${x}%,50%)`
+                    : "transparent",
+                color: zoneValue === 0 && "transparent",
+              }
+            : null
+        }
         type="text"
         name={name}
         value={zoneValue}

@@ -5,11 +5,8 @@ import { reduce } from "../../Datas/api";
 import SectionWrapper from "../../Page1/components/SectionWrapper";
 
 export function DistrField() {
-  const [distributionArr, setDistributionArr] = useState([]);
-  const [zoneValue, setZoneValue] = useState(null);
+  const [zoneValue, setZoneValue] = useState([]);
   const [showButtonCount, setShowButtonCount] = useState(false);
-  const [showButtonSelect, setShowButtonSelect] = useState(true);
-  const inputDistributionArr = [1, 2, 3, 4, 5];
   const typesOfSituations = [
     "K1",
     "K2",
@@ -40,22 +37,17 @@ export function DistrField() {
     });
   }
   function handleSelectOption() {
-    setZoneValue({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 });
-    setShowButtonCount(true);
+    setZoneValue({ 0: 0, 1: 0, 2: 0, 3: 0, 4: 0 });
   }
   function onHandleCountClick(event) {
     event.preventDefault();
     let final = Object.values(zoneValue);
     const total = reduce(final, 0.001);
     const res = final.map((obj) => Math.round((obj / total) * 100));
-    const countedResult = Object.fromEntries(
-      Object.entries(res).map(([key, value]) => [+key + 1, value + "%"])
-    );
-    setZoneValue(countedResult);
-    setDistributionArr(res);
-    setShowButtonCount(!showButtonCount);
-    setShowButtonSelect(!showButtonSelect);
+    setZoneValue(res);
+    setShowButtonCount(true);
   }
+  const disabled = Array.isArray(zoneValue);
   return (
     <SectionWrapper
       className={"distribution-section"}
@@ -68,11 +60,11 @@ export function DistrField() {
                 className="typeOfCall"
                 defaultValue="Choose type of call"
                 onChange={handleSelectOption}
-                disabled={!showButtonSelect}
+                disabled={showButtonCount}
               >
                 <option disabled={true}>Choose type of call</option>
                 {typesOfSituations.map((type) =>
-                  showButtonSelect ? (
+                  !disabled ? (
                     <option key={type} value={type}>
                       {type}
                     </option>
@@ -83,42 +75,44 @@ export function DistrField() {
               </select>
             </div>
             <div className="block-wrapper">
-              {inputDistributionArr.map((input) => (
+              {Object.keys(zoneValue).map((input) => (
                 <BlockHelp key={input} />
               ))}
             </div>
-            {zoneValue && (
+            {(!disabled || showButtonCount) && (
               <div className="playarea-wrapper">
                 <div className="line-wrapper">
-                  {inputDistributionArr.slice(0, 3).map((input) => (
-                    <InputDistribution
-                      key={input}
-                      distributionArr={distributionArr[input - 1]}
-                      zoneValue={zoneValue[input]}
-                      handleZoneValue={handleZoneValue}
-                      name={input}
-                      readOnly={!showButtonSelect}
-                    />
-                  ))}
+                  {Object.keys(zoneValue)
+                    .slice(0, 3)
+                    .map((input) => (
+                      <InputDistribution
+                        key={input}
+                        zoneValue={zoneValue[input]}
+                        handleZoneValue={handleZoneValue}
+                        name={input}
+                        readOnly={disabled}
+                      />
+                    ))}
                 </div>
                 <div className="line-wrapper">
                   <div className="input-wrapper">
                     <input value={"Zone 5"} readOnly />
                   </div>
-                  {inputDistributionArr.slice(3, 5).map((input) => (
-                    <InputDistribution
-                      key={input}
-                      distributionArr={distributionArr[input - 1]}
-                      zoneValue={zoneValue[input]}
-                      handleZoneValue={handleZoneValue}
-                      name={input}
-                      readOnly={!showButtonSelect}
-                    />
-                  ))}
+                  {Object.keys(zoneValue)
+                    .slice(3, 5)
+                    .map((input) => (
+                      <InputDistribution
+                        key={input}
+                        zoneValue={zoneValue[input]}
+                        handleZoneValue={handleZoneValue}
+                        name={input}
+                        readOnly={disabled}
+                      />
+                    ))}
                 </div>
                 <div className="count-wrapper">
-                  {showButtonCount && (
-                    <button className="count" type="submit" disabled={!showButtonCount}>
+                  {!disabled && (
+                    <button className="count" type="submit">
                       Count
                     </button>
                   )}

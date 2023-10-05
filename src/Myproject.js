@@ -36,8 +36,7 @@ function Myproject() {
     async function checkVersionOfData() {
       try {
         const data = await getDocs(collection(dataBase, "versionChecker"));
-        const list = data.docs.map((doc) => doc.data());
-        const adminVersion = list[0].currentVersion;
+        const adminVersion = data.docs[0].data().currentVersion;
         dispatch(setUserVersion(adminVersion));
         if (adminVersion === userVersion) {
           dispatch(setAllPlayers(JSON.parse(localStorage.getItem("players"))));

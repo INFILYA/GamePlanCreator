@@ -34,16 +34,16 @@ export function ServiceFields() {
   const [confirmReturn, setConfirmReturn] = useState(false);
   const [previousPlayerData, setPreviousPlayerData] = useState(null);
   const [previousTeamData, setPreviousTeamData] = useState(null);
-  const [serviceType, setserviceType] = useState("chooseZoneOfService");
+  const [serviceType, setserviceType] = useState("choose");
   const [historyOfBalls, setHistoryOfBalls] = useState([
     { zone: "serviceZone1", active: false },
     { zone: "serviceZone6", active: false },
     { zone: "serviceZone5", active: false },
   ]);
   const [zoneValue, setZoneValue] = useState({
+    0: 0,
     1: 0,
     2: 0,
-    3: 0,
   });
   const [diagrammValue, setDiagrammValue] = useState({
     aces: 0,
@@ -52,22 +52,20 @@ export function ServiceFields() {
     serviceFailed: 0,
     plusMinusOnService: 0,
   });
+  const classNamesForConesAndInputs = ["Z5", "Z6", "Z1"];
+  const arrayForRecievers = [1, 2, 3, 4, 5];
+  let ServiceByZone = Object.values(zoneValue);
+  let DiagrammValue = Object.values(diagrammValue).slice(0, 4);
+  const checkEquality = reduce(DiagrammValue) === reduce(ServiceByZone);
 
   useEffect(() => {
     const playerInfo = JSON.parse(localStorage.getItem("playerInfo"));
     dispatch(setInfoOfPlayer(playerInfo));
   }, [dispatch]);
 
-  const classNamesForConesAndInputs = ["Z5", "Z6", "Z1"];
-  const arrayForRecievers = [1, 2, 3, 4, 5];
-
-  let ServiceByZone = Object.values(zoneValue);
-  const checkEquality =
-    diagrammValue.servicePlus +
-      diagrammValue.serviceMinus +
-      diagrammValue.serviceFailed +
-      diagrammValue.aces ===
-    reduce(ServiceByZone);
+  function chooseTypeOfService(event) {
+    setserviceType(event.target.value);
+  }
   function handleDiagrammValue(event) {
     setDiagrammValue({
       ...diagrammValue,
@@ -88,20 +86,14 @@ export function ServiceFields() {
         diagrammValue.serviceFailed -
         diagrammValue.serviceMinus * 0.5;
     }
-    obj.aces += diagrammValue.aces;
-    obj.servicePlus += diagrammValue.servicePlus;
-    obj.serviceMinus += diagrammValue.serviceMinus;
-    obj.serviceFailed += diagrammValue.serviceFailed;
-    obj.plusMinusOnService += diagrammValue.plusMinusOnService;
+    for (let key in diagrammValue) {
+      obj[key] += diagrammValue[key];
+    }
     return obj;
   }
-  function chooseTypeOfService(event) {
-    setserviceType(event.target.value);
-  }
   function onHandleCountClick(event) {
-    if (event.keyCode === 13) return false;
     event.preventDefault();
-    while (serviceType === "chooseZoneOfService") {
+    while (serviceType === "choose") {
       alert("Type of Service was not selected");
       return;
     }
@@ -138,10 +130,7 @@ export function ServiceFields() {
     }
     const totalServices = reduce(ServiceByZone, 0.0001);
     const result = ServiceByZone.map((obj) => Math.round((obj / totalServices) * 100));
-    const upgradedZoneValue = Object.fromEntries(
-      Object.entries(result).map(([key, value]) => [+key + 1, value])
-    );
-    setZoneValue(upgradedZoneValue);
+    setZoneValue(result);
     setShowInputs(!showInputs);
     setDisableSwitch(!disableSwitch);
   }
@@ -189,7 +178,7 @@ export function ServiceFields() {
 
   function showData(event) {
     event.preventDefault();
-    if (serviceType === "chooseZoneOfService") {
+    if (serviceType === "choose") {
       alert("Type of Service was not selected");
       return;
     }
@@ -197,15 +186,11 @@ export function ServiceFields() {
     const attHistory = playerInfo[zoneOfAtt.zone + serviceType];
     const totalAttacks = reduce(attHistory, 0.0001);
     const result = attHistory.map((attacks) => Math.round((attacks / totalAttacks) * 100));
-    const upgradedZoneValue = Object.fromEntries(
-      Object.entries(result).map(([key, value]) => [+key + 1, value])
-    );
-    setZoneValue(upgradedZoneValue);
+    setZoneValue(result);
     setShowInputs(!showInputs);
     setDisableSwitch(!disableSwitch);
     setShowDataOfAttacks(!showDataOfAttacks);
   }
-  console.log(zoneValue[3]);
   return (
     <SectionWrapper
       className={"playArea-section"}
@@ -238,9 +223,7 @@ export function ServiceFields() {
               onChange={chooseTypeOfService}
               disabled={!showInputs || disableSwitch}
             >
-              <option value="chooseTypeOfService">
-                {!showInputs ? "Choose zone of service" : "Choose type of service"}
-              </option>
+              <option value="choose">{!showInputs ? "Choose zone" : "Choose type"}</option>
               <option value="Jump">Jump</option>
               <option value="Float">Float</option>
             </select>
@@ -284,7 +267,7 @@ export function ServiceFields() {
               {classNamesForConesAndInputs.map((el, index) => (
                 <ConeReaction
                   key={index}
-                  zoneValue={zoneValue[index + 1]}
+                  zoneValue={zoneValue[index]}
                   cone={el}
                   historyOfBalls={historyOfBalls}
                 />
@@ -308,9 +291,9 @@ export function ServiceFields() {
                   {classNamesForConesAndInputs.map((el, index) => (
                     <InputForCount
                       key={el}
-                      name={index + 1}
+                      name={index}
                       onChange={handleZoneValue}
-                      zoneValue={zoneValue[index + 1]}
+                      zoneValue={zoneValue[index]}
                     />
                   ))}
                 </div>
