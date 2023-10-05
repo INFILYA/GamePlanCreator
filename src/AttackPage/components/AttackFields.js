@@ -61,6 +61,7 @@ export function AttackFields() {
     percentOfAttack: 0,
   });
   const classNamesForConesAndInputs = ["5A", "5B", "6A", "6B", "1A", "1B"];
+  const arrayForRecievers = [1, 2, 3, 4, 5];
   let AttacksByZone = Object.values(zoneValue);
   let DiagrammValue = Object.values(diagrammValue).slice(0, 4);
   const checkEquality = reduce(DiagrammValue) === reduce(AttacksByZone);
@@ -348,7 +349,7 @@ export function AttackFields() {
                   zoneValue={zoneValue[index]}
                   cone={el}
                   historyOfBalls={historyOfBalls}
-                  type={"Attack"}
+                  type="Attack"
                 />
               ))}
             </div>
@@ -356,14 +357,14 @@ export function AttackFields() {
           {showBalls && (
             <>
               <div className="tip-wrapper">
-                <Tip value={"Tip"} />
-                <Tip value={"Tip"} />
-                <Tip value={"Tip"} />
+                <Tip value="Tip" />
+                <Tip value="Tip" />
+                <Tip value="Tip" />
               </div>
               <div className="defender-wrapper">
-                <DefenderZone6 />
-                <DefenderZone6 />
-                <DefenderZone6 />
+                {arrayForRecievers.map((reciever) => (
+                  <DefenderZone6 key={reciever} />
+                ))}
               </div>
               {!disableSwitch && !showDataOfAttacks && (
                 <div className="inputs-wrapper">

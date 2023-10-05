@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import Distribution from "./Distribution/Distribution";
 import Attacks from "./AttackPage/Attack";
 import Service from "./AttackPage/Service";
-import Page1 from "./Page1/Page1";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Auth } from "./Header/components/Auth";
@@ -25,6 +24,7 @@ import { setisShowedTutorial } from "./states/slices/isShowedTutorialSlice";
 import { Header } from "./Header/Header";
 import { setAllPlayers } from "./states/slices/listOfPlayersSlice";
 import { setAllTeams } from "./states/slices/listOfTeamsSlice";
+import { FirstPage } from "./Page1/FirstPage";
 
 function Myproject() {
   const dispatch = useDispatch();
@@ -93,7 +93,7 @@ function Myproject() {
           </div>
         )}
         <Routes>
-          <Route path="/" element={<Page1 />} />
+          <Route path="/" element={<FirstPage />} />
           <Route path="/Auth" element={<Auth />} />
           <Route path="/Ratings" element={<Ratings />}>
             <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />

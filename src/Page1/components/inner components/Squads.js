@@ -83,7 +83,7 @@ export function Squads({ team }) {
 
   return (
     <SectionWrapper
-      className={"teamsquad-section"}
+      className="teamsquad-section"
       content={
         <>
           <div className="team-title-wrapper" style={myTeam ? { direction: "rtl" } : {}}>
@@ -142,7 +142,7 @@ export function Squads({ team }) {
                 </div>
               ))}
             {showButtonStartingSix && (
-              <Button onClick={showStartingSix} value={"Show Starting six"} />
+              <Button onClick={showStartingSix} value="Show Starting six" />
             )}
           </div>
         </>

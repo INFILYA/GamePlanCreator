@@ -135,12 +135,12 @@ export function PersonalInformationOfPlayer({ link }) {
         <div className="player-diagramm-wrapper">
           {(page1 || service) && (
             <div className="row">
-              <Diagramm link={"Service"} />
+              <Diagramm link="Service" />
             </div>
           )}
           {!setter && (page1 || attack) && (
             <div className="row">
-              <Diagramm link={"Attack"} />
+              <Diagramm link="Attack" />
             </div>
           )}
         </div>

@@ -3,29 +3,29 @@ import ShapeForRatings from "./ShapeForRatings";
 import SectionWrapper from "../Page1/components/SectionWrapper";
 
 export function MiddleBlockersRating() {
-  return <ShapeForRatings amplua={"MBlocker"} />;
+  return <ShapeForRatings amplua="MBlocker" />;
 }
 export function LiberosRating() {
-  return <ShapeForRatings amplua={"Libero"} />;
+  return <ShapeForRatings amplua="Libero" />;
 }
 export function OppositesRating() {
-  return <ShapeForRatings amplua={"Opposite"} />;
+  return <ShapeForRatings amplua="Opposite" />;
 }
 export function SettersRating() {
-  return <ShapeForRatings amplua={"Setter"} />;
+  return <ShapeForRatings amplua="Setter" />;
 }
 export function RecieversRating() {
-  return <ShapeForRatings amplua={"Reciever"} />;
+  return <ShapeForRatings amplua="Reciever" />;
 }
 export function TeamsRating() {
-  return <ShapeForRatings amplua={"teams"} />;
+  return <ShapeForRatings amplua="teams" />;
 }
 
 export function Ratings() {
   return (
     <article className="main-content-wrapper">
       <SectionWrapper
-        className={"ratings-section"}
+        className="ratings-section"
         content={
           <>
             <h1>Ratings</h1>

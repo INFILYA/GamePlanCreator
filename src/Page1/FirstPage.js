@@ -1,31 +1,31 @@
 import { useDispatch, useSelector } from "react-redux";
-import { PersonalInformationOfPlayer } from "../../PersonalInfo/PersonalInformationOfPlayer";
-import { ChooseOpponentTeam } from "./inner components/ChooseOpponentTeam";
-import { IconOfPlayer } from "./inner components/IconOfPlayer";
-import { Squads } from "./inner components/Squads";
+import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
+import { ChooseOpponentTeam } from "./components/inner components/ChooseOpponentTeam";
+import { IconOfPlayer } from "./components/inner components/IconOfPlayer";
+import { Squads } from "./components/inner components/Squads";
 import {
   clearMyTeamZones,
   rotateBackMyTeam,
   rotateForwardMyTeam,
-} from "../../states/slices/myTeamZonesSlice";
-import { setMyTeamPlayers } from "../../states/slices/myTeamPlayersSlice";
-import { resetMyTeamPlayers } from "../../states/slices/myTeamPlayersSlice";
-import { setMyTeam, resetMyTeam } from "../../states/slices/myClubSlice";
-import { correctNamesOfZones } from "../../Datas/api";
-import { Button } from "../../StaticHelpModules/Button";
+} from "../states/slices/myTeamZonesSlice";
+import { setMyTeamPlayers } from "../states/slices/myTeamPlayersSlice";
+import { resetMyTeamPlayers } from "../states/slices/myTeamPlayersSlice";
+import { setMyTeam, resetMyTeam } from "../states/slices/myClubSlice";
+import { correctNamesOfZones } from "../Datas/api";
+import { Button } from "../StaticHelpModules/Button";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
-import { auth, dataBase } from "../../config/firebase";
+import { auth, dataBase } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { resetRivalPlayers } from "../../states/slices/rivalPlayersSlice";
-import { resetRivalTeam } from "../../states/slices/rivalClubSlice";
-import { clearRivalZones } from "../../states/slices/zonesSlice";
-import { setBackRightRivalSelects } from "../../states/slices/indexOfZonesSlice";
-import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
-import { setBackRightMyTeamSelects } from "../../states/slices/sequanceOfZonesSlice";
-import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
-import { setUserVersion } from "../../states/slices/userVersionSlice";
+import { resetRivalPlayers } from "../states/slices/rivalPlayersSlice";
+import { resetRivalTeam } from "../states/slices/rivalClubSlice";
+import { clearRivalZones } from "../states/slices/zonesSlice";
+import { setBackRightRivalSelects } from "../states/slices/indexOfZonesSlice";
+import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
+import { setBackRightMyTeamSelects } from "../states/slices/sequanceOfZonesSlice";
+import { setAllTeams } from "../states/slices/listOfTeamsSlice";
+import { setUserVersion } from "../states/slices/userVersionSlice";
 import { NavLink } from "react-router-dom";
-import SectionWrapper from "./SectionWrapper";
+import SectionWrapper from "./components/SectionWrapper";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -91,14 +91,14 @@ export function FirstPage() {
   };
   return (
     <article className="main-content-wrapper">
-      {showRivalClub && <Squads team={"rival"} />}
+      {showRivalClub && <Squads team="rival" />}
       <SectionWrapper
-        className={"playground-section"}
+        className="playground-section"
         backGround={!playerInfo && <img src="/photos/playarea.jpg" alt="" />}
         content={
           <>
             {!showRivalClub && <ChooseOpponentTeam />}
-            {playerInfo && <PersonalInformationOfPlayer link={"page1"} />}
+            {playerInfo && <PersonalInformationOfPlayer link="page1" />}
             {!playerInfo && showRivalClub && (
               <div className="rotation-field-wrapper">
                 <div className="reset-button-wrapper" style={{ justifyContent: "space-between" }}>
@@ -118,12 +118,7 @@ export function FirstPage() {
                 <div className="row-zones-wrapper">
                   {zones.slice(0, 3).map((player, index) =>
                     player ? (
-                      <IconOfPlayer
-                        player={player}
-                        zones={zones}
-                        type={"rival"}
-                        key={player.name}
-                      />
+                      <IconOfPlayer player={player} zones={zones} type="rival" key={player.name} />
                     ) : (
                       <div className="player-field-wrapper zone-names-wrapper" key={"_" + index}>
                         <div>{correctNamesOfZones(index)}</div>
@@ -139,7 +134,7 @@ export function FirstPage() {
                         <IconOfPlayer
                           player={player}
                           zones={myTeamZones}
-                          type={"my"}
+                          type="my"
                           key={player.name}
                         />
                       ) : (
@@ -150,12 +145,7 @@ export function FirstPage() {
                 <div className="row-zones-wrapper">
                   {zones.slice(3, 6).map((player, index) =>
                     player ? (
-                      <IconOfPlayer
-                        player={player}
-                        zones={zones}
-                        type={"rival"}
-                        key={player.name}
-                      />
+                      <IconOfPlayer player={player} zones={zones} type="rival" key={player.name} />
                     ) : (
                       <div className="player-field-wrapper zone-names-wrapper" key={"_" + index}>
                         <div>{correctNamesOfZones(index + 3)}</div>
@@ -171,7 +161,7 @@ export function FirstPage() {
                         <IconOfPlayer
                           player={player}
                           zones={myTeamZones}
-                          type={"my"}
+                          type="my"
                           key={player.name}
                         />
                       ) : (
@@ -181,7 +171,7 @@ export function FirstPage() {
                 </div>
                 {!zones.includes(null) && admin && (
                   <div style={{ marginTop: 5 }}>
-                    <Button onClick={saveStartingSix} value={"Save starting six"} />
+                    <Button onClick={saveStartingSix} value="Save starting six" />
                   </div>
                 )}
                 {myTeamZones.every((zone) => zone !== null) && isRegistratedUser && (
@@ -210,10 +200,10 @@ export function FirstPage() {
       />
       {showRivalClub &&
         (showMyClub ? (
-          <Squads team={"my"} />
+          <Squads team="my" />
         ) : (
           <SectionWrapper
-            className={"teamsquad-section"}
+            className="teamsquad-section"
             content={
               rivalClub.length !== 0 && (
                 <select className="chooseHomeTeam" onChange={handleSetMyTeam}>

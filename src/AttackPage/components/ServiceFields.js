@@ -214,7 +214,7 @@ export function ServiceFields() {
               returnOldData={returnOldData}
               showDataOfAttacks={showDataOfAttacks}
               setShowDataOfAttacks={setShowDataOfAttacks}
-              type={"Service"}
+              type="Service"
             />
           </div>
           <div className="select-wrapper">
@@ -277,9 +277,9 @@ export function ServiceFields() {
           {showBalls && (
             <>
               <div className="tip-wrapper">
-                <Tip value={"Short"} />
-                <Tip value={"Short"} />
-                <Tip value={"Short"} />
+                <Tip value="Short" />
+                <Tip value="Short" />
+                <Tip value="Short" />
               </div>
               <div className="defender-wrapper">
                 {arrayForRecievers.map((reciever) => (
