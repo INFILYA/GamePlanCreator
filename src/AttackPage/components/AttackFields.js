@@ -208,7 +208,7 @@ export function AttackFields() {
   };
   return (
     <SectionWrapper
-      className={"playArea-section"}
+      className="playArea-section"
       backGround={
         <div className="playground-area-background">
           <div className="threeMRivalCort"></div>
@@ -229,7 +229,7 @@ export function AttackFields() {
               returnOldData={returnOldData}
               showDataOfAttacks={showDataOfAttacks}
               setShowDataOfAttacks={setShowDataOfAttacks}
-              type={"Attack"}
+              type="Attack"
             />
           </div>
           <div className="select-wrapper">

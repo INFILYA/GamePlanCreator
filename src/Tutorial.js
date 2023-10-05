@@ -44,7 +44,7 @@ export function Tutorial({ text }) {
                 <div className="item-wrapper">
                   <Button
                     onClick={() => setShowTutorial(false)}
-                    value={"Далі"}
+                    value="Далі"
                     style={{ padding: "5px 10px", fontSize: 15 }}
                   />
                 </div>
@@ -62,12 +62,12 @@ export function Tutorial({ text }) {
                         <h2>Ви впевнені?</h2>
                         <Button
                           onClick={() => dispatch(setisShowedTutorial(true))}
-                          value={"Так"}
+                          value="Так"
                           style={{ padding: "5px 10px", fontSize: 15 }}
                         />
                         <Button
                           onClick={() => setConfirmReapeat(!confirmRepeat)}
-                          value={"Ні"}
+                          value="Ні"
                           style={{ padding: "5px 10px", fontSize: 15 }}
                         />
                       </div>
@@ -81,7 +81,7 @@ export function Tutorial({ text }) {
                 <div className="item-wrapper">
                   <Button
                     onClick={() => setShowTutorial(false)}
-                    value={"Next"}
+                    value="Next"
                     className="exit"
                     style={{ padding: "5px 10px", fontSize: 15 }}
                   />
@@ -100,12 +100,12 @@ export function Tutorial({ text }) {
                         <h2>Are you sure?</h2>
                         <Button
                           onClick={() => dispatch(setisShowedTutorial(true))}
-                          value={"Yes"}
+                          value="Yes"
                           style={{ padding: "5px 10px", fontSize: 15 }}
                         />
                         <Button
                           onClick={() => setConfirmReapeat(!confirmRepeat)}
-                          value={"No"}
+                          value="No"
                           style={{ padding: "5px 10px", fontSize: 15 }}
                         />
                       </div>

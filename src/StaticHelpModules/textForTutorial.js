@@ -1,7 +1,7 @@
 import "../photos/Attack.jpg";
 export function Button({ onClick, value }) {
   return (
-    <button className={"regularButton"} onClick={onClick}>
+    <button className="regularButton" onClick={onClick}>
       {value}
     </button>
   );

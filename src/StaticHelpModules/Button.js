@@ -1,6 +1,6 @@
 export function Button({ onClick, value, style }) {
   return (
-    <button className={"regularButton"} onClick={onClick} style={style}>
+    <button className="regularButton" onClick={onClick} style={style}>
       {value}
     </button>
   );

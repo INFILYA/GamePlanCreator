@@ -193,7 +193,7 @@ export function ServiceFields() {
   }
   return (
     <SectionWrapper
-      className={"playArea-section"}
+      className="playArea-section"
       backGround={
         <div className="playground-area-background">
           <div className="threeMRivalCort"></div>
