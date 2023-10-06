@@ -85,13 +85,23 @@ export default function ShapeForRatings({ amplua }) {
                   </div>
                 ) : (
                   <div className="name-span-wrapper" style={changePodiumColors(index)} key={index}>
-                    <span
-                      onClick={
-                        teamsOrPlayers !== listOfTeams ? () => showInfoOfPlayer(player.name) : null
-                      }
+                    {"position" in player && (
+                      <span
+                        onClick={
+                          teamsOrPlayers !== listOfTeams
+                            ? () => showInfoOfPlayer(player.name)
+                            : null
+                        }
+                      >
+                        {index + 1}. {player[category.category]}
+                      </span>
+                    )}
+                    <div
+                      className="rating-image-wrapper"
+                      style={!("position" in player) ? { width: "100%" } : {}}
                     >
-                      {index + 1}. {player[category.category]}
-                    </span>
+                      <img alt="" src={`/photos/${player.teamid || player.id}.jpg`}></img>
+                    </div>
                   </div>
                 )
               )}
