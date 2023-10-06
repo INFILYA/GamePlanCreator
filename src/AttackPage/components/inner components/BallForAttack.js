@@ -3,8 +3,8 @@ import { useState } from "react";
 export function BallForAttack({
   attack,
   index,
-  historyOfBalls,
-  setHistoryOfBalls,
+  zonesStates,
+  setZonesStates,
   setShowInputs,
   value,
   setShowBalls,
@@ -12,7 +12,7 @@ export function BallForAttack({
 }) {
   const [showTheBall, setShowTheBall] = useState(true);
   function onClickSetCorrectBall(index) {
-    const newBalls = [...historyOfBalls];
+    const newBalls = [...zonesStates];
     if (showTheBall) {
       newBalls[index] = { ...newBalls[index], active: true };
       setShowInputs(!showInputs);
@@ -24,7 +24,7 @@ export function BallForAttack({
       setShowBalls(false);
       setShowTheBall(!showTheBall);
     }
-    setHistoryOfBalls(newBalls);
+    setZonesStates(newBalls);
   }
   return (
     <>

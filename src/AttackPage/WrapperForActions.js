@@ -3,7 +3,7 @@ import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformation
 import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function WrapperForAttacks({ type, children }) {
+export default function WrapperForActions({ type, children }) {
   const dispatch = useDispatch();
   const [history, sethistory] = useState([0]);
   const playerInfo = useSelector((state) => state.playerInfo.playerInfo);

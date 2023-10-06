@@ -1,41 +1,11 @@
-import { useEffect, useState } from "react";
-import { BallForAttack } from "./inner components/BallForAttack";
-import { Explain } from "./inner components/Explain";
-import { reduce } from "../../Datas/api";
-import { upgradeAge } from "../../StaticHelpModules/Button";
-import { useDispatch, useSelector } from "react-redux";
-import { DefenderZone6 } from "./inner components/DefenderZone6";
-import { ConeReaction } from "./inner components/ConeReaction";
-import { InputForCount } from "./inner components/InputForCount";
-import { CheckEquality } from "./inner components/CheckEquality";
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
-import { dataBase } from "../../config/firebase";
-import { setUserVersion } from "../../states/slices/userVersionSlice";
-import { setAllPlayers } from "../../states/slices/listOfPlayersSlice";
-import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
-import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
-import Tip from "./inner components/Tip";
-import SectionWrapper from "../../Page1/components/SectionWrapper";
+import { useSelector } from "react-redux";
+import WrapperForFields from "./WrapperForFields";
+import { useState } from "react";
 
 export function ServiceFields() {
-  const dispatch = useDispatch();
-  const playersCollectionRefs = collection(dataBase, "players");
-  const clubsCollectionRefs = collection(dataBase, "clubs");
-  const userVersion = useSelector((state) => state.userVersion.userVersion);
   const playerInfos = useSelector((state) => state.playerInfo.playerInfo);
-  const allPlayers = useSelector((state) => state.listOfPlayers.listOfPlayers);
-  const allTeams = useSelector((state) => state.listOfTeams.listOfTeams);
   const playerInfo = { ...playerInfos };
-  const [showDataOfAttacks, setShowDataOfAttacks] = useState(false);
-  const [showInputs, setShowInputs] = useState(false);
-  const [showBalls, setShowBalls] = useState(false);
-  const [saveDataOfServices, setSaveDataOfServices] = useState(false);
-  const [disableSwitch, setDisableSwitch] = useState(false);
-  const [confirmReturn, setConfirmReturn] = useState(false);
-  const [previousPlayerData, setPreviousPlayerData] = useState(null);
-  const [previousTeamData, setPreviousTeamData] = useState(null);
-  const [serviceType, setserviceType] = useState("choose");
-  const [historyOfBalls, setHistoryOfBalls] = useState([
+  const [zonesStates, setZonesStates] = useState([
     { zone: "serviceZone1", active: false },
     { zone: "serviceZone6", active: false },
     { zone: "serviceZone5", active: false },
@@ -53,31 +23,7 @@ export function ServiceFields() {
     plusMinusOnService: 0,
   });
   const classNamesForConesAndInputs = ["Z5", "Z6", "Z1"];
-  const arrayForRecievers = [1, 2, 3, 4, 5];
-  let ServiceByZone = Object.values(zoneValue);
-  let DiagrammValue = Object.values(diagrammValue).slice(0, 4);
-  const checkEquality = reduce(DiagrammValue) === reduce(ServiceByZone);
 
-  useEffect(() => {
-    const playerInfo = JSON.parse(localStorage.getItem("playerInfo"));
-    dispatch(setInfoOfPlayer(playerInfo));
-  }, [dispatch]);
-
-  function chooseTypeOfService(event) {
-    setserviceType(event.target.value);
-  }
-  function handleDiagrammValue(event) {
-    setDiagrammValue({
-      ...diagrammValue,
-      [event.target.name]: +event.target.value.replace(/\D+/g, ""),
-    });
-  }
-  function handleZoneValue(event) {
-    setZoneValue({
-      ...zoneValue,
-      [event.target.name]: +event.target.value.replace(/\D+/g, ""),
-    });
-  }
   function calculateForData(obj) {
     if (obj === playerInfo) {
       diagrammValue.plusMinusOnService =
@@ -91,224 +37,21 @@ export function ServiceFields() {
     }
     return obj;
   }
-  function onHandleCountClick(event) {
-    event.preventDefault();
-    while (serviceType === "choose") {
-      alert("Type of Service was not selected");
-      return;
-    }
-    if (saveDataOfServices) {
-      while (!checkEquality) {
-        alert("DATA Value not equal to ZONE value");
-        return;
-      }
-      setConfirmReturn(!confirmReturn);
-      setPreviousPlayerData({ ...playerInfo });
-      setPreviousTeamData({
-        ...allTeams.find((team) => team.name === playerInfo.teamid),
-      });
-      calculateForData(playerInfo);
-      const zoneOfServ = historyOfBalls.find((ball) => ball.active);
-      const servHistory = playerInfo[zoneOfServ.zone + serviceType];
-      const res = ServiceByZone.map((att, index) => att + servHistory[index]);
-      const nameOfZone = zoneOfServ.zone + serviceType;
-      const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
-      const team = allTeams.find((team) => team.name === playerInfo.teamid);
-      const upgradedPlayers = players.map((player) => upgradeAge(player));
-      const teamAge = upgradedPlayers.reduce((a, b) => a + b.age, 0) / players.length;
-      const teamHeight = upgradedPlayers.reduce((a, b) => a + b.height, 0) / players.length;
-      const newTeam = { ...team };
-      calculateForData(newTeam);
-      newTeam.height = +teamHeight.toFixed(1);
-      newTeam.age = +teamAge.toFixed(1);
-      ServiceByZone = res;
-      playerInfo[nameOfZone] = ServiceByZone;
-      refreshVersionOFAdmin(1);
-      savePlayer(playerInfo); //сохраняю одного игрока
-      saveTeam(newTeam); // сохраняю команду
-      setSaveDataOfServices(!saveDataOfServices);
-    }
-    const totalServices = reduce(ServiceByZone, 0.0001);
-    const result = ServiceByZone.map((obj) => Math.round((obj / totalServices) * 100));
-    setZoneValue(result);
-    setShowInputs(!showInputs);
-    setDisableSwitch(!disableSwitch);
-  }
-  function returnOldData() {
-    refreshVersionOFAdmin(-1);
-    savePlayer(previousPlayerData);
-    saveTeam(previousTeamData);
-    setConfirmReturn(!confirmReturn);
-    alert("Last Data Returned");
-  }
 
-  const refreshVersionOFAdmin = async (count) => {
-    try {
-      const docVersionRef = doc(dataBase, "versionChecker", "currentVersion");
-      await setDoc(docVersionRef, { currentVersion: userVersion + count });
-      const adminVersion = userVersion + count;
-      dispatch(setUserVersion(adminVersion));
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const savePlayer = async (player) => {
-    try {
-      await setDoc(doc(dataBase, "players", player.id), player);
-      const data = await getDocs(playersCollectionRefs);
-      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      dispatch(setAllPlayers(list));
-      const playerInfo = list.find((players) => players.id === player.id);
-      dispatch(setInfoOfPlayer(playerInfo));
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const saveTeam = async (team) => {
-    try {
-      await setDoc(doc(dataBase, "clubs", team.id), team);
-      const data = await getDocs(clubsCollectionRefs);
-      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      dispatch(setAllTeams(list));
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  function showData(event) {
-    event.preventDefault();
-    if (serviceType === "choose") {
-      alert("Type of Service was not selected");
-      return;
-    }
-    const zoneOfAtt = historyOfBalls.find((ball) => ball.active);
-    const attHistory = playerInfo[zoneOfAtt.zone + serviceType];
-    const totalAttacks = reduce(attHistory, 0.0001);
-    const result = attHistory.map((attacks) => Math.round((attacks / totalAttacks) * 100));
-    setZoneValue(result);
-    setShowInputs(!showInputs);
-    setDisableSwitch(!disableSwitch);
-    setShowDataOfAttacks(!showDataOfAttacks);
-  }
   return (
-    <SectionWrapper
-      className="playArea-section"
-      backGround={
-        <div className="playground-area-background">
-          <div className="threeMRivalCort"></div>
-          <div className="threeMMyCort"></div>
-        </div>
-      }
-      content={
-        <form className="playArea" onSubmit={!showDataOfAttacks ? onHandleCountClick : showData}>
-          <div className="explain">
-            <Explain
-              confirmReturn={confirmReturn}
-              setConfirmReturn={setConfirmReturn}
-              disableSwitch={disableSwitch}
-              saveDataOfAttacks={saveDataOfServices}
-              setSaveDataOfAttacks={setSaveDataOfServices}
-              diagrammValue={diagrammValue}
-              handleDiagrammValue={handleDiagrammValue}
-              returnOldData={returnOldData}
-              showDataOfAttacks={showDataOfAttacks}
-              setShowDataOfAttacks={setShowDataOfAttacks}
-              type="Service"
-            />
-          </div>
-          <div className="select-wrapper">
-            <select
-              className="typeOfAction"
-              onChange={chooseTypeOfService}
-              disabled={!showInputs || disableSwitch}
-            >
-              <option value="choose">{!showInputs ? "Choose zone" : "Choose type"}</option>
-              <option value="Jump">Jump</option>
-              <option value="Float">Float</option>
-            </select>
-          </div>
-          <div className="count-button-wrapper">
-            <button type="submit" className="countButton" disabled={!showInputs || disableSwitch}>
-              Count
-            </button>
-          </div>
-          <div className="zones-wrapper">
-            {historyOfBalls.map((ball, index) =>
-              !ball.active ? (
-                <BallForAttack
-                  key={index}
-                  value={ball.zone.replace(/[a-z]/g, "")}
-                  attack={!showBalls ? ball.zone : "none"}
-                  index={index}
-                  historyOfBalls={historyOfBalls}
-                  setHistoryOfBalls={setHistoryOfBalls}
-                  setShowInputs={setShowInputs}
-                  setShowBalls={setShowBalls}
-                  showInputs={showInputs}
-                />
-              ) : (
-                <BallForAttack
-                  key={index}
-                  value="🏐"
-                  attack={ball.zone + " showTheBall"}
-                  index={index}
-                  historyOfBalls={historyOfBalls}
-                  setHistoryOfBalls={setHistoryOfBalls}
-                  setShowInputs={setShowInputs}
-                  setShowBalls={setShowBalls}
-                  showInputs={showInputs}
-                />
-              )
-            )}
-          </div>
-          {disableSwitch && !showDataOfAttacks && (
-            <div className="cones-wrapper">
-              {classNamesForConesAndInputs.map((el, index) => (
-                <ConeReaction
-                  key={index}
-                  zoneValue={zoneValue[index]}
-                  cone={el}
-                  historyOfBalls={historyOfBalls}
-                />
-              ))}
-            </div>
-          )}
-          {showBalls && (
-            <>
-              <div className="tip-wrapper">
-                <Tip value="Short" />
-                <Tip value="Short" />
-                <Tip value="Short" />
-              </div>
-              <div className="defender-wrapper">
-                {arrayForRecievers.map((reciever) => (
-                  <DefenderZone6 key={reciever} />
-                ))}
-              </div>
-              {!disableSwitch && !showDataOfAttacks && (
-                <div className="inputs-wrapper">
-                  {classNamesForConesAndInputs.map((el, index) => (
-                    <InputForCount
-                      key={el}
-                      name={index}
-                      onChange={handleZoneValue}
-                      zoneValue={zoneValue[index]}
-                    />
-                  ))}
-                </div>
-              )}
-              {saveDataOfServices && (
-                <CheckEquality
-                  zoneValue={zoneValue}
-                  diagrammValue={diagrammValue}
-                  checkEquality={checkEquality}
-                />
-              )}
-            </>
-          )}
-        </form>
-      }
+    <WrapperForFields
+      zoneValue={zoneValue}
+      diagrammValue={diagrammValue}
+      setDiagrammValue={setDiagrammValue}
+      setZoneValue={setZoneValue}
+      playerInfo={playerInfo}
+      calculateForData={calculateForData}
+      zonesStates={zonesStates}
+      setZonesStates={setZonesStates}
+      classNamesForConesAndInputs={classNamesForConesAndInputs}
+      choosenActionOne="Jump"
+      choosenActionTwo="Float"
+      type="Service"
     />
   );
 }
