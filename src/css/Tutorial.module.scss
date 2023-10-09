@@ -61,8 +61,8 @@
         justify-content: center;
         min-height: 35vh;
         img {
-          width: 100%;
-          height: 100%;
+          object-fit: contain;
+          overflow: hidden;
         }
       }
     }
@@ -118,30 +118,6 @@
 }
 .textForTutorial div {
   font-size: calc((0.25) * 3vw + 0.7rem);
-  .lastWord {
-    @include forText("../../public/photos/Harmash.jpg");
-  }
-  .aboutFirstPage {
-    @include forText("../photos/FirstPage.jpg");
-  }
-  .aboutAttack {
-    @include forText("../photos/Attack.jpg");
-  }
-  .aboutDistr {
-    @include forText("../photos/Distribution.jpg");
-  }
-  .aboutRatings {
-    @include forText("../photos/Ratings.jpg");
-  }
-  .aboutInfo {
-    @include forText("../photos/PersonalInfo.jpg");
-  }
-  .welcome {
-    @include forText("../photos/welcome.jpg");
-  }
-  .awarness {
-    @include forText("../photos/Registration.jpg");
-  }
 }
 @media screen and (max-width: 600px) {
   .grab {

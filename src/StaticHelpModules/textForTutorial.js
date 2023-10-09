@@ -1,4 +1,3 @@
-import "../photos/Attack.jpg";
 export function Button({ onClick, value }) {
   return (
     <button className="regularButton" onClick={onClick}>
@@ -15,7 +14,7 @@ const enterWord = (
       статистичних даних відсутня, але буде заповнюватися з початком сезону 2023-2024 ПВЛУ.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="lastWord" />
+      <img alt="" src="/photos/Harmash.jpg" />
     </div>
   </>
 );
@@ -27,7 +26,7 @@ const aboutFirstPage = (
       обрати стартовий розташунок гравців на майданчику та підкрутити його під свої потреби.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="aboutFirstPage" />
+      <img alt="" src="/photos/FirstPage.jpg" />
     </div>
   </>
 );
@@ -39,7 +38,7 @@ const attackAndService = (
       співвідношенні з кожної зони та по кожній позиції усіх гравців ПВЛУ.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="aboutAttack" />
+      <img alt="" src="/photos/Attack.jpg" />
     </div>
   </>
 );
@@ -51,7 +50,7 @@ const distribution = (
       цим), побачити, як буде поводити кожний зв'язуючий ПВЛУ в тій або іншій ситуації.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="aboutDistr" />
+      <img alt="" src="/photos/Distribution.jpg" />
     </div>
   </>
 );
@@ -63,7 +62,7 @@ const ratings = (
       командах в цілому.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="aboutRatings" />
+      <img alt="" src="/photos/Ratings.jpg" />
     </div>
   </>
 );
@@ -74,7 +73,7 @@ const personalInfo = (
       подачі. На даний момент наявна інформація більше ніж на 100 гравців.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="aboutInfo" />
+      <img alt="" src="/photos/PersonalInfo.jpg" />
     </div>
   </>
 );
@@ -85,7 +84,7 @@ const awarness = (
       регестрації через Google , Facebook або @Email.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="awarness" />
+      <img alt="" src="/photos/Registration.jpg" />
     </div>
   </>
 );
@@ -99,7 +98,7 @@ const lastWord = (
     </div>
 
     <div className="inner-image-wrapper">
-      <img alt="" className="lastWord" />
+      <img alt="" src="/photos/Harmash.jpg" />
     </div>
   </>
 );
@@ -112,7 +111,7 @@ const enterWordEng = (
       database available. However, it will be populated starting from the 2023-2024 PVLU season.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="lastWord" />
+      <img alt="" src="/photos/Harmash.jpg" />
     </div>
   </>
 );
@@ -125,7 +124,7 @@ const aboutFirstPageEng = (
       adjust it to fit your needs.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="aboutFirstPage" />
+      <img alt="" src="/photos/FirstPage.jpg" />
     </div>
   </>
 );
@@ -138,7 +137,7 @@ const attackAndServiceEng = (
       players.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="aboutAttack" />
+      <img alt="" src="/photos/Attack.jpg" />
     </div>
   </>
 );
@@ -151,7 +150,7 @@ const distributionEng = (
       different situations.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="aboutDistr" />
+      <img alt="" src="/photos/Distribution.jpg" />
     </div>
   </>
 );
@@ -163,7 +162,7 @@ const ratingsEng = (
       overall team ratings available.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="aboutRatings" />
+      <img alt="" src="/photos/Ratings.jpg" />
     </div>
   </>
 );
@@ -175,7 +174,7 @@ const personalInfoEng = (
       available for more than 100 players.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="aboutInfo" />
+      <img alt="" src="/photos/PersonalInfo.jpg" />
     </div>
   </>
 );
@@ -186,7 +185,7 @@ const awarnessEng = (
       via Google , Facebook or @Email.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="awarness" />
+      <img alt="" src="/photos/Registration.jpg" />
     </div>
   </>
 );
@@ -199,7 +198,7 @@ const lastWordEng = (
       planning for your team! Best regards, Pylyp Harmash.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" className="lastWord" />
+      <img alt="" src="/photos/Harmash.jpg" />
     </div>
   </>
 );

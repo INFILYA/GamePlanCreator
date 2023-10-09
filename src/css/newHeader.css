@@ -72,8 +72,7 @@
   margin-top: 20px;
 }
 .emailPanel .google,
-.emailPanel .facebook,
-.emailPanel .email {
+.emailPanel .facebook {
   width: 45px;
   height: 45px;
   border: none;
@@ -81,8 +80,7 @@
   border-radius: 50%;
 }
 .emailPanel .google:hover,
-.emailPanel .facebook:hover,
-.emailPanel .email:hover {
+.emailPanel .facebook:hover {
   transform: translateY(-10px);
   transition: 0.7s;
   background-color: transparent;
@@ -93,10 +91,6 @@
 }
 .emailPanel .facebook {
   background: url("../photos/facebook.jpg") no-repeat center center;
-  background-size: cover;
-}
-.emailPanel .email {
-  background: url("../photos/email.jpg") no-repeat center center;
   background-size: cover;
 }
 .emailPanel .createAccount {

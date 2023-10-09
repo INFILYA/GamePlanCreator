@@ -95,8 +95,7 @@
   padding: 10px;
   margin-top: 20px;
   .google,
-  .facebook,
-  .email {
+  .facebook {
     @include linkIcons;
   }
   .google {
@@ -105,10 +104,6 @@
   }
   .facebook {
     background: url("../photos/facebook.jpg") no-repeat center center;
-    background-size: cover;
-  }
-  .email {
-    background: url("../photos/email.jpg") no-repeat center center;
     background-size: cover;
   }
   .createAccount {

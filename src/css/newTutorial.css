@@ -63,8 +63,8 @@
   min-height: 35vh;
 }
 .grab .tutorial .text-wrapper .inner-image-wrapper img {
-  width: 100%;
-  height: 100%;
+  object-fit: contain;
+  overflow: hidden;
 }
 .grab .tutorial .hideBackground {
   background-color: rgba(0, 0, 0, 0.8);
@@ -110,62 +110,6 @@
 
 .textForTutorial div {
   font-size: calc(0.75vw + 0.7rem);
-}
-.textForTutorial div .lastWord {
-  width: 100%;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  background: url("../../public/photos/Harmash.jpg") no-repeat center center;
-  background-size: contain;
-}
-.textForTutorial div .aboutFirstPage {
-  width: 100%;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  background: url("../photos/FirstPage.jpg") no-repeat center center;
-  background-size: contain;
-}
-.textForTutorial div .aboutAttack {
-  width: 100%;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  background: url("../photos/Attack.jpg") no-repeat center center;
-  background-size: contain;
-}
-.textForTutorial div .aboutDistr {
-  width: 100%;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  background: url("../photos/Distribution.jpg") no-repeat center center;
-  background-size: contain;
-}
-.textForTutorial div .aboutRatings {
-  width: 100%;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  background: url("../photos/Ratings.jpg") no-repeat center center;
-  background-size: contain;
-}
-.textForTutorial div .aboutInfo {
-  width: 100%;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  background: url("../photos/PersonalInfo.jpg") no-repeat center center;
-  background-size: contain;
-}
-.textForTutorial div .welcome {
-  width: 100%;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  background: url("../photos/welcome.jpg") no-repeat center center;
-  background-size: contain;
-}
-.textForTutorial div .awarness {
-  width: 100%;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  background: url("../photos/Registration.jpg") no-repeat center center;
-  background-size: contain;
 }
 
 @media screen and (max-width: 600px) {
