@@ -14,9 +14,8 @@ import "./css/newRatings.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-      <BrowserRouter>
-        <Myproject />
-      </BrowserRouter>
+    <BrowserRouter>
+      <Myproject />
+    </BrowserRouter>
   </Provider>
 );
-
