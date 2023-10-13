@@ -8,49 +8,47 @@ export default function Diagramm({ link }) {
     chart: {
       type: "pie",
       backgroundColor: null,
+      height: "95%",
     },
     title: {
+      verticalAlign: "middle",
+      enabled: false,
       text:
         link === "Attack"
-          ? `<b style="font-size:1.5vw">Attack</b>`
-          : `<b style="font-size:1.5vw">Service</b>`,
+          ? `<b style="font-size:calc((var(--normal-text-size-value) - 1) * 3vmax + 0.5rem)">Attack</b>`
+          : `<b style="font-size:calc((var(--normal-text-size-value) - 1) * 3vmax + 0.5rem)">Service</b>`,
     },
-
     tooltip: {
-      headerFormat: '<span style="font-size:2vw">{series.name}</span><br>',
-      pointFormat:
-        '<span style="font-size:1vw">{point.name}</span>: <b style="font-size:1vw">{point.y:.0f}%</b>',
+      headerFormat: '<span style="font-size:1.5vw">{series.name}</span><br>',
+      pointFormat: '<span style="font-size:1.5vw"><b>{point.name}</b></span>',
     },
     plotOptions: {
-      pie: {
-        allowPointSelect: true,
+      series: {
+        borderWidth: 0,
+        colorByPoint: true,
         colors,
-        cursor: "pointer",
+        type: "pie",
+        size: "100%",
+        innerSize: "50%",
         dataLabels: {
           enabled: true,
+          crop: true,
           format: `<b>{point.percentage:.0f}%</b>`,
-          distance: -30,
+          distance: "-25%",
           style: {
-            color: "black",
             fontWeight: "bold",
-            fontSize: "calc((var(--normal-text-size-value) - 1) * 2vw + 0.5rem)",
+            fontSize: "calc((var(--normal-text-size-value) - 1) * 3vmax + 0.2rem)",
+            color: "black",
           },
         },
-        showInLegend: true,
-      },
-    },
-    legend: {
-      itemStyle: {
-        color: "black",
-        fontWeight: "bold",
-        fontSize: "calc((var(--normal-text-size-value) - 1) * 2vw + 0.4rem)",
+        showInLegend: false,
       },
     },
     series: [
       {
         name: link === "Attack" ? "Attack" : "Service",
         type: "pie",
-        allowPointSelect: true,
+        allowPointSelect: false,
         data: [
           [link === "Attack" ? "Win" : "Ace", rightPercentageForDiagramm(0), true],
           [link === "Attack" ? "In Game" : "Plus", rightPercentageForDiagramm(1), false],
