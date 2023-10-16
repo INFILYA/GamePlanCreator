@@ -22,7 +22,6 @@ import { clearRivalZones } from "../states/slices/zonesSlice";
 import { setBackRightRivalSelects } from "../states/slices/indexOfZonesSlice";
 import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
 import { setBackRightMyTeamSelects } from "../states/slices/sequanceOfZonesSlice";
-import { setAllTeams } from "../states/slices/listOfTeamsSlice";
 import { setUserVersion } from "../states/slices/userVersionSlice";
 import { NavLink } from "react-router-dom";
 import SectionWrapper from "./components/SectionWrapper";
