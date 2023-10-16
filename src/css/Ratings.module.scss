@@ -1,94 +1,117 @@
-.ratings-section {
-  width: 100%;
-  .showRatings-wrapper {
-    display: flex;
+.main-content-wrapper {
+  .ratings-section {
     width: 100%;
-    justify-content: center;
-    nav {
+    .showRatings-wrapper {
+      display: flex;
       width: 100%;
-      margin: 1vw 0;
-      a {
-        margin: 0 1vw 0 0;
-        border-radius: 5px;
-        text-decoration: none;
-        color: rgb(0, 0, 0);
-        font-weight: bold;
-        padding: 5px 1vw;
-        font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
-        &:hover {
-          background-color: orangered;
+      justify-content: center;
+      nav {
+        width: 100%;
+        margin: 1vw 0;
+        a {
+          margin: 0 1vw 0 0;
+          border-radius: 5px;
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          font-weight: bold;
+          padding: 5px 1vw;
+          font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
+          &:hover {
+            background-color: orangered;
+          }
+        }
+      }
+    }
+    .rating-table-wrapper {
+      width: 100%;
+      min-width: 340px;
+      margin-top: 1vw;
+      .showInfo-wrapper {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        .hidden-player-information-wrapper {
+          width: 55vw;
+        }
+      }
+      .rows-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .rating-row {
+          display: flex;
+          flex-direction: column;
+          border: 2px solid black;
+          box-sizing: border-box;
+          .rating-button-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            button {
+              font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
+              font-weight: bold;
+              background-color: aliceblue;
+              min-height: 75px;
+              box-sizing: border-box;
+              width: 100%;
+              padding: 0 1vw;
+              &:hover {
+                box-shadow: 0 15px 20px lemonchiffon;
+                transform: translateY(-10px);
+                transition: 0.7s;
+                background-color: lemonchiffon;
+              }
+            }
+          }
+          .players-row-wrapper {
+            .span-wrapper,
+            .name-span-wrapper {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-top: 1px solid black;
+              width: 100%;
+              height: 4vh;
+              span {
+                font-weight: 600;
+                font-size: calc((var(--normal-text-size-value) - 1) * 2.5vw + 0.5rem);
+              }
+              .rating-image-wrapper {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                padding: 0 5px;
+                img {
+                  height: 100%;
+                }
+              }
+            }
+            .name-span-wrapper {
+              justify-content: space-between;
+              span {
+                padding-left: 5px;
+              }
+            }
+          }
         }
       }
     }
   }
-  .rating-table-wrapper {
-    width: 100%;
-    min-width: 340px;
-    margin-top: 1vw;
-    .showInfo-wrapper {
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      position: fixed;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-    .rows-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      .rating-row {
-        display: flex;
-        flex-direction: column;
-        border: 2px solid black;
-        box-sizing: border-box;
-        .rating-button-wrapper {
-          display: flex;
-          flex-wrap: wrap;
-          button {
-            font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
-            font-weight: bold;
-            background-color: aliceblue;
-            min-height: 75px;
-            box-sizing: border-box;
-            width: 100%;
-            padding: 0 1vw;
-            &:hover {
-              box-shadow: 0 15px 20px lemonchiffon;
-              transform: translateY(-10px);
-              transition: 0.7s;
-              background-color: lemonchiffon;
-            }
-          }
-        }
-        .players-row-wrapper {
-          .span-wrapper,
-          .name-span-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-top: 1px solid black;
-            width: 100%;
-            height: 4vh;
-            span {
-              font-weight: 600;
-              font-size: calc((var(--normal-text-size-value) - 1) * 2.5vw + 0.5rem);
-            }
-            .rating-image-wrapper {
-              height: 100%;
-              display: flex;
-              justify-content: center;
-              padding: 0 5px;
-              img {
-                height: 100%;
-              }
-            }
-          }
-          .name-span-wrapper {
-            justify-content: space-between;
-            span {
-              padding-left: 5px;
+}
+@media screen and (max-width: 850px) {
+  main {
+    .main-content-wrapper {
+      .ratings-section {
+        .rating-table-wrapper {
+          .showInfo-wrapper {
+            .hidden-player-information-wrapper {
+              width: 75vw;
             }
           }
         }

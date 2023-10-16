@@ -59,7 +59,9 @@ export default function ShapeForRatings({ amplua }) {
     <>
       {playerInfo && (
         <div className="showInfo-wrapper">
-          <PersonalInformationOfPlayer link="page1" />
+          <div>
+            <PersonalInformationOfPlayer link="page1" />
+          </div>
         </div>
       )}
       <div className="rows-wrapper">

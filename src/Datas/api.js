@@ -14,30 +14,3 @@ export function compare(a, b) {
   }
   return 0;
 }
-
-const jsonRequest = (url, options) => {
-  return fetch(url, {
-    headers: { "content-type": "application/json" },
-    ...options,
-  }).then((res) => res.json());
-};
-export const fetchTeams = () => {
-  const options = { method: "GET" };
-  const req = jsonRequest("/clubs.json", options);
-  return req;
-};
-export const fetchPlayers = () => {
-  const options = { method: "GET" };
-  const req = jsonRequest("/players.json", options);
-  return req;
-};
-export const saveTeam = (club) => {
-  const options = { body: JSON.stringify(club), method: "PUT" };
-  const req = jsonRequest(`/clubs.json/${club.id}`, options);
-  return req;
-};
-export const savePlayer = (player) => {
-  const options = { body: JSON.stringify(player), method: "PUT" };
-  const req = jsonRequest(`/players.json/${player.id}`, options);
-  return req;
-};

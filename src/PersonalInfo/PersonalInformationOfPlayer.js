@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { RowsForPersonalInfo } from "./components/RowsForPersonalInfo";
 import { useDispatch, useSelector } from "react-redux";
 import Diagramm from "./components/Diagramm";
-import { compare } from "../Datas/api";
 import { upgradeAge } from "../StaticHelpModules/Button";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
@@ -19,54 +17,7 @@ export function PersonalInformationOfPlayer({ link }) {
   const attack = link === "Attack";
   const libero = playerInfo.position === "Libero";
   const setter = playerInfo.position === "Setter";
-  const mblocker = playerInfo.position === "MBlocker";
-  const reciever = playerInfo.position === "Reciever";
-  const opposite = playerInfo.position === "Opposite";
-  const infosOfPlayers = Object.entries(playerInfo);
   const details = showDetails ? "Hide details" : "Show details";
-  infosOfPlayers.sort((a, b) => compare(a, b));
-  // По позиціям
-  const attackers = [
-    infosOfPlayers[1],
-    infosOfPlayers[9],
-    infosOfPlayers[10],
-    infosOfPlayers[15],
-    infosOfPlayers[20],
-    infosOfPlayers[21],
-  ];
-  const infosOfAttackers =
-    (attack && [...attackers, infosOfPlayers[18]]) ||
-    (service && [...attackers, infosOfPlayers[19]]) ||
-    attackers;
-  const setters = [
-    infosOfPlayers[1],
-    infosOfPlayers[2],
-    infosOfPlayers[3],
-    infosOfPlayers[6],
-    infosOfPlayers[9],
-    infosOfPlayers[10],
-  ];
-  const infosOfSetters = (service && [...setters, infosOfPlayers[8]]) || setters;
-  const mBlockers = [
-    infosOfPlayers[1],
-    infosOfPlayers[6],
-    infosOfPlayers[7],
-    infosOfPlayers[12],
-    infosOfPlayers[17],
-    infosOfPlayers[18],
-  ];
-  const infosOfMBlockers =
-    (attack && [...mBlockers, infosOfPlayers[15]]) ||
-    (service && [...mBlockers, infosOfPlayers[16]]) ||
-    mBlockers;
-  const infoOfLiberos = [
-    infosOfPlayers[0],
-    infosOfPlayers[1],
-    infosOfPlayers[2],
-    infosOfPlayers[5],
-    infosOfPlayers[7],
-    infosOfPlayers[8],
-  ];
   return (
     <div className="hidden-player-information-wrapper">
       <div className="player-surname-wrapper">
@@ -77,34 +28,31 @@ export function PersonalInformationOfPlayer({ link }) {
       <div className="player-full-info-wrapper">
         <div className="player-info-content">
           <div className="player-info-data-wrapper">
-            {libero &&
-              infoOfLiberos.map((info, index) => (
-                <RowsForPersonalInfo name={info[0]} value={info[1]} key={index} />
-              ))}
-            {(reciever || opposite) &&
-              infosOfAttackers.map((info, index) => (
-                <RowsForPersonalInfo
-                  name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
-                  value={info[1]}
-                  key={index}
-                />
-              ))}
-            {setter &&
-              infosOfSetters.map((info, index) => (
-                <RowsForPersonalInfo
-                  name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
-                  value={info[1]}
-                  key={index}
-                />
-              ))}
-            {mblocker &&
-              infosOfMBlockers.map((info, index) => (
-                <RowsForPersonalInfo
-                  name={info[0]?.replace(/plusMinusOn/g, "+/- ")}
-                  value={info[1]}
-                  key={index}
-                />
-              ))}
+            <div className="player-info-row-wrapper">
+              <div>Age: {playerInfo.age}</div>
+            </div>
+            <div className="player-info-row-wrapper">
+              <div>Dominant hand: {playerInfo.hand}</div>
+            </div>
+            <div className="player-info-row-wrapper">
+              <div>Height: {playerInfo.height}</div>
+            </div>
+            <div className="player-info-row-wrapper">
+              <div>Reach: {playerInfo.reach}</div>
+            </div>
+            <div className="player-info-row-wrapper">
+              <div>Position: {playerInfo.position}</div>
+            </div>
+            {service && (
+              <div className="player-info-row-wrapper">
+                <div>Service Plus : {playerInfo?.plusMinusOnService}</div>
+              </div>
+            )}
+            {attack && (
+              <div className="player-info-row-wrapper">
+                <div>Attack Plus : {playerInfo?.plusMinusOnAttack}</div>
+              </div>
+            )}
             <nav>
               {!libero && isRegistratedUser && (
                 <>

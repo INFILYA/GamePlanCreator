@@ -15,8 +15,8 @@ export default function Diagramm({ link }) {
       enabled: false,
       text:
         link === "Attack"
-          ? `<b style="font-size:calc((var(--normal-text-size-value) - 1) * 3vmax + 0.5rem)">Attack</b>`
-          : `<b style="font-size:calc((var(--normal-text-size-value) - 1) * 3vmax + 0.5rem)">Service</b>`,
+          ? `<b style="font-size:calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem)">Attack</b>`
+          : `<b style="font-size:calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem)">Service</b>`,
     },
     tooltip: {
       headerFormat: '<span style="font-size:1.5vw">{series.name}</span><br>',
@@ -32,7 +32,7 @@ export default function Diagramm({ link }) {
         innerSize: "50%",
         dataLabels: {
           enabled: true,
-          crop: true,
+          crop: false,
           format: `<b>{point.percentage:.0f}%</b>`,
           distance: "-25%",
           style: {

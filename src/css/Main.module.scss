@@ -108,7 +108,13 @@ main {
       z-index: 5;
     }
     .playground-section {
-      width: 60vw;
+      width: 55vw;
+      position: relative;
+      z-index: 6;
+    }
+    .attack-section {
+      align-self: center;
+      width: 55vw;
       position: relative;
       z-index: 6;
     }
@@ -153,7 +159,6 @@ main {
         overflow: hidden;
         img {
           width: 100%;
-          transform: rotateX(30deg);
         }
         .playground-area-background {
           width: 100%;
@@ -301,7 +306,8 @@ main {
           display: flex;
           flex-direction: column;
           background-color: lightsteelblue;
-          width: clamp(340px, 100%, 45vmax);
+          // width: clamp(340px, 100%, 55vw);
+          width: 100%;
           border: 2px solid $Black;
           box-sizing: border-box;
           .player-surname-wrapper {
@@ -333,7 +339,7 @@ main {
                   display: flex;
                   font-weight: bold;
                   padding: 0.3vw 0;
-                  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
+                  font-size: calc((var(--normal-text-size-value) - 1) * 3vmax + 0.4rem);
                 }
                 nav {
                   margin: 1vw 0 0 0;
@@ -378,7 +384,6 @@ main {
         }
         // МЕНЮ ВИБОРУ КОМАНДИ СУПЕРНИКА
         .opponentTeamList {
-          margin-top: 2vw;
           display: grid;
           grid-template-columns: repeat(3, auto);
           grid-row-gap: 1.5vw;
@@ -458,6 +463,15 @@ main {
             }
           }
         }
+      }
+    }
+  }
+}
+@media screen and (max-width: 850px) {
+  main {
+    .main-content-wrapper {
+      .attack-section {
+        width: 70vw;
       }
     }
   }

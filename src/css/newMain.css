@@ -79,7 +79,13 @@ main .main-content-wrapper .teamsquad-section {
   z-index: 5;
 }
 main .main-content-wrapper .playground-section {
-  width: 60vw;
+  width: 55vw;
+  position: relative;
+  z-index: 6;
+}
+main .main-content-wrapper .attack-section {
+  align-self: center;
+  width: 55vw;
   position: relative;
   z-index: 6;
 }
@@ -125,7 +131,6 @@ main .main-content-wrapper .section-border .section-background {
 }
 main .main-content-wrapper .section-border .section-background img {
   width: 100%;
-  transform: rotateX(30deg);
 }
 main .main-content-wrapper .section-border .section-background .playground-area-background {
   width: 100%;
@@ -287,7 +292,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
   display: flex;
   flex-direction: column;
   background-color: lightsteelblue;
-  width: clamp(340px, 100%, 45vmax);
+  width: 100%;
   border: 2px solid rgb(0, 0, 0);
   box-sizing: border-box;
 }
@@ -324,7 +329,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
   display: flex;
   font-weight: bold;
   padding: 0.3vw 0;
-  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
+  font-size: calc((var(--normal-text-size-value) - 1) * 3vmax + 0.4rem);
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav {
   margin: 1vw 0 0 0;
@@ -364,7 +369,6 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
   width: 50%;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .opponentTeamList {
-  margin-top: 2vw;
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-row-gap: 1.5vw;
@@ -439,6 +443,12 @@ main .main-content-wrapper .section-content-wrapper .section-content .rotation-f
   justify-content: center;
   min-height: 2vw;
   width: 100%;
+}
+
+@media screen and (max-width: 850px) {
+  main .main-content-wrapper .attack-section {
+    width: 70vw;
+  }
 }
 
 /*# sourceMappingURL=newMain.css.map */

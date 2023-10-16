@@ -13,7 +13,7 @@ import { resetMyTeamPlayers } from "../states/slices/myTeamPlayersSlice";
 import { setMyTeam, resetMyTeam } from "../states/slices/myClubSlice";
 import { correctNamesOfZones } from "../Datas/api";
 import { Button } from "../StaticHelpModules/Button";
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { auth, dataBase } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { resetRivalPlayers } from "../states/slices/rivalPlayersSlice";
@@ -40,7 +40,6 @@ export function FirstPage() {
   const myClub = useSelector((state) => state.myClub.myClub);
   const showRivalClub = rivalClub.length !== 0;
   const showMyClub = myClub.length !== 0;
-  const clubsCollectionRefs = collection(dataBase, "clubs");
   const admin = isRegistratedUser?.uid === "ld4Bdj6KepVG68kjNHHQRjacJI13";
 
   function resetTheBoardForRivalTeam() {
@@ -82,9 +81,6 @@ export function FirstPage() {
     try {
       const docRef = doc(dataBase, "clubs", team.id);
       await setDoc(docRef, team);
-      const data = await getDocs(clubsCollectionRefs);
-      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      dispatch(setAllTeams(list));
     } catch (error) {
       console.error(error);
     }

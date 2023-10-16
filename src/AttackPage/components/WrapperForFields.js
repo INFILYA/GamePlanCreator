@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { upgradeAge } from "../../StaticHelpModules/Button";
 import { Explain } from "./inner components/Explain";
 import { CheckEquality } from "./inner components/CheckEquality";
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { dataBase } from "../../config/firebase";
 import { setUserVersion } from "../../states/slices/userVersionSlice";
 import { setAllPlayers } from "../../states/slices/listOfPlayersSlice";
@@ -32,8 +32,6 @@ export default function WrapperForFields({
   type,
 }) {
   const dispatch = useDispatch();
-  const playersCollectionRefs = collection(dataBase, "players");
-  const clubsCollectionRefs = collection(dataBase, "clubs");
   const userVersion = useSelector((state) => state.userVersion.userVersion);
   const allPlayers = useSelector((state) => state.listOfPlayers.listOfPlayers);
   const allTeams = useSelector((state) => state.listOfTeams.listOfTeams);
@@ -149,9 +147,8 @@ export default function WrapperForFields({
     try {
       const Player = doc(dataBase, "players", player.id);
       await setDoc(Player, player);
-      const data = await getDocs(playersCollectionRefs);
-      const playersList = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      dispatch(setAllPlayers(playersList));
+      const players = allPlayers.map((athlete) => (athlete.id === player.id ? player : athlete));
+      dispatch(setAllPlayers(players));
       dispatch(setInfoOfPlayer(player));
     } catch (error) {
       console.error(error);
@@ -161,9 +158,8 @@ export default function WrapperForFields({
     try {
       const Team = doc(dataBase, "clubs", team.id);
       await setDoc(Team, team);
-      const data = await getDocs(clubsCollectionRefs);
-      const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      dispatch(setAllTeams(list));
+      const teams = allTeams.map((squad) => (squad.id === team.id ? team : squad));
+      dispatch(setAllTeams(teams));
     } catch (error) {
       console.error(error);
     }
