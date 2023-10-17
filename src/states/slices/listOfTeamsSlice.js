@@ -8,6 +8,7 @@ export const listOfTeamsSlice = createSlice({
   reducers: {
     setAllTeams: (state, action) => {
       state.listOfTeams = action.payload;
+      localStorage.setItem("clubs", JSON.stringify(action.payload));
     },
   },
 });

@@ -3,6 +3,7 @@ export function ConeReaction({ zoneValue, cone, zonesStates, type }) {
     const x = zoneValue === 0 ? "transparent" : 100 - zoneValue * 1.5;
     return (
       <button
+        key={zone}
         type="button"
         style={
           zoneValue > 40

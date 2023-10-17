@@ -42,11 +42,11 @@ export function AttackFields() {
       }
       obj[key] += diagrammValue[key];
     }
-    obj.percentOfAttack = Math.round(
+    obj.percentOfAttack = +(
       (obj.winPoints /
         (obj.winPoints + obj.attacksInBlock + obj.loosePoints + obj.leftInGame + 0.0001)) *
-        100
-    );
+      100
+    ).toFixed(1);
     return obj;
   };
 

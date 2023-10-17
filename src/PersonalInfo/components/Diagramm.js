@@ -68,7 +68,7 @@ export default function Diagramm({ link }) {
         playerInfo.loosePoints,
       ];
       const sumOfTotalAtt = totalAtt.reduce((a, b) => a + b, 0);
-      const percentOfActions = totalAtt.map((att) => Math.round((att / sumOfTotalAtt) * 100));
+      const percentOfActions = totalAtt.map((att) => +((att / sumOfTotalAtt) * 100).toFixed(1));
       return percentOfActions[index];
     } else if (link === "Service") {
       let totalService = [
@@ -78,8 +78,8 @@ export default function Diagramm({ link }) {
         playerInfo.serviceFailed,
       ];
       const sumOfTotalService = totalService.reduce((a, b) => a + b, 0);
-      const percentOfActions = totalService.map((service) =>
-        Math.round((service / sumOfTotalService) * 100)
+      const percentOfActions = totalService.map(
+        (service) => +((service / sumOfTotalService) * 100).toFixed(1)
       );
       return percentOfActions[index];
     }

@@ -16,6 +16,8 @@ import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
 import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
 import Tip from "./inner components/Tip";
 import SectionWrapper from "../../Page1/components/SectionWrapper";
+import { resetRivalPlayers } from "../../states/slices/rivalPlayersSlice";
+import { resetMyTeamPlayers } from "../../states/slices/myTeamPlayersSlice";
 
 export default function WrapperForFields({
   zoneValue,
@@ -35,6 +37,8 @@ export default function WrapperForFields({
   const userVersion = useSelector((state) => state.userVersion.userVersion);
   const allPlayers = useSelector((state) => state.listOfPlayers.listOfPlayers);
   const allTeams = useSelector((state) => state.listOfTeams.listOfTeams);
+  const rivalPlayers = useSelector((state) => state.rivalPlayers.rivalPlayers);
+  const myTeamPlayers = useSelector((state) => state.myTeamPlayers.myTeamPlayers);
   const [showDataOfActions, setShowDataOfActions] = useState(false);
   const [saveDataOfActions, setSaveDataOfActions] = useState(false);
   const [previousPlayerData, setPreviousPlayerData] = useState(null);
@@ -150,6 +154,20 @@ export default function WrapperForFields({
       const players = allPlayers.map((athlete) => (athlete.id === player.id ? player : athlete));
       dispatch(setAllPlayers(players));
       dispatch(setInfoOfPlayer(player));
+      if (rivalPlayers.length !== 0 && rivalPlayers?.[0].teamid === player.teamid) {
+        dispatch(
+          resetRivalPlayers(
+            rivalPlayers.map((athlete) => (athlete.id === player.id ? player : athlete))
+          )
+        );
+      }
+      if (myTeamPlayers.length !== 0 && myTeamPlayers?.[0].teamid === player.teamid) {
+        dispatch(
+          resetMyTeamPlayers(
+            myTeamPlayers.map((athlete) => (athlete.id === player.id ? player : athlete))
+          )
+        );
+      }
     } catch (error) {
       console.error(error);
     }
@@ -333,7 +351,7 @@ export default function WrapperForFields({
             <div className="cones-wrapper">
               {classNamesForConesAndInputs.map((el, index) => (
                 <ConeReaction
-                  key={index}
+                  key={el}
                   zoneValue={zoneValue[index]}
                   cone={el}
                   zonesStates={zonesStates}

@@ -8,6 +8,7 @@ export const listOfPlayersSlice = createSlice({
   reducers: {
     setAllPlayers: (state, action) => {
       state.listOfPlayers = action.payload;
+      localStorage.setItem("players", JSON.stringify(action.payload));
     },
   },
 });

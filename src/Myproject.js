@@ -62,7 +62,6 @@ function Myproject() {
         const data = await getDocs(collection(dataBase, "players"));
         const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
         dispatch(setAllPlayers(list));
-        localStorage.setItem("players", JSON.stringify(list));
       } catch (error) {
         console.error(error);
       }
@@ -73,7 +72,6 @@ function Myproject() {
         const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
         const sortedTeams = [...list].sort((a, b) => compare(a.number, b.number));
         dispatch(setAllTeams(sortedTeams));
-        localStorage.setItem("clubs", JSON.stringify(sortedTeams));
       } catch (error) {
         console.error(error);
       }
