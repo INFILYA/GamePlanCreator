@@ -26,13 +26,13 @@ export function IconOfPlayer({ player, zones, type }) {
   }
   const my = type === "my";
   return (
-    <div className="player-field-wrapper">
+    <div className="card-content">
       {!my && (
         <div className="player-image-wrapper">
           <img src={player?.photo} alt=""></img>
         </div>
       )}
-      <div className="player-wrapper">
+      <div className="player-field-wrapper">
         <div className="playerNumber-wrapper">
           <button
             type="text"
@@ -42,7 +42,7 @@ export function IconOfPlayer({ player, zones, type }) {
             {player.number > 9 ? player.number : `0${player.number}`}
           </button>
         </div>
-        <div className="player-surname-wrapper" style={{ width: "75%" }}>
+        <div className="player-surname-wrapper">
           <button
             type="text"
             className="player-surname"

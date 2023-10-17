@@ -77,7 +77,7 @@
               align-items: center;
               border-top: 1px solid black;
               width: 100%;
-              height: 4vh;
+              height: 3vmax;
               span {
                 font-weight: 600;
                 font-size: calc((var(--normal-text-size-value) - 1) * 2.5vw + 0.5rem);
@@ -104,18 +104,95 @@
     }
   }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1080px) {
   main {
     .main-content-wrapper {
-      .ratings-section {
-        .rating-table-wrapper {
-          .showInfo-wrapper {
-            .hidden-player-information-wrapper {
-              width: 75vw;
+      .ratings-section,
+      .attack-section,
+      .playground-section {
+        width: 50vw;
+        .section-content-wrapper {
+          .hidden-player-information-wrapper {
+            .player-surname-wrapper {
+              border-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
+              border: none;
             }
+            .player-full-info-wrapper {
+              padding: 0;
+              border: none;
+              .player-info-content {
+                flex-direction: column;
+                align-items: center;
+                .photo-player-wrapper {
+                  width: 60%;
+                }
+                .player-info-data-wrapper {
+                  width: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  padding: 1vw 0 2vw 0;
+                  .player-info-row-wrapper {
+                    justify-content: center;
+                    font-size: calc((var(--normal-text-size-value) - 1) * 4vw + 0.4rem);
+                  }
+                  nav {
+                    display: block;
+                    a,
+                    button {
+                      margin: 0 1vw;
+                      font-size: calc((var(--normal-text-size-value) - 1) * 4vw + 0.4rem);
+                    }
+                  }
+                }
+              }
+            }
+            .show-details {
+              border-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
+              border: none;
+              font-size: calc((var(--normal-text-size-value) - 1) * 4vw + 0.4rem);
+              padding: 0.5vw 0;
+            }
+            .player-diagramm-wrapper {
+              flex-direction: column;
+              align-items: center;
+              .row {
+                width: 75%;
+              }
+            }
+            border: none;
+            background-color: white;
           }
         }
       }
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .row {
+    width: 100% !important;
+  }
+  .photo-player-wrapper {
+    width: 75% !important;
+  }
+  header {
+    img {
+      width: calc((var(--normal-text-size-value) - 1) * 1.2vw + 1.5rem) !important;
+      margin: 0px 5px !important;
+    }
+  }
+  .team-label-wrapper {
+    align-self: auto;
+  }
+  .team-logo-wrapper {
+    img {
+      width: calc((var(--normal-text-size-value) - 1) * 1.2vw + 1rem) !important;
+    }
+  }
+  .player-surname-wrapper,
+  .player-number-wrapper {
+    button {
+      font-size: 1.1vw !important;
     }
   }
 }

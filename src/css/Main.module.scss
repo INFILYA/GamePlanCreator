@@ -49,7 +49,7 @@ h1 {
   margin: 5px 0;
 }
 h2 {
-  font-size: calc((var(--normal-text-size-value) - 1) * 2vw + 0.75rem);
+  font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 0.3rem);
   margin: 5px 0;
 }
 p {
@@ -66,10 +66,10 @@ option {
 }
 .regularButton {
   font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
-  margin: 5px;
+  margin: 0.5vw;
   border: none;
   background-color: gold;
-  padding: 3px 10px;
+  padding: 0.3vw 1vw;
   border-radius: 50px;
   font-weight: bold;
   border: 2px solid $Black;
@@ -112,7 +112,8 @@ main {
       position: relative;
       z-index: 6;
     }
-    .attack-section {
+    .attack-section,
+    .ratings-section {
       align-self: center;
       width: 55vw;
       position: relative;
@@ -245,9 +246,6 @@ main {
               border-radius: 20px 0px 0px 20px;
             }
             .moveToBoard-wrapper {
-              display: flex;
-              justify-content: center;
-              align-items: center;
               select {
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -265,7 +263,8 @@ main {
           display: flex;
           justify-content: center;
           align-items: center;
-          margin: 5px 0;
+          padding: 5px 0;
+          height: 2vw;
           button {
             font-size: calc((var(--normal-text-size-value) - 1) * 4vw + 0.3rem);
             border: none;
@@ -430,48 +429,52 @@ main {
           .reset-button-wrapper {
             margin: -10px 0;
           }
-          .row-zones-wrapper {
-            display: flex;
-            .zone-names-wrapper {
-              font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 1rem);
-              font-weight: bold;
-              justify-content: center;
-              height: 12vw;
-            }
+          .button-save-wrapper {
+            margin: 5px;
+          }
+          .my-row-zones-wrapper {
             .nameOfZone-field-wrapper {
-              min-height: 2vw;
+              height: 2vmax;
               width: 33.33%;
             }
+          }
+          .row-zones-wrapper,
+          .my-row-zones-wrapper {
+            display: flex;
+            justify-content: space-around;
+
             .player-field-wrapper {
-              width: 33.33%;
+              height: 2vmax;
+              width: 90%;
+            }
+            .zone-names-wrapper {
+              height: 12vw;
+              width: 33%;
+              font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 1rem);
+              align-items: center;
+            }
+            .card-content {
+              width: 33%;
               display: flex;
               flex-direction: column;
-              min-height: 2vw;
-              .player-image-wrapper {
-                height: 10vw;
-                img {
-                  border: none;
-                  height: 100%;
-                }
-              }
-              .player-wrapper {
-                display: flex;
-                justify-content: center;
-                min-height: 2vw;
-                width: 100%;
+              align-items: center;
+            }
+            .player-field-wrapper,
+            .zone-names-wrapper {
+              font-weight: bold;
+              display: flex;
+              justify-content: center;
+            }
+            .player-image-wrapper {
+              height: 10vw;
+              img {
+                border: none;
+                height: 100%;
+                margin-top: 7px;
               }
             }
           }
         }
-      }
-    }
-  }
-}
-@media screen and (max-width: 850px) {
-  main {
-    .main-content-wrapper {
-      .attack-section {
-        width: 70vw;
       }
     }
   }

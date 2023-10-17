@@ -31,7 +31,9 @@ export function Header() {
             type="button"
             className="home"
             onClick={() => dispatch(setInfoOfPlayer(null))}
-          ></button>
+          >
+            <img src="/photos/home.jpg" alt="" />
+          </button>
         </NavLink>
         <img src={isRegistratedUser?.photoURL} alt="" />
         <h2>{isRegistratedUser?.displayName || isRegistratedUser?.email}</h2>

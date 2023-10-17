@@ -115,13 +115,13 @@ export function FirstPage() {
                     player ? (
                       <IconOfPlayer player={player} zones={zones} type="rival" key={player.name} />
                     ) : (
-                      <div className="player-field-wrapper zone-names-wrapper" key={"_" + index}>
+                      <div className="zone-names-wrapper" key={"_" + index}>
                         <div>{correctNamesOfZones(index)}</div>
                       </div>
                     )
                   )}
                 </div>
-                <div className="row-zones-wrapper">
+                <div className="my-row-zones-wrapper">
                   {myTeamZones
                     .slice(0, 3)
                     .map((player, index) =>
@@ -142,13 +142,13 @@ export function FirstPage() {
                     player ? (
                       <IconOfPlayer player={player} zones={zones} type="rival" key={player.name} />
                     ) : (
-                      <div className="player-field-wrapper zone-names-wrapper" key={"_" + index}>
+                      <div className="zone-names-wrapper" key={"_" + index}>
                         <div>{correctNamesOfZones(index + 3)}</div>
                       </div>
                     )
                   )}
                 </div>
-                <div className="row-zones-wrapper">
+                <div className="my-row-zones-wrapper">
                   {myTeamZones
                     .slice(3, 6)
                     .map((player, index) =>
@@ -164,22 +164,25 @@ export function FirstPage() {
                       )
                     )}
                 </div>
-                {!zones.includes(null) && admin && (
-                  <div style={{ marginTop: 5 }}>
+                <div className="button-save-wrapper">
+                  {!zones.includes(null) && admin && (
                     <Button onClick={saveStartingSix} value="Save starting six" />
-                  </div>
-                )}
-                {myTeamZones.every((zone) => zone !== null) && isRegistratedUser && (
-                  <div className="plusMinus">
-                    <button onClick={() => dispatch(rotateForwardMyTeam())}>-</button>
-                    {myTeamZones.map((player, index) =>
-                      player && player.position === "Setter" ? (
-                        <span key={player.name}>{correctNamesOfZones(index)}</span>
-                      ) : null
-                    )}
-                    <button onClick={() => dispatch(rotateBackMyTeam())}>+</button>
-                  </div>
-                )}
+                  )}
+                </div>
+                <div className="plusMinus">
+                  {myTeamZones.every((zone) => zone !== null) && isRegistratedUser && (
+                    <>
+                      <button onClick={() => dispatch(rotateForwardMyTeam())}>-</button>
+                      {myTeamZones.map((player, index) =>
+                        player && player.position === "Setter" ? (
+                          <span key={player.name}>{correctNamesOfZones(index)}</span>
+                        ) : null
+                      )}
+                      <button onClick={() => dispatch(rotateBackMyTeam())}>+</button>
+                    </>
+                  )}
+                </div>
+
                 {showRivalClub && isRegistratedUser && (
                   <div className="showRatings">
                     <NavLink to={"/Ratings"} onClick={() => dispatch(setInfoOfPlayer(null))}>

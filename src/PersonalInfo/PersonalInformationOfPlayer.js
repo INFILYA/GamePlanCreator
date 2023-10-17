@@ -43,6 +43,11 @@ export function PersonalInformationOfPlayer({ link }) {
             <div className="player-info-row-wrapper">
               <div>Position: {playerInfo.position}</div>
             </div>
+            {page1 && (
+              <div className="player-info-row-wrapper">
+                <div>Team : {playerInfo.teamid}</div>
+              </div>
+            )}
             {service && (
               <div className="player-info-row-wrapper">
                 <div>Service Plus : {playerInfo?.plusMinusOnService}</div>

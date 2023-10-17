@@ -12,11 +12,14 @@
   width: 30%;
 }
 .header .home {
-  background: url("../photos/home.jpg") no-repeat 100%;
-  background-size: cover;
   width: calc((var(--normal-text-size-value) - 1) * 1.2vw + 2.5rem);
-  aspect-ratio: 1/1;
   border: transparent;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+.header .home img {
+  border-radius: 0;
 }
 .header img {
   width: calc((var(--normal-text-size-value) - 1) * 1.2vw + 2.5rem);
@@ -78,6 +81,7 @@
   border: none;
   margin: 10px 10px;
   border-radius: 50%;
+  background-color: transparent;
 }
 .emailPanel .google:hover,
 .emailPanel .facebook:hover {
@@ -85,13 +89,19 @@
   transition: 0.7s;
   background-color: transparent;
 }
-.emailPanel .google {
-  background: url("../photos/google.jpg") no-repeat center center;
-  background-size: cover;
+.emailPanel .google img,
+.emailPanel .facebook img {
+  width: 45px;
+  height: 45px;
+  border: none;
+  margin: 10px 10px;
+  border-radius: 50%;
 }
-.emailPanel .facebook {
-  background: url("../photos/facebook.jpg") no-repeat center center;
-  background-size: cover;
+.emailPanel .google img:hover,
+.emailPanel .facebook img:hover {
+  transform: translateY(-10px);
+  transition: 0.7s;
+  background-color: transparent;
 }
 .emailPanel .createAccount {
   font-size: 15px;

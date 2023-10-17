@@ -15,7 +15,7 @@ h1 {
 }
 
 h2 {
-  font-size: calc((var(--normal-text-size-value) - 1) * 2vw + 0.75rem);
+  font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 0.3rem);
   margin: 5px 0;
 }
 
@@ -36,10 +36,10 @@ option {
 
 .regularButton {
   font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
-  margin: 5px;
+  margin: 0.5vw;
   border: none;
   background-color: gold;
-  padding: 3px 10px;
+  padding: 0.3vw 1vw;
   border-radius: 50px;
   font-weight: bold;
   border: 2px solid rgb(0, 0, 0);
@@ -83,7 +83,8 @@ main .main-content-wrapper .playground-section {
   position: relative;
   z-index: 6;
 }
-main .main-content-wrapper .attack-section {
+main .main-content-wrapper .attack-section,
+main .main-content-wrapper .ratings-section {
   align-self: center;
   width: 55vw;
   position: relative;
@@ -234,11 +235,6 @@ main .main-content-wrapper .section-content-wrapper .section-content .squad-wrap
   background-color: darkgray;
   border-radius: 20px 0px 0px 20px;
 }
-main .main-content-wrapper .section-content-wrapper .section-content .squad-wrapper .player-field-wrapper .moveToBoard-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 main .main-content-wrapper .section-content-wrapper .section-content .squad-wrapper .player-field-wrapper .moveToBoard-wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -252,7 +248,8 @@ main .main-content-wrapper .section-content-wrapper .section-content .plusMinus 
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px 0;
+  padding: 5px 0;
+  height: 2vw;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .plusMinus button {
   font-size: calc((var(--normal-text-size-value) - 1) * 4vw + 0.3rem);
@@ -412,43 +409,54 @@ main .main-content-wrapper .section-content-wrapper .section-content .rotation-f
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .reset-button-wrapper {
   margin: -10px 0;
 }
-main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper {
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .button-save-wrapper {
+  margin: 5px;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .nameOfZone-field-wrapper {
+  height: 2vmax;
+  width: 33.33%;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper,
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper {
   display: flex;
+  justify-content: space-around;
 }
-main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .zone-names-wrapper {
-  font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 1rem);
-  font-weight: bold;
-  justify-content: center;
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper,
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .player-field-wrapper {
+  height: 2vmax;
+  width: 90%;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .zone-names-wrapper,
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .zone-names-wrapper {
   height: 12vw;
+  width: 33%;
+  font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 1rem);
+  align-items: center;
 }
-main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .nameOfZone-field-wrapper {
-  min-height: 2vw;
-  width: 33.33%;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper {
-  width: 33.33%;
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .card-content,
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .card-content {
+  width: 33%;
   display: flex;
   flex-direction: column;
-  min-height: 2vw;
+  align-items: center;
 }
-main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper .player-image-wrapper {
-  height: 10vw;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper .player-image-wrapper img {
-  border: none;
-  height: 100%;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper .player-wrapper {
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper,
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .zone-names-wrapper,
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .player-field-wrapper,
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .zone-names-wrapper {
+  font-weight: bold;
   display: flex;
   justify-content: center;
-  min-height: 2vw;
-  width: 100%;
 }
-
-@media screen and (max-width: 850px) {
-  main .main-content-wrapper .attack-section {
-    width: 70vw;
-  }
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-image-wrapper,
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .player-image-wrapper {
+  height: 10vw;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-image-wrapper img,
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .player-image-wrapper img {
+  border: none;
+  height: 100%;
+  margin-top: 7px;
 }
 
 /*# sourceMappingURL=newMain.css.map */

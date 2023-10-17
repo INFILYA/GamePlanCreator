@@ -94,8 +94,12 @@ export function Auth() {
             <button type="submit">{loginLoading ? "Logging you in" : "Log in"}</button>
             {loginError !== "" && <div>{loginError}</div>}
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <button type="button" className="google" onClick={signInWithGoogle}></button>
-              <button type="button" className="facebook" onClick={signInWithFaceBook}></button>
+              <button type="button" className="google" onClick={signInWithGoogle}>
+                <img src="/photos/google.jpg" alt="" />
+              </button>
+              <button type="button" className="facebook" onClick={signInWithFaceBook}>
+                <img src="/photos/facebook.jpg" alt="" />
+              </button>
             </div>
           </div>
         </form>

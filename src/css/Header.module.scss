@@ -43,11 +43,14 @@
     width: 30%;
   }
   .home {
-    background: url("../photos/home.jpg") no-repeat 100%;
-    background-size: cover;
     width: calc((var(--normal-text-size-value) - 1) * 1.2vw + 2.5rem);
-    aspect-ratio: 1/1;
     border: transparent;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    img {
+      border-radius: 0;
+    }
   }
   img {
     width: calc((var(--normal-text-size-value) - 1) * 1.2vw + 2.5rem);
@@ -97,14 +100,10 @@
   .google,
   .facebook {
     @include linkIcons;
-  }
-  .google {
-    background: url("../photos/google.jpg") no-repeat center center;
-    background-size: cover;
-  }
-  .facebook {
-    background: url("../photos/facebook.jpg") no-repeat center center;
-    background-size: cover;
+    background-color: transparent;
+    img {
+      @include linkIcons;
+    }
   }
   .createAccount {
     font-size: 15px;

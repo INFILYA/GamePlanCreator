@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { compare } from "../Datas/api";
-import { PersonalInformationOfPlayer } from "../PersonalInfo/PersonalInformationOfPlayer";
 import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
 import { upgradeAge } from "../StaticHelpModules/Button";
 
@@ -10,7 +9,6 @@ export default function ShapeForRatings({ amplua }) {
   const Players = useSelector((state) => state.listOfPlayers.listOfPlayers);
   const listOfTeams = useSelector((state) => state.listOfTeams.listOfTeams);
   const listOfPlayers = Players.map((player) => upgradeAge(player));
-  const playerInfo = useSelector((state) => state.playerInfo.playerInfo);
   const [directionOfSort, setDirectionOfSort] = useState(false);
   const [teamsOrPlayers, setTeamsOrPlayers] = useState(
     amplua === "teams" ? listOfTeams : listOfPlayers.filter((player) => player.position === amplua)
@@ -57,60 +55,57 @@ export default function ShapeForRatings({ amplua }) {
   }
   return (
     <>
-      {playerInfo && (
-        <div className="showInfo-wrapper">
-          <div>
-            <PersonalInformationOfPlayer link="page1" />
-          </div>
-        </div>
-      )}
-      <div className="rows-wrapper">
-        {categorys.map((category, index) => (
-          <div className="rating-row" key={index}>
-            <div className="rating-button-wrapper">
-              <button
-                onClick={() => countRankings(category.category)}
-                title={`Click to sort by ${category.text}`}
-              >
-                {category.text}
-              </button>
-            </div>
-            <div className="players-row-wrapper">
-              {teamsOrPlayers.map((player, index) =>
-                category.text !== "Name" ? (
-                  <div className="span-wrapper" style={changePodiumColors(index)} key={index}>
-                    <span>
-                      {category.category === "percentOfAttack" && amplua !== "Setter"
-                        ? player[category.category] + "%"
-                        : player[category.category]}
-                    </span>
-                  </div>
-                ) : (
-                  <div className="name-span-wrapper" style={changePodiumColors(index)} key={index}>
-                    {"position" in player && (
-                      <span
-                        onClick={
-                          teamsOrPlayers !== listOfTeams
-                            ? () => showInfoOfPlayer(player.name)
-                            : null
-                        }
-                      >
-                        {index + 1}. {player[category.category]}
+        <div className="rows-wrapper">
+          {categorys.map((category, index) => (
+            <div className="rating-row" key={index}>
+              <div className="rating-button-wrapper">
+                <button
+                  onClick={() => countRankings(category.category)}
+                  title={`Click to sort by ${category.text}`}
+                >
+                  {category.text}
+                </button>
+              </div>
+              <div className="players-row-wrapper">
+                {teamsOrPlayers.map((player, index) =>
+                  category.text !== "Name" ? (
+                    <div className="span-wrapper" style={changePodiumColors(index)} key={index}>
+                      <span>
+                        {category.category === "percentOfAttack" && amplua !== "Setter"
+                          ? player[category.category] + "%"
+                          : player[category.category]}
                       </span>
-                    )}
-                    <div
-                      className="rating-image-wrapper"
-                      style={!("position" in player) ? { width: "100%" } : {}}
-                    >
-                      <img alt="" src={`/photos/${player.teamid || player.id}.jpg`}></img>
                     </div>
-                  </div>
-                )
-              )}
+                  ) : (
+                    <div
+                      className="name-span-wrapper"
+                      style={changePodiumColors(index)}
+                      key={index}
+                    >
+                      {"position" in player && (
+                        <span
+                          onClick={
+                            teamsOrPlayers !== listOfTeams
+                              ? () => showInfoOfPlayer(player.name)
+                              : null
+                          }
+                        >
+                          {index + 1}. {player[category.category]}
+                        </span>
+                      )}
+                      <div
+                        className="rating-image-wrapper"
+                        style={!("position" in player) ? { width: "100%" } : {}}
+                      >
+                        <img alt="" src={`/photos/${player.teamid || player.id}.jpg`}></img>
+                      </div>
+                    </div>
+                  )
+                )}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
     </>
   );
 }
