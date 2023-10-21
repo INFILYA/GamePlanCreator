@@ -13,26 +13,16 @@ export default function ShapeForRatings({ amplua }) {
   const [teamsOrPlayers, setTeamsOrPlayers] = useState(
     amplua === "teams" ? listOfTeams : listOfPlayers.filter((player) => player.position === amplua)
   );
-  const categorysForAll = [
-    { category: "name", text: "Name" },
-    { category: "age", text: "Age" },
-    { category: "height", text: "Height" },
-    { category: "winPoints", text: " Points by Attack" },
-    { category: "plusMinusOnAttack", text: "+/-  Attack" },
-    { category: "plusMinusOnService", text: "+/-  Service" },
-    { category: "percentOfAttack", text: "%  Attack" },
-  ];
-  const categorysForOthers = [
-    { category: "name", text: "Name" },
-    { category: "age", text: "Age" },
-    { category: "height", text: "Height" },
-    { category: "aces", text: "Aces" },
-    { category: "serviceFailed", text: "Service Failed" },
-    { category: "plusMinusOnService", text: "+/-  Service" },
-    { category: "height", text: "Height" },
-  ];
-  const categorys = amplua === "Setter" ? categorysForOthers : categorysForAll;
 
+  const categorys = [
+    { header: "Name", category: "name" },
+    { header: "Age", category: "age" },
+    { header: "Height", category: "height" },
+    { header: "Aces", category: "aces" },
+    { header: "Win points", category: "winPoints" },
+    { header: "Service +/-", category: "plusMinusOnService" },
+    { header: "Attack %", category: "percentOfAttack" },
+  ];
   function countRankings(category) {
     const newArr2 = [...teamsOrPlayers];
     !directionOfSort
@@ -41,7 +31,7 @@ export default function ShapeForRatings({ amplua }) {
     setTeamsOrPlayers(newArr2);
     setDirectionOfSort(!directionOfSort);
   }
-  function changePodiumColors(index) {
+  function changeBgColors(index) {
     const backgrounds = [
       { backgroundColor: "gold" },
       { backgroundColor: "silver" },
@@ -55,57 +45,41 @@ export default function ShapeForRatings({ amplua }) {
   }
   return (
     <>
-        <div className="rows-wrapper">
-          {categorys.map((category, index) => (
-            <div className="rating-row" key={index}>
-              <div className="rating-button-wrapper">
-                <button
-                  onClick={() => countRankings(category.category)}
-                  title={`Click to sort by ${category.text}`}
-                >
-                  {category.text}
-                </button>
-              </div>
-              <div className="players-row-wrapper">
-                {teamsOrPlayers.map((player, index) =>
-                  category.text !== "Name" ? (
-                    <div className="span-wrapper" style={changePodiumColors(index)} key={index}>
-                      <span>
-                        {category.category === "percentOfAttack" && amplua !== "Setter"
-                          ? player[category.category] + "%"
-                          : player[category.category]}
-                      </span>
-                    </div>
-                  ) : (
-                    <div
-                      className="name-span-wrapper"
-                      style={changePodiumColors(index)}
-                      key={index}
-                    >
-                      {"position" in player && (
-                        <span
-                          onClick={
-                            teamsOrPlayers !== listOfTeams
-                              ? () => showInfoOfPlayer(player.name)
-                              : null
-                          }
-                        >
-                          {index + 1}. {player[category.category]}
-                        </span>
-                      )}
-                      <div
-                        className="rating-image-wrapper"
-                        style={!("position" in player) ? { width: "100%" } : {}}
-                      >
-                        <img alt="" src={`/photos/${player.teamid || player.id}.jpg`}></img>
-                      </div>
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+      <tr>
+        {categorys.map((row) => (
+          <th key={row.header}>
+            <button
+              onClick={() => countRankings(row.category)}
+              title={`Click to sort by ${row.header}`}
+            >
+              {row.header}
+            </button>
+          </th>
+        ))}
+      </tr>
+      {teamsOrPlayers.map((player, index) => (
+        <tr
+          onClick={() => showInfoOfPlayer(player.name)}
+          key={player.name}
+          className="rating-row"
+          style={changeBgColors(index)}
+        >
+          <td style={changeBgColors(index)} className="name-wrapper">
+            <>
+              {index + 1}. {player.name}
+            </>
+            <>
+              <img src={`/photos/${player.teamid || player.name}.jpg`} alt="" />
+            </>
+          </td>
+          <td>{player.age}</td>
+          <td>{player.height}</td>
+          <td>{player.aces}</td>
+          <td>{player.winPoints}</td>
+          <td>{player.plusMinusOnService}</td>
+          <td>{player.percentOfAttack}</td>
+        </tr>
+      ))}
     </>
   );
 }
