@@ -86,7 +86,7 @@ main .main-content-wrapper .playground-section {
 main .main-content-wrapper .attack-section,
 main .main-content-wrapper .ratings-section {
   align-self: center;
-  width: 55vw;
+  width: 65vw;
   position: relative;
   z-index: 6;
 }
