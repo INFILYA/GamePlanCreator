@@ -66,7 +66,9 @@ export default function ShapeForRatings({ amplua }) {
         >
           <td style={changeBgColors(index)} className="name-wrapper">
             <>
-              {index + 1}. {player.name}
+              <p>
+                {index + 1}. {player.name}
+              </p>
             </>
             <>
               <img src={`/photos/${player.teamid || player.name}.jpg`} alt="" />
