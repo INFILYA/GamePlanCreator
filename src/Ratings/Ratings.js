@@ -33,26 +33,24 @@ export function Ratings() {
         content={
           <>
             <h1>Ratings</h1>
-            <table>
-              {playerInfo ? (
-                <PersonalInformationOfPlayer link="page1" />
-              ) : (
-                <>
-                  <caption className="showRatings-wrapper">
-                    <nav>
-                      <NavLink to={"/Ratings/RecieversRating"}>Recievers</NavLink>
-                      <NavLink to={"/Ratings/OppositesRating"}>Opposites</NavLink>
-                      <NavLink to={"/Ratings/MiddleBlockersRating"}>MiddleBlockers</NavLink>
-                      <NavLink to={"/Ratings/SettersRating"}>Setters</NavLink>
-                      <NavLink to={"/Ratings/TeamsRating"}>Teams</NavLink>
-                    </nav>
-                  </caption>
-                  <tbody className="rating-table-wrapper">
-                    <Outlet />
-                  </tbody>
-                </>
-              )}
-            </table>
+            {playerInfo ? (
+              <PersonalInformationOfPlayer link="page1" />
+            ) : (
+              <table>
+                <caption className="showRatings-wrapper">
+                  <nav>
+                    <NavLink to={"/Ratings/RecieversRating"}>Recievers</NavLink>
+                    <NavLink to={"/Ratings/OppositesRating"}>Opposites</NavLink>
+                    <NavLink to={"/Ratings/MiddleBlockersRating"}>MiddleBlockers</NavLink>
+                    <NavLink to={"/Ratings/SettersRating"}>Setters</NavLink>
+                    <NavLink to={"/Ratings/TeamsRating"}>Teams</NavLink>
+                  </nav>
+                </caption>
+                <tbody className="rating-table-wrapper">
+                  <Outlet />
+                </tbody>
+              </table>
+            )}
           </>
         }
       />
