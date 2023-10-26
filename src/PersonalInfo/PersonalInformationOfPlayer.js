@@ -5,19 +5,16 @@ import { upgradeAge } from "../StaticHelpModules/Button";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
-import { useState } from "react";
 
 export function PersonalInformationOfPlayer({ link }) {
   const dispatch = useDispatch();
   const [isRegistratedUser] = useAuthState(auth);
-  const [showDetails, setShowDetails] = useState(false);
   const playerInfo = upgradeAge(useSelector((state) => state.playerInfo.playerInfo));
   const page1 = link === "page1";
   const service = link === "Service";
   const attack = link === "Attack";
   const libero = playerInfo.position === "Libero";
   const setter = playerInfo.position === "Setter";
-  const details = showDetails ? "Hide details" : "Show details";
   return (
     <div className="hidden-player-information-wrapper">
       <div className="player-surname-wrapper">
@@ -85,29 +82,6 @@ export function PersonalInformationOfPlayer({ link }) {
           </div>
         )}
       </div>
-      {/* {page1 && isRegistratedUser && !libero && (
-        <button
-          className="show-details"
-          onClick={() => setShowDetails(!showDetails)}
-          style={showDetails ? { backgroundColor: "orangered", color: "white" } : {}}
-        >
-          {details}
-        </button>
-      )}
-      {showDetails && (
-        <div className="player-diagramm-wrapper">
-          {(page1 || service) && (
-            <div className="row">
-              <Diagramm link="Service" />
-            </div>
-          )}
-          {!setter && (page1 || attack) && (
-            <div className="row">
-              <Diagramm link="Attack" />
-            </div>
-          )}
-        </div>
-      )} */}
     </div>
   );
 }
