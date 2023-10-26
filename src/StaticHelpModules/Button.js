@@ -12,3 +12,5 @@ export function upgradeAge(player) {
   const newPlayer = { ...player, age: newAge };
   return newPlayer;
 }
+
+export const later = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

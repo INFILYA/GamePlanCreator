@@ -37,9 +37,6 @@ $ButtonBlue: rgb(100, 149, 237);
 }
 body {
   text-align: center;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1720px;
 }
 :root {
   --normal-text-size-value: 1.25;
@@ -92,6 +89,21 @@ main {
   }
   button {
     background-color: $ButtonBlue;
+  }
+  .loading-logo-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 25vmax;
+      // aspect-ratio: 12/9;
+      margin-right: 3%;
+    }
   }
   .main-content-wrapper {
     display: flex;
@@ -246,6 +258,7 @@ main {
               border-radius: 20px 0px 0px 20px;
             }
             .moveToBoard-wrapper {
+              display: flex;
               select {
                 -webkit-appearance: none;
                 -moz-appearance: none;

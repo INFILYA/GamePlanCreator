@@ -3,7 +3,7 @@ import Distribution from "./Distribution/Distribution";
 import Attacks from "./AttackPage/Attack";
 import Service from "./AttackPage/Service";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Auth } from "./Header/components/Auth";
 import {
   LiberosRating,
@@ -25,9 +25,11 @@ import { Header } from "./Header/Header";
 import { setAllPlayers } from "./states/slices/listOfPlayersSlice";
 import { setAllTeams } from "./states/slices/listOfTeamsSlice";
 import { FirstPage } from "./Page1/FirstPage";
+import { later } from "./StaticHelpModules/Button";
 
 function Myproject() {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
   const changeLanguage = useSelector((state) => state.changeLanguage.changeLanguage);
   const isShowedTutorial = useSelector((state) => state.isShowedTutorial.isShowedTutorial);
   const userVersion = JSON.parse(localStorage.getItem("userVersion")) || null;
@@ -35,6 +37,8 @@ function Myproject() {
   useEffect(() => {
     async function checkVersionOfData() {
       try {
+        setIsLoading(true);
+        await later(1500);
         const data = await getDocs(collection(dataBase, "versionChecker"));
         const adminVersion = data.docs[0].data().currentVersion;
         dispatch(setUserVersion(adminVersion));
@@ -55,6 +59,8 @@ function Myproject() {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     }
     async function getPlayers() {
@@ -83,28 +89,36 @@ function Myproject() {
     <>
       <Header />
       <main>
-        {!isShowedTutorial && (
-          <div className="textForTutorial">
-            {TUTORIAL.map((card, index) => (
-              <Tutorial text={card} key={index} />
-            ))}
+        {isLoading ? (
+          <div className="loading-logo-wrapper">
+            <img src="/photos/MyLogo.png" alt="" />
           </div>
+        ) : (
+          <>
+            {!isShowedTutorial && (
+              <div className="textForTutorial">
+                {TUTORIAL.map((card, index) => (
+                  <Tutorial text={card} key={index} />
+                ))}
+              </div>
+            )}
+            <Routes>
+              <Route path="/" element={<FirstPage />} />
+              <Route path="/Auth" element={<Auth />} />
+              <Route path="/Ratings" element={<Ratings />}>
+                <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />
+                <Route path="/Ratings/OppositesRating" element={<OppositesRating />} />
+                <Route path="/Ratings/MiddleBlockersRating" element={<MiddleBlockersRating />} />
+                <Route path="/Ratings/SettersRating" element={<SettersRating />} />
+                <Route path="/Ratings/LiberosRating" element={<LiberosRating />} />
+                <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
+              </Route>
+              <Route path="/Distribution" element={<Distribution />} />
+              <Route path="/attack" element={<Attacks />} />
+              <Route path="/service" element={<Service />} />
+            </Routes>
+          </>
         )}
-        <Routes>
-          <Route path="/" element={<FirstPage />} />
-          <Route path="/Auth" element={<Auth />} />
-          <Route path="/Ratings" element={<Ratings />}>
-            <Route path="/Ratings/RecieversRating" element={<RecieversRating />} />
-            <Route path="/Ratings/OppositesRating" element={<OppositesRating />} />
-            <Route path="/Ratings/MiddleBlockersRating" element={<MiddleBlockersRating />} />
-            <Route path="/Ratings/SettersRating" element={<SettersRating />} />
-            <Route path="/Ratings/LiberosRating" element={<LiberosRating />} />
-            <Route path="/Ratings/TeamsRating" element={<TeamsRating />} />
-          </Route>
-          <Route path="/Distribution" element={<Distribution />} />
-          <Route path="/attack" element={<Attacks />} />
-          <Route path="/service" element={<Service />} />
-        </Routes>
       </main>
     </>
   );

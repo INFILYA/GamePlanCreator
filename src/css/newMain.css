@@ -1,8 +1,5 @@
 body {
   text-align: center;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1720px;
 }
 
 :root {
@@ -63,6 +60,20 @@ main a:hover {
 }
 main button {
   background-color: rgb(100, 149, 237);
+}
+main .loading-logo-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .loading-logo-wrapper img {
+  height: 25vmax;
+  margin-right: 3%;
 }
 main .main-content-wrapper {
   display: flex;
@@ -234,6 +245,9 @@ main .main-content-wrapper .section-content-wrapper .section-content .squad-wrap
 main .main-content-wrapper .section-content-wrapper .section-content .squad-wrapper .player-field-wrapper .player-surname {
   background-color: darkgray;
   border-radius: 20px 0px 0px 20px;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .squad-wrapper .player-field-wrapper .moveToBoard-wrapper {
+  display: flex;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .squad-wrapper .player-field-wrapper .moveToBoard-wrapper select {
   -webkit-appearance: none;
