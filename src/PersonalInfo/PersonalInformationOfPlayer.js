@@ -26,56 +26,66 @@ export function PersonalInformationOfPlayer({ link }) {
         </h2>
       </div>
       <div className="player-full-info-wrapper">
-        <div className="player-info-content">
-          <div className="player-info-data-wrapper">
-            <div className="player-info-row-wrapper">
-              <div>Age: {playerInfo.age}</div>
-            </div>
-            <div className="player-info-row-wrapper">
-              <div>Dominant hand: {playerInfo.hand}</div>
-            </div>
-            <div className="player-info-row-wrapper">
-              <div>Height: {playerInfo.height}</div>
-            </div>
-            <div className="player-info-row-wrapper">
-              <div>Reach: {playerInfo.reach}</div>
-            </div>
-            <div className="player-info-row-wrapper">
-              <div>Position: {playerInfo.position}</div>
-            </div>
-            {page1 && (
-              <div className="player-info-row-wrapper">
-                <div>Team : {playerInfo.teamid}</div>
-              </div>
-            )}
-            {service && (
-              <div className="player-info-row-wrapper">
-                <div>Service Plus : {playerInfo?.plusMinusOnService}</div>
-              </div>
-            )}
-            {attack && (
-              <div className="player-info-row-wrapper">
-                <div>Attack Plus : {playerInfo?.plusMinusOnAttack}</div>
-              </div>
-            )}
-            <nav>
-              {!libero && isRegistratedUser && (
-                <>
-                  {!setter && <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>}
-                  <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
-                </>
-              )}
-              {page1 && <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>}
-            </nav>
+        <div className="player-info-data-wrapper">
+          <div className="player-info-row-wrapper">
+            <div>Age: {playerInfo.age}</div>
           </div>
-          <div className="photo-player-wrapper">
-            <div className="photo-player-container">
-              <img src={playerInfo.photo} alt="" />
-            </div>
+          <div className="player-info-row-wrapper">
+            <div>Dominant hand: {playerInfo.hand}</div>
           </div>
+          <div className="player-info-row-wrapper">
+            <div>Height: {playerInfo.height}</div>
+          </div>
+          <div className="player-info-row-wrapper">
+            <div>Reach: {playerInfo.reach}</div>
+          </div>
+          <div className="player-info-row-wrapper">
+            <div>Position: {playerInfo.position}</div>
+          </div>
+          {page1 && (
+            <div className="player-info-row-wrapper">
+              <div>Team : {playerInfo.teamid}</div>
+            </div>
+          )}
+          {service && (
+            <div className="player-info-row-wrapper">
+              <div>Service Plus : {playerInfo?.plusMinusOnService}</div>
+            </div>
+          )}
+          {attack && (
+            <div className="player-info-row-wrapper">
+              <div>Attack Plus : {playerInfo?.plusMinusOnAttack}</div>
+            </div>
+          )}
+          <nav>
+            {!libero && isRegistratedUser && (
+              <>
+                {!setter && <NavLink to={"/attack?playerId=" + playerInfo.id}>Attack</NavLink>}
+                <NavLink to={"/service?playerId=" + playerInfo.id}>Service</NavLink>
+              </>
+            )}
+            {page1 && <button onClick={() => dispatch(setInfoOfPlayer(null))}>Cancel</button>}
+          </nav>
         </div>
+        <div className="photo-player-wrapper">
+          <img src={playerInfo.photo} alt="" />
+        </div>
+        {!page1 && (
+          <div className="player-diagramm-wrapper">
+            {service && (
+              <div className="row">
+                <Diagramm link="Service" />
+              </div>
+            )}
+            {!setter && attack && (
+              <div className="row">
+                <Diagramm link="Attack" />
+              </div>
+            )}
+          </div>
+        )}
       </div>
-      {isRegistratedUser && !libero && (
+      {/* {page1 && isRegistratedUser && !libero && (
         <button
           className="show-details"
           onClick={() => setShowDetails(!showDetails)}
@@ -97,7 +107,7 @@ export function PersonalInformationOfPlayer({ link }) {
             </div>
           )}
         </div>
-      )}
+      )} */}
     </div>
   );
 }

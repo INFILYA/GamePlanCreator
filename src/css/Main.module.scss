@@ -91,7 +91,9 @@ option {
 }
 
 main {
-  padding: 0 2vmax;
+  padding: 0 2vw;
+  min-width: 600px;
+  box-sizing: border-box;
   a {
     background-color: $ButtonBlue;
     &:hover {
@@ -120,8 +122,15 @@ main {
     display: flex;
     justify-content: center;
     // Персональні стилі секцій
+    .attack-section {
+      align-self: center;
+      width: 70vmax;
+      position: relative;
+      z-index: 6;
+      min-width: 520px;
+    }
     .teamsquad-section {
-      width: 20vw;
+      width: 22.5vmax;
       background-color: gainsboro;
       text-align: center;
       border-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
@@ -130,17 +139,15 @@ main {
       position: relative;
       z-index: 5;
     }
+    .ratings-section,
     .playground-section {
-      width: 55vw;
+      align-self: center;
+      width: 55vmax;
       position: relative;
       z-index: 6;
     }
-    .attack-section,
-    .ratings-section {
-      align-self: center;
-      width: 65vw;
-      position: relative;
-      z-index: 6;
+    .playground-section {
+      align-self: baseline;
     }
     .playArea-sections-wrapper {
       display: flex;
@@ -325,16 +332,12 @@ main {
         }
         // ВІКНО ІНФОРМАЦІЇ ГРАВЦЯ
         .hidden-player-information-wrapper {
-          @include borderRadius;
           display: flex;
           flex-direction: column;
-          background-color: lightsteelblue;
-          // width: clamp(340px, 100%, 55vw);
           width: 100%;
-          border: 2px solid $Black;
           box-sizing: border-box;
           .player-surname-wrapper {
-            @include borderRadius;
+            border-radius: 2vw;
             background-color: $ButtonColor;
             color: $White;
           }
@@ -350,58 +353,54 @@ main {
           }
           .player-full-info-wrapper {
             display: flex;
-            border-top: 2px solid $Black;
-            justify-content: center;
-            .player-info-content {
+            justify-content: space-around;
+            .player-info-data-wrapper {
+              padding: 2vw 0;
               display: flex;
-              width: 100%;
-              .player-info-data-wrapper {
-                padding: 2vw;
-                width: 60%;
-                .player-info-row-wrapper {
-                  display: flex;
-                  font-weight: bold;
-                  padding: 0.3vw 0;
-                  font-size: calc((var(--normal-text-size-value) - 1) * 3vmax + 0.4rem);
-                }
-                nav {
-                  margin: 1vw 0 0 0;
-                  display: flex;
-                  width: 100%;
-                  a,
-                  button {
-                    margin: 0 1vw 0 0;
-                    border-radius: 5px;
-                    text-decoration: none;
-                    color: $Black;
-                    font-weight: bold;
-                    padding: 5px 1vw;
-                    font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
-                    border: 1px solid $Black;
-                  }
-                }
-              }
-              .photo-player-wrapper {
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: center;
+              box-sizing: border-box;
+              width: 33%;
+              .player-info-row-wrapper {
                 display: flex;
+                font-weight: bold;
+                padding: 0.3vw 0;
+                font-size: calc((var(--normal-text-size-value) - 1) * 3vmax + 0.4rem);
+              }
+              nav {
+                display: flex;
+                width: 100%;
                 justify-content: center;
-                width: 40%;
-                aspect-ratio: 1/1;
-                .photo-player-container {
-                  height: 100%;
-                  width: 100%;
-                  img {
-                    height: 100%;
-                  }
+                flex-wrap: wrap;
+                a,
+                button {
+                  margin: 0.75vw 0.3vw;
+                  border-radius: 5px;
+                  text-decoration: none;
+                  color: $Black;
+                  font-weight: bold;
+                  padding: 5px 0.5vw;
+                  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
+                  border: 1px solid $Black;
                 }
               }
             }
-          }
-          .player-diagramm-wrapper {
-            display: flex;
-            justify-content: center;
-            height: 100%;
-            .row {
-              width: 50%;
+            .photo-player-wrapper {
+              display: flex;
+              justify-content: center;
+              width: 33%;
+              aspect-ratio: 1/1;
+              img {
+                height: 100%;
+              }
+            }
+            .player-diagramm-wrapper {
+              width: 33%;
+              padding: 2vw 0;
+              .row {
+                width: 100%;
+              }
             }
           }
         }
@@ -415,7 +414,7 @@ main {
           padding: 2vw;
           .nav-image-wrapper {
             img {
-              width: 8vw;
+              width: 8vmax;
               aspect-ratio: 1/1;
               &:hover {
                 transform: translateY(-7px);
@@ -472,7 +471,7 @@ main {
               width: 90%;
             }
             .zone-names-wrapper {
-              height: 12vw;
+              height: 12vmax;
               width: 33%;
               font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 1rem);
               align-items: center;
@@ -490,7 +489,7 @@ main {
               justify-content: center;
             }
             .player-image-wrapper {
-              height: 10vw;
+              height: 10vmax;
               img {
                 border: none;
                 height: 100%;

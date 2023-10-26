@@ -76,96 +76,19 @@
   margin-left: 0.5vw;
 }
 
-@media screen and (max-width: 820px) {
-  main .main-content-wrapper .ratings-section,
-  main .main-content-wrapper .attack-section,
-  main .main-content-wrapper .playground-section {
-    width: 50vw;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper {
-    border: none;
-    background-color: white;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-surname-wrapper,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-surname-wrapper,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-surname-wrapper {
-    border-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
-    border: none;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper {
-    padding: 0;
-    border: none;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content {
-    flex-direction: column;
-    align-items: center;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .photo-player-wrapper,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .photo-player-wrapper,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .photo-player-wrapper {
-    width: 75%;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .photo-player-wrapper .photo-player-container img,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .photo-player-wrapper .photo-player-container img,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .photo-player-wrapper .photo-player-container img {
-    height: 100%;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1vw 0 2vw 0;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper .player-info-row-wrapper,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper .player-info-row-wrapper,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper .player-info-row-wrapper {
-    justify-content: center;
-    font-size: calc((var(--normal-text-size-value) - 1) * 4vw + 0.4rem);
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav {
-    display: block;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav a,
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav button,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav a,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav button,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav a,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav button {
-    margin: 0 1vw;
-    font-size: calc((var(--normal-text-size-value) - 1) * 4vw + 0.4rem);
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .show-details,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .show-details,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .show-details {
-    border-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
-    border: none;
-    font-size: calc((var(--normal-text-size-value) - 1) * 4vw + 0.4rem);
-    padding: 0.5vw 0;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-diagramm-wrapper,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-diagramm-wrapper,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-diagramm-wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-  main .main-content-wrapper .ratings-section .section-content-wrapper .hidden-player-information-wrapper .player-diagramm-wrapper .row,
-  main .main-content-wrapper .attack-section .section-content-wrapper .hidden-player-information-wrapper .player-diagramm-wrapper .row,
-  main .main-content-wrapper .playground-section .section-content-wrapper .hidden-player-information-wrapper .player-diagramm-wrapper .row {
-    width: 75%;
+@media screen and (max-width: 1200px) {
+  .ratings-section,
+  .attack-section {
+    width: 75vmax !important;
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 820px) {
+  .ratings-section,
+  .attack-section {
+    width: 95vmax !important;
+  }
+}
+@media screen and (max-width: 600px) {
   .row {
     width: 100% !important;
   }
@@ -181,7 +104,7 @@
   }
   .player-surname-wrapper button,
   .player-number-wrapper button {
-    font-size: 1.1vw !important;
+    font-size: 1.5vw !important;
   }
 }
 

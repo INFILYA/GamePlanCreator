@@ -61,7 +61,9 @@ option {
   }
 }
 main {
-  padding: 0 2vmax;
+  padding: 0 2vw;
+  min-width: 600px;
+  box-sizing: border-box;
 }
 main a {
   background-color: rgb(100, 149, 237);
@@ -91,8 +93,15 @@ main .main-content-wrapper {
   display: flex;
   justify-content: center;
 }
+main .main-content-wrapper .attack-section {
+  align-self: center;
+  width: 70vmax;
+  position: relative;
+  z-index: 6;
+  min-width: 520px;
+}
 main .main-content-wrapper .teamsquad-section {
-  width: 20vw;
+  width: 22.5vmax;
   background-color: gainsboro;
   text-align: center;
   border-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
@@ -101,17 +110,15 @@ main .main-content-wrapper .teamsquad-section {
   position: relative;
   z-index: 5;
 }
+main .main-content-wrapper .ratings-section,
 main .main-content-wrapper .playground-section {
-  width: 55vw;
+  align-self: center;
+  width: 55vmax;
   position: relative;
   z-index: 6;
 }
-main .main-content-wrapper .attack-section,
-main .main-content-wrapper .ratings-section {
-  align-self: center;
-  width: 65vw;
-  position: relative;
-  z-index: 6;
+main .main-content-wrapper .playground-section {
+  align-self: baseline;
 }
 main .main-content-wrapper .playArea-sections-wrapper {
   display: flex;
@@ -310,18 +317,13 @@ main .main-content-wrapper .section-content-wrapper .section-content .reset-butt
   scale: 1.15;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper {
-  border-top-left-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
-  border-top-right-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
   display: flex;
   flex-direction: column;
-  background-color: lightsteelblue;
   width: 100%;
-  border: 2px solid rgb(0, 0, 0);
   box-sizing: border-box;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-surname-wrapper {
-  border-top-left-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
-  border-top-right-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
+  border-radius: 2vw;
   background-color: rgb(255, 69, 0);
   color: rgb(255, 255, 255);
 }
@@ -337,59 +339,55 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper {
   display: flex;
-  border-top: 2px solid rgb(0, 0, 0);
-  justify-content: center;
+  justify-content: space-around;
 }
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content {
+main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-data-wrapper {
+  padding: 2vw 0;
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width: 33%;
 }
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper {
-  padding: 2vw;
-  width: 60%;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper .player-info-row-wrapper {
+main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-data-wrapper .player-info-row-wrapper {
   display: flex;
   font-weight: bold;
   padding: 0.3vw 0;
   font-size: calc((var(--normal-text-size-value) - 1) * 3vmax + 0.4rem);
 }
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav {
-  margin: 1vw 0 0 0;
+main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-data-wrapper nav {
   display: flex;
   width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav a,
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .player-info-data-wrapper nav button {
-  margin: 0 1vw 0 0;
+main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-data-wrapper nav a,
+main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-data-wrapper nav button {
+  margin: 0.75vw 0.3vw;
   border-radius: 5px;
   text-decoration: none;
   color: rgb(0, 0, 0);
   font-weight: bold;
-  padding: 5px 1vw;
+  padding: 5px 0.5vw;
   font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem);
   border: 1px solid rgb(0, 0, 0);
 }
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .photo-player-wrapper {
+main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .photo-player-wrapper {
   display: flex;
   justify-content: center;
-  width: 40%;
+  width: 33%;
   aspect-ratio: 1/1;
 }
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .photo-player-wrapper .photo-player-container {
+main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .photo-player-wrapper img {
   height: 100%;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-diagramm-wrapper {
+  width: 33%;
+  padding: 2vw 0;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-diagramm-wrapper .row {
   width: 100%;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-content .photo-player-wrapper .photo-player-container img {
-  height: 100%;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-diagramm-wrapper {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-}
-main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-diagramm-wrapper .row {
-  width: 50%;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .opponentTeamList {
   display: grid;
@@ -400,7 +398,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .opponentTe
   padding: 2vw;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .opponentTeamList .nav-image-wrapper img {
-  width: 8vw;
+  width: 8vmax;
   aspect-ratio: 1/1;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .opponentTeamList .nav-image-wrapper img:hover {
@@ -454,7 +452,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .rotation-f
 }
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .zone-names-wrapper,
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .zone-names-wrapper {
-  height: 12vw;
+  height: 12vmax;
   width: 33%;
   font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 1rem);
   align-items: center;
@@ -476,7 +474,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .rotation-f
 }
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-image-wrapper,
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .player-image-wrapper {
-  height: 10vw;
+  height: 10vmax;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-image-wrapper img,
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .player-image-wrapper img {
