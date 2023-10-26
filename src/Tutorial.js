@@ -26,13 +26,13 @@ export function Tutorial({ text }) {
               <div className="changeLanguage">
                 <button
                   onClick={() => dispatch(setChangeLanguage(true))}
-                  style={changeLanguage ? { backgroundColor: "gold" } : null}
+                  style={changeLanguage ? { backgroundColor: "#FFD700", color: "#0057B8" } : null}
                 >
                   Eng
                 </button>
                 <button
                   onClick={() => dispatch(setChangeLanguage(false))}
-                  style={!changeLanguage ? { backgroundColor: "gold" } : null}
+                  style={!changeLanguage ? { backgroundColor: "#FFD700", color: "#0057B8" } : null}
                 >
                   Ukr
                 </button>
