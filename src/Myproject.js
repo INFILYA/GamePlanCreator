@@ -38,7 +38,7 @@ function Myproject() {
     async function checkVersionOfData() {
       try {
         setIsLoading(true);
-        await later(1500);
+        await later(2500);
         const data = await getDocs(collection(dataBase, "versionChecker"));
         const adminVersion = data.docs[0].data().currentVersion;
         dispatch(setUserVersion(adminVersion));

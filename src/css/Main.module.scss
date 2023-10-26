@@ -78,6 +78,17 @@ option {
     scale: (1.15);
   }
 }
+@keyframes greyscale {
+  0% {
+    filter: contrast(50%) grayscale(100%);
+  }
+  25% {
+    filter: contrast(50%) grayscale(100%);
+  }
+  100% {
+    filter: contrast(100%) grayscale(0%);
+  }
+}
 
 main {
   padding: 0 2vmax;
@@ -101,8 +112,8 @@ main {
     align-items: center;
     img {
       height: 25vmax;
-      // aspect-ratio: 12/9;
       margin-right: 3%;
+      animation: greyscale 2.5s forwards;
     }
   }
   .main-content-wrapper {
