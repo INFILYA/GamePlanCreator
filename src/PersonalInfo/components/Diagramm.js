@@ -8,7 +8,7 @@ export default function Diagramm({ link }) {
     chart: {
       type: "pie",
       backgroundColor: null,
-      height: "95%",
+      height: "100%",
     },
     title: {
       verticalAlign: "middle",

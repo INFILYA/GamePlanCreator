@@ -92,7 +92,6 @@ option {
 
 main {
   padding: 0 2vw;
-  min-width: 600px;
   box-sizing: border-box;
   a {
     background-color: $ButtonBlue;
@@ -124,13 +123,12 @@ main {
     // Персональні стилі секцій
     .attack-section {
       align-self: center;
-      width: 70vmax;
+      width: 70%;
       position: relative;
       z-index: 6;
-      min-width: 520px;
     }
     .teamsquad-section {
-      width: 22.5vmax;
+      width: 22.5%;
       background-color: gainsboro;
       text-align: center;
       border-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
@@ -142,12 +140,17 @@ main {
     .ratings-section,
     .playground-section {
       align-self: center;
-      width: 55vmax;
+      width: 55%;
       position: relative;
       z-index: 6;
     }
     .playground-section {
       align-self: baseline;
+      .section-border {
+        .section-background {
+          display: flex;
+        }
+      }
     }
     .playArea-sections-wrapper {
       display: flex;
@@ -366,7 +369,7 @@ main {
                 display: flex;
                 font-weight: bold;
                 padding: 0.3vw 0;
-                font-size: calc((var(--normal-text-size-value) - 1) * 3vmax + 0.4rem);
+                font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.3rem);
               }
               nav {
                 display: flex;
@@ -393,6 +396,7 @@ main {
               aspect-ratio: 1/1;
               img {
                 height: 100%;
+                overflow: hidden;
               }
             }
             .player-diagramm-wrapper {
@@ -414,7 +418,7 @@ main {
           padding: 2vw;
           .nav-image-wrapper {
             img {
-              width: 8vmax;
+              width: 8vw;
               aspect-ratio: 1/1;
               &:hover {
                 transform: translateY(-7px);
@@ -465,10 +469,11 @@ main {
           .my-row-zones-wrapper {
             display: flex;
             justify-content: space-around;
-
+            min-height: 18.5px;
             .player-field-wrapper {
-              height: 2vmax;
+              height: 2vw;
               width: 90%;
+              min-height: 18.5px;
             }
             .zone-names-wrapper {
               height: 12vmax;
@@ -481,6 +486,7 @@ main {
               display: flex;
               flex-direction: column;
               align-items: center;
+              min-height: 18.5px;
             }
             .player-field-wrapper,
             .zone-names-wrapper {
@@ -493,7 +499,8 @@ main {
               img {
                 border: none;
                 height: 100%;
-                margin-top: 7px;
+                min-height: 60px;
+                padding-top: 7px;
               }
             }
           }

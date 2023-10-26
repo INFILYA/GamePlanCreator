@@ -79,13 +79,7 @@
 @media screen and (max-width: 1200px) {
   .ratings-section,
   .attack-section {
-    width: 75vmax !important;
-  }
-}
-@media screen and (max-width: 820px) {
-  .ratings-section,
-  .attack-section {
-    width: 95vmax !important;
+    width: 90vw !important;
   }
 }
 @media screen and (max-width: 600px) {

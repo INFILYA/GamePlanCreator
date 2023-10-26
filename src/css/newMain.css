@@ -62,7 +62,6 @@ option {
 }
 main {
   padding: 0 2vw;
-  min-width: 600px;
   box-sizing: border-box;
 }
 main a {
@@ -95,13 +94,12 @@ main .main-content-wrapper {
 }
 main .main-content-wrapper .attack-section {
   align-self: center;
-  width: 70vmax;
+  width: 70%;
   position: relative;
   z-index: 6;
-  min-width: 520px;
 }
 main .main-content-wrapper .teamsquad-section {
-  width: 22.5vmax;
+  width: 22.5%;
   background-color: gainsboro;
   text-align: center;
   border-radius: calc((var(--normal-text-size-value) - 1) * 3vw + 0.2rem);
@@ -113,12 +111,15 @@ main .main-content-wrapper .teamsquad-section {
 main .main-content-wrapper .ratings-section,
 main .main-content-wrapper .playground-section {
   align-self: center;
-  width: 55vmax;
+  width: 55%;
   position: relative;
   z-index: 6;
 }
 main .main-content-wrapper .playground-section {
   align-self: baseline;
+}
+main .main-content-wrapper .playground-section .section-border .section-background {
+  display: flex;
 }
 main .main-content-wrapper .playArea-sections-wrapper {
   display: flex;
@@ -354,7 +355,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
   display: flex;
   font-weight: bold;
   padding: 0.3vw 0;
-  font-size: calc((var(--normal-text-size-value) - 1) * 3vmax + 0.4rem);
+  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.3rem);
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-data-wrapper nav {
   display: flex;
@@ -381,6 +382,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .photo-player-wrapper img {
   height: 100%;
+  overflow: hidden;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-diagramm-wrapper {
   width: 33%;
@@ -398,7 +400,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .opponentTe
   padding: 2vw;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .opponentTeamList .nav-image-wrapper img {
-  width: 8vmax;
+  width: 8vw;
   aspect-ratio: 1/1;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .opponentTeamList .nav-image-wrapper img:hover {
@@ -444,11 +446,13 @@ main .main-content-wrapper .section-content-wrapper .section-content .rotation-f
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper {
   display: flex;
   justify-content: space-around;
+  min-height: 18.5px;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper,
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .player-field-wrapper {
-  height: 2vmax;
+  height: 2vw;
   width: 90%;
+  min-height: 18.5px;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .zone-names-wrapper,
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .zone-names-wrapper {
@@ -463,6 +467,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .rotation-f
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 18.5px;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .player-field-wrapper,
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper .zone-names-wrapper,
@@ -480,7 +485,8 @@ main .main-content-wrapper .section-content-wrapper .section-content .rotation-f
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper .player-image-wrapper img {
   border: none;
   height: 100%;
-  margin-top: 7px;
+  min-height: 60px;
+  padding-top: 7px;
 }
 
 /*# sourceMappingURL=newMain.css.map */
