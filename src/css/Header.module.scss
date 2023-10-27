@@ -28,6 +28,7 @@
   border: 4px solid silver;
   font-size: calc((var(--normal-text-size-value) - 0.9) * 2vw + 0.5rem);
   padding: 5px 10px;
+  cursor: pointer;
 }
 
 .header {
@@ -48,6 +49,7 @@
     display: flex;
     justify-content: center;
     background-color: transparent;
+    cursor: pointer;
     img {
       border-radius: 0;
     }

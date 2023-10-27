@@ -1,3 +1,14 @@
+@keyframes blink {
+  37% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  62% {
+    opacity: 0;
+  }
+}
 .none {
   display: none;
 }
@@ -73,10 +84,12 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
 }
 .playArea .select-wrapper select[disabled] {
   opacity: 1;
   background-color: #0272be;
+  cursor: not-allowed;
 }
 .playArea .compareFields {
   display: flex;
@@ -160,8 +173,8 @@
   border: 3px solid transparent;
   z-index: 3;
 }
+.playArea .defender-wrapper .defenderOff,
 .playArea .defender-wrapper .defenderOn {
-  background-color: yellow;
   border: 3px solid black;
   height: 100%;
   position: relative;
@@ -171,28 +184,21 @@
   aspect-ratio: 2/1;
   padding: 0px 20px;
   margin: 0 10px;
+  cursor: pointer;
 }
+.playArea .defender-wrapper .defenderOff:hover,
 .playArea .defender-wrapper .defenderOn:hover {
   background-color: yellow;
   border: 3px solid black;
   cursor: pointer;
 }
-.playArea .defender-wrapper .defenderOff {
-  background-color: transparent;
-  border: 3px solid transparent;
-  height: 100%;
-  position: relative;
-  z-index: 3;
-  border-radius: 0 0 25px 25px;
-  box-sizing: border-box;
-  aspect-ratio: 2/1;
-  padding: 0px 20px;
-  margin: 0 10px;
-}
-.playArea .defender-wrapper .defenderOff:hover {
+.playArea .defender-wrapper .defenderOn {
   background-color: yellow;
-  border: 3px solid black;
-  cursor: pointer;
+}
+.playArea .defender-wrapper .defenderOff {
+  opacity: 0;
+  background-color: transparent;
+  animation: blink 10s linear infinite;
 }
 .playArea .inputs-wrapper {
   display: flex;
@@ -232,10 +238,13 @@
   font-size: calc(1.75vmin + 0.3rem);
   padding: 5px 0;
   font-weight: 600;
+  border: 2px solid black;
+  cursor: pointer;
 }
 .playArea .tip-wrapper .tip {
   background-color: transparent;
-  color: transparent;
+  opacity: 0;
+  animation: blink 10s linear infinite;
 }
 .playArea .tip-wrapper .tip:hover {
   background-color: yellow;
@@ -244,7 +253,6 @@
 }
 .playArea .tip-wrapper .yellowtip {
   background-color: yellow;
-  border: 2px solid black;
 }
 .playArea .count-button-wrapper {
   position: absolute;

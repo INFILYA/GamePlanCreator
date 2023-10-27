@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 export default function WrapperForActions({ type, children }) {
   const dispatch = useDispatch();
   const [history, sethistory] = useState([0]);
-  const [showDetails, setShowDetails] = useState(false);
   const playerInfo = useSelector((state) => state.playerInfo.playerInfo);
 
   useEffect(() => {
@@ -25,7 +24,6 @@ export default function WrapperForActions({ type, children }) {
   if (playerInfo === null) {
     return null;
   }
-  const text = showDetails ? "Hide details" : "Show details";
   return (
     <article className="main-content-wrapper" style={{ flexDirection: "column" }}>
       <section className="attack-section">
@@ -34,12 +32,6 @@ export default function WrapperForActions({ type, children }) {
         </div>
         <div className="section-content-wrapper">
           <div className="section-content">
-            <div className="reset-button-wrapper">
-              <button onClick={() => setShowDetails(!showDetails)} className="reset">
-                {text}
-              </button>
-            </div>
-            {showDetails && <PersonalInformationOfPlayer link={type} />}
             <div className="reset-button-wrapper">
               {history.length > 1 && (
                 <button className="reset" onClick={reset}>
@@ -52,6 +44,7 @@ export default function WrapperForActions({ type, children }) {
                 </button>
               )}
             </div>
+            <PersonalInformationOfPlayer link={type} /> 
           </div>
         </div>
       </section>

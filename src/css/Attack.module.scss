@@ -18,6 +18,7 @@
   aspect-ratio: 2/1;
   padding: 0px 20px;
   margin: 0 10px;
+  cursor: pointer;
   &:hover {
     background-color: yellow;
     border: 3px solid black;
@@ -113,6 +114,17 @@
   @include Service;
 }
 
+@keyframes blink {
+  37% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  62% {
+    opacity: 0;
+  }
+}
 // Основной CSS
 
 .none {
@@ -187,10 +199,12 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
+      cursor: pointer;
     }
     select[disabled] {
       opacity: 1;
       background-color: #0272be;
+      cursor: not-allowed;
     }
   }
   .compareFields {
@@ -261,15 +275,18 @@
       background: url(../photos/arrowleft.png) no-repeat center center;
       @include arrows;
     }
+    .defenderOff,
     .defenderOn {
-      background-color: yellow;
       border: 3px solid black;
       @include defenders;
     }
+    .defenderOn {
+      background-color: yellow;
+    }
     .defenderOff {
+      opacity: 0;
       background-color: transparent;
-      border: 3px solid transparent;
-      @include defenders;
+      animation: blink 10s linear infinite;
     }
   }
   .inputs-wrapper {
@@ -309,10 +326,13 @@
       font-size: calc(1.75vmin + 0.3rem);
       padding: 5px 0;
       font-weight: 600;
+      border: 2px solid black;
+      cursor: pointer;
     }
     .tip {
       background-color: transparent;
-      color: transparent;
+      opacity: 0;
+      animation: blink 10s linear infinite;
       &:hover {
         background-color: yellow;
         border: 2px solid black;
@@ -321,7 +341,6 @@
     }
     .yellowtip {
       background-color: yellow;
-      border: 2px solid black;
     }
   }
   .count-button-wrapper {

@@ -312,6 +312,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .reset-butt
   padding: 0.3vw 1vw;
   margin: 0 1vw;
   font-weight: 600;
+  cursor: pointer;
 }
 main .main-content-wrapper .section-content-wrapper .section-content .reset-button-wrapper .reset:hover {
   box-shadow: 0 15px 20px rgb(255, 69, 0);
@@ -327,6 +328,10 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
   border-radius: 2vw;
   background-color: rgb(255, 69, 0);
   color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-surname-wrapper h2 {
+  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.7rem);
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .show-details {
   border: none;
@@ -355,7 +360,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
   display: flex;
   font-weight: bold;
   padding: 0.3vw 0;
-  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.3rem);
+  font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 0.2rem);
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-data-wrapper nav {
   display: flex;

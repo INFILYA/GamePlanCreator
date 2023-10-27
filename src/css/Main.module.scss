@@ -327,6 +327,7 @@ main {
             padding: 0.3vw 1vw;
             margin: 0 1vw;
             font-weight: 600;
+            cursor: pointer;
             &:hover {
               box-shadow: 0 15px 20px $ButtonColor;
               scale: (1.15);
@@ -343,6 +344,10 @@ main {
             border-radius: 2vw;
             background-color: $ButtonColor;
             color: $White;
+            cursor: pointer;
+            h2 {
+              font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.7rem);
+            }
           }
           .show-details {
             border: none;
@@ -369,7 +374,7 @@ main {
                 display: flex;
                 font-weight: bold;
                 padding: 0.3vw 0;
-                font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.3rem);
+                font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 0.2rem);
               }
               nav {
                 display: flex;

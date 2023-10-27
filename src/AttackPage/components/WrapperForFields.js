@@ -362,16 +362,20 @@ export default function WrapperForFields({
           )}
           {showBalls && (
             <>
-              <div className="tip-wrapper">
-                <Tip value="Tip" />
-                <Tip value="Tip" />
-                <Tip value="Tip" />
-              </div>
-              <div className="defender-wrapper">
-                {arrayForRecievers.map((reciever) => (
-                  <DefenderZone6 key={reciever} />
-                ))}
-              </div>
+              {disableSwitch && (
+                <>
+                  <div className="tip-wrapper">
+                    <Tip value="Tip" />
+                    <Tip value="Tip" />
+                    <Tip value="Tip" />
+                  </div>
+                  <div className="defender-wrapper">
+                    {arrayForRecievers.map((reciever) => (
+                      <DefenderZone6 key={reciever} />
+                    ))}
+                  </div>
+                </>
+              )}
               {!disableSwitch && !showDataOfActions && (
                 <div className="inputs-wrapper">
                   {classNamesForConesAndInputs.map((el, index) => (

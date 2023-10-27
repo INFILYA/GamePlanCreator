@@ -9,14 +9,15 @@ export default function Diagramm({ link }) {
       type: "pie",
       backgroundColor: null,
       height: "100%",
+      // width:130
     },
     title: {
       verticalAlign: "middle",
       enabled: false,
       text:
         link === "Attack"
-          ? `<b style="font-size:calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem)">Attack</b>`
-          : `<b style="font-size:calc((var(--normal-text-size-value) - 1) * 3vw + 0.4rem)">Service</b>`,
+          ? `<b style="font-size:calc((var(--normal-text-size-value) - 1) * 5vmax + 0.2rem)">Attack</b>`
+          : `<b style="font-size:calc((var(--normal-text-size-value) - 1) * 5vmax + 0.2rem)">Service</b>`,
     },
     tooltip: {
       headerFormat: '<span style="font-size:1.5vw">{series.name}</span><br>',
@@ -33,11 +34,11 @@ export default function Diagramm({ link }) {
         dataLabels: {
           enabled: true,
           crop: false,
-          format: `<b>{point.percentage:.0f}%</b>`,
+          format: `<b>{point.name}</b><br><b>{point.percentage:.0f}%</b>`,
           distance: "-25%",
           style: {
             fontWeight: "bold",
-            fontSize: "calc((var(--normal-text-size-value) - 1) * 3vmax + 0.2rem)",
+            fontSize: "calc((var(--normal-text-size-value) - 1) * 4vmax + 0.1rem)",
             color: "black",
           },
         },
@@ -51,12 +52,15 @@ export default function Diagramm({ link }) {
         allowPointSelect: false,
         data: [
           [link === "Attack" ? "Win" : "Ace", rightPercentageForDiagramm(0), true],
-          [link === "Attack" ? "In Game" : "Plus", rightPercentageForDiagramm(1), false],
-          [link === "Attack" ? "Block" : "Minus", rightPercentageForDiagramm(2), false],
-          ["Error", rightPercentageForDiagramm(3), false],
+          [link === "Attack" ? "Game" : "Plus", rightPercentageForDiagramm(1), false],
+          [link === "Attack" ? "Blk" : "Minus", rightPercentageForDiagramm(2), false],
+          ["Err", rightPercentageForDiagramm(3), false],
         ],
       },
     ],
+    credits: {
+      enabled: false,
+    },
   };
 
   function rightPercentageForDiagramm(index) {
