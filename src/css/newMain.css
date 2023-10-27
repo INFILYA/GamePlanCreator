@@ -360,7 +360,7 @@ main .main-content-wrapper .section-content-wrapper .section-content .hidden-pla
   display: flex;
   font-weight: bold;
   padding: 0.3vw 0;
-  font-size: calc((var(--normal-text-size-value) - 1) * 5vw + 0.2rem);
+  font-size: calc((var(--normal-text-size-value) - 1) * 5vmax + 0.2rem);
 }
 main .main-content-wrapper .section-content-wrapper .section-content .hidden-player-information-wrapper .player-full-info-wrapper .player-info-data-wrapper nav {
   display: flex;

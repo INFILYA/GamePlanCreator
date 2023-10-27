@@ -34,11 +34,11 @@ export default function Diagramm({ link }) {
         dataLabels: {
           enabled: true,
           crop: false,
-          format: `<b>{point.name}</b><br><b>{point.percentage:.0f}%</b>`,
+          format: `<b>{point.percentage:.0f}%</b>`,
           distance: "-25%",
           style: {
             fontWeight: "bold",
-            fontSize: "calc((var(--normal-text-size-value) - 1) * 4vmax + 0.1rem)",
+            fontSize: "calc((var(--normal-text-size-value) - 1) * 5vmax + 0.1rem)",
             color: "black",
           },
         },
