@@ -16,6 +16,7 @@ export default function ShapeForRatings({ amplua }) {
 
   const categorys = [
     { header: "Name", category: "name" },
+    { header: "Club", category: "teamid" },
     { header: "Age", category: "age" },
     { header: "Height", category: "height" },
     { header: "Aces", category: "aces" },
@@ -65,11 +66,11 @@ export default function ShapeForRatings({ amplua }) {
           className="rating-row"
           style={changeBgColors(index)}
         >
-          <td style={changeBgColors(index)} className="name-wrapper">
-            <>{player.name}</>
-            <>
-              <img src={`/photos/${player.teamid || player.name}.jpg`} alt="" />
-            </>
+          <td style={{ padding: "0 0.5vw", textAlign: "start" }}>
+            {index + 1}.<nobr> {player.name}</nobr>
+          </td>
+          <td style={{ display: "flex", justifyContent: "center" }}>
+            <img src={`/photos/${player.teamid || player.name}.jpg`} alt="" />
           </td>
           <td>{player.age}</td>
           <td>{player.height}</td>
@@ -77,7 +78,7 @@ export default function ShapeForRatings({ amplua }) {
           <td>{player.winPoints}</td>
           <td>{player.plusMinusOnService}</td>
           <td>{player.plusMinusOnAttack}</td>
-          <td>{player.percentOfAttack}</td>
+          <td>{player.percentOfAttack} %</td>
         </tr>
       ))}
     </>

@@ -15,7 +15,12 @@ export function Tutorial({ text }) {
   useEffect(() => {
     dispatch(setisShowedTutorial(JSON.parse(localStorage.getItem("isShowedTutorial"))));
   }, [dispatch]);
-
+  const buttonUkrStyle = changeLanguage
+    ? { backgroundColor: "#FFD700", color: "#0057B8", border: "1px solid #0057B8" }
+    : { backgroundColor: "#0057B8", color: "#FFD700", border: "1px solid #FFD700" };
+  const buttonEngStyle = !changeLanguage
+    ? { backgroundColor: "#FFD700", color: "#0057B8", border: "1px solid #0057B8" }
+    : { backgroundColor: "#0057B8", color: "#FFD700", border: "1px solid #FFD700" };
   return (
     <>
       {showTutorial && (
@@ -24,16 +29,10 @@ export function Tutorial({ text }) {
             <div className="version-language-wrapper">
               <div className="userVersion">data version: {userVersion}</div>
               <div className="changeLanguage">
-                <button
-                  onClick={() => dispatch(setChangeLanguage(true))}
-                  style={changeLanguage ? { backgroundColor: "#FFD700", color: "#0057B8" } : null}
-                >
+                <button onClick={() => dispatch(setChangeLanguage(true))} style={buttonUkrStyle}>
                   Eng
                 </button>
-                <button
-                  onClick={() => dispatch(setChangeLanguage(false))}
-                  style={!changeLanguage ? { backgroundColor: "#FFD700", color: "#0057B8" } : null}
-                >
+                <button onClick={() => dispatch(setChangeLanguage(false))} style={buttonEngStyle}>
                   Ukr
                 </button>
               </div>

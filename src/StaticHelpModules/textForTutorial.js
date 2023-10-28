@@ -14,7 +14,7 @@ const enterWord = (
       статистичних даних відсутня, але буде заповнюватися з початком сезону 2023-2024 ПВЛУ.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" src="/photos/MyLogo.png" />
+      <img alt="" src="/photos/MyLogo.png" className="my-logo"/>
     </div>
   </>
 );
@@ -111,7 +111,7 @@ const enterWordEng = (
       database available. However, it will be populated starting from the 2023-2024 PVLU season.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" src="/photos/MyLogo.png" />
+      <img alt="" src="/photos/MyLogo.png" className="my-logo"/>
     </div>
   </>
 );

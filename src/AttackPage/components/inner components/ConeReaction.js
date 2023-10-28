@@ -10,7 +10,6 @@ export function ConeReaction({ value }) {
     opacity: opacity,
     color: "black",
     border: active ? "2px solid black" : "none",
-    borderRadius: "50%",
   };
   return (
     <button
