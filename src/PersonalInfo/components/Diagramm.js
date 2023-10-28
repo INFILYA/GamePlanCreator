@@ -9,7 +9,6 @@ export default function Diagramm({ link }) {
       type: "pie",
       backgroundColor: null,
       height: "100%",
-      // width:130
     },
     title: {
       verticalAlign: "middle",

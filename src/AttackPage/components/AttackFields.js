@@ -5,6 +5,7 @@ import { useState } from "react";
 export function AttackFields() {
   const playerInfos = useSelector((state) => state.playerInfo.playerInfo);
   const playerInfo = { ...playerInfos };
+
   const [zonesStates, setZonesStates] = useState([
     { zone: "attackZone1", active: false },
     { zone: "attackZone2", active: false },
@@ -14,14 +15,6 @@ export function AttackFields() {
     { zone: "attackKC", active: false },
     { zone: "attackK7", active: false },
   ]);
-  const [zoneValue, setZoneValue] = useState({
-    0: 0,
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-  });
   const [diagrammValue, setDiagrammValue] = useState({
     winPoints: 0,
     leftInGame: 0,
@@ -30,7 +23,6 @@ export function AttackFields() {
     plusMinusOnAttack: 0,
     percentOfAttack: 0,
   });
-  const classNamesForConesAndInputs = ["5A", "5B", "6A", "6B", "1A", "1B"];
   const calculateForData = (obj) => {
     if (obj === playerInfo) {
       diagrammValue.plusMinusOnAttack =
@@ -52,17 +44,12 @@ export function AttackFields() {
 
   return (
     <WrapperForFields
-      zoneValue={zoneValue}
       diagrammValue={diagrammValue}
       setDiagrammValue={setDiagrammValue}
-      setZoneValue={setZoneValue}
-      playerInfo={playerInfo}
       calculateForData={calculateForData}
       zonesStates={zonesStates}
       setZonesStates={setZonesStates}
-      classNamesForConesAndInputs={classNamesForConesAndInputs}
-      choosenActionOne="FastBall"
-      choosenActionTwo="HighBall"
+      playerInfo={playerInfo}
       type="Attack"
     />
   );

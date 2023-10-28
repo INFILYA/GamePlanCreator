@@ -3,7 +3,6 @@ import { reduce } from "../../Datas/api";
 import { BallForAttack } from "./inner components/BallForAttack";
 import { ConeReaction } from "./inner components/ConeReaction";
 import { InputForCount } from "./inner components/InputForCount";
-import { DefenderZone6 } from "./inner components/DefenderZone6";
 import { useDispatch, useSelector } from "react-redux";
 import { upgradeAge } from "../../StaticHelpModules/Button";
 import { Explain } from "./inner components/Explain";
@@ -14,23 +13,17 @@ import { setUserVersion } from "../../states/slices/userVersionSlice";
 import { setAllPlayers } from "../../states/slices/listOfPlayersSlice";
 import { setInfoOfPlayer } from "../../states/slices/playerInfoSlice";
 import { setAllTeams } from "../../states/slices/listOfTeamsSlice";
-import Tip from "./inner components/Tip";
 import SectionWrapper from "../../Page1/components/SectionWrapper";
 import { resetRivalPlayers } from "../../states/slices/rivalPlayersSlice";
 import { resetMyTeamPlayers } from "../../states/slices/myTeamPlayersSlice";
 
 export default function WrapperForFields({
-  zoneValue,
   diagrammValue,
   setDiagrammValue,
-  setZoneValue,
-  playerInfo,
   calculateForData,
   zonesStates,
   setZonesStates,
-  classNamesForConesAndInputs,
-  choosenActionOne,
-  choosenActionTwo,
+  playerInfo,
   type,
 }) {
   const dispatch = useDispatch();
@@ -48,7 +41,44 @@ export default function WrapperForFields({
   const [disableSwitch, setDisableSwitch] = useState(false);
   const [confirmReturn, setConfirmReturn] = useState(false);
   const [actionType, setActionType] = useState("choose");
-  const arrayForRecievers = [1, 2, 3, 4, 5];
+  const [zoneValue, setZoneValue] = useState({
+    "4A": 0,
+    "4B": 0,
+    "3A": 0,
+    "3B": 0,
+    "2A": 0,
+    "2B": 0,
+    "4C": 0,
+    "4D": 0,
+    "3C": 0,
+    "3D": 0,
+    "2C": 0,
+    "2D": 0,
+    "9A": 0,
+    "9B": 0,
+    "8A": 0,
+    "8B": 0,
+    "7A": 0,
+    "7B": 0,
+    "9C": 0,
+    "9D": 0,
+    "8C": 0,
+    "8D": 0,
+    "7C": 0,
+    "7D": 0,
+    "5A": 0,
+    "5B": 0,
+    "6A": 0,
+    "6B": 0,
+    "1A": 0,
+    "1B": 0,
+    "5C": 0,
+    "5D": 0,
+    "6C": 0,
+    "6D": 0,
+    "1C": 0,
+    "1D": 0,
+  });
   let loadByZone = Object.values(zoneValue);
   let DiagrammValue = Object.values(diagrammValue).slice(0, 4);
   const checkEquality = reduce(DiagrammValue) === reduce(loadByZone);
@@ -62,45 +92,40 @@ export default function WrapperForFields({
       [event.target.name]: +event.target.value.replace(/\D+/g, ""),
     });
   };
-  const handleZoneValue = (event) => {
-    setZoneValue({
-      ...zoneValue,
-      [event.target.name]: +event.target.value.replace(/\D+/g, ""),
-    });
-  };
-
   const onHandleCountClick = (event) => {
     event.preventDefault();
     while (actionType === "choose") {
+      // якщо не вибарно тип атаки то return
       alert("Type of Action was not selected");
       return;
     }
     if (saveDataOfActions) {
+      // якщо додаємо данні і кількість атак не співпадає з описаними атаками то return
       while (!checkEquality) {
         alert("DATA Value not equal to ZONE value");
         return;
       }
       setConfirmReturn(!confirmReturn);
-      setPreviousPlayerData({ ...playerInfo });
+      setPreviousPlayerData({ ...playerInfo }); // зберігаємо попередні дані гравця і команд
       setPreviousTeamData({
         ...allTeams.find((team) => team.name === playerInfo.teamid),
       });
-      calculateForData(playerInfo);
-      const zoneOfAction = zonesStates.find((ball) => ball.active);
-      const actionHistory = playerInfo[zoneOfAction.zone + actionType];
-      const result = loadByZone.map((att, index) => att + actionHistory[index]);
-      const nameOfZone = zoneOfAction.zone + actionType;
-      const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid);
-      const team = allTeams.find((team) => team.name === playerInfo.teamid);
-      const upgradedPlayers = players.map((player) => upgradeAge(player));
-      const teamAge = upgradedPlayers.reduce((a, b) => a + b.age, 0) / players.length;
-      const teamHeight = upgradedPlayers.reduce((a, b) => a + b.height, 0) / players.length;
+      calculateForData(playerInfo); // додаємо полі діаграмм до значень обраного гравця
+      const zoneOfAction = zonesStates.find((ball) => ball.active); // визначаємо з якої зона атака
+      const actionHistory = playerInfo[zoneOfAction.zone + actionType]; // дістаємо данні гравця з конкретної зони
+      const nameOfZone = zoneOfAction.zone + actionType; // назва зони атаки
+      const players = allPlayers.filter((player) => player.teamid === playerInfo.teamid); // знаходимо одноклубників обраного гравця
+      const team = allTeams.find((team) => team.name === playerInfo.teamid); // знаходимо команду обраного гравця
+      const upgradedPlayers = players.map((player) => upgradeAge(player)); // оновлюємо точний вік гравців команди обраного гравця
+      const teamAge = upgradedPlayers.reduce((a, b) => a + b.age, 0) / players.length; // середній вік гравців обраної команди
+      const teamHeight = upgradedPlayers.reduce((a, b) => a + b.height, 0) / players.length; // середній зріст гравців обраної команди
       const newTeam = { ...team };
-      calculateForData(newTeam);
-      newTeam.age = +teamAge.toFixed(1);
-      newTeam.height = +teamHeight.toFixed(1);
-      loadByZone = result;
-      playerInfo[nameOfZone] = loadByZone;
+      calculateForData(newTeam); // додаємо полі діаграмм до значень команди обраного гравця
+      newTeam.age = +teamAge.toFixed(1); // встановлюємо правильний вік
+      newTeam.height = +teamHeight.toFixed(1); // встановлюємо правильний зріст
+      playerInfo[nameOfZone] = loadByZone.map(
+        (att, index) => att + (actionHistory[index] === undefined ? 0 : actionHistory[index])
+      ); // оновлюємо поля атаки у обраного гравця
       refreshVersionOFAdmin(1); //перезаписываю версию
       savePlayer(playerInfo); //сохраняю одного игрока
       saveTeam(newTeam); // сохраняю команду
@@ -182,6 +207,8 @@ export default function WrapperForFields({
       console.error(error);
     }
   };
+  const choosenActionOne = type === "Attack" ? "FastBall" : "Jump";
+  const choosenActionTwo = type === "Attack" ? "HighBall" : "Float";
   return (
     <SectionWrapper
       className="playArea-section"
@@ -192,198 +219,173 @@ export default function WrapperForFields({
         </div>
       }
       content={
-        <form className="playArea" onSubmit={!showDataOfActions ? onHandleCountClick : showData}>
-          <div className="explain">
-            <Explain
-              confirmReturn={confirmReturn}
-              setConfirmReturn={setConfirmReturn}
-              disableSwitch={disableSwitch}
-              saveDataOfActions={saveDataOfActions}
-              setSaveDataOfActions={setSaveDataOfActions}
-              diagrammValue={diagrammValue}
-              handleDiagrammValue={handleDiagrammValue}
-              returnOldData={returnOldData}
-              showDataOfActions={showDataOfActions}
-              setShowDataOfActions={setShowDataOfActions}
-              type={type}
-            />
-          </div>
-          <div className="select-wrapper">
-            <select
-              className="typeOfAction"
-              onChange={chooseTypeOfAttack}
-              disabled={!showInputs || disableSwitch}
-            >
-              <option value="choose">{!showInputs ? `Choose zone` : `Choose type`}</option>
-              <option value={choosenActionOne}>{choosenActionOne}</option>
-              {(type === "Service" || playerInfo.position !== "MBlocker") && (
-                <option value={choosenActionTwo}>{choosenActionTwo}</option>
-              )}
-            </select>
-          </div>
-          <div className="count-button-wrapper">
-            <button type="submit" className="countButton" disabled={!showInputs || disableSwitch}>
-              Count
-            </button>
-          </div>
-          <div className="zones-wrapper">
-            {type === "Service"
-              ? zonesStates.map((ball, index) =>
-                  !ball.active ? (
-                    <BallForAttack
-                      key={index}
-                      value={ball.zone.replace(/[a-z]/g, "")}
-                      attack={!showBalls ? ball.zone : "none"}
-                      index={index}
-                      zonesStates={zonesStates}
-                      setZonesStates={setZonesStates}
-                      setShowInputs={setShowInputs}
-                      setShowBalls={setShowBalls}
-                      showInputs={showInputs}
-                    />
-                  ) : (
-                    <BallForAttack
-                      key={index}
-                      value="🏐"
-                      attack={ball.zone + " showTheBall"}
-                      index={index}
-                      zonesStates={zonesStates}
-                      setZonesStates={setZonesStates}
-                      setShowInputs={setShowInputs}
-                      setShowBalls={setShowBalls}
-                      showInputs={showInputs}
-                    />
-                  )
-                )
-              : playerInfo.position === "Opposite"
-              ? zonesStates
-                  .slice(0, 3)
-                  .map((ball, index) =>
-                    ball.active === false ? (
+        <>
+          <form className="playArea" onSubmit={!showDataOfActions ? onHandleCountClick : showData}>
+            <div className="explain">
+              <Explain
+                confirmReturn={confirmReturn}
+                setConfirmReturn={setConfirmReturn}
+                disableSwitch={disableSwitch}
+                saveDataOfActions={saveDataOfActions}
+                setSaveDataOfActions={setSaveDataOfActions}
+                diagrammValue={diagrammValue}
+                handleDiagrammValue={handleDiagrammValue}
+                returnOldData={returnOldData}
+                showDataOfActions={showDataOfActions}
+                setShowDataOfActions={setShowDataOfActions}
+                type={type}
+              />
+            </div>
+            <div className="select-wrapper">
+              <select
+                className="typeOfAction"
+                onChange={chooseTypeOfAttack}
+                disabled={!showInputs || disableSwitch}
+              >
+                <option value="choose">{!showInputs ? `Choose zone` : `Choose type`}</option>
+                <option value={choosenActionOne}>{choosenActionOne}</option>
+                {(type === "Service" || playerInfo.position !== "MBlocker") && (
+                  <option value={choosenActionTwo}>{choosenActionTwo}</option>
+                )}
+              </select>
+            </div>
+            <div className="count-button-wrapper">
+              <button type="submit" className="countButton" disabled={!showInputs || disableSwitch}>
+                Count
+              </button>
+            </div>
+            <div className="zones-wrapper">
+              {type === "Service"
+                ? zonesStates.map((ball, index) =>
+                    !ball.active ? (
                       <BallForAttack
                         key={index}
                         value={ball.zone.replace(/[a-z]/g, "")}
-                        attack={!showBalls ? ball.zone : "none"}
+                        className={!showBalls ? ball.zone : "none"}
                         index={index}
                         zonesStates={zonesStates}
                         setZonesStates={setZonesStates}
                         setShowInputs={setShowInputs}
                         setShowBalls={setShowBalls}
-                        showInputs={showInputs}
                       />
                     ) : (
                       <BallForAttack
                         key={index}
                         value="🏐"
-                        attack={ball.zone + " showTheBall"}
+                        className={ball.zone + " showTheBall"}
                         index={index}
                         zonesStates={zonesStates}
                         setZonesStates={setZonesStates}
                         setShowInputs={setShowInputs}
                         setShowBalls={setShowBalls}
-                        showInputs={showInputs}
                       />
                     )
                   )
-              : playerInfo.position === "Reciever"
-              ? zonesStates
-                  .slice(1, 4)
-                  .map((ball, index) =>
-                    ball.active === false ? (
-                      <BallForAttack
-                        key={index + 1}
-                        value={ball.zone.replace(/[a-z]/g, "")}
-                        attack={!showBalls ? ball.zone : "none"}
-                        index={index + 1}
-                        zonesStates={zonesStates}
-                        setZonesStates={setZonesStates}
-                        setShowInputs={setShowInputs}
-                        setShowBalls={setShowBalls}
-                        showInputs={showInputs}
-                      />
-                    ) : (
-                      <BallForAttack
-                        key={index + 1}
-                        value="🏐"
-                        attack={ball.zone + " showTheBall"}
-                        index={index + 1}
-                        zonesStates={zonesStates}
-                        setZonesStates={setZonesStates}
-                        setShowInputs={setShowInputs}
-                        setShowBalls={setShowBalls}
-                        showInputs={showInputs}
-                      />
+                : playerInfo.position === "Opposite"
+                ? zonesStates
+                    .slice(0, 3)
+                    .map((ball, index) =>
+                      ball.active === false ? (
+                        <BallForAttack
+                          key={index}
+                          value={ball.zone.replace(/[a-z]/g, "")}
+                          className={!showBalls ? ball.zone : "none"}
+                          index={index}
+                          zonesStates={zonesStates}
+                          setZonesStates={setZonesStates}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                        />
+                      ) : (
+                        <BallForAttack
+                          key={index}
+                          value="🏐"
+                          className={ball.zone + " showTheBall"}
+                          index={index}
+                          zonesStates={zonesStates}
+                          setZonesStates={setZonesStates}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                        />
+                      )
                     )
-                  )
-              : playerInfo.position === "MBlocker"
-              ? zonesStates
-                  .slice(4, 7)
-                  .map((ball, index) =>
-                    ball.active === false ? (
-                      <BallForAttack
-                        key={index + 4}
-                        value={ball.zone.replace(/[a-z]/g, "")}
-                        attack={!showBalls ? ball.zone : "none"}
-                        index={index + 4}
-                        zonesStates={zonesStates}
-                        setZonesStates={setZonesStates}
-                        setShowInputs={setShowInputs}
-                        setShowBalls={setShowBalls}
-                        showInputs={showInputs}
-                      />
-                    ) : (
-                      <BallForAttack
-                        key={index + 4}
-                        value="🏐"
-                        attack={ball.zone + " showTheBall"}
-                        index={index + 4}
-                        zonesStates={zonesStates}
-                        setZonesStates={setZonesStates}
-                        setShowInputs={setShowInputs}
-                        setShowBalls={setShowBalls}
-                        showInputs={showInputs}
-                      />
+                : playerInfo.position === "Reciever"
+                ? zonesStates
+                    .slice(1, 4)
+                    .map((ball, index) =>
+                      ball.active === false ? (
+                        <BallForAttack
+                          key={index + 1}
+                          value={ball.zone.replace(/[a-z]/g, "")}
+                          className={!showBalls ? ball.zone : "none"}
+                          index={index + 1}
+                          zonesStates={zonesStates}
+                          setZonesStates={setZonesStates}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                        />
+                      ) : (
+                        <BallForAttack
+                          key={index + 1}
+                          value="🏐"
+                          className={ball.zone + " showTheBall"}
+                          index={index + 1}
+                          zonesStates={zonesStates}
+                          setZonesStates={setZonesStates}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                        />
+                      )
                     )
-                  )
-              : null}
-          </div>
+                : playerInfo.position === "MBlocker"
+                ? zonesStates
+                    .slice(4, 7)
+                    .map((ball, index) =>
+                      ball.active === false ? (
+                        <BallForAttack
+                          key={index + 4}
+                          value={ball.zone.replace(/[a-z]/g, "")}
+                          className={!showBalls ? ball.zone : "none"}
+                          index={index + 4}
+                          zonesStates={zonesStates}
+                          setZonesStates={setZonesStates}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                        />
+                      ) : (
+                        <BallForAttack
+                          key={index + 4}
+                          value="🏐"
+                          className={ball.zone + " showTheBall"}
+                          index={index + 4}
+                          zonesStates={zonesStates}
+                          setZonesStates={setZonesStates}
+                          setShowInputs={setShowInputs}
+                          setShowBalls={setShowBalls}
+                        />
+                      )
+                    )
+                : null}
+            </div>
+          </form>
           {disableSwitch && !showDataOfActions && (
             <div className="cones-wrapper">
-              {classNamesForConesAndInputs.map((el, index) => (
-                <ConeReaction
-                  key={el}
-                  zoneValue={zoneValue[index]}
-                  cone={el}
-                  zonesStates={zonesStates}
-                  type={type}
-                />
+              {Object.values(zoneValue).map((value, index) => (
+                <ConeReaction key={index} value={value} />
               ))}
             </div>
           )}
           {showBalls && (
             <>
-              {disableSwitch && (
-                <>
-                  <div className="tip-wrapper">
-                    <Tip value="Tip" />
-                    <Tip value="Tip" />
-                    <Tip value="Tip" />
-                  </div>
-                  <div className="defender-wrapper">
-                    {arrayForRecievers.map((reciever) => (
-                      <DefenderZone6 key={reciever} />
-                    ))}
-                  </div>
-                </>
-              )}
               {!disableSwitch && !showDataOfActions && (
-                <div className="inputs-wrapper">
-                  {classNamesForConesAndInputs.map((el, index) => (
+                <div className="cones-wrapper">
+                  {Object.entries(zoneValue).map(([key, value]) => (
                     <InputForCount
-                      key={el}
-                      name={index}
-                      onChange={handleZoneValue}
-                      zoneValue={zoneValue[index]}
+                      key={key}
+                      name={key}
+                      setZoneValue={setZoneValue}
+                      zoneValue={zoneValue}
+                      value={value}
                     />
                   ))}
                 </div>
@@ -393,11 +395,12 @@ export default function WrapperForFields({
                   zoneValue={zoneValue}
                   diagrammValue={diagrammValue}
                   checkEquality={checkEquality}
+                  style={type === "Service" ? { top: "40%" } : {}}
                 />
               )}
             </>
           )}
-        </form>
+        </>
       }
     />
   );

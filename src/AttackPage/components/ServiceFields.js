@@ -10,11 +10,6 @@ export function ServiceFields() {
     { zone: "serviceZone6", active: false },
     { zone: "serviceZone5", active: false },
   ]);
-  const [zoneValue, setZoneValue] = useState({
-    0: 0,
-    1: 0,
-    2: 0,
-  });
   const [diagrammValue, setDiagrammValue] = useState({
     aces: 0,
     servicePlus: 0,
@@ -22,7 +17,6 @@ export function ServiceFields() {
     serviceFailed: 0,
     plusMinusOnService: 0,
   });
-  const classNamesForConesAndInputs = ["Z5", "Z6", "Z1"];
 
   function calculateForData(obj) {
     if (obj === playerInfo) {
@@ -40,17 +34,12 @@ export function ServiceFields() {
 
   return (
     <WrapperForFields
-      zoneValue={zoneValue}
       diagrammValue={diagrammValue}
       setDiagrammValue={setDiagrammValue}
-      setZoneValue={setZoneValue}
-      playerInfo={playerInfo}
       calculateForData={calculateForData}
       zonesStates={zonesStates}
       setZonesStates={setZonesStates}
-      classNamesForConesAndInputs={classNamesForConesAndInputs}
-      choosenActionOne="Jump"
-      choosenActionTwo="Float"
+      playerInfo={playerInfo}
       type="Service"
     />
   );

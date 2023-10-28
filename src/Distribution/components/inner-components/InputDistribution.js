@@ -1,30 +1,16 @@
+import tinycolor from "tinycolor2";
+
 export function InputDistribution({ zoneValue, handleZoneValue, name, readOnly }) {
-  const x = zoneValue === 0 ? 0 : zoneValue * 2;
+  const color = tinycolor({ h: 60 - ((zoneValue * 1.5) / 100) * 60, s: 100, l: 50 });
+  const opacity = zoneValue === 0 ? 0 : 1;
+  const backgroundColor = { background: color.toHexString(), opacity: opacity };
   return (
     <div className="input-wrapper">
       <input
-        style={
-          readOnly
-            ? {
-                backgroundColor:
-                  zoneValue !== 0
-                    ? `hsl(${
-                        zoneValue <= 15
-                          ? 200
-                          : zoneValue > 15 && zoneValue < 30
-                          ? 100
-                          : zoneValue >= 30 && zoneValue < 45
-                          ? 50
-                          : 0
-                      },${x}%,50%)`
-                    : "transparent",
-                color: zoneValue === 0 && "transparent",
-              }
-            : null
-        }
+        style={readOnly ? backgroundColor : null}
         type="text"
         name={name}
-        value={zoneValue}
+        value={readOnly ? `${zoneValue}%` : zoneValue}
         onChange={handleZoneValue}
         required
         readOnly={readOnly}

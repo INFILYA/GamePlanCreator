@@ -1,14 +1,15 @@
-export function InputForCount({ name, onChange, zoneValue }) {
+export function InputForCount({ name, setZoneValue, zoneValue, value }) {
+  function handleIncreaseZoneValue() {
+    setZoneValue({
+      ...zoneValue,
+      [name]: +value + 1,
+    });
+  }
   return (
     <>
-      <input
-        type="text"
-        className="inputForCount"
-        name={name}
-        onChange={onChange}
-        value={zoneValue}
-        required
-      ></input>
+      <button type="text" className="result" onDoubleClick={handleIncreaseZoneValue} value={value}>
+        {value}
+      </button>
     </>
   );
 }

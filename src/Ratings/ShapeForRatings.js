@@ -21,6 +21,7 @@ export default function ShapeForRatings({ amplua }) {
     { header: "Aces", category: "aces" },
     { header: "Win points", category: "winPoints" },
     { header: "Service +/-", category: "plusMinusOnService" },
+    { header: "Attack +/-", category: "plusMinusOnAttack" },
     { header: "Attack %", category: "percentOfAttack" },
   ];
   function countRankings(category) {
@@ -65,9 +66,7 @@ export default function ShapeForRatings({ amplua }) {
           style={changeBgColors(index)}
         >
           <td style={changeBgColors(index)} className="name-wrapper">
-            <>
-              {index + 1}. {player.name}
-            </>
+            <>{player.name}</>
             <>
               <img src={`/photos/${player.teamid || player.name}.jpg`} alt="" />
             </>
@@ -77,6 +76,7 @@ export default function ShapeForRatings({ amplua }) {
           <td>{player.aces}</td>
           <td>{player.winPoints}</td>
           <td>{player.plusMinusOnService}</td>
+          <td>{player.plusMinusOnAttack}</td>
           <td>{player.percentOfAttack}</td>
         </tr>
       ))}

@@ -207,142 +207,6 @@
       cursor: not-allowed;
     }
   }
-  .compareFields {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: -70px;
-    z-index: 16;
-    font-size: 18px;
-    width: 100%;
-    padding-bottom: 15px;
-    .input-equality-wrapper,
-    .label-equality-wrapper {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .input-equality-wrapper {
-      width: 40%;
-      label {
-        font-weight: 600;
-        font-size: 18px;
-      }
-      input {
-        display: block;
-        width: 80%;
-        font-weight: bold;
-        justify-content: center;
-        text-align: center;
-        font-size: 14px;
-        border: 1px solid black;
-        box-sizing: border-box;
-      }
-    }
-    .label-equality-wrapper {
-      width: 20%;
-      .equal {
-        font-weight: bold;
-        box-sizing: border-box;
-        display: block;
-      }
-    }
-  }
-  // ТУТ
-  .cones-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    button {
-      background-color: transparent;
-      border: none;
-    }
-  }
-  .defender-wrapper {
-    position: absolute;
-    width: 100%;
-    bottom: 8%;
-    display: flex;
-    justify-content: center;
-    .smallarrowleft {
-      background: url(../photos/arrowright.png) no-repeat center center;
-      @include arrows;
-    }
-    .smallarrowright {
-      background: url(../photos/arrowleft.png) no-repeat center center;
-      @include arrows;
-    }
-    .defenderOff,
-    .defenderOn {
-      border: 3px solid black;
-      @include defenders;
-    }
-    .defenderOn {
-      background-color: yellow;
-    }
-    .defenderOff {
-      opacity: 0;
-      background-color: transparent;
-      animation: blink 10s linear infinite;
-    }
-  }
-  .inputs-wrapper {
-    display: flex;
-    bottom: 0;
-    position: absolute;
-    .inputForCount {
-      border: 2px solid white;
-      background-color: transparent;
-      z-index: 5;
-      width: 100%;
-      aspect-ratio: 1/2.04;
-      text-align: center;
-      font-size: calc(2vmin + 0.75rem);
-      border-bottom: none;
-    }
-  }
-  .inputForCount[disabled] {
-    color: #000;
-    font-size: calc(0.5vmin + 0.75rem);
-    font-weight: bold;
-    border: none;
-    z-index: 2;
-    aspect-ratio: 1.5/1;
-  }
-  .tip-wrapper {
-    position: absolute;
-    width: 100%;
-    bottom: 35%;
-    z-index: 16;
-    .tip,
-    .yellowtip {
-      width: 25%;
-      border-radius: 1vmax;
-      border: none;
-      margin: 0px 1vmin;
-      font-size: calc(1.75vmin + 0.3rem);
-      padding: 5px 0;
-      font-weight: 600;
-      border: 2px solid black;
-      cursor: pointer;
-    }
-    .tip {
-      background-color: transparent;
-      opacity: 0;
-      animation: blink 10s linear infinite;
-      &:hover {
-        background-color: yellow;
-        border: 2px solid black;
-        color: #000;
-      }
-    }
-    .yellowtip {
-      background-color: yellow;
-    }
-  }
   .count-button-wrapper {
     position: absolute;
     width: 100%;
@@ -374,6 +238,129 @@
     display: "initial";
     border: 2px solid transparent !important;
     font-weight: 100;
+  }
+}
+// ТУТ
+.defender-wrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 8%;
+  display: flex;
+  justify-content: center;
+  .smallarrowleft {
+    background: url(../photos/arrowright.png) no-repeat center center;
+    @include arrows;
+  }
+  .smallarrowright {
+    background: url(../photos/arrowleft.png) no-repeat center center;
+    @include arrows;
+  }
+  .defenderOff,
+  .defenderOn {
+    border: 3px solid black;
+    @include defenders;
+  }
+  .defenderOn {
+    background-color: yellow;
+  }
+  .defenderOff {
+    opacity: 0;
+    background-color: transparent;
+    animation: blink 10s linear infinite;
+  }
+}
+.cones-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 55.5px));
+  padding: 0;
+  bottom: 4px;
+  position: absolute;
+  box-sizing: border-box;
+  .result {
+    width: 100%;
+    aspect-ratio: 1/0.965;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    background-color: #0272be;
+    color: white;
+    font-weight: 600;
+    border: 2px solid white;
+    box-sizing: border-box;
+  }
+}
+.tip-wrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 35%;
+  z-index: 16;
+  .tip,
+  .yellowtip {
+    width: 25%;
+    border-radius: 1vmax;
+    border: none;
+    margin: 0px 1vmin;
+    font-size: calc(1.75vmin + 0.3rem);
+    padding: 5px 0;
+    font-weight: 600;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+  .tip {
+    background-color: transparent;
+    opacity: 0;
+    animation: blink 10s linear infinite;
+    &:hover {
+      background-color: yellow;
+      border: 2px solid black;
+      color: #000;
+    }
+  }
+  .yellowtip {
+    background-color: yellow;
+  }
+}
+.compareFields {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 70px;
+  z-index: 16;
+  font-size: 18px;
+  width: 100%;
+  padding-bottom: 15px;
+  .input-equality-wrapper,
+  .label-equality-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .input-equality-wrapper {
+    width: 40%;
+    label {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    input {
+      display: block;
+      width: 80%;
+      font-weight: bold;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+  }
+  .label-equality-wrapper {
+    width: 20%;
+    .equal {
+      font-weight: bold;
+      box-sizing: border-box;
+      display: block;
+    }
   }
 }
 .playArea {

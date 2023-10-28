@@ -38,7 +38,7 @@ export default function WrapperForActions({ type, children }) {
                   -
                 </button>
               )}
-              {history.length <= 3 && (
+              {history.length <= 6 && (
                 <button className="reset" onClick={addField}>
                   {history.length === 1 ? `Push to start` : `+`}
                 </button>

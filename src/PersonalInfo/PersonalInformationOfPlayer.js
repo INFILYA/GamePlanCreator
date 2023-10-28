@@ -18,6 +18,14 @@ export function PersonalInformationOfPlayer({ link }) {
   const attack = link === "Attack";
   const libero = playerInfo.position === "Libero";
   const setter = playerInfo.position === "Setter";
+  const servicePM = playerInfo?.plusMinusOnService;
+  const attackPM = playerInfo?.plusMinusOnAttack;
+  const styleService = {
+    color: servicePM >= 0 ? "green" : "red",
+  };
+  const styleAttack = {
+    color: attackPM >= 0 ? "green" : "red",
+  };
   return (
     <div className="hidden-player-information-wrapper">
       <div className="player-surname-wrapper">
@@ -50,12 +58,16 @@ export function PersonalInformationOfPlayer({ link }) {
             )}
             {service && (
               <div className="player-info-row-wrapper">
-                <div>Service Plus : {playerInfo?.plusMinusOnService}</div>
+                <div>
+                  Plus/Minus : <nobr style={styleService}>{servicePM}</nobr>
+                </div>
               </div>
             )}
             {attack && (
               <div className="player-info-row-wrapper">
-                <div>Attack Plus : {playerInfo?.plusMinusOnAttack}</div>
+                <div>
+                  Plus/Minus : <nobr style={styleAttack}>{attackPM}</nobr>
+                </div>
               </div>
             )}
             <nav>

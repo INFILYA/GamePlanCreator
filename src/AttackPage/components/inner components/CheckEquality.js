@@ -1,8 +1,8 @@
 import { reduce } from "../../../Datas/api";
 
-export function CheckEquality({ checkEquality, diagrammValue, zoneValue }) {
+export function CheckEquality({ checkEquality, diagrammValue, zoneValue ,style}) {
   return (
-    <div className="compareFields">
+    <div className="compareFields" style={style}>
       <div className="input-equality-wrapper">
         <label>Data value</label>
         <input
