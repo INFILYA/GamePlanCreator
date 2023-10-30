@@ -16,7 +16,6 @@ import {
 } from "./Ratings/Ratings";
 import { dataBase } from "./config/firebase";
 import { getDocs, collection } from "firebase/firestore";
-// import { compare } from "./Datas/api";
 import { ENGTUTORIAL, UKRTUTORIAL } from "./StaticHelpModules/textForTutorial";
 import { Tutorial } from "./Tutorial";
 import { setUserVersion } from "./states/slices/userVersionSlice";
@@ -66,8 +65,8 @@ function Myproject() {
     async function getPlayers() {
       try {
         const data = await getDocs(collection(dataBase, "players"));
-        const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        dispatch(setAllPlayers(list));
+        const players = data.docs.map((doc) => ({ ...doc.data() }));
+        dispatch(setAllPlayers(players));
       } catch (error) {
         console.error(error);
       }
@@ -75,8 +74,8 @@ function Myproject() {
     async function getTeams() {
       try {
         const data = await getDocs(collection(dataBase, "clubs"));
-        const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        dispatch(setAllTeams(list));
+        const teams = data.docs.map((doc) => ({ ...doc.data() }));
+        dispatch(setAllTeams(teams));
       } catch (error) {
         console.error(error);
       }
