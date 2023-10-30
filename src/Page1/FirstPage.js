@@ -84,11 +84,6 @@ export function FirstPage() {
       console.error(error);
     }
   };
-  // console.log(
-  //   listOfPlayers
-  //     .filter((player) => player.teamid === "Epicentr" && "winPoints" in player)
-  //     .reduce((a, b) => a + b.winPoints, 0)
-  // );
   return (
     <article className="main-content-wrapper">
       {showRivalClub && <Squads team="rival" />}
