@@ -210,7 +210,7 @@
   .count-button-wrapper {
     position: absolute;
     width: 100%;
-    top: 20%;
+    top: 15%;
     z-index: 15;
     .countButton {
       background-color: #0272be;
@@ -271,14 +271,15 @@
 }
 .cones-wrapper {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 55.5px));
+  grid-template-columns: repeat(6, minmax(0, 55.4px));
   padding: 0;
   bottom: 4px;
+  left: 4px;
   position: absolute;
   box-sizing: border-box;
   .result {
     width: 100%;
-    aspect-ratio: 1/0.965;
+    aspect-ratio: 1/0.986;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -325,7 +326,7 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 70px;
+  top: 23%;
   z-index: 16;
   font-size: 18px;
   width: 100%;

@@ -209,12 +209,31 @@ export default function WrapperForFields({
   };
   const choosenActionOne = type === "Attack" ? "FastBall" : "Jump";
   const choosenActionTwo = type === "Attack" ? "HighBall" : "Float";
+  function totalPercentOfzone(number1, number2) {
+    return zoneValue
+      .filter((value, index) => index % 6 === number1 || index % 6 === number2)
+      .reduce((a, b) => a + b);
+  }
+  const zone5 = Array.isArray(zoneValue) ? totalPercentOfzone(0, 1) : null;
+  const zone6 = Array.isArray(zoneValue) ? totalPercentOfzone(2, 3) : null;
+  const zone1 = Array.isArray(zoneValue) ? totalPercentOfzone(4, 5) : null;
+  function setStyle(zone) {
+    return zone >= 50 ? { backgroundColor: "orangered", color: "white" } : {};
+  }
   return (
     <SectionWrapper
       className="playArea-section"
       backGround={
         <div className="playground-area-background">
-          <div className="threeMRivalCort"></div>
+          <div className="threeMRivalCort">
+            {Array.isArray(zoneValue) && (
+              <>
+                <div style={setStyle(zone5)}>{zone5}%</div>
+                <div style={setStyle(zone6)}>{zone6}%</div>
+                <div style={setStyle(zone1)}>{zone1}%</div>
+              </>
+            )}
+          </div>
           <div className="threeMMyCort"></div>
         </div>
       }
@@ -395,7 +414,6 @@ export default function WrapperForFields({
                   zoneValue={zoneValue}
                   diagrammValue={diagrammValue}
                   checkEquality={checkEquality}
-                  style={type === "Service" ? { top: "40%" } : {}}
                 />
               )}
             </>

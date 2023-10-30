@@ -205,6 +205,16 @@ main {
           background-color: darkgrey;
           .threeMRivalCort {
             @include linesForCort(2%);
+            display: flex;
+            div {
+              border: 2px solid white;
+              width: 33.3%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 25px;
+              font-weight: 600;
+            }
           }
           .threeMMyCort {
             @include linesForCort(2%);

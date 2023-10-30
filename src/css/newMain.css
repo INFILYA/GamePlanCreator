@@ -180,6 +180,16 @@ main .main-content-wrapper .section-border .section-background .playground-area-
   height: 16.66%;
   border-top: 4px solid rgb(255, 255, 255);
   background-color: rgb(190, 190, 190);
+  display: flex;
+}
+main .main-content-wrapper .section-border .section-background .playground-area-background .threeMRivalCort div {
+  border: 2px solid white;
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 600;
 }
 main .main-content-wrapper .section-border .section-background .playground-area-background .threeMMyCort {
   position: relative;
