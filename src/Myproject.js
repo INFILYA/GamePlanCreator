@@ -16,7 +16,7 @@ import {
 } from "./Ratings/Ratings";
 import { dataBase } from "./config/firebase";
 import { getDocs, collection } from "firebase/firestore";
-import { compare } from "./Datas/api";
+// import { compare } from "./Datas/api";
 import { ENGTUTORIAL, UKRTUTORIAL } from "./StaticHelpModules/textForTutorial";
 import { Tutorial } from "./Tutorial";
 import { setUserVersion } from "./states/slices/userVersionSlice";
@@ -76,8 +76,7 @@ function Myproject() {
       try {
         const data = await getDocs(collection(dataBase, "clubs"));
         const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        const sortedTeams = [...list].sort((a, b) => compare(a.number, b.number));
-        dispatch(setAllTeams(sortedTeams));
+        dispatch(setAllTeams(list));
       } catch (error) {
         console.error(error);
       }
