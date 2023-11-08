@@ -174,22 +174,22 @@ export default function WrapperForFields({
 
   const savePlayer = async (player) => {
     try {
-      const Player = doc(dataBase, "players", player.id);
+      const Player = doc(dataBase, "players", player.name);
       await setDoc(Player, player);
-      const players = allPlayers.map((athlete) => (athlete.id === player.id ? player : athlete));
+      const players = allPlayers.map((athlete) => (athlete.name === player.name ? player : athlete));
       dispatch(setAllPlayers(players));
       dispatch(setInfoOfPlayer(player));
       if (rivalPlayers.length !== 0 && rivalPlayers?.[0].teamid === player.teamid) {
         dispatch(
           resetRivalPlayers(
-            rivalPlayers.map((athlete) => (athlete.id === player.id ? player : athlete))
+            rivalPlayers.map((athlete) => (athlete.name === player.name ? player : athlete))
           )
         );
       }
       if (myTeamPlayers.length !== 0 && myTeamPlayers?.[0].teamid === player.teamid) {
         dispatch(
           resetMyTeamPlayers(
-            myTeamPlayers.map((athlete) => (athlete.id === player.id ? player : athlete))
+            myTeamPlayers.map((athlete) => (athlete.name === player.name ? player : athlete))
           )
         );
       }

@@ -132,7 +132,7 @@ export function Squads({ team }) {
                         {Zones.sort((a, b) =>
                           compare(correctNamesOfZones(a), correctNamesOfZones(b))
                         ).map((zone, index) => (
-                          <option key={index} value={[player.id, zone]}>
+                          <option key={index} value={[player.id, JSON.stringify(zone)]}>
                             {correctNamesOfZones(zone)}
                           </option>
                         ))}
