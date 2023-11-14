@@ -45,6 +45,11 @@ export default function ShapeForRatings({ amplua }) {
     const pickedPlayer = Players.find((player) => player.name === name);
     dispatch(setInfoOfPlayer(pickedPlayer));
   }
+  function getAveragePlusMinus(team, key) {
+    const teamPlusMinus =
+      team[key] / listOfPlayers.filter((player) => player.teamid === team.name).length;
+    return +teamPlusMinus.toFixed(1);
+  }
   return (
     <>
       <tr>
@@ -76,8 +81,16 @@ export default function ShapeForRatings({ amplua }) {
           <td>{player.height}</td>
           <td>{player.aces}</td>
           <td>{player.winPoints}</td>
-          <td>{player.plusMinusOnService}</td>
-          <td>{player.plusMinusOnAttack}</td>
+          <td>
+            {"logo" in player
+              ? getAveragePlusMinus(player, "plusMinusOnService")
+              : player.plusMinusOnService}
+          </td>
+          <td>
+            {"logo" in player
+              ? getAveragePlusMinus(player, "plusMinusOnAttack")
+              : player.plusMinusOnAttack}
+          </td>
           <td>{player.percentOfAttack} %</td>
         </tr>
       ))}
