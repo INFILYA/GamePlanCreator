@@ -84,6 +84,14 @@ export function FirstPage() {
       console.error(error);
     }
   };
+  // function getAveragePlusMinusOnAttack(team) {
+  //   const teamPlusMinus = team
+  //     .map((player) =>
+  //       player !== null ? (!player.plusMinusOnAttack ? 0 : player.plusMinusOnAttack) : 0
+  //     )
+  //     .reduce((a, b) => a + b, 0);
+  //   return +(teamPlusMinus / team.length).toFixed(1);
+  // }
   return (
     <article className="main-content-wrapper">
       {showRivalClub && <Squads team="rival" />}
@@ -110,6 +118,8 @@ export function FirstPage() {
                     </button>
                   )}
                 </div>
+                {/* <div>guest team +/- on Attack:{getAveragePlusMinusOnAttack(zones)}</div>
+                <div>home team +/- on Attack: {getAveragePlusMinusOnAttack(myTeamZones)}</div> */}
                 <div className="row-zones-wrapper">
                   {zones.slice(0, 3).map((player, index) =>
                     player ? (

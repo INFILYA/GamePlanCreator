@@ -1,3 +1,5 @@
+import MyLogo from "../MyLogo";
+
 export function Button({ onClick, value }) {
   return (
     <button className="regularButton" onClick={onClick}>
@@ -14,7 +16,9 @@ const enterWord = (
       статистичних даних відсутня, але буде заповнюватися з початком сезону 2023-2024 ПВЛУ.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" src="/photos/MyLogo.png" className="my-logo"/>
+      <div className="tutorial-logo-wrapper">
+        <MyLogo />
+      </div>
     </div>
   </>
 );
@@ -111,7 +115,9 @@ const enterWordEng = (
       database available. However, it will be populated starting from the 2023-2024 PVLU season.
     </div>
     <div className="inner-image-wrapper">
-      <img alt="" src="/photos/MyLogo.png" className="my-logo"/>
+      <div className="tutorial-logo-wrapper">
+        <MyLogo />
+      </div>
     </div>
   </>
 );

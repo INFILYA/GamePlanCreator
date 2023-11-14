@@ -25,6 +25,7 @@ import { setAllPlayers } from "./states/slices/listOfPlayersSlice";
 import { setAllTeams } from "./states/slices/listOfTeamsSlice";
 import { FirstPage } from "./Page1/FirstPage";
 import { later } from "./StaticHelpModules/Button";
+import MyLogo from "./MyLogo";
 
 function Myproject() {
   const dispatch = useDispatch();
@@ -88,9 +89,15 @@ function Myproject() {
       <Header />
       <main>
         {isLoading ? (
-          <div className="loading-logo-wrapper">
-            <img src="/photos/MyLogo.png" alt="" />
-          </div>
+          <>
+            <div className="loading-logo-wrapper">
+              <div className="logo-wrapper">
+                <img src="/photos/ball.png" alt="" className="back-photo" />
+                <MyLogo />
+                <div className="backGround"></div>
+              </div>
+            </div>
+          </>
         ) : (
           <>
             {!isShowedTutorial && (

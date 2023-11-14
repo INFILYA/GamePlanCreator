@@ -81,6 +81,15 @@ option {
     scale: (1.15);
   }
 }
+
+@keyframes fillUp {
+  from {
+    height: -100%;
+  }
+  to {
+    height: 0;
+  }
+}
 @keyframes greyscale {
   0% {
     filter: contrast(50%) grayscale(100%);
@@ -110,14 +119,34 @@ main {
     top: 0;
     bottom: 0;
     background-color: white;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    img {
-      height: 25vmax;
-      margin-right: 3%;
-      animation: greyscale 2.5s forwards;
+    .logo-wrapper {
+      position: absolute;
+      width: 60vmin;
+      display: flex;
+      .my-logo {
+        z-index: 13;
+      }
+      .back-photo {
+        position: absolute;
+        width: 58.7vmin;
+        margin-left: -4%;
+        margin-top: -4%;
+        rotate: 328deg;
+        z-index: 11;
+      }
+      .backGround {
+        position: absolute;
+        animation: fillUp 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+        z-index: 10;
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        z-index: 12;
+      }
     }
   }
   .main-content-wrapper {
