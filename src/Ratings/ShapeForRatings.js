@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { compare } from "../Datas/api";
+import {
+  compare,
+  gerPercentOfAttack,
+  getAttackEfficency,
+  getServiceEfficency,
+  setStyle,
+} from "../Datas/api";
 import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
 import { upgradeAge } from "../StaticHelpModules/Button";
 
@@ -20,9 +26,9 @@ export default function ShapeForRatings({ amplua }) {
     { header: "Age", category: "age" },
     { header: "Height", category: "height" },
     { header: "Aces", category: "aces" },
-    { header: "Win points", category: "winPoints" },
-    { header: "Service +/-", category: "plusMinusOnService" },
-    { header: "Attack +/-", category: "plusMinusOnAttack" },
+    { header: "Win Points", category: "winPoints" },
+    { header: "Efficency Attack", category: "efficencyAttack" },
+    { header: "Efficency Service", category: "efficencyService" },
     { header: "Attack %", category: "percentOfAttack" },
   ];
   function countRankings(category) {
@@ -44,15 +50,6 @@ export default function ShapeForRatings({ amplua }) {
   function showInfoOfPlayer(name) {
     const pickedPlayer = Players.find((player) => player.name === name);
     dispatch(setInfoOfPlayer(pickedPlayer));
-  }
-  function setStyle(params) {
-    if (params === 0) return {};
-    return { color: params >= 0 ? "green" : "red" };
-  }
-  function getAveragePlusMinus(team, key) {
-    const teamPlusMinus =
-      team[key] / listOfPlayers.filter((player) => player.teamid === team.name).length;
-    return +teamPlusMinus.toFixed(1);
   }
   return (
     <>
@@ -85,17 +82,9 @@ export default function ShapeForRatings({ amplua }) {
           <td>{player.height}</td>
           <td>{player.aces}</td>
           <td>{player.winPoints}</td>
-          <td style={setStyle(player.plusMinusOnService)}>
-            {"logo" in player
-              ? getAveragePlusMinus(player, "plusMinusOnService")
-              : player.plusMinusOnService}
-          </td>
-          <td style={setStyle(player.plusMinusOnAttack)}>
-            {"logo" in player
-              ? getAveragePlusMinus(player, "plusMinusOnAttack")
-              : player.plusMinusOnAttack}
-          </td>
-          <td>{player.percentOfAttack} %</td>
+          <td style={setStyle(getAttackEfficency(player))}>{getAttackEfficency(player)} %</td>
+          <td style={setStyle(getServiceEfficency(player))}>{getServiceEfficency(player)} %</td>
+          <td>{gerPercentOfAttack(player)} %</td>
         </tr>
       ))}
     </>

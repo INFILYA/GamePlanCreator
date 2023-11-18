@@ -16,7 +16,7 @@ export const myTeamPlayersSlice = createSlice({
     },
     pushToMyBoard: (state, action) => {
       state.myTeamPlayers = state.myTeamPlayers.filter(
-        (players) => players.id !== action.payload.id
+        (players) => players.name !== action.payload.name
       );
     },
     pushFromMyBoard: (state, action) => {

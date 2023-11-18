@@ -20,25 +20,11 @@ export function AttackFields() {
     leftInGame: 0,
     attacksInBlock: 0,
     loosePoints: 0,
-    plusMinusOnAttack: 0,
-    percentOfAttack: 0,
   });
   const calculateForData = (obj) => {
-    if (obj === playerInfo) {
-      diagrammValue.plusMinusOnAttack =
-        diagrammValue.winPoints - (diagrammValue.attacksInBlock + diagrammValue.loosePoints);
-    }
     for (let key in diagrammValue) {
-      if (key === "percentOfAttack") {
-        continue;
-      }
       obj[key] += diagrammValue[key];
     }
-    obj.percentOfAttack = +(
-      (obj.winPoints /
-        (obj.winPoints + obj.attacksInBlock + obj.loosePoints + obj.leftInGame + 0.0001)) *
-      100
-    ).toFixed(1);
     return obj;
   };
 

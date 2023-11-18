@@ -39,6 +39,8 @@
 .main-content-wrapper .ratings-section tbody tr th {
   background-color: rgb(100, 149, 237);
   border: 2px solid black;
+  max-width: 10vw;
+  box-sizing: border-box;
 }
 .main-content-wrapper .ratings-section tbody tr th button {
   color: black;

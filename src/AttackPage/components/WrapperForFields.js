@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { reduce } from "../../Datas/api";
+import {
+  gerPercentOfAttack,
+  getAttackEfficency,
+  getPlusMinusAttack,
+  getPlusMinusService,
+  getServiceEfficency,
+  reduce,
+} from "../../Datas/api";
 import { BallForAttack } from "./inner components/BallForAttack";
 import { ConeReaction } from "./inner components/ConeReaction";
 import { InputForCount } from "./inner components/InputForCount";
@@ -126,6 +133,11 @@ export default function WrapperForFields({
       playerInfo[nameOfZone] = loadByZone.map(
         (att, index) => att + (actionHistory[index] === undefined ? 0 : actionHistory[index])
       ); // оновлюємо поля атаки у обраного гравця
+      playerInfo.percentOfAttack = gerPercentOfAttack(playerInfo); //встановлюємо процент зйому
+      playerInfo.plusMinusOnService = getPlusMinusService(playerInfo); //встановлюємо + - на подачі
+      playerInfo.plusMinusOnAttack = getPlusMinusAttack(playerInfo); //встановлюємо + - в атаці
+      playerInfo.efficencyService = getServiceEfficency(playerInfo); // встановлюємо ефективність подачі
+      playerInfo.efficencyAttack = getAttackEfficency(playerInfo); // встановлюємо ефективність подачі
       refreshVersionOFAdmin(1); //перезаписываю версию
       savePlayer(playerInfo); //сохраняю одного игрока
       saveTeam(newTeam); // сохраняю команду
@@ -176,7 +188,9 @@ export default function WrapperForFields({
     try {
       const Player = doc(dataBase, "players", player.name);
       await setDoc(Player, player);
-      const players = allPlayers.map((athlete) => (athlete.name === player.name ? player : athlete));
+      const players = allPlayers.map((athlete) =>
+        athlete.name === player.name ? player : athlete
+      );
       dispatch(setAllPlayers(players));
       dispatch(setInfoOfPlayer(player));
       if (rivalPlayers.length !== 0 && rivalPlayers?.[0].teamid === player.teamid) {

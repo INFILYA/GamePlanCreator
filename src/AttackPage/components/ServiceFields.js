@@ -15,17 +15,9 @@ export function ServiceFields() {
     servicePlus: 0,
     serviceMinus: 0,
     serviceFailed: 0,
-    plusMinusOnService: 0,
   });
 
   function calculateForData(obj) {
-    if (obj === playerInfo) {
-      diagrammValue.plusMinusOnService =
-        diagrammValue.aces * 2 +
-        diagrammValue.servicePlus * 0.5 -
-        diagrammValue.serviceFailed -
-        diagrammValue.serviceMinus * 0.5;
-    }
     for (let key in diagrammValue) {
       obj[key] += diagrammValue[key];
     }

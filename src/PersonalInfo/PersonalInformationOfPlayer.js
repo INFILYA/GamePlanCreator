@@ -6,6 +6,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 import { setInfoOfPlayer } from "../states/slices/playerInfoSlice";
 import { useState } from "react";
+import { getAttackEfficency, setStyle } from "../Datas/api";
+import { getServiceEfficency } from "../Datas/api";
+import { getPlusMinusService } from "../Datas/api";
+import { getPlusMinusAttack } from "../Datas/api";
 
 export function PersonalInformationOfPlayer({ link }) {
   const dispatch = useDispatch();
@@ -18,14 +22,8 @@ export function PersonalInformationOfPlayer({ link }) {
   const attack = link === "Attack";
   const libero = playerInfo.position === "Libero";
   const setter = playerInfo.position === "Setter";
-  const servicePM = playerInfo?.plusMinusOnService;
-  const attackPM = playerInfo?.plusMinusOnAttack;
-  const styleService = {
-    color: servicePM >= 0 ? "green" : "red",
-  };
-  const styleAttack = {
-    color: attackPM >= 0 ? "green" : "red",
-  };
+  const servicePM = getPlusMinusService(playerInfo);
+  const attackPM = getPlusMinusAttack(playerInfo);
   return (
     <div className="hidden-player-information-wrapper">
       <div className="player-surname-wrapper">
@@ -59,16 +57,18 @@ export function PersonalInformationOfPlayer({ link }) {
             {service && (
               <div className="player-info-row-wrapper">
                 <div>
-                  Plus/Minus : <nobr style={styleService}>{servicePM}</nobr>
+                  Plus/Minus : <nobr style={setStyle(servicePM)}>{servicePM}</nobr>
                 </div>
               </div>
             )}
             {attack && (
-              <div className="player-info-row-wrapper">
-                <div>
-                  Plus/Minus : <nobr style={styleAttack}>{attackPM}</nobr>
+              <>
+                <div className="player-info-row-wrapper">
+                  <div>
+                    Plus/Minus : <nobr style={setStyle(attackPM)}>{attackPM}</nobr>
+                  </div>
                 </div>
-              </div>
+              </>
             )}
             <nav>
               {!libero && isRegistratedUser && (
@@ -86,14 +86,30 @@ export function PersonalInformationOfPlayer({ link }) {
           {!page1 && (
             <div className="player-diagramm-wrapper">
               {service && (
-                <div className="row">
-                  <Diagramm link="Service" />
-                </div>
+                <>
+                  <div className="row">
+                    <Diagramm link="Service" />
+                  </div>
+                  <div>
+                    Efficency :{" "}
+                    <nobr style={setStyle(getServiceEfficency(playerInfo))}>
+                      {getServiceEfficency(playerInfo)}%
+                    </nobr>
+                  </div>
+                </>
               )}
               {!setter && attack && (
-                <div className="row">
-                  <Diagramm link="Attack" />
-                </div>
+                <>
+                  <div className="row">
+                    <Diagramm link="Attack" />
+                  </div>
+                  <div>
+                    Efficency :{" "}
+                    <nobr style={setStyle(getAttackEfficency(playerInfo))}>
+                      {getAttackEfficency(playerInfo)}%
+                    </nobr>
+                  </div>
+                </>
               )}
             </div>
           )}

@@ -488,6 +488,41 @@ main .main-content-wrapper .section-content-wrapper .section-content .rotation-f
   height: 2vmax;
   width: 33.33%;
 }
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .stat-selector {
+  display: flex;
+  justify-content: center;
+  padding: 0.2vw;
+  align-items: center;
+  max-width: 25vw;
+  overflow: hidden;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .stat-selector select {
+  font-weight: bold;
+  text-align: center;
+  appearance: none;
+  background-color: #ffd700;
+  color: #0057b8;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: calc(1vmax + 0.1rem);
+  padding: 0.3vw 1vw;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .stat-selector select:hover {
+  background-color: #0057b8;
+  color: #ffd700;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .stats-compare-field {
+  font-weight: 600;
+  width: auto;
+  box-sizing: border-box;
+}
+main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .stats-compare-field .compare-stats-fields {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vmax;
+  align-items: center;
+  font-size: calc((var(--normal-text-size-value) - 1) * 3vw + 0.5rem);
+}
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .row-zones-wrapper,
 main .main-content-wrapper .section-content-wrapper .section-content .rotation-field-wrapper .my-row-zones-wrapper {
   display: flex;

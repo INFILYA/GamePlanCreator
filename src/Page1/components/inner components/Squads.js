@@ -40,7 +40,7 @@ export function Squads({ team }) {
     removeMyTeamSelectOption(event);
   }
   function setPlayerToMyTeamZone(event) {
-    const player = players.find((player) => player.id === event.target.value.split(",")[0]);
+    const player = players.find((player) => player.name === event.target.value.split(",")[0]);
     const zone = +event.target.value.split(",")[1];
     dispatch(setMyTeamZones({ player, zone }));
     pushToMyTeamBoard(player);
@@ -58,7 +58,7 @@ export function Squads({ team }) {
     removeRivalSelectOption(event);
   }
   function setRivalPlayerToZone(event) {
-    const player = players.find((player) => player.id === event.target.value.split(",")[0]);
+    const player = players.find((player) => player.name === event.target.value.split(",")[0]);
     const zone = +event.target.value.split(",")[1];
     dispatch(setRivalZones({ player, zone }));
     pushFromBoard(player);
@@ -132,7 +132,7 @@ export function Squads({ team }) {
                         {Zones.sort((a, b) =>
                           compare(correctNamesOfZones(a), correctNamesOfZones(b))
                         ).map((zone, index) => (
-                          <option key={index} value={[player.id, JSON.stringify(zone)]}>
+                          <option key={index} value={[player.name, JSON.stringify(zone)]}>
                             {correctNamesOfZones(zone)}
                           </option>
                         ))}

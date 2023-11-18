@@ -25,6 +25,7 @@ import { setBackRightMyTeamSelects } from "../states/slices/sequanceOfZonesSlice
 import { setUserVersion } from "../states/slices/userVersionSlice";
 import { NavLink } from "react-router-dom";
 import SectionWrapper from "./components/SectionWrapper";
+import { useState } from "react";
 
 export function FirstPage() {
   const dispatch = useDispatch();
@@ -37,9 +38,11 @@ export function FirstPage() {
   const myTeamZones = useSelector((state) => state.myTeamZones.myTeamZones);
   const userVersion = useSelector((state) => state.userVersion.userVersion);
   const myClub = useSelector((state) => state.myClub.myClub);
+  const [category, setCategory] = useState("");
   const showRivalClub = rivalClub.length !== 0;
   const showMyClub = myClub.length !== 0;
   const admin = isRegistratedUser?.uid === "ld4Bdj6KepVG68kjNHHQRjacJI13";
+  const categorys = ["plusMinusOnService", "plusMinusOnAttack", "aces"];
 
   function resetTheBoardForRivalTeam() {
     dispatch(resetRivalPlayers([]));
@@ -84,14 +87,18 @@ export function FirstPage() {
       console.error(error);
     }
   };
-  // function getAveragePlusMinusOnAttack(team) {
-  //   const teamPlusMinus = team
-  //     .map((player) =>
-  //       player !== null ? (!player.plusMinusOnAttack ? 0 : player.plusMinusOnAttack) : 0
-  //     )
-  //     .reduce((a, b) => a + b, 0);
-  //   return +(teamPlusMinus / team.length).toFixed(1);
-  // }
+  // Копировать єту часть
+  function getAverageStats(team) {
+    const teamPlusMinus = team
+      .map((player) => (player !== null ? (!player[category] ? 0 : player[category]) : 0))
+      .reduce((a, b) => a + b, 0);
+    return +(teamPlusMinus / team.filter((player) => player !== null).length).toFixed(1);
+  }
+  const compareStats = getAverageStats(zones) > getAverageStats(myTeamZones);
+  const difference = +(getAverageStats(myTeamZones) - getAverageStats(zones)).toFixed(1);
+  const isPlayersOnBoard =
+    zones.some((zone) => zone !== null) && myTeamZones.some((zone) => zone !== null);
+
   return (
     <article className="main-content-wrapper">
       {showRivalClub && <Squads team="rival" />}
@@ -104,22 +111,57 @@ export function FirstPage() {
             {playerInfo && <PersonalInformationOfPlayer link="page1" />}
             {!playerInfo && showRivalClub && (
               <div className="rotation-field-wrapper">
+                {/* От сюда */}
                 <div className="reset-button-wrapper" style={{ justifyContent: "space-between" }}>
                   {showRivalClub ? (
                     <button onClick={resetTheBoardForRivalTeam} className="reset">
                       Reset
                     </button>
                   ) : (
-                    <div></div>
+                    <div style={{ width: "15%" }}></div>
                   )}
-                  {showMyClub && (
+                  {isPlayersOnBoard && (
+                    <div className="stat-selector">
+                      <select onChange={(e) => setCategory(e.target.value)}>
+                        <option value="">Choose stat</option>
+                        {categorys.map((category) => (
+                          <option key={category} value={category}>
+                            {category}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+                  {showMyClub ? (
                     <button onClick={resetTheBoardForMyClub} className="reset">
                       Reset
                     </button>
+                  ) : (
+                    <div style={{ width: "15%" }}></div>
                   )}
                 </div>
-                {/* <div>guest team +/- on Attack:{getAveragePlusMinusOnAttack(zones)}</div>
-                <div>home team +/- on Attack: {getAveragePlusMinusOnAttack(myTeamZones)}</div> */}
+                {category && isPlayersOnBoard && (
+                  <div className="stats-compare-field">
+                    <div className="compare-stats-fields">
+                      <div
+                        style={{
+                          color: compareStats ? "green" : "red",
+                        }}
+                      >
+                        {getAverageStats(zones)}
+                      </div>
+                      |{difference}|
+                      <div
+                        style={{
+                          color: compareStats ? "red" : "green",
+                        }}
+                      >
+                        {getAverageStats(myTeamZones)}
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {/* до сюда */}
                 <div className="row-zones-wrapper">
                   {zones.slice(0, 3).map((player, index) =>
                     player ? (

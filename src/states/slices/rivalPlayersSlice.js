@@ -16,7 +16,7 @@ export const rivalPlayersSlice = createSlice({
     },
     pushToRivalBoard: (state, action) => {
       state.rivalPlayers = state.rivalPlayers.filter(
-        (players) => players.id !== action.payload.id
+        (players) => players.name !== action.payload.name
       );
     },
     pushFromRivalBoard: (state, action) => {
