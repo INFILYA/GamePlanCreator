@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  gerPercentOfAttack,
-  getAttackEfficency,
-  getPlusMinusAttack,
-  getPlusMinusService,
-  getServiceEfficency,
-  reduce,
-} from "../../Datas/api";
+import { reduce } from "../../Datas/api";
 import { BallForAttack } from "./inner components/BallForAttack";
 import { ConeReaction } from "./inner components/ConeReaction";
 import { InputForCount } from "./inner components/InputForCount";
