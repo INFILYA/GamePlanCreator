@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import WrapperForFields from "./WrapperForFields";
 import { useState } from "react";
+import { getPlusMinusService, getServiceEfficency } from "../../Datas/api";
 
 export function ServiceFields() {
   const playerInfos = useSelector((state) => state.playerInfo.playerInfo);
@@ -21,6 +22,8 @@ export function ServiceFields() {
     for (let key in diagrammValue) {
       obj[key] += diagrammValue[key];
     }
+    obj.plusMinusOnService = getPlusMinusService(obj); //встановлюємо + - на подачі
+    obj.efficencyService = getServiceEfficency(obj); // встановлюємо ефективність подачі
     return obj;
   }
 

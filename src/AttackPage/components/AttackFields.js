@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import WrapperForFields from "./WrapperForFields";
 import { useState } from "react";
+import { gerPercentOfAttack, getAttackEfficency, getPlusMinusAttack } from "../../Datas/api";
 
 export function AttackFields() {
   const playerInfos = useSelector((state) => state.playerInfo.playerInfo);
@@ -25,6 +26,9 @@ export function AttackFields() {
     for (let key in diagrammValue) {
       obj[key] += diagrammValue[key];
     }
+    obj.percentOfAttack = gerPercentOfAttack(obj); //встановлюємо процент зйому
+    obj.plusMinusOnAttack = getPlusMinusAttack(obj); //встановлюємо + - в атаці
+    obj.efficencyAttack = getAttackEfficency(obj); // встановлюємо ефективність подачі
     return obj;
   };
 
