@@ -57,7 +57,7 @@ export function PersonalInformationOfPlayer({ link }) {
             {service && (
               <div className="player-info-row-wrapper">
                 <div>
-                  Plus/Minus : <nobr style={setStyle(servicePM)}>{servicePM}</nobr>
+                  Plus/Minus: <nobr style={setStyle(servicePM)}>{servicePM}</nobr>
                 </div>
               </div>
             )}
@@ -65,7 +65,7 @@ export function PersonalInformationOfPlayer({ link }) {
               <>
                 <div className="player-info-row-wrapper">
                   <div>
-                    Plus/Minus : <nobr style={setStyle(attackPM)}>{attackPM}</nobr>
+                    Plus/Minus: <nobr style={setStyle(attackPM)}>{attackPM}</nobr>
                   </div>
                 </div>
               </>
@@ -90,10 +90,10 @@ export function PersonalInformationOfPlayer({ link }) {
                   <div className="row">
                     <Diagramm link="Service" />
                   </div>
-                  <div>
-                    Efficency :{" "}
+                  <div className="efficency-wrapper">
+                    Efficency:
                     <nobr style={setStyle(getServiceEfficency(playerInfo))}>
-                      {getServiceEfficency(playerInfo)}%
+                      &nbsp;{getServiceEfficency(playerInfo)}%
                     </nobr>
                   </div>
                 </>
@@ -103,10 +103,10 @@ export function PersonalInformationOfPlayer({ link }) {
                   <div className="row">
                     <Diagramm link="Attack" />
                   </div>
-                  <div>
-                    Efficency :{" "}
+                  <div className="efficency-wrapper">
+                    Efficency:
                     <nobr style={setStyle(getAttackEfficency(playerInfo))}>
-                      {getAttackEfficency(playerInfo)}%
+                      &nbsp;{getAttackEfficency(playerInfo)}%
                     </nobr>
                   </div>
                 </>
