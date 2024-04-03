@@ -11,7 +11,7 @@ import { getServiceEfficency } from "../Datas/api";
 import { getPlusMinusService } from "../Datas/api";
 import { getPlusMinusAttack } from "../Datas/api";
 
-export function PersonalInformationOfPlayer(link) {
+export function PersonalInformationOfPlayer({link}) {
   const dispatch = useDispatch();
   const [isRegistratedUser] = useAuthState(auth);
   const [showDetails, setShowDetails] = useState(true);
